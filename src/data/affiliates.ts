@@ -26,7 +26,13 @@ export const affiliates: Record<string, AffiliateEntry> = {
     label: 'Find Cabins near Chimney Rock',
   },
 
-  // Activities
+  // Activities — Chimney Rock
+  'getyourguide-chimney-rock': {
+    id: 'getyourguide-chimney-rock',
+    network: 'GetYourGuide',
+    url: '#', // TODO: replace with GetYourGuide affiliate URL for Chimney Rock
+    label: 'Book Chimney Rock Tickets & Tours on GetYourGuide',
+  },
   'chimney-rock-tickets': {
     id: 'chimney-rock-tickets',
     network: 'Chimney Rock State Park',
