@@ -49,67 +49,75 @@ body {
 }
 
 /* ── Typography prose defaults ──────────────────────────────────── */
-.prose {
-  color: var(--ink);
-}
+/*
+ * Inside @layer components so Tailwind utilities (@layer utilities) can
+ * override these styles. Without this layer, unlayered CSS beats @layer
+ * utilities regardless of class order — which caused .prose h1 { color:
+ * forest } to win over text-white on PageHero's h1 (third regression).
+ */
+@layer components {
+  .prose {
+    color: var(--ink);
+  }
 
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4 {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-weight: 700;
-  color: var(--forest);
-  line-height: 1.2;
-}
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-weight: 700;
+    color: var(--forest);
+    line-height: 1.2;
+  }
 
-.prose h2 {
-  font-size: 1.6rem;
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
-}
+  .prose h2 {
+    font-size: 1.6rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
 
-.prose h3 {
-  font-size: 1.25rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-}
+  .prose h3 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
 
-.prose p {
-  margin-bottom: 1.4rem;
-}
+  .prose p {
+    margin-bottom: 1.4rem;
+  }
 
-.prose a {
-  color: var(--lake);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
+  .prose a {
+    color: var(--lake);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 
-.prose a:hover {
-  color: var(--forest);
-}
+  .prose a:hover {
+    color: var(--forest);
+  }
 
-.prose ul,
-.prose ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.4rem;
-}
+  .prose ul,
+  .prose ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.4rem;
+  }
 
-.prose li {
-  margin-bottom: 0.4rem;
-}
+  .prose li {
+    margin-bottom: 0.4rem;
+  }
 
-.prose strong {
-  font-weight: 700;
-  color: var(--forest);
-}
+  .prose strong {
+    font-weight: 700;
+    color: var(--forest);
+  }
 
-.prose blockquote {
-  border-left: 4px solid var(--sand);
-  padding-left: 1.25rem;
-  color: var(--ink);
-  opacity: 0.8;
-  font-style: italic;
+  .prose blockquote {
+    border-left: 4px solid var(--sand);
+    padding-left: 1.25rem;
+    color: var(--ink);
+    opacity: 0.8;
+    font-style: italic;
+  }
 }
 
 /* ── Utility ────────────────────────────────────────────────────── */

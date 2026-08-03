@@ -26,6 +26,9 @@ import { PlaceList } from './PlaceList'
 import { PlaceCompare } from './PlaceCompare'
 import { InsiderTipsIndex } from './InsiderTipsIndex'
 import { RecentInsiderTips } from './RecentInsiderTips'
+import { EventStatus } from './EventStatus'
+import { ArchiveNotice } from './ArchiveNotice'
+import { BuildDate } from './BuildDate'
 
 export const mdxComponents: MDXComponents = {
   StatusItem,
@@ -55,6 +58,9 @@ export const mdxComponents: MDXComponents = {
   PlaceCompare,
   InsiderTipsIndex,
   RecentInsiderTips,
+  EventStatus,
+  ArchiveNotice,
+  BuildDate,
 }
 
 export {
@@ -85,4 +91,7 @@ export {
   PlaceCompare,
   InsiderTipsIndex,
   RecentInsiderTips,
+  EventStatus,
+  ArchiveNotice,
+  BuildDate,
 }

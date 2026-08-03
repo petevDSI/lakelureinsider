@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import type { ContentPage, ContentType, Frontmatter } from '@/types/content'
 import { facts } from '@/data/facts'
+import { enforceScheduleStaleness } from '@/lib/schedule'
 
 // Patterns that flag hardcoded facts — values matching these must use {{fact:key}} instead
 const HARDCODED_FACT_PATTERNS: RegExp[] = [
@@ -114,7 +115,7 @@ const NAV_SLUGS = new Set([
 
 // Slug prefixes whose children are programmatically linked (index pages, etc.)
 // — exempt from the orphan check
-const PROGRAMMATIC_PREFIXES = ['insider-tips/']
+const PROGRAMMATIC_PREFIXES = ['insider-tips/', 'archive/']
 
 function checkOrphanedPages(pages: ContentPage[]): void {
   const linked = new Set<string>(NAV_SLUGS)
@@ -197,6 +198,7 @@ export function getAllPages(): ContentPage[] {
   checkOrphanedPages(_cache)
   checkWeddingAffiliatePolicy(_cache)
   checkReviewedOnStaleness(_cache)
+  enforceScheduleStaleness()
 
   return _cache
 }
