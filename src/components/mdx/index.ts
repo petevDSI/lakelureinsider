@@ -1,4 +1,8 @@
 import type { MDXComponents } from 'mdx/types'
+import { StatusItem } from './StatusItem'
+import { StatusBar } from './StatusBar'
+import { WhatsOpenStatusBar } from './WhatsOpenStatusBar'
+import { ReviewedBanner } from './ReviewedBanner'
 import { QuickAnswer } from './QuickAnswer'
 import { InsiderTip } from './InsiderTip'
 import { AffiliateCTA } from './AffiliateCTA'
@@ -24,6 +28,10 @@ import { InsiderTipsIndex } from './InsiderTipsIndex'
 import { RecentInsiderTips } from './RecentInsiderTips'
 
 export const mdxComponents: MDXComponents = {
+  StatusItem,
+  StatusBar,
+  WhatsOpenStatusBar,
+  ReviewedBanner,
   QuickAnswer,
   InsiderTip,
   AffiliateCTA,
@@ -50,6 +58,10 @@ export const mdxComponents: MDXComponents = {
 }
 
 export {
+  StatusItem,
+  StatusBar,
+  WhatsOpenStatusBar,
+  ReviewedBanner,
   QuickAnswer,
   InsiderTip,
   AffiliateCTA,

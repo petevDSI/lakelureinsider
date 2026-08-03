@@ -8,6 +8,7 @@ import { mdxComponents } from '@/components/mdx'
 import { FAQ } from '@/components/mdx/FAQ'
 import { PageHero } from '@/components/mdx/PageHero'
 import { QuickAnswer } from '@/components/mdx/QuickAnswer'
+import { ReviewedBanner } from '@/components/mdx/ReviewedBanner'
 import type { MDXComponents } from 'mdx/types'
 import type { ContentPage } from '@/types/content'
 
@@ -100,6 +101,7 @@ function buildArticleComponents(page: ContentPage): MDXComponents {
         {...(props as Partial<Parameters<typeof QuickAnswer>[0]>)}
       />
     ),
+    ReviewedBanner: () => <ReviewedBanner date={frontmatter.reviewedOn} />,
   }
 }
 

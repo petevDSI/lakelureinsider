@@ -20,6 +20,15 @@ export const metadata: Metadata = {
 
 const FEATURED_CARDS = [
   {
+    href: '/whats-open-now',
+    title: "What's Open Now",
+    description:
+      'Current status for Chimney Rock, Lake Lure, the Flowering Bridge, and roads. Verified August 2026.',
+    imageSrc: '/images/lake-lure-things-to-do.jpg',
+    imageAlt: 'Illustrated mountain lake landscape with layered ridgelines and blue sky',
+    category: 'Current Status',
+  },
+  {
     href: '/chimney-rock/tickets-and-hours',
     title: 'Chimney Rock State Park',
     description:
@@ -100,6 +109,22 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* What's Open Now status bar */}
+      <div className="border-b border-[--sand] bg-white px-page py-4">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
+          <p className="text-sm font-semibold text-[--forest]">
+            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
+            Chimney Rock open · Lake Lure open · Beach open through Sept 7
+          </p>
+          <Link
+            href="/whats-open-now"
+            className="shrink-0 text-sm font-semibold text-[--lake] underline-offset-2 hover:underline"
+          >
+            Full status →
+          </Link>
+        </div>
+      </div>
 
       {/* Feature cards */}
       <section className="mx-auto max-w-6xl px-page py-16">

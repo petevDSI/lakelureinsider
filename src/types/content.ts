@@ -18,6 +18,8 @@ export interface Frontmatter {
   quickAnswer?: Record<string, string>
   faqs?: FaqItem[]
   stub?: boolean
+  // Status pages only — triggers build warn (>30d) and fail (>60d)
+  reviewedOn?: string
   // Insider Tips blog post fields
   published?: string
   tags?: string[]

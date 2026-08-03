@@ -307,19 +307,19 @@ export const facts: Record<string, Fact> = {
     lastVerified: null,
   },
   'lake-lure.beach.admission.adult': {
-    value: null, // TODO: VERIFY
-    source: null,
-    lastVerified: null,
+    value: '$12',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
   },
   'lake-lure.beach.admission.child': {
-    value: null, // TODO: VERIFY
-    source: null,
-    lastVerified: null,
+    value: '$8 — ages 4–12, must be 45 in or taller',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
   },
   'lake-lure.beach.hours': {
-    value: null, // TODO: VERIFY
-    source: null,
-    lastVerified: null,
+    value: '10 AM–6 PM',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
   },
   'lake-lure.boat-rental.hourly': {
     value: '$125–$140 for a 20–22 ft pontoon',
@@ -458,6 +458,141 @@ export const facts: Record<string, Fact> = {
   'boat-rental.full-day-breakeven': {
     value: '7 hours',
     source: 'https://lakelureadventurecompany.com/adventures',
+    lastVerified: '2026-08-03',
+  },
+
+  // ─── Current status — Chimney Rock State Park (verified 2026-08-03) ──────────
+  'chimney-rock.open.status': {
+    value: 'Open daily',
+    source: 'https://www.chimneyrockpark.com/',
+    lastVerified: '2026-08-03',
+  },
+  'chimney-rock.open.reopened': {
+    value: 'Late June 2025 — nine months after Hurricane Helene',
+    source: 'https://www.chimneyrockpark.com/',
+    lastVerified: '2026-08-03',
+  },
+  'chimney-rock.elevator.operational': {
+    value: 'Operational — included with all tickets',
+    source: 'https://www.chimneyrockpark.com/',
+    lastVerified: '2026-08-03',
+  },
+  // Two official sources give conflicting reservation guidance — store both
+  'chimney-rock.reservations.park-says': {
+    value: 'Recommended for busy weekends and holidays',
+    source: 'https://www.chimneyrockpark.com/',
+    lastVerified: '2026-08-03',
+  },
+  'chimney-rock.reservations.ncparks-says': {
+    value: 'Timed-entry reservations are required',
+    source: 'https://www.ncparks.gov/',
+    lastVerified: '2026-08-03',
+  },
+
+  // ─── Current status — Lake Lure (verified 2026-08-03) ────────────────────────
+  'lake-lure.open.status': {
+    value: 'Officially reopened May 15, 2026',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+  'lake-lure.open.closure-duration': {
+    value: '20-month closure following Hurricane Helene',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+
+  // ─── Current status — Washburn Marina (verified 2026-08-03) ──────────────────
+  'washburn-marina.open.status': {
+    value: 'Reopened July 2026, 22 months after Helene',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+  'washburn-marina.fuel.status': {
+    value: 'Not yet operating — anticipated August 2026, not confirmed',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+  'lake-lure.tours.departure': {
+    value: 'Lake Lure Beach — not Washburn Marina',
+    source: 'Locally confirmed 2026-08-03',
+    lastVerified: '2026-08-03',
+  },
+
+  // ─── Current status — Lake Lure Beach (verified 2026-08-03) ─────────────────
+  'lake-lure.beach.schedule.daily-through': {
+    value: 'August 11, 2026 — then weekends only through Labor Day',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+  'lake-lure.beach.season.end': {
+    value: 'Labor Day — September 7, 2026',
+    source: 'townoflakelure.com July 2026 Town News Summary — confirmed (Town page shows 9/27/26 which is a typo)',
+    lastVerified: '2026-08-03',
+  },
+  'lake-lure.beach.admission.senior': {
+    value: '$9',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+  'lake-lure.beach.aqua-park.age7plus': {
+    value: '$10 per 50-minute session',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+  'lake-lure.beach.aqua-park.age4to6': {
+    value: '$5 per 50-minute session',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+
+  // ─── Current status — Flowering Bridge (verified 2026-08-03) ─────────────────
+  'flowering-bridge.gardens.status': {
+    value: 'Open free, 24 hours a day, year-round',
+    source: 'https://lakelurefloweringbridge.org/faqs/',
+    lastVerified: '2026-08-03',
+  },
+  'flowering-bridge.gardens.address': {
+    value: '3070 Memorial Hwy, Lake Lure, NC — east and west banks of the Rocky Broad River',
+    source: 'https://lakelurefloweringbridge.org/faqs/',
+    lastVerified: '2026-08-03',
+  },
+  'flowering-bridge.bridge.status': {
+    value: 'Demolished — demolition began August 18, 2025',
+    source: 'https://lakelurefloweringbridge.org/faqs/',
+    lastVerified: '2026-08-03',
+  },
+  'flowering-bridge.replacement.status': {
+    value: 'Under discussion — not committed, not funded, not scheduled',
+    source: 'https://lakelurefloweringbridge.org/faqs/',
+    lastVerified: '2026-08-03',
+  },
+
+  // ─── Roads (verified 2026-08-03) ─────────────────────────────────────────────
+  'road.us64.status': {
+    value: 'Open to all traffic since late March 2026',
+    source: 'townoflakelure.com July 2026 Town News Summary + drivenc.gov',
+    lastVerified: '2026-08-03',
+  },
+
+  // ─── Active construction (verified 2026-08-03) ───────────────────────────────
+  'construction.lake-blvd.period': {
+    value: 'August 3–7, 2026 — partial closures, crews directing traffic',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+  'construction.boys-camp-bridge.status': {
+    value: 'Under construction from week of July 27, 2026 (120-day timeline) — temporary bridge remains passable throughout',
+    source: 'townoflakelure.com July 2026 Town News Summary',
+    lastVerified: '2026-08-03',
+  },
+  'construction.village-streetscape.funding': {
+    value: '$5.5M NC Commerce grant + DOT Carbon Reduction grant for Chimney Rock Village streetscape',
+    source: 'chimneyrockvillagenc.gov news July 12, 2026',
+    lastVerified: '2026-08-03',
+  },
+  'construction.replacement-dam.status': {
+    value: 'FEMA-approved detailed design phase — $3.5M total, 35% Town match, construction expected late summer 2026',
+    source: 'townoflakelure.com July 2026 Town News Summary',
     lastVerified: '2026-08-03',
   },
 }

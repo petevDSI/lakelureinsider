@@ -109,6 +109,7 @@ const NAV_SLUGS = new Set([
   'trip-planning',
   'weddings',
   'insider-tips',
+  'whats-open-now',
 ])
 
 // Slug prefixes whose children are programmatically linked (index pages, etc.)
@@ -149,6 +150,27 @@ function checkOrphanedPages(pages: ContentPage[]): void {
   }
 }
 
+function checkReviewedOnStaleness(pages: ContentPage[]): void {
+  const now = new Date()
+  for (const page of pages) {
+    const { reviewedOn } = page.frontmatter
+    if (!reviewedOn) continue
+    const reviewed = new Date(reviewedOn)
+    const ageDays = (now.getTime() - reviewed.getTime()) / (1000 * 60 * 60 * 24)
+    if (ageDays > 60) {
+      throw new Error(
+        `[content] Build error: /${page.slug} reviewedOn=${reviewedOn} is ${Math.floor(ageDays)} days old.\n` +
+          `A status page more than 60 days out of date cannot ship. Update reviewedOn and re-verify all items.`,
+      )
+    }
+    if (ageDays > 30) {
+      console.warn(
+        `[content] Warning: /${page.slug} reviewedOn=${reviewedOn} is ${Math.floor(ageDays)} days old — review recommended before next deploy.`,
+      )
+    }
+  }
+}
+
 let _cache: ContentPage[] | null = null
 
 export function getAllPages(): ContentPage[] {
@@ -174,6 +196,7 @@ export function getAllPages(): ContentPage[] {
 
   checkOrphanedPages(_cache)
   checkWeddingAffiliatePolicy(_cache)
+  checkReviewedOnStaleness(_cache)
 
   return _cache
 }
