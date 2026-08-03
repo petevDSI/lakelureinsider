@@ -24,8 +24,8 @@ const FEATURED_CARDS = [
     title: 'Chimney Rock State Park',
     description:
       'Tickets, hours, trail guides, and insider tips for one of the most dramatic natural features in the Blue Ridge Mountains.',
-    imageSrc: '/images/placeholder-chimney-rock.jpg',
-    imageAlt: 'Chimney Rock rising above the Hickory Nut Gorge',
+    imageSrc: '/images/chimney-rock.jpg',
+    imageAlt: 'Illustrated Blue Ridge ridgeline with layered mountain silhouettes',
     category: 'Chimney Rock',
   },
   {
@@ -33,8 +33,8 @@ const FEATURED_CARDS = [
     title: 'Lake Lure',
     description:
       'Boat rentals, beach access, watersports, and the best spots on this stunning mountain lake.',
-    imageSrc: '/images/placeholder-lake-lure.jpg',
-    imageAlt: 'Lake Lure surrounded by Blue Ridge mountains',
+    imageSrc: '/images/lake-lure.jpg',
+    imageAlt: 'Illustrated mountain lake landscape with layered ridgelines',
     category: 'Lake Lure',
   },
   {
@@ -42,8 +42,8 @@ const FEATURED_CARDS = [
     title: 'Where to Stay',
     description:
       'Lakefront cabins, historic inns, and mountain lodges — the best places to stay near Lake Lure.',
-    imageSrc: '/images/placeholder-lodging.jpg',
-    imageAlt: 'Cabin on the lakefront at Lake Lure',
+    imageSrc: '/images/where-to-stay.jpg',
+    imageAlt: 'Illustrated lakeside mountain landscape at dusk',
     category: 'Lodging',
   },
   {
@@ -52,7 +52,7 @@ const FEATURED_CARDS = [
     description:
       'Six Chimney Rock venues from a 404-ft waterfall to a fully accessible pavilion. Lake Lure Inn with its Dirty Dancing ballroom.',
     imageSrc: '/images/weddings-hub.jpg',
-    imageAlt: 'Hickory Nut Gorge — backdrop for mountain weddings at Chimney Rock',
+    imageAlt: 'Illustrated mountain ridgeline at sunset',
     category: 'Weddings',
   },
 ]
@@ -64,7 +64,7 @@ export default function HomePage() {
       <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-[--forest] px-page pb-16 pt-24">
         <Image
           src="/images/home.jpg"
-          alt="Lake Lure and Chimney Rock, NC"
+          alt="Illustrated Blue Ridge mountain ridgeline — Lake Lure and Chimney Rock, NC"
           fill
           priority
           sizes="100vw"
