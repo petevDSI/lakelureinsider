@@ -146,7 +146,7 @@ export default async function SlugPage({
        * PageHero uses .full-bleed to escape this container and span 100vw.
        */}
       <article className="px-page">
-        <div className="mx-auto max-w-3xl">
+        <div className="prose mx-auto max-w-3xl">
           <MDXRemote source={rawContent} components={components} />
           <p className="mt-12 text-xs text-[--ink]/50">
             Last updated: {frontmatter.updated}

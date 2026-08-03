@@ -50,7 +50,6 @@ body {
 
 /* ── Typography prose defaults ──────────────────────────────────── */
 .prose {
-  max-width: 68ch;
   color: var(--ink);
 }
 

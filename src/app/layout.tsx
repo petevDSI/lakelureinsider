@@ -52,6 +52,16 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${fraunces.variable} h-full`}
     >
+      <head>
+        {/* On non-canonical hosts (e.g. vercel.app previews) the proxy sets
+            X-Robots-Tag: noindex. Make the HTML meta tag agree so any crawler
+            that reads HTML rather than headers also sees noindex. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var h=location.hostname;if(h!=='lakelureinsider.com'&&h!=='www.lakelureinsider.com'){var m=document.querySelector('meta[name="robots"]');if(m)m.content='noindex, follow';else{var n=document.createElement('meta');n.name='robots';n.content='noindex, follow';document.head.appendChild(n);}}})();`,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col">
         <script
           type="application/ld+json"
