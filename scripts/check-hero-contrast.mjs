@@ -25,9 +25,11 @@ if (!IS_CI) {
 }
 
 // Install Chromium on CI. Vercel caches node_modules between builds, so this
-// is fast after the first deploy.
+// is fast after the first deploy. No --with-deps: Vercel's Ubuntu build
+// containers have Chromium system libraries pre-installed. --with-deps tries
+// apt-get as root, which fails in Vercel's unprivileged build environment.
 console.log('[contrast] Installing Playwright Chromium...')
-execSync('npx playwright install --with-deps chromium', { stdio: 'inherit' })
+execSync('npx playwright install chromium', { stdio: 'inherit' })
 
 const { chromium } = await import('playwright')
 
