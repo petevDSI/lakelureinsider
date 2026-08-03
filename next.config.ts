@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    const key = process.env.INDEXNOW_KEY
+    if (!key) return []
+    // IndexNow requires the key to be served at /<key>.txt — rewrite to the
+    // route handler that reads the env var and serves it as plain text.
+    return [{ source: `/${key}.txt`, destination: '/api/indexnow-key' }]
+  },
   async redirects() {
     return [
       // Retired lake-lure/* activity pages — activity-first structure is canonical
