@@ -18,6 +18,10 @@ export interface Frontmatter {
   quickAnswer?: Record<string, string>
   faqs?: FaqItem[]
   stub?: boolean
+  // Insider Tips blog post fields
+  published?: string
+  tags?: string[]
+  relatedCluster?: string
 }
 
 export interface ContentPage {

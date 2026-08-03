@@ -1,0 +1,192 @@
+[
+  {
+    "id": "lake-lure-adventure-company",
+    "name": "Lake Lure Adventure Company",
+    "category": "boat-rentals",
+    "subcategory": "pontoon",
+    "address": "470 Memorial Hwy, Lake Lure, NC",
+    "phone": null,
+    "website": null,
+    "coordinates": null,
+    "hours": null,
+    "priceFrom": 125,
+    "priceUnit": "per hour",
+    "priceNotes": null,
+    "rateCards": [
+      {
+        "label": "20ft pontoon (up to 6 guests)",
+        "fuelIncluded": false,
+        "rates": [
+          { "duration": "1 hour", "price": 125 },
+          { "duration": "4 hours (half-day)", "price": 440 },
+          { "duration": "8 hours (full-day)", "price": 800 }
+        ]
+      },
+      {
+        "label": "22ft pontoon (up to 10 guests)",
+        "fuelIncluded": false,
+        "rates": [
+          { "duration": "1 hour", "price": 140 },
+          { "duration": "4 hours (half-day)", "price": 480 }
+        ]
+      }
+    ],
+    "tags": [],
+    "insiderNote": null,
+    "source": "https://lakelurerentals.com",
+    "lastVerified": "2026-08-02"
+  },
+  {
+    "id": "lake-lure-boat-rental",
+    "name": "Lake Lure Boat Rental",
+    "category": "boat-rentals",
+    "subcategory": "pontoon",
+    "address": "506 Memorial Hwy, Lake Lure, NC",
+    "phone": null,
+    "website": null,
+    "coordinates": null,
+    "hours": null,
+    "priceFrom": null,
+    "priceUnit": null,
+    "priceNotes": "Two conflicting rate schedules appear on the operator's site — call to confirm before booking.",
+    "rateCards": [
+      {
+        "label": "Rate card A (unconfirmed)",
+        "fuelIncluded": true,
+        "minimumHours": 3,
+        "unconfirmed": true,
+        "rates": [
+          { "duration": "3 hours", "price": 390 },
+          { "duration": "4 hours", "price": 460 },
+          { "duration": "6 hours", "price": 690 },
+          { "duration": "8 hours (full-day)", "price": 880 }
+        ]
+      },
+      {
+        "label": "Rate card B (unconfirmed)",
+        "fuelIncluded": true,
+        "unconfirmed": true,
+        "rates": [
+          { "duration": "2 hours", "price": 200 },
+          { "duration": "4 hours", "price": 350 },
+          { "duration": "6 hours", "price": 500 }
+        ]
+      }
+    ],
+    "conflictNote": "Two rate schedules appear on the operator's site — one shows 4 hours at $460, the other at $350, both with fuel included. Call to confirm current rates before booking.",
+    "tags": ["fuelIncluded", "delivery"],
+    "insiderNote": "Free delivery to your dock, Washburn Marina, or Rumbling Bald.",
+    "source": "https://lakelureboatrental.com",
+    "lastVerified": "2026-08-02"
+  },
+  {
+    "id": "rumbling-bald-pontoon",
+    "name": "Rumbling Bald on Lake Lure",
+    "category": "boat-rentals",
+    "subcategory": "pontoon",
+    "address": "153 Mountains Blvd, Lake Lure, NC",
+    "phone": null,
+    "website": "https://rumblingbald.com",
+    "coordinates": null,
+    "hours": null,
+    "priceFrom": 250,
+    "priceUnit": "per 2 hours",
+    "priceNotes": null,
+    "rateCards": [
+      {
+        "label": "Pontoon (up to 10 guests)",
+        "fuelIncluded": null,
+        "rates": [
+          { "duration": "2 hours", "price": 250 },
+          { "duration": "4 hours", "price": 460 },
+          { "duration": "8 hours (full-day)", "price": 880 }
+        ]
+      }
+    ],
+    "tags": ["petFriendly"],
+    "insiderNote": "Dogs allowed on rental pontoons — $10 per dog per day.",
+    "source": "https://rumblingbald.com",
+    "lastVerified": "2026-08-02"
+  },
+  {
+    "id": "good-time-boat-rentals",
+    "name": "Good Time Boat Rentals",
+    "category": "boat-rentals",
+    "subcategory": "pontoon",
+    "address": null,
+    "phone": null,
+    "website": null,
+    "coordinates": null,
+    "hours": null,
+    "priceFrom": 500,
+    "priceUnit": "per 5 hours",
+    "priceNotes": "Fuel and taxes included.",
+    "rateCards": [
+      {
+        "label": "Pontoon",
+        "fuelIncluded": true,
+        "rates": [
+          { "duration": "5 hours", "price": 500 },
+          { "duration": "8 hours (full-day)", "price": 629 }
+        ]
+      }
+    ],
+    "tags": ["fuelIncluded", "delivery"],
+    "insiderNote": "Fuel and taxes included in all rates; free delivery and pickup.",
+    "source": "https://goodtimeboatrentals.com",
+    "lastVerified": "2026-08-02"
+  },
+  {
+    "id": "lake-lure-tours",
+    "name": "Lake Lure Tours",
+    "category": "boat-rentals",
+    "subcategory": "paddle",
+    "address": null,
+    "phone": null,
+    "website": null,
+    "coordinates": null,
+    "hours": "10 AM – 5 PM",
+    "priceFrom": 18,
+    "priceUnit": "per hour (single)",
+    "priceNotes": null,
+    "rateCards": [
+      {
+        "label": "Single paddle craft",
+        "fuelIncluded": false,
+        "rates": [
+          { "duration": "1 hour", "price": 18 }
+        ]
+      },
+      {
+        "label": "Two-person paddle craft",
+        "fuelIncluded": false,
+        "rates": [
+          { "duration": "1 hour", "price": 20 }
+        ]
+      }
+    ],
+    "tags": [],
+    "insiderNote": null,
+    "source": "https://lakelure.com",
+    "lastVerified": "2026-08-02"
+  },
+  {
+    "id": "lake-lure-washburn-marina",
+    "name": "Lake Lure Washburn Marina",
+    "category": "boat-rentals",
+    "subcategory": "marina",
+    "address": "2930 Memorial Hwy, Lake Lure, NC",
+    "phone": null,
+    "website": null,
+    "coordinates": null,
+    "hours": null,
+    "priceFrom": null,
+    "priceUnit": null,
+    "priceNotes": null,
+    "rateCards": [],
+    "tags": ["waterfront"],
+    "insiderNote": null,
+    "source": "https://lakelure.com",
+    "lastVerified": "2026-08-02"
+  }
+]

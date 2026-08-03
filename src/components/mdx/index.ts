@@ -18,6 +18,10 @@ import { BoatRentalTable } from './BoatRentalTable'
 import { WeddingCostCalculator } from './WeddingCostCalculator'
 import { WeddingContactCTA } from './WeddingContactCTA'
 import { EditorialIndependence } from './EditorialIndependence'
+import { PlaceList } from './PlaceList'
+import { PlaceCompare } from './PlaceCompare'
+import { InsiderTipsIndex } from './InsiderTipsIndex'
+import { RecentInsiderTips } from './RecentInsiderTips'
 
 export const mdxComponents: MDXComponents = {
   QuickAnswer,
@@ -39,6 +43,10 @@ export const mdxComponents: MDXComponents = {
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
+  PlaceList,
+  PlaceCompare,
+  InsiderTipsIndex,
+  RecentInsiderTips,
 }
 
 export {
@@ -61,4 +69,8 @@ export {
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
+  PlaceList,
+  PlaceCompare,
+  InsiderTipsIndex,
+  RecentInsiderTips,
 }

@@ -111,6 +111,10 @@ const NAV_SLUGS = new Set([
   'insider-tips',
 ])
 
+// Slug prefixes whose children are programmatically linked (index pages, etc.)
+// — exempt from the orphan check
+const PROGRAMMATIC_PREFIXES = ['insider-tips/']
+
 function checkOrphanedPages(pages: ContentPage[]): void {
   const linked = new Set<string>(NAV_SLUGS)
 
@@ -127,7 +131,13 @@ function checkOrphanedPages(pages: ContentPage[]): void {
   }
 
   const orphans = pages
-    .filter((p) => p.frontmatter.type === 'article' && p.slug !== '' && !linked.has(p.slug))
+    .filter(
+      (p) =>
+        p.frontmatter.type === 'article' &&
+        p.slug !== '' &&
+        !linked.has(p.slug) &&
+        !PROGRAMMATIC_PREFIXES.some((prefix) => p.slug.startsWith(prefix)),
+    )
     .map((p) => p.slug)
 
   if (orphans.length > 0) {
