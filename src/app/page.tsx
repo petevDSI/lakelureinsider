@@ -1,65 +1,127 @@
-import Image from "next/image";
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { CardGrid } from '@/components/mdx/CardGrid'
+import { SITE_URL } from '@/lib/site-config'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Lake Lure Insider — Local Guide to Lake Lure & Chimney Rock, NC',
+  description:
+    'Insider tips, hours, tickets, and things to do at Lake Lure and Chimney Rock, NC. Plan your perfect mountain getaway.',
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    title: 'Lake Lure Insider — Local Guide to Lake Lure & Chimney Rock, NC',
+    description:
+      'Insider tips, hours, tickets, and things to do at Lake Lure and Chimney Rock, NC.',
+    url: SITE_URL,
+    type: 'website',
+  },
+}
+
+const FEATURED_CARDS = [
+  {
+    href: '/chimney-rock',
+    title: 'Chimney Rock State Park',
+    description:
+      'Tickets, hours, trail guides, and insider tips for one of the most dramatic natural features in the Blue Ridge Mountains.',
+    imageSrc: '/images/placeholder-chimney-rock.jpg',
+    imageAlt: 'Chimney Rock rising above the Hickory Nut Gorge',
+    category: 'Chimney Rock',
+  },
+  {
+    href: '/lake-lure',
+    title: 'Lake Lure',
+    description:
+      'Boat rentals, beach access, watersports, and the best spots on this stunning mountain lake.',
+    imageSrc: '/images/placeholder-lake-lure.jpg',
+    imageAlt: 'Lake Lure surrounded by Blue Ridge mountains',
+    category: 'Lake Lure',
+  },
+  {
+    href: '/where-to-stay',
+    title: 'Where to Stay',
+    description:
+      'Lakefront cabins, historic inns, and mountain lodges — the best places to stay near Lake Lure.',
+    imageSrc: '/images/placeholder-lodging.jpg',
+    imageAlt: 'Cabin on the lakefront at Lake Lure',
+    category: 'Lodging',
+  },
+]
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* Hero */}
+      <section className="relative flex min-h-[70vh] items-end bg-[--forest] px-4 pb-16 pt-24 sm:px-6">
+        <div className="relative mx-auto max-w-3xl text-white">
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-white/70">
+            Your local insider guide
           </p>
+          <h1 className="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            Lake Lure &amp;
+            <br />
+            Chimney Rock, NC
+          </h1>
+          <p className="mt-4 max-w-xl text-lg text-white/80">
+            Real tips from someone who knows the area — not a tourism brochure.
+            Hours, tickets, hidden gems, and the best way to spend your time.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/trip-planning"
+              className="rounded-md bg-[--clay] px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+            >
+              Plan Your Trip
+            </Link>
+            <Link
+              href="/chimney-rock"
+              className="rounded-md border border-white/40 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Chimney Rock Guide
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Feature cards */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[--lake]">
+          Start Here
+        </p>
+        <h2 className="mb-8 font-display text-3xl font-bold text-[--forest]">
+          Explore the Area
+        </h2>
+        <CardGrid cards={FEATURED_CARDS} feature />
+      </section>
+
+      {/* Quick nav clusters */}
+      <section className="bg-[--sand] px-4 py-14 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[--lake]">
+            Find What You Need
+          </p>
+          <h2 className="mb-8 font-display text-2xl font-bold text-[--forest]">
+            Browse by Topic
+          </h2>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {[
+              { label: 'Lake Lure', href: '/lake-lure' },
+              { label: 'Chimney Rock', href: '/chimney-rock' },
+              { label: 'Things to Do', href: '/things-to-do' },
+              { label: 'Where to Stay', href: '/where-to-stay' },
+              { label: 'Trip Planning', href: '/trip-planning' },
+              { label: 'Insider Tips', href: '/insider-tips' },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex flex-col items-center justify-center rounded-xl bg-white px-3 py-5 text-center text-sm font-semibold text-[--forest] shadow-sm transition-shadow hover:shadow-md"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+    </>
+  )
 }
