@@ -291,6 +291,14 @@ export const facts: Record<string, Fact> = {
     source: 'https://www.chimneyrockpark.com/',
     lastVerified: '2026-08-02',
   },
+  // Absence claim: no resale platform (GetYourGuide, Viator, etc.) carries
+  // Chimney Rock tickets. Value is the human-readable month/year to show in
+  // prose. Update value + lastVerified together whenever re-verified.
+  'chimney-rock.resale.none-found': {
+    value: 'August 2026',
+    source: 'GetYourGuide search "Chimney Rock North Carolina" (197 results, 0 relevant); Viator search same query — 2026-08-03',
+    lastVerified: '2026-08-03',
+  },
 
   // Lake Lure
   'lake-lure.area.acres': {

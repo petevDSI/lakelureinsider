@@ -113,6 +113,13 @@ All such claims live in `src/data/facts.ts` with a `source` URL and `lastVerifie
 Use `factValue('key')` to render the value and `verifiedLine('key')` to render a "Verified" line.
 Unpopulated facts have `null` values with a `// TODO: VERIFY` comment — don't invent numbers.
 
+**Absence claims require a verification date.** Any sentence asserting that something does NOT
+exist ("no resale platform carries this park", "no operator offers X", "this fee does not apply")
+must include the date it was checked. Store the checked-on date as a fact in `facts.ts` and
+render it via `<Fact id="..." />` so the date updates when re-verified rather than silently going
+stale. Example key pattern: `'chimney-rock.resale.none-found'` with `value` set to a
+human-readable month/year (`'August 2026'`) and `lastVerified` set to the ISO check date.
+
 ## Affiliate Links Rule
 
 All affiliate links live in `src/data/affiliates.ts` keyed by short id.
