@@ -5,7 +5,9 @@ import { SITE_URL } from '@/lib/site-config'
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = getAllPages()
 
-  const contentEntries: MetadataRoute.Sitemap = pages.map((page) => ({
+  const contentEntries: MetadataRoute.Sitemap = pages
+    .filter((page) => !page.frontmatter.stub)
+    .map((page) => ({
     url: page.slug ? `${SITE_URL}/${page.slug}` : SITE_URL,
     lastModified: page.frontmatter.updated,
     changeFrequency: 'monthly',
