@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: 'Things to Do', href: '/things-to-do' },
   { label: 'Where to Stay', href: '/where-to-stay' },
   { label: 'Trip Planning', href: '/trip-planning' },
+  { label: 'Weddings', href: '/weddings' },
   { label: 'Insider Tips', href: '/insider-tips' },
 ]
 

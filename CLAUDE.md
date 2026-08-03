@@ -88,6 +88,9 @@ All components are auto-provided to every MDX file via `mdxComponents` in the ca
 | `<CardGrid cards={[...]} feature>` | Image-topped link cards; `feature` makes first card double-width |
 | `<Card href title description imageSrc imageAlt category featured>` | Single card |
 | `<QuickPicks picks={[{label,href}]}>` | Row of 3 pill buttons for next-click navigation |
+| `<WeddingCostCalculator>` | Interactive ceremony cost calculator (fee + admission + rental). Client component. |
+| `<WeddingContactCTA venue phone email website>` | "Planning a wedding here?" contact block |
+| `<EditorialIndependence>` | Trust badge for wedding venue pages — "We take no money from any venue on this page" |
 
 ## Design Palette
 
@@ -116,6 +119,20 @@ All affiliate links live in `src/data/affiliates.ts` keyed by short id.
 Render via `<AffiliateLink id="...">` or `<AffiliateCTA affiliateId="...">`.
 Every affiliate anchor renders `rel="sponsored nofollow noopener" target="_blank"`.
 Pages with affiliate content automatically show a one-line FTC disclosure bar at the top.
+
+## Wedding Cluster Editorial Policy
+
+**Lake Lure Insider accepts no payment, referral fee, commission, or sponsorship from any wedding
+venue.** Venue pages, comparisons, and cost calculators under `content/weddings/` must never
+contain an `<AffiliateCTA>` or `<AffiliateLink>` component. Revenue on this cluster comes only
+from lodging/rental booking links and from surrounding trip spend. The vendor directory is free
+to list — no paid placement. No money from anyone we editorially rank.
+
+This is enforced at build time: any wedding MDX file with an affiliate component fails the build
+with an error message citing this policy.
+
+Every wedding venue comparison page must include `<EditorialIndependence />` near the top of the
+venue content — not in the footer, not as microcopy. It is a visible editorial mark.
 
 ## SEO Checklist (already built)
 

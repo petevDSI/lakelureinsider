@@ -35,6 +35,9 @@ export async function generateMetadata({
     title: frontmatter.title,
     description: frontmatter.description,
     alternates: { canonical },
+    // Stub pages have real URLs but thin content — keep them out of the index
+    // until they're fully written.
+    robots: frontmatter.stub ? { index: false, follow: true } : undefined,
     openGraph: {
       title: frontmatter.title,
       description: frontmatter.description,
@@ -129,7 +132,7 @@ export default async function SlugPage({
       />
 
       {showAffiliateBar && (
-        <div className="bg-[--sand] px-4 py-2 text-center text-xs text-[--ink]/70">
+        <div className="bg-[--sand] px-page py-2 text-center text-xs text-[--ink]/70">
           This page contains affiliate links.{' '}
           <a href="/affiliate-disclosure" className="underline">
             See our disclosure.
@@ -137,11 +140,15 @@ export default async function SlugPage({
         </div>
       )}
 
-      <article>
-        <MDXRemote source={rawContent} components={components} />
-
-        <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-          <p className="text-xs text-[--ink]/50">
+      {/*
+       * px-page: single inline padding for all content (clamp-based, set in globals.css).
+       * max-w-3xl + mx-auto: centers prose/components at comfortable reading width.
+       * PageHero uses .full-bleed to escape this container and span 100vw.
+       */}
+      <article className="px-page">
+        <div className="mx-auto max-w-3xl">
+          <MDXRemote source={rawContent} components={components} />
+          <p className="mt-12 text-xs text-[--ink]/50">
             Last updated: {frontmatter.updated}
           </p>
         </div>

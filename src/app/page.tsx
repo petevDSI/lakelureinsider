@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { CardGrid } from '@/components/mdx/CardGrid'
 import { SITE_URL } from '@/lib/site-config'
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 
 const FEATURED_CARDS = [
   {
-    href: '/chimney-rock',
+    href: '/chimney-rock/tickets-and-hours',
     title: 'Chimney Rock State Park',
     description:
       'Tickets, hours, trail guides, and insider tips for one of the most dramatic natural features in the Blue Ridge Mountains.',
@@ -45,13 +46,31 @@ const FEATURED_CARDS = [
     imageAlt: 'Cabin on the lakefront at Lake Lure',
     category: 'Lodging',
   },
+  {
+    href: '/weddings',
+    title: 'Weddings',
+    description:
+      'Six Chimney Rock venues from a 404-ft waterfall to a fully accessible pavilion. Lake Lure Inn with its Dirty Dancing ballroom.',
+    imageSrc: '/images/weddings-hub.jpg',
+    imageAlt: 'Hickory Nut Gorge — backdrop for mountain weddings at Chimney Rock',
+    category: 'Weddings',
+  },
 ]
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex min-h-[70vh] items-end bg-[--forest] px-4 pb-16 pt-24 sm:px-6">
+      {/* Hero — bg-[--forest] is the opaque fallback if image is missing or slow */}
+      <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-[--forest] px-page pb-16 pt-24">
+        <Image
+          src="/images/home.jpg"
+          alt="Lake Lure and Chimney Rock, NC"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
         <div className="relative mx-auto max-w-3xl text-white">
           <p className="mb-2 text-xs font-bold uppercase tracking-widest text-white/70">
             Your local insider guide
@@ -73,7 +92,7 @@ export default function HomePage() {
               Plan Your Trip
             </Link>
             <Link
-              href="/chimney-rock"
+              href="/chimney-rock/tickets-and-hours"
               className="rounded-md border border-white/40 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
             >
               Chimney Rock Guide
@@ -83,7 +102,7 @@ export default function HomePage() {
       </section>
 
       {/* Feature cards */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <section className="mx-auto max-w-6xl px-page py-16">
         <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[--lake]">
           Start Here
         </p>
@@ -94,21 +113,22 @@ export default function HomePage() {
       </section>
 
       {/* Quick nav clusters */}
-      <section className="bg-[--sand] px-4 py-14 sm:px-6">
-        <div className="mx-auto max-w-6xl">
+      <section className="bg-[--sand] py-14">
+        <div className="mx-auto max-w-6xl px-page">
           <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[--lake]">
             Find What You Need
           </p>
           <h2 className="mb-8 font-display text-2xl font-bold text-[--forest]">
             Browse by Topic
           </h2>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
             {[
               { label: 'Lake Lure', href: '/lake-lure' },
               { label: 'Chimney Rock', href: '/chimney-rock' },
               { label: 'Things to Do', href: '/things-to-do' },
               { label: 'Where to Stay', href: '/where-to-stay' },
               { label: 'Trip Planning', href: '/trip-planning' },
+              { label: 'Weddings', href: '/weddings' },
               { label: 'Insider Tips', href: '/insider-tips' },
             ].map((item) => (
               <Link

@@ -17,6 +17,7 @@ export interface Frontmatter {
   type: ContentType
   quickAnswer?: Record<string, string>
   faqs?: FaqItem[]
+  stub?: boolean
 }
 
 export interface ContentPage {

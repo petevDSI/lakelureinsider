@@ -45,6 +45,15 @@ export const affiliates: Record<string, AffiliateEntry> = {
     url: '#', // TODO: replace with affiliate URL
     label: 'Reserve a Boat Rental',
   },
+  // Activities — Lake Lure boat rentals
+  boatsetter: {
+    id: 'boatsetter',
+    network: 'Boatsetter',
+    // Plain URL until the affiliate application is approved. Honest and
+    // working now; swap for the affiliate link and nothing else changes.
+    url: 'https://www.boatsetter.com/boat-rentals/lake-lure--nc--united-states',
+    label: 'Compare Boat Listings on Lake Lure',
+  },
   'viator-chimney-rock': {
     id: 'viator-chimney-rock',
     network: 'Viator',

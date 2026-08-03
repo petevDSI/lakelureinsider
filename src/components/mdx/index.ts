@@ -14,6 +14,10 @@ import { Card } from './Card'
 import { QuickPicks } from './QuickPicks'
 import { ChimneyRockHours } from './ChimneyRockHours'
 import { PassCalculator } from './PassCalculator'
+import { BoatRentalTable } from './BoatRentalTable'
+import { WeddingCostCalculator } from './WeddingCostCalculator'
+import { WeddingContactCTA } from './WeddingContactCTA'
+import { EditorialIndependence } from './EditorialIndependence'
 
 export const mdxComponents: MDXComponents = {
   QuickAnswer,
@@ -31,6 +35,10 @@ export const mdxComponents: MDXComponents = {
   QuickPicks,
   ChimneyRockHours,
   PassCalculator,
+  BoatRentalTable,
+  WeddingCostCalculator,
+  WeddingContactCTA,
+  EditorialIndependence,
 }
 
 export {
@@ -49,4 +57,8 @@ export {
   QuickPicks,
   ChimneyRockHours,
   PassCalculator,
+  BoatRentalTable,
+  WeddingCostCalculator,
+  WeddingContactCTA,
+  EditorialIndependence,
 }

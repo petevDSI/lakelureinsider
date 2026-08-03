@@ -119,9 +119,12 @@ export function ChimneyRockHours() {
           Thanksgiving Day &amp; Christmas Eve:
         </p>
         <p className="text-[--ink]/80">
-          Entry {CR_SEASONS.thanksgiving.hours?.entryOpen} –{' '}
-          {CR_SEASONS.thanksgiving.hours?.entryClose}, park closes{' '}
+          {CR_SEASONS.thanksgiving.hours?.entryOpen} –{' '}
           {CR_SEASONS.thanksgiving.hours?.parkClose}
+        </p>
+        <p className="mt-1 text-xs text-[--ink]/50">
+          Source lists a single operating window — separate entry deadline not confirmed.
+          Arrive by 2:30 PM to be safe.
         </p>
         <p className="mt-1 font-semibold text-[--clay]">
           Christmas Day: Closed

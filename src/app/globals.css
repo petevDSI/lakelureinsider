@@ -8,6 +8,17 @@
   --clay:   #C4622D;
   --sand:   #E8DFD3;
   --paper:  #FAF8F5;
+  /* Site-wide inline padding — applied once to each section/article wrapper */
+  --page-inset: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+/* Applied to every top-level content container */
+.px-page { padding-inline: var(--page-inset); }
+
+/* Full-bleed: escapes a padded+max-width container to span 100vw */
+.full-bleed {
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
 }
 
 /* ── Tailwind theme tokens ──────────────────────────────────────── */
