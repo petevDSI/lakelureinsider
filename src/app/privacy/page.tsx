@@ -13,7 +13,10 @@ export default function PrivacyPage() {
         Privacy Policy
       </h1>
       <p className="mt-2 text-sm text-[--ink]/60">
-        Last updated: {new Date().toISOString().slice(0, 10)}
+        Last updated: {new Date().toLocaleDateString('en-US', {
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          timeZone: 'America/New_York',
+        })}
       </p>
 
       <div className="prose mt-8">

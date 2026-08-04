@@ -9,6 +9,7 @@
 export function BuildDate() {
   const date = new Date().toLocaleDateString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric',
+    timeZone: 'America/New_York',
   })
   return <>{date}</>
 }

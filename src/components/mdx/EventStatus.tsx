@@ -13,8 +13,12 @@ const CONFIG: Record<LifecycleStatus, { dot: string; label: string; textColor: s
 }
 
 function formatDate(iso: string): string {
+  // Parse date-only strings (e.g. "2026-08-31") as UTC so the displayed date
+  // matches the calendar date as written. Without timeZone: 'UTC', the UTC
+  // midnight instant would display as the previous day in America/New_York.
   return new Date(iso).toLocaleDateString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric',
+    timeZone: 'UTC',
   })
 }
 
