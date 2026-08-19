@@ -32,12 +32,6 @@ export const SCHEDULE_ITEMS: ScheduledItem[] = [
     note: 'Celebration on the water — exact date TBD. Check townoflakelure.com for details as September approaches.',
   },
   {
-    id: 'lake-blvd-roadwork-aug2026',
-    title: 'Lake Boulevard Roadwork',
-    schedule: { start: '2026-08-03', end: '2026-08-07', kind: 'closure' },
-    note: 'Partial closures — crews directing traffic.',
-  },
-  {
     id: 'boys-camp-road-bridge',
     title: 'Boys Camp Road Bridge Reconstruction',
     // 120 days from July 27 = November 24
