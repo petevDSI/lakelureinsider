@@ -9,6 +9,8 @@ export interface CardProps {
   imageAlt?: string
   category?: string
   featured?: boolean
+  /** Set true for links off-site (e.g. AllTrails) — opens in a new tab. */
+  external?: boolean
 }
 
 export function Card({
@@ -19,10 +21,12 @@ export function Card({
   imageAlt,
   category,
   featured = false,
+  external = false,
 }: CardProps) {
   return (
     <Link
       href={href}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       className={`group flex flex-col overflow-hidden rounded-xl border border-[--sand] bg-white transition-shadow hover:shadow-lg ${
         featured ? 'sm:col-span-2' : ''
       }`}
@@ -46,6 +50,11 @@ export function Card({
         )}
         <h3 className="font-display font-bold text-[--ink] group-hover:text-[--lake]">
           {title}
+          {external && (
+            <span className="ml-1 inline-block text-[--ink]/40" aria-hidden="true">
+              ↗
+            </span>
+          )}
         </h3>
         {description && (
           <p
