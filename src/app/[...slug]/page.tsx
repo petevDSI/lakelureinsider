@@ -149,7 +149,20 @@ export default async function SlugPage({
        */}
       <article className="px-page">
         <div className="prose mx-auto max-w-3xl">
-          <MDXRemote source={rawContent} components={components} />
+          {/*
+           * options.mdxOptions.blockJS: next-mdx-remote defaults to stripping any
+           * non-literal JSX attribute value (its "block JS expressions" XSS guard,
+           * meant for untrusted/user-submitted MDX). Our content is all first-party,
+           * repo-authored — but the default was silently dropping prop values like
+           * <NearbyLinks pages={[...]} />, so every "Nearby"/related-links block on
+           * the site rendered as nothing. blockJS: false restores those props while
+           * blockDangerousJS (default true) still blocks eval/Function/require/etc.
+           */}
+          <MDXRemote
+            source={rawContent}
+            components={components}
+            options={{ blockJS: false }}
+          />
           <p className="mt-12 text-xs text-[--ink]/50">
             Last updated: {frontmatter.updated}
           </p>
