@@ -291,6 +291,133 @@ export const facts: Record<string, Fact> = {
     source: 'https://www.chimneyrockpark.com/',
     lastVerified: '2026-08-02',
   },
+  'chimney-rock.hickory-nut-falls.ranking': {
+    value: 'One of the tallest waterfalls east of the Mississippi River',
+    source: 'https://www.chimneyrockpark.com/view_trail/hickory-nut-falls-trail/',
+    lastVerified: '2026-08-19',
+  },
+  // Chimney Rock — trail distances & difficulty (paid access area)
+  'chimney-rock.trail.riverwalk.distance': {
+    value: '0.1 mile one way',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.riverwalk.difficulty': {
+    value: 'Easy',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.great-woodland-adventure.distance': {
+    value: '0.4 mile loop',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.great-woodland-adventure.difficulty': {
+    value: 'Easy',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.four-seasons.distance': {
+    value: '0.7 mile one way',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.four-seasons.difficulty': {
+    value: 'Strenuous',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.hickory-nut-falls.distance': {
+    value: '0.7 mile one way (1.4 miles round trip)',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.hickory-nut-falls.difficulty': {
+    value: 'Moderate',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.hickory-nut-falls.time': {
+    value: '45 minutes to 1 hour',
+    source: 'https://www.chimneyrockpark.com/view_trail/hickory-nut-falls-trail/',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.outcroppings.distance': {
+    value: '0.2 mile one way',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.outcroppings.difficulty': {
+    value: 'Strenuous',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.exclamation-point.distance': {
+    value: '0.3 mile one way',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.exclamation-point.difficulty': {
+    value: 'Strenuous',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.skyline.distance': {
+    value: '1.1 miles one way (2.2 miles round trip)',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.skyline.difficulty': {
+    value: 'Moderate to strenuous',
+    source: 'https://www.chimneyrockpark.com/skyline-trail/',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.skyline.time': {
+    value: '2 to 2.5 hours',
+    source: 'https://www.chimneyrockpark.com/skyline-trail/',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.rumbling-bald.distance': {
+    value: '1.5 mile loop',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.rumbling-bald.difficulty': {
+    value: 'Moderate',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.weed-patch-mountain.distance': {
+    value: '8.5 miles one way',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.weed-patch-mountain.difficulty': {
+    value: 'Strenuous',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.tunnel.distance': {
+    value: '0.15 mile one way',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trail.tunnel.difficulty': {
+    value: 'Moderate',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  // Eagle Rock Access (Buffalo Creek Park) — separate free-access area, own closure status
+  'chimney-rock.trails.eagle-rock-access.status': {
+    value: 'Closed until further notice',
+    source: 'https://www.ncparks.gov/state-parks/chimney-rock-state-park/trails',
+    lastVerified: '2026-08-19',
+  },
+  'chimney-rock.trails.main-park.closures': {
+    value: 'No trail closures reported in the main (paid-access) park',
+    source: 'https://www.chimneyrockpark.com/',
+    lastVerified: '2026-08-19',
+  },
   // Absence claim: no resale platform (GetYourGuide, Viator, etc.) carries
   // Chimney Rock tickets. Value is the human-readable month/year to show in
   // prose. Update value + lastVerified together whenever re-verified.
