@@ -476,14 +476,39 @@ export const facts: Record<string, Fact> = {
     lastVerified: '2026-07-31',
   },
   'drive.asheville-to-lake-lure.minutes': {
-    value: null, // TODO: VERIFY
-    source: null,
-    lastVerified: null,
+    value: '~52 minutes',
+    source: 'distance-cities.com driving directions (US-74A W)',
+    lastVerified: '2026-08-20',
   },
   'drive.charlotte-to-lake-lure.minutes': {
     value: null, // TODO: VERIFY
     source: null,
     lastVerified: null,
+  },
+  'drive.lake-lure-to-black-mountain.miles': {
+    value: '23 miles',
+    source: 'distance-cities.com driving directions (NC-9 N)',
+    lastVerified: '2026-08-20',
+  },
+  'drive.lake-lure-to-black-mountain.minutes': {
+    value: '~44 minutes',
+    source: 'distance-cities.com driving directions (NC-9 N)',
+    lastVerified: '2026-08-20',
+  },
+  'drive.lake-lure-to-hendersonville.miles': {
+    value: '21 miles',
+    source: 'distance-cities.com driving directions (US-64 W)',
+    lastVerified: '2026-08-20',
+  },
+  'drive.lake-lure-to-hendersonville.minutes': {
+    value: '~40 minutes',
+    source: 'distance-cities.com driving directions (US-64 W)',
+    lastVerified: '2026-08-20',
+  },
+  'drive.lake-lure-to-asheville.miles': {
+    value: '28 miles',
+    source: 'distance-cities.com driving directions (US-74A W)',
+    lastVerified: '2026-08-20',
   },
 
   // Chimney Rock — weddings
@@ -1077,6 +1102,141 @@ export const BOAT_MARKETPLACES: BoatMarketplace[] = [
 // Newest lastVerified across all operators — drives the page freshness line.
 export function boatRentalsLastVerified(): string | null {
   const dates = BOAT_RENTALS.map((o) => o.lastVerified).filter(
+    (d): d is string => Boolean(d),
+  )
+  return dates.length ? dates.sort().at(-1)! : null
+}
+
+// ─── EV charging — nearest public stations ───────────────────────────────────
+// There is no public EV charging at Lake Lure or Chimney Rock itself. This is
+// the honest nearby list, sourced from ChargeHub (chargehub.com) station
+// records. Distance/drive time is by road from Lake Lure's town center, not
+// straight-line — re-verify with live directions if the route matters to you.
+// Re-check port availability before relying on any of these; port counts and
+// network status can change.
+
+export type ChargerSpeed = 'level2' | 'dcFast' | 'supercharger'
+
+export interface EvCharger {
+  id: string
+  name: string
+  network: string
+  city: string
+  address: string
+  distanceMiles: number
+  driveMinutes: number
+  route: string
+  ports: number
+  speed: ChargerSpeed
+  connectors: string
+  cost: string
+  passportEnabled: boolean
+  note: string | null
+  detailsUrl: string
+  source: string
+  lastVerified: string
+}
+
+export const EV_CHARGERS: EvCharger[] = [
+  {
+    id: 'black-mountain-police-station',
+    name: 'Black Mountain Police Station',
+    network: 'ChargeUp',
+    city: 'Black Mountain, NC',
+    address: '106 Montreat Road, Black Mountain, NC 28711',
+    distanceMiles: 23,
+    driveMinutes: 44,
+    route: 'NC-9 N',
+    ports: 2,
+    speed: 'level2',
+    connectors: 'J1772',
+    cost: 'Free',
+    passportEnabled: false,
+    note: 'Closest option to Lake Lure, but the smallest network here — requires the ChargeUp app and has no live status reporting. Confirm it\'s working before you drive out for it specifically.',
+    detailsUrl: 'https://chargehub.com/en/ev-charging-stations?locId=3911&fromMap=true',
+    source: 'ChargeHub station data',
+    lastVerified: '2026-08-20',
+  },
+  {
+    id: 'hendersonville-dogwood-lot',
+    name: 'City of Hendersonville — Dogwood Parking Lot',
+    network: 'ChargePoint',
+    city: 'Hendersonville, NC',
+    address: '430 North Church Street, Hendersonville, NC 28792',
+    distanceMiles: 21,
+    driveMinutes: 40,
+    route: 'US-64 W',
+    ports: 2,
+    speed: 'level2',
+    connectors: 'J1772',
+    cost: 'Free',
+    passportEnabled: true,
+    note: 'Both ports were showing available as of the last check. Downtown lot, walkable to Main Street shops and restaurants while you charge.',
+    detailsUrl: 'https://chargehub.com/en/ev-charging-stations?locId=3826&fromMap=true',
+    source: 'ChargeHub station data',
+    lastVerified: '2026-08-20',
+  },
+  {
+    id: 'asheville-tunnel-rd-supercharger',
+    name: 'Asheville — S Tunnel Road Supercharger',
+    network: 'Tesla',
+    city: 'Asheville, NC',
+    address: '4 South Tunnel Road, Asheville, NC 28805',
+    distanceMiles: 28,
+    driveMinutes: 52,
+    route: 'US-74A W',
+    ports: 8,
+    speed: 'supercharger',
+    connectors: 'Tesla NACS (CCS via adapter)',
+    cost: 'Pricing varies — set in the Tesla app',
+    passportEnabled: false,
+    note: 'The fast option for Tesla drivers, and NACS/CCS-adapter-equipped non-Teslas. Near the Asheville Mall area, so there\'s somewhere to be while it charges.',
+    detailsUrl: 'https://chargehub.com/en/ev-charging-stations?locId=32677&fromMap=true',
+    source: 'ChargeHub station data',
+    lastVerified: '2026-08-20',
+  },
+  {
+    id: 'asheville-ford',
+    name: 'Asheville Ford',
+    network: 'ChargePoint',
+    city: 'Asheville, NC',
+    address: '611 Brevard Road, Asheville, NC 28806',
+    distanceMiles: 28,
+    driveMinutes: 52,
+    route: 'US-74A W',
+    ports: 6,
+    speed: 'dcFast',
+    connectors: '2× J1772 (Level 2) + 4× CCS (DC fast)',
+    cost: '$0.35/kWh, plus $5/hr parking after 4 hours',
+    passportEnabled: true,
+    note: 'All 6 ports showing available as of the last check — the most capable non-Tesla fast-charging stop on this list. Public dealership lot, no purchase required.',
+    detailsUrl: 'https://chargehub.com/en/ev-charging-stations?locId=21856&fromMap=true',
+    source: 'ChargeHub station data',
+    lastVerified: '2026-08-20',
+  },
+  {
+    id: 'asheville-chamber-of-commerce',
+    name: 'Asheville Chamber of Commerce & Visitors Center',
+    network: 'ChargeUp',
+    city: 'Asheville, NC',
+    address: '36 Montford Avenue, Asheville, NC 28801',
+    distanceMiles: 28,
+    driveMinutes: 52,
+    route: 'US-74A W',
+    ports: 2,
+    speed: 'level2',
+    connectors: 'J1772',
+    cost: 'Unknown — requires ChargeUp app login',
+    passportEnabled: false,
+    note: 'Limited access hours (roughly 5 AM–10 PM), and pricing isn\'t published. Worth knowing about if you\'re combining Lake Lure with a downtown Asheville day, less so as a dedicated trip.',
+    detailsUrl: 'https://chargehub.com/en/ev-charging-stations?locId=2751&fromMap=true',
+    source: 'ChargeHub station data',
+    lastVerified: '2026-08-20',
+  },
+]
+
+export function evChargersLastVerified(): string | null {
+  const dates = EV_CHARGERS.map((c) => c.lastVerified).filter(
     (d): d is string => Boolean(d),
   )
   return dates.length ? dates.sort().at(-1)! : null

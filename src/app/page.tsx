@@ -34,7 +34,7 @@ const FEATURED_CARDS = [
     description:
       'Tickets, hours, trail guides, and insider tips for one of the most dramatic natural features in the Blue Ridge Mountains.',
     imageSrc: '/images/chimney-rock.jpg',
-    imageAlt: 'Illustrated Blue Ridge ridgeline with layered mountain silhouettes',
+    imageAlt: 'Chimney Rock viewed from the stairs below, North Carolina',
     category: 'Chimney Rock',
   },
   {
@@ -43,7 +43,7 @@ const FEATURED_CARDS = [
     description:
       'Boat rentals, beach access, watersports, and the best spots on this stunning mountain lake.',
     imageSrc: '/images/lake-lure.jpg',
-    imageAlt: 'Illustrated mountain lake landscape with layered ridgelines',
+    imageAlt: 'American flag flying at a scenic overlook above Lake Lure, NC',
     category: 'Lake Lure',
   },
   {
@@ -52,7 +52,7 @@ const FEATURED_CARDS = [
     description:
       'Lakefront cabins, historic inns, and mountain lodges — the best places to stay near Lake Lure.',
     imageSrc: '/images/where-to-stay.jpg',
-    imageAlt: 'Illustrated lakeside mountain landscape at dusk',
+    imageAlt: 'The historic Lake Lure Inn & Spa with mountains behind',
     category: 'Lodging',
   },
   {
@@ -73,13 +73,16 @@ export default function HomePage() {
       <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-[--forest] px-page pb-16 pt-24">
         <Image
           src="/images/home.jpg"
-          alt="Illustrated Blue Ridge mountain ridgeline — Lake Lure and Chimney Rock, NC"
+          alt="View of Lake Lure from Chimney Rock, NC"
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
+        <p className="absolute bottom-3 right-4 text-[10px] text-white/50">
+          Photo: Kapil Chalil Madathil (CC BY-SA 3.0)
+        </p>
         <div className="relative mx-auto max-w-3xl text-white">
           <p className="mb-2 text-xs font-bold uppercase tracking-widest text-white/70">
             Your local insider guide

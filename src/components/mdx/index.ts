@@ -19,6 +19,7 @@ import { QuickPicks } from './QuickPicks'
 import { ChimneyRockHours } from './ChimneyRockHours'
 import { PassCalculator } from './PassCalculator'
 import { BoatRentalTable } from './BoatRentalTable'
+import { EvChargingTable } from './EvChargingTable'
 import { WeddingCostCalculator } from './WeddingCostCalculator'
 import { WeddingContactCTA } from './WeddingContactCTA'
 import { EditorialIndependence } from './EditorialIndependence'
@@ -51,6 +52,7 @@ export const mdxComponents: MDXComponents = {
   ChimneyRockHours,
   PassCalculator,
   BoatRentalTable,
+  EvChargingTable,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
@@ -84,6 +86,7 @@ export {
   ChimneyRockHours,
   PassCalculator,
   BoatRentalTable,
+  EvChargingTable,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
