@@ -1,6 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { SITE_URL } from '@/lib/site-config'
+
+const PETITION_URL = `${SITE_URL}/petition`
+const SHARE_TEXT =
+  "I just signed the petition to save Lured Market in Lake Lure, NC. Join me:"
 
 interface Signer {
   first_name: string
@@ -27,6 +32,35 @@ export function PetitionWidget() {
   const [zip, setZip] = useState('')
   const [comment, setComment] = useState('')
   const [website, setWebsite] = useState('') // honeypot
+  const [copied, setCopied] = useState(false)
+  const [canNativeShare, setCanNativeShare] = useState(false)
+
+  useEffect(() => {
+    // Deferred to an effect (rather than a lazy useState initializer) on purpose:
+    // this value must be false on the server-rendered HTML to match hydration,
+    // then flip true post-mount once `navigator` is available client-side.
+    if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
+      setCanNativeShare(true)
+    }
+  }, [])
+
+  async function handleNativeShare() {
+    try {
+      await navigator.share({ title: 'Save Lured Market', text: SHARE_TEXT, url: PETITION_URL })
+    } catch {
+      // User canceled the share sheet — nothing to do.
+    }
+  }
+
+  async function handleCopyLink() {
+    try {
+      await navigator.clipboard.writeText(PETITION_URL)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // Clipboard API unavailable — the link buttons below still work.
+    }
+  }
 
   async function loadCount() {
     try {
@@ -90,6 +124,67 @@ export function PetitionWidget() {
           <p className="mt-2 text-sm text-(--ink)/70">
             Share this page with anyone else who cares about keeping Lured Market open.
           </p>
+
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5">
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(PETITION_URL)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on Facebook"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-(--forest) text-white transition-opacity hover:opacity-90"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46h1.6V4.35C16.3 4.24 15.28 4.15 14.1 4.15c-2.46 0-4.15 1.5-4.15 4.26V10.5H7.45v3H9.95V21h3.55Z" />
+              </svg>
+            </a>
+
+            <a
+              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(PETITION_URL)}&text=${encodeURIComponent(SHARE_TEXT)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on X"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-(--ink) text-white transition-opacity hover:opacity-90"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M18.3 3h3l-6.6 7.55L22.5 21h-6.1l-4.8-6.3L5.9 21H2.9l7.05-8.07L2 3h6.25l4.35 5.76L18.3 3Zm-1.05 16.2h1.66L7.85 4.7H6.07l11.18 14.5Z" />
+              </svg>
+            </a>
+
+            <a
+              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${SHARE_TEXT} ${PETITION_URL}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on WhatsApp"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-(--lake) text-white transition-opacity hover:opacity-90"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M12.04 2.5c-5.26 0-9.54 4.27-9.54 9.54 0 1.68.44 3.31 1.28 4.75L2.5 21.5l4.86-1.27a9.5 9.5 0 0 0 4.68 1.24h.01c5.26 0 9.54-4.27 9.54-9.54s-4.28-9.43-9.55-9.43Zm5.6 13.47c-.24.66-1.38 1.26-1.9 1.33-.5.08-1.1.11-1.78-.11-.41-.13-.94-.3-1.62-.6-2.84-1.23-4.7-4.1-4.84-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.24-.27.53-.34.7-.34l.5.01c.16 0 .38-.06.6.46.24.58.8 2 .87 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.47-.14.17-.3.37-.43.5-.14.14-.29.29-.13.58.17.29.75 1.24 1.62 2.01 1.11.99 2.04 1.3 2.34 1.44.3.14.47.12.65-.07.17-.19.73-.85.93-1.14.19-.29.39-.24.65-.14.27.1 1.68.79 1.97.94.28.14.47.21.54.33.07.12.07.68-.17 1.33Z" />
+              </svg>
+            </a>
+
+            <button
+              type="button"
+              onClick={handleCopyLink}
+              aria-label="Copy petition link"
+              className="flex h-11 items-center gap-1.5 rounded-full border border-(--sand) px-4 text-sm font-semibold text-(--forest) transition-colors hover:bg-(--sand)/40"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current stroke-2" aria-hidden="true">
+                <path d="M9 12a4 4 0 0 0 5.66 0l2.83-2.83a4 4 0 1 0-5.66-5.66L10.5 4.85" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M15 12a4 4 0 0 0-5.66 0l-2.83 2.83a4 4 0 1 0 5.66 5.66l1.32-1.32" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {copied ? 'Copied!' : 'Copy link'}
+            </button>
+
+            {canNativeShare && (
+              <button
+                type="button"
+                onClick={handleNativeShare}
+                className="flex h-11 items-center gap-1.5 rounded-full bg-(--clay) px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                More options…
+              </button>
+            )}
+          </div>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="grid gap-3 px-6 py-6">
