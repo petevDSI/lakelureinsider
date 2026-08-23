@@ -747,6 +747,28 @@ export const facts: Record<string, Fact> = {
     source: 'townoflakelure.com July 2026 Town News Summary',
     lastVerified: '2026-08-03',
   },
+
+  // ─── Healthcare & emergency services (verified 2026-08-23) ──────────────────
+  'healthcare.nearest-hospital.phone': {
+    value: '828-286-5000',
+    source: 'https://www.myrutherfordregional.com/emergency-room',
+    lastVerified: '2026-08-23',
+  },
+  'healthcare.in-town-clinic.phone': {
+    value: '828-625-4400',
+    source: 'https://www.townoflakelure.com/fireems/page/blue-ridge-health-expands-healthcare-patients',
+    lastVerified: '2026-08-23',
+  },
+  'healthcare.in-town-clinic.hours': {
+    value: 'Mon–Fri, 8am–5pm',
+    source: 'https://www.townoflakelure.com/fireems/page/blue-ridge-health-expands-healthcare-patients',
+    lastVerified: '2026-08-23',
+  },
+  'healthcare.in-town-pharmacy.phone': {
+    value: '828-625-0748',
+    source: 'Ingles Markets store locator',
+    lastVerified: '2026-08-23',
+  },
 }
 
 // ─── Chimney Rock — wedding data ─────────────────────────────────────────────
@@ -1237,6 +1259,156 @@ export const EV_CHARGERS: EvCharger[] = [
 
 export function evChargersLastVerified(): string | null {
   const dates = EV_CHARGERS.map((c) => c.lastVerified).filter(
+    (d): d is string => Boolean(d),
+  )
+  return dates.length ? dates.sort().at(-1)! : null
+}
+
+// ─── Healthcare & emergency services — providers near Lake Lure ──────────────
+// No hospital, ER, or urgent care exists inside Lake Lure or Chimney Rock
+// village. Blue Ridge Health (Lake Lure) is the only medical facility inside
+// town limits found during research. Everything else requires a drive to
+// Rutherfordton or Forest City. Re-verify phone numbers and hours periodically
+// — these are the fields most likely to go stale between visits.
+
+export type HealthcareCategory = 'hospital' | 'urgent-care' | 'primary-care' | 'dentist' | 'pharmacy'
+
+export interface HealthcareProvider {
+  id: string
+  category: HealthcareCategory
+  name: string
+  address: string
+  phone: string | null
+  hours: string
+  travelNote: string
+  notes: string | null
+  detailsUrl: string
+  source: string
+  lastVerified: string
+}
+
+export const HEALTHCARE_PROVIDERS: HealthcareProvider[] = [
+  {
+    id: 'rutherford-regional-er',
+    category: 'hospital',
+    name: 'Rutherford Regional Health System — Emergency Room',
+    address: '288 S. Ridgecrest Ave, Rutherfordton, NC 28139',
+    phone: '828-286-5000',
+    hours: 'Emergency Room open 24/7',
+    travelNote: 'About 20–25 minutes from downtown Lake Lure via US-64/74A — confirm with a live map for current conditions.',
+    notes: 'The closest hospital and the closest true emergency room. Certified Chest Pain Center and Primary Stroke Center. Call 911 for a true emergency rather than driving yourself.',
+    detailsUrl: 'https://www.myrutherfordregional.com/emergency-room',
+    source: 'myrutherfordregional.com',
+    lastVerified: '2026-08-23',
+  },
+  {
+    id: 'mainstreet-family-care-forest-city',
+    category: 'urgent-care',
+    name: 'MainStreet Family Care — Forest City',
+    address: '187 Lowes Blvd, Forest City, NC 28043',
+    phone: '828-395-1232',
+    hours: 'Mon–Fri 8am–8pm, Sat–Sun 9am–4pm',
+    travelNote: 'About 30 minutes from Lake Lure.',
+    notes: 'Walk-in, no appointment needed. Open seven days a week.',
+    detailsUrl: 'https://www.mainstreetfamilycare.com/locations/forest-city/',
+    source: 'mainstreetfamilycare.com',
+    lastVerified: '2026-08-23',
+  },
+  {
+    id: 'atrium-health-urgent-care-rutherford',
+    category: 'urgent-care',
+    name: 'Atrium Health Urgent Care — Rutherford',
+    address: '181 Daniel Rd, Forest City, NC 28043',
+    phone: null,
+    hours: 'Hours vary — call ahead to confirm same-day availability',
+    travelNote: 'About 30 minutes from Lake Lure.',
+    notes: 'Listed hours were inconsistent across directory sites at last check — treat as a backup and confirm before driving out.',
+    detailsUrl: 'https://www.solvhealth.com/atrium-health-urgent-care-forest-city-nc-gL3VDp',
+    source: 'Solv Health listing',
+    lastVerified: '2026-08-23',
+  },
+  {
+    id: 'blue-ridge-health-lake-lure',
+    category: 'primary-care',
+    name: 'Blue Ridge Health — Lake Lure',
+    address: '146 Nesbitt Ridge, off Hwy 9, near Ingles, Lake Lure, NC 28746',
+    phone: '828-625-4400',
+    hours: 'Mon–Fri, 8am–5pm',
+    travelNote: 'Inside Lake Lure town limits — the only medical clinic actually in town.',
+    notes: 'Nonprofit primary care and behavioral health. Walk-ins welcome, appointments preferred. Accepts private insurance, Medicare, and Medicaid, with a sliding scale for uninsured patients — worth knowing for an extended stay without local coverage.',
+    detailsUrl: 'https://www.townoflakelure.com/fireems/page/blue-ridge-health-expands-healthcare-patients',
+    source: 'Town of Lake Lure',
+    lastVerified: '2026-08-23',
+  },
+  {
+    id: 'blanton-miller-moore-rhea-dds',
+    category: 'dentist',
+    name: 'Blanton, Miller, Moore & Rhea DDS',
+    address: '363 N. Main St, Rutherfordton, NC 28139',
+    phone: '828-287-4187',
+    hours: 'Call for hours',
+    travelNote: 'About 20–25 minutes from Lake Lure.',
+    notes: 'General dentistry. Accepting new patients as of last check.',
+    detailsUrl: 'https://www.bmmdental.com/',
+    source: 'bmmdental.com',
+    lastVerified: '2026-08-23',
+  },
+  {
+    id: 'foothills-periodontics-rutherfordton',
+    category: 'dentist',
+    name: 'Foothills Periodontics and Implant Dentistry',
+    address: '135 McBrayer Dr, Rutherfordton, NC 28139',
+    phone: '704-484-0148',
+    hours: 'Call for hours',
+    travelNote: 'About 20–25 minutes from Lake Lure.',
+    notes: 'Specialist practice (periodontics and implants) — not a general or walk-in dentist.',
+    detailsUrl: 'https://foothillsperio.com/',
+    source: 'foothillsperio.com',
+    lastVerified: '2026-08-23',
+  },
+  {
+    id: 'ingles-pharmacy-lake-lure',
+    category: 'pharmacy',
+    name: 'Ingles Pharmacy #127',
+    address: '276 NC-9, Lake Lure, NC 28746',
+    phone: '828-625-0748',
+    hours: 'Mon–Fri 9am–9pm, Sat–Sun 9am–6pm',
+    travelNote: 'Inside Lake Lure — the most convenient option for visitors.',
+    notes: 'Located inside the Ingles grocery store on Hwy 9.',
+    detailsUrl: 'https://www.ingles-markets.com/storelocate/storeinfo.php?storenum=127',
+    source: 'Ingles Markets',
+    lastVerified: '2026-08-23',
+  },
+  {
+    id: 'cvs-rutherfordton',
+    category: 'pharmacy',
+    name: 'CVS Pharmacy',
+    address: '111 S. Main St, Rutherfordton, NC 28139',
+    phone: '828-287-4227',
+    hours: 'Mon–Fri 8am–9pm (closed 1:30–2pm), Sat 9am–6pm, Sun 10am–6pm',
+    travelNote: 'About 20–25 minutes from Lake Lure.',
+    notes: null,
+    detailsUrl: 'https://www.cvs.com/store-locator/rutherfordton-nc-pharmacies/111-s-main-st-rutherfordton-nc-28139/storeid=3559',
+    source: 'cvs.com',
+    lastVerified: '2026-08-23',
+  },
+  {
+    id: 'walgreens-rutherfordton',
+    category: 'pharmacy',
+    name: 'Walgreens Pharmacy',
+    address: '121 Railroad Ave, Rutherfordton, NC 28139',
+    phone: '828-286-9133',
+    hours: 'Call for current pharmacy hours',
+    travelNote: 'About 20–25 minutes from Lake Lure.',
+    notes: null,
+    detailsUrl: 'https://www.walgreens.com/locator/walgreens-121+railroad+ave-rutherfordton-nc-28139/id=17076',
+    source: 'walgreens.com',
+    lastVerified: '2026-08-23',
+  },
+]
+
+export function healthcareProvidersLastVerified(): string | null {
+  const dates = HEALTHCARE_PROVIDERS.map((p) => p.lastVerified).filter(
     (d): d is string => Boolean(d),
   )
   return dates.length ? dates.sort().at(-1)! : null
