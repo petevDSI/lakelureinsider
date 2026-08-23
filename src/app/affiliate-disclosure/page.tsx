@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 export default function AffiliateDisclosurePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <h1 className="font-display text-3xl font-bold text-[--forest]">
+      <h1 className="font-display text-3xl font-bold text-(--forest)">
         Affiliate Disclosure
       </h1>
-      <p className="mt-2 text-sm text-[--ink]/60">
+      <p className="mt-2 text-sm text-(--ink)/60">
         In compliance with FTC 16 CFR Part 255
       </p>
 

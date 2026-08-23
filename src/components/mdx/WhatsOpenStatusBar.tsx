@@ -19,12 +19,12 @@ interface Item {
 
 function Card({ label, status, note, verified }: Item) {
   return (
-    <div className="flex gap-2.5 rounded-lg border border-[--sand] bg-white p-3 shadow-sm">
+    <div className="flex gap-2.5 rounded-lg border border-(--sand) bg-white p-3 shadow-sm">
       <span className={`mt-1 h-2.5 w-2.5 shrink-0 rounded-full ${DOT[status] ?? 'bg-gray-400'}`} aria-hidden="true" />
       <div>
-        <div className="text-sm font-semibold text-[--forest]">{label}</div>
-        <div className="text-xs text-[--ink]/70">{note}</div>
-        <div className="mt-0.5 text-[0.65rem] text-[--ink]/40">Verified {verified}</div>
+        <div className="text-sm font-semibold text-(--forest)">{label}</div>
+        <div className="text-xs text-(--ink)/70">{note}</div>
+        <div className="mt-0.5 text-[0.65rem] text-(--ink)/40">Verified {verified}</div>
       </div>
     </div>
   )

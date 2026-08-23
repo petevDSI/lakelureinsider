@@ -6,9 +6,9 @@ import type { CompareRow } from '@/lib/compare'
 type SortKey = 'name' | 'targetRate' | 'fullDayRate'
 
 function FuelCell({ included }: { included: boolean | null }) {
-  if (included === null) return <td className="px-3 py-2 text-sm text-[--ink]/40">—</td>
+  if (included === null) return <td className="px-3 py-2 text-sm text-(--ink)/40">—</td>
   return (
-    <td className={`px-3 py-2 text-sm font-medium ${included ? 'text-emerald-700' : 'text-[--ink]/60'}`}>
+    <td className={`px-3 py-2 text-sm font-medium ${included ? 'text-emerald-700' : 'text-(--ink)/60'}`}>
       {included ? 'Yes' : 'No'}
     </td>
   )
@@ -39,7 +39,7 @@ function RateCell({
     <td className="px-3 py-2 text-sm">
       <span className="font-semibold">${price}</span>
       {label && label !== '—' && (
-        <span className="block text-xs text-[--ink]/45">{label}</span>
+        <span className="block text-xs text-(--ink)/45">{label}</span>
       )}
     </td>
   )
@@ -90,11 +90,11 @@ export function PlaceCompareTable({
     const active = sortKey === k
     return (
       <th
-        className="px-3 py-2 text-left text-xs font-semibold text-[--ink]/60 uppercase tracking-wide cursor-pointer select-none hover:text-[--lake] whitespace-nowrap"
+        className="px-3 py-2 text-left text-xs font-semibold text-(--ink)/60 uppercase tracking-wide cursor-pointer select-none hover:text-(--lake) whitespace-nowrap"
         onClick={() => handleSort(k)}
       >
         {label}
-        <span className="ml-1 text-[--ink]/30">{active ? (sortAsc ? '↑' : '↓') : '↕'}</span>
+        <span className="ml-1 text-(--ink)/30">{active ? (sortAsc ? '↑' : '↓') : '↕'}</span>
       </th>
     )
   }
@@ -102,22 +102,22 @@ export function PlaceCompareTable({
   const conflictRows = sorted.filter((r) => r.conflictNote)
 
   return (
-    <div className="not-prose my-6 overflow-x-auto rounded-lg border border-[--sand]">
+    <div className="not-prose my-6 overflow-x-auto rounded-lg border border-(--sand)">
       <table className="w-full min-w-[560px] text-sm">
-        <thead className="bg-[--sand]/60">
+        <thead className="bg-(--sand)/60">
           <tr>
             <SortHeader label="Operator" k="name" />
             <SortHeader label={targetHoursLabel} k="targetRate" />
-            <th className="px-3 py-2 text-left text-xs font-semibold text-[--ink]/60 uppercase tracking-wide whitespace-nowrap">
+            <th className="px-3 py-2 text-left text-xs font-semibold text-(--ink)/60 uppercase tracking-wide whitespace-nowrap">
               Fuel included?
             </th>
             <SortHeader label="Full day (8 hr)" k="fullDayRate" />
           </tr>
         </thead>
-        <tbody className="divide-y divide-[--sand]">
+        <tbody className="divide-y divide-(--sand)">
           {sorted.map((row) => (
-            <tr key={row.id} className="bg-white hover:bg-[--sand]/30">
-              <td className="px-3 py-2 font-medium text-[--forest]">{row.name}</td>
+            <tr key={row.id} className="bg-white hover:bg-(--sand)/30">
+              <td className="px-3 py-2 font-medium text-(--forest)">{row.name}</td>
               <RateCell
                 price={row.targetRate}
                 label={row.targetLabel}
@@ -132,7 +132,7 @@ export function PlaceCompareTable({
       </table>
 
       {conflictRows.length > 0 && (
-        <div className="border-t border-[--sand] bg-amber-50/60 px-3 py-3 space-y-1">
+        <div className="border-t border-(--sand) bg-amber-50/60 px-3 py-3 space-y-1">
           {conflictRows.map((r) => (
             <p key={r.id} className="text-xs text-amber-800">
               <span className="font-semibold">{r.name}:</span> {r.conflictNote}

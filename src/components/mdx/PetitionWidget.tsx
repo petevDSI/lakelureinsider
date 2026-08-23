@@ -72,8 +72,8 @@ export function PetitionWidget() {
   }
 
   return (
-    <div className="not-prose my-10 overflow-hidden rounded-xl border border-[--sand] bg-white">
-      <div className="border-b border-[--sand] bg-[--forest] px-6 py-5 text-center">
+    <div className="not-prose my-10 overflow-hidden rounded-xl border border-(--sand) bg-white">
+      <div className="border-b border-(--sand) bg-(--forest) px-6 py-5 text-center">
         <p className="text-3xl font-bold tabular-nums text-white sm:text-4xl">
           {count === null ? '—' : count.toLocaleString()}
         </p>
@@ -84,10 +84,10 @@ export function PetitionWidget() {
 
       {(status === 'success' || status === 'already') ? (
         <div className="px-6 py-8 text-center">
-          <p className="font-display text-lg font-bold text-[--forest]">
+          <p className="font-display text-lg font-bold text-(--forest)">
             {status === 'already' ? "You're already signed — thank you." : 'Thank you for signing.'}
           </p>
-          <p className="mt-2 text-sm text-[--ink]/70">
+          <p className="mt-2 text-sm text-(--ink)/70">
             Share this page with anyone else who cares about keeping Lured Market open.
           </p>
         </div>
@@ -108,69 +108,69 @@ export function PetitionWidget() {
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            <label className="text-sm font-medium text-[--ink]">
+            <label className="text-sm font-medium text-(--ink)">
               First name *
               <input
                 required
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="mt-1 w-full rounded-md border border-[--sand] px-3 py-2 text-sm"
+                className="mt-1 w-full rounded-md border border-(--sand) px-3 py-2 text-sm"
                 placeholder="Jane"
               />
             </label>
-            <label className="text-sm font-medium text-[--ink]">
+            <label className="text-sm font-medium text-(--ink)">
               Last name *
               <input
                 required
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="mt-1 w-full rounded-md border border-[--sand] px-3 py-2 text-sm"
+                className="mt-1 w-full rounded-md border border-(--sand) px-3 py-2 text-sm"
                 placeholder="Smith"
               />
             </label>
           </div>
 
-          <label className="text-sm font-medium text-[--ink]">
+          <label className="text-sm font-medium text-(--ink)">
             Email *
             <input
               required
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full rounded-md border border-[--sand] px-3 py-2 text-sm"
+              className="mt-1 w-full rounded-md border border-(--sand) px-3 py-2 text-sm"
               placeholder="jane@example.com"
             />
           </label>
 
           <div className="grid gap-3 sm:grid-cols-[2fr_1fr_1fr]">
-            <label className="text-sm font-medium text-[--ink]">
+            <label className="text-sm font-medium text-(--ink)">
               City *
               <input
                 required
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="mt-1 w-full rounded-md border border-[--sand] px-3 py-2 text-sm"
+                className="mt-1 w-full rounded-md border border-(--sand) px-3 py-2 text-sm"
                 placeholder="Lake Lure"
               />
             </label>
-            <label className="text-sm font-medium text-[--ink]">
+            <label className="text-sm font-medium text-(--ink)">
               State *
               <input
                 required
                 value={state}
                 onChange={(e) => setState(e.target.value)}
-                className="mt-1 w-full rounded-md border border-[--sand] px-3 py-2 text-sm"
+                className="mt-1 w-full rounded-md border border-(--sand) px-3 py-2 text-sm"
                 placeholder="NC"
                 maxLength={2}
               />
             </label>
-            <label className="text-sm font-medium text-[--ink]">
+            <label className="text-sm font-medium text-(--ink)">
               ZIP *
               <input
                 required
                 value={zip}
                 onChange={(e) => setZip(e.target.value)}
-                className="mt-1 w-full rounded-md border border-[--sand] px-3 py-2 text-sm"
+                className="mt-1 w-full rounded-md border border-(--sand) px-3 py-2 text-sm"
                 placeholder="28746"
                 inputMode="numeric"
                 maxLength={10}
@@ -178,14 +178,14 @@ export function PetitionWidget() {
             </label>
           </div>
 
-          <label className="text-sm font-medium text-[--ink]">
+          <label className="text-sm font-medium text-(--ink)">
             Why does this matter to you? (optional, may be shown publicly)
             <textarea
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               rows={3}
               maxLength={500}
-              className="mt-1 w-full rounded-md border border-[--sand] px-3 py-2 text-sm"
+              className="mt-1 w-full rounded-md border border-(--sand) px-3 py-2 text-sm"
             />
           </label>
 
@@ -196,12 +196,12 @@ export function PetitionWidget() {
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="mt-1 rounded-md bg-[--clay] px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="mt-1 rounded-md bg-(--clay) px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {status === 'submitting' ? 'Signing…' : 'Sign the Petition'}
           </button>
 
-          <p className="text-[10px] leading-relaxed text-[--ink]/50">
+          <p className="text-[10px] leading-relaxed text-(--ink)/50">
             Your name and city/state may be shown publicly on this page. Your email address and
             ZIP code are never shown or shared — see our{' '}
             <a href="/privacy" className="underline">
@@ -213,18 +213,18 @@ export function PetitionWidget() {
       )}
 
       {recent.length > 0 && (
-        <div className="border-t border-[--sand] px-6 py-5">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[--lake]">
+        <div className="border-t border-(--sand) px-6 py-5">
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-(--lake)">
             Recent signatures
           </p>
           <ul className="space-y-3">
             {recent.map((s, i) => (
               <li key={i} className="text-sm">
-                <span className="font-semibold text-[--forest]">
+                <span className="font-semibold text-(--forest)">
                   {s.first_name} {s.last_name.charAt(0)}.
                 </span>
-                <span className="text-[--ink]/60"> — {s.city}, {s.state}</span>
-                {s.comment && <p className="mt-0.5 text-[--ink]/70">&ldquo;{s.comment}&rdquo;</p>}
+                <span className="text-(--ink)/60"> — {s.city}, {s.state}</span>
+                {s.comment && <p className="mt-0.5 text-(--ink)/70">&ldquo;{s.comment}&rdquo;</p>}
               </li>
             ))}
           </ul>

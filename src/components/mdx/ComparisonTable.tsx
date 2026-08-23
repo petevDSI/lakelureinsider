@@ -9,7 +9,7 @@ export function ComparisonTable({ headers, rows }: ComparisonTableProps) {
       {/* Desktop table */}
       <table className="hidden w-full border-collapse text-sm sm:table">
         <thead>
-          <tr className="bg-[--forest] text-white">
+          <tr className="bg-(--forest) text-white">
             {headers.map((h) => (
               <th key={h} className="px-4 py-3 text-left font-semibold">
                 {h}
@@ -21,10 +21,10 @@ export function ComparisonTable({ headers, rows }: ComparisonTableProps) {
           {rows.map((row, ri) => (
             <tr
               key={ri}
-              className={ri % 2 === 0 ? 'bg-white' : 'bg-[--sand]'}
+              className={ri % 2 === 0 ? 'bg-white' : 'bg-(--sand)'}
             >
               {row.map((cell, ci) => (
-                <td key={ci} className="px-4 py-3 text-[--ink]">
+                <td key={ci} className="px-4 py-3 text-(--ink)">
                   {cell}
                 </td>
               ))}
@@ -38,14 +38,14 @@ export function ComparisonTable({ headers, rows }: ComparisonTableProps) {
         {rows.map((row, ri) => (
           <div
             key={ri}
-            className="rounded-lg border border-[--sand] bg-white p-4"
+            className="rounded-lg border border-(--sand) bg-white p-4"
           >
             {headers.map((header, ci) => (
               <div key={ci} className="flex justify-between py-1">
-                <span className="text-xs font-semibold text-[--ink]/60">
+                <span className="text-xs font-semibold text-(--ink)/60">
                   {header}
                 </span>
-                <span className="text-sm text-[--ink]">{row[ci]}</span>
+                <span className="text-sm text-(--ink)">{row[ci]}</span>
               </div>
             ))}
           </div>

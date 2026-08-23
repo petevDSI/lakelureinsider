@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <h1 className="font-display text-3xl font-bold text-[--forest]">
+      <h1 className="font-display text-3xl font-bold text-(--forest)">
         Privacy Policy
       </h1>
-      <p className="mt-2 text-sm text-[--ink]/60">
+      <p className="mt-2 text-sm text-(--ink)/60">
         Last updated: {new Date().toLocaleDateString('en-US', {
           year: 'numeric', month: '2-digit', day: '2-digit',
           timeZone: 'America/New_York',

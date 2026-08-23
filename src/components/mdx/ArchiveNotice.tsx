@@ -24,12 +24,12 @@ export function ArchiveNotice({ id }: Props) {
   const endDate = item.schedule.end ? formatDate(item.schedule.end) : null
 
   return (
-    <div className="my-6 rounded-lg border border-[--sand] bg-[--sand]/40 px-4 py-3 text-sm text-[--ink]/70">
-      <span className="font-semibold text-[--ink]">This event ended{endDate ? ` ${endDate}` : ''}.</span>
+    <div className="my-6 rounded-lg border border-(--sand) bg-(--sand)/40 px-4 py-3 text-sm text-(--ink)/70">
+      <span className="font-semibold text-(--ink)">This event ended{endDate ? ` ${endDate}` : ''}.</span>
       {item.archiveSlug && (
         <> You&apos;re viewing the archived page.{' '}
           {item.nextOccurrenceUrl ? (
-            <Link href={item.nextOccurrenceUrl} className="text-[--lake] underline underline-offset-2">
+            <Link href={item.nextOccurrenceUrl} className="text-(--lake) underline underline-offset-2">
               See the current listing →
             </Link>
           ) : (

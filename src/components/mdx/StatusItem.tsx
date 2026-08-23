@@ -24,14 +24,14 @@ export function StatusItem({ name, status, detail, sourceUrl, sourceLabel, verif
       <span className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full ${c.dot}`} aria-hidden="true" />
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-          <strong className="text-[--forest]">{name}</strong>
-          <span className="text-[0.7rem] font-bold uppercase tracking-wider text-[--ink]/40">{c.label}</span>
+          <strong className="text-(--forest)">{name}</strong>
+          <span className="text-[0.7rem] font-bold uppercase tracking-wider text-(--ink)/40">{c.label}</span>
         </div>
-        <p className="mt-0.5 text-sm leading-snug text-[--ink]/80">{detail}</p>
+        <p className="mt-0.5 text-sm leading-snug text-(--ink)/80">{detail}</p>
         {(sourceUrl || verified) && (
-          <p className="mt-1.5 text-[0.7rem] text-[--ink]/40">
+          <p className="mt-1.5 text-[0.7rem] text-(--ink)/40">
             {sourceUrl && (
-              <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[--lake]">
+              <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-(--lake)">
                 {sourceLabel ?? sourceUrl}
               </a>
             )}

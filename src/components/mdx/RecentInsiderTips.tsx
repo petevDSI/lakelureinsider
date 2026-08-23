@@ -12,7 +12,7 @@ export function RecentInsiderTips({ cluster, heading = 'Insider Tips' }: Props) 
 
   return (
     <div className="not-prose my-8">
-      <h2 className="font-display text-xl font-semibold text-[--forest] mb-3">{heading}</h2>
+      <h2 className="font-display text-xl font-semibold text-(--forest) mb-3">{heading}</h2>
       <div className="space-y-3">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />
@@ -20,7 +20,7 @@ export function RecentInsiderTips({ cluster, heading = 'Insider Tips' }: Props) 
       </div>
       <a
         href="/insider-tips"
-        className="mt-3 inline-block text-sm font-medium text-[--lake] hover:underline"
+        className="mt-3 inline-block text-sm font-medium text-(--lake) hover:underline"
       >
         All insider tips →
       </a>

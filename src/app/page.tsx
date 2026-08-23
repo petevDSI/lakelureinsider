@@ -69,8 +69,8 @@ const FEATURED_CARDS = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero — bg-[--forest] is the opaque fallback if image is missing or slow */}
-      <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-[--forest] px-page pb-16 pt-24">
+      {/* Hero — bg-(--forest) is the opaque fallback if image is missing or slow */}
+      <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-(--forest) px-page pb-16 pt-24">
         <Image
           src="/images/home.jpg"
           alt="View of Lake Lure from Chimney Rock, NC"
@@ -99,7 +99,7 @@ export default function HomePage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/trip-planning"
-              className="rounded-md bg-[--clay] px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+              className="rounded-md bg-(--clay) px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
             >
               Plan Your Trip
             </Link>
@@ -114,16 +114,16 @@ export default function HomePage() {
       </section>
 
       {/* Community advocacy banner */}
-      <div className="border-b border-[--sand] bg-[--clay]/10 px-page py-4">
+      <div className="border-b border-(--sand) bg-(--clay)/10 px-page py-4">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
-          <p className="text-sm font-semibold text-[--forest]">
+          <p className="text-sm font-semibold text-(--forest)">
             The Town of Lake Lure moved to evict Lured Market &amp; Grill. Here&apos;s what the court file actually shows.
           </p>
           <div className="flex shrink-0 gap-3">
-            <Link href="/news/lured-market-town-lease-fight" className="text-sm font-semibold text-[--lake] underline-offset-2 hover:underline">
+            <Link href="/news/lured-market-town-lease-fight" className="text-sm font-semibold text-(--lake) underline-offset-2 hover:underline">
               Read the investigation →
             </Link>
-            <Link href="/petition" className="rounded-md bg-[--clay] px-4 py-1.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
+            <Link href="/petition" className="rounded-md bg-(--clay) px-4 py-1.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
               Sign the petition
             </Link>
           </div>
@@ -131,15 +131,15 @@ export default function HomePage() {
       </div>
 
       {/* What's Open Now status bar */}
-      <div className="border-b border-[--sand] bg-white px-page py-4">
+      <div className="border-b border-(--sand) bg-white px-page py-4">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-          <p className="text-sm font-semibold text-[--forest]">
+          <p className="text-sm font-semibold text-(--forest)">
             <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
             Chimney Rock open · Lake Lure open · Beach open through Sept 7
           </p>
           <Link
             href="/whats-open-now"
-            className="shrink-0 text-sm font-semibold text-[--lake] underline-offset-2 hover:underline"
+            className="shrink-0 text-sm font-semibold text-(--lake) underline-offset-2 hover:underline"
           >
             Full status →
           </Link>
@@ -148,22 +148,22 @@ export default function HomePage() {
 
       {/* Feature cards */}
       <section className="mx-auto max-w-6xl px-page py-16">
-        <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[--lake]">
+        <p className="mb-2 text-xs font-bold uppercase tracking-widest text-(--lake)">
           Start Here
         </p>
-        <h2 className="mb-8 font-display text-3xl font-bold text-[--forest]">
+        <h2 className="mb-8 font-display text-3xl font-bold text-(--forest)">
           Explore the Area
         </h2>
         <CardGrid cards={FEATURED_CARDS} feature />
       </section>
 
       {/* Quick nav clusters */}
-      <section className="bg-[--sand] py-14">
+      <section className="bg-(--sand) py-14">
         <div className="mx-auto max-w-6xl px-page">
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[--lake]">
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-(--lake)">
             Find What You Need
           </p>
-          <h2 className="mb-8 font-display text-2xl font-bold text-[--forest]">
+          <h2 className="mb-8 font-display text-2xl font-bold text-(--forest)">
             Browse by Topic
           </h2>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
@@ -180,7 +180,7 @@ export default function HomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex flex-col items-center justify-center rounded-xl bg-white px-3 py-5 text-center text-sm font-semibold text-[--forest] shadow-sm transition-shadow hover:shadow-md"
+                className="flex flex-col items-center justify-center rounded-xl bg-white px-3 py-5 text-center text-sm font-semibold text-(--forest) shadow-sm transition-shadow hover:shadow-md"
               >
                 {item.label}
               </Link>

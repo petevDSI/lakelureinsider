@@ -21,23 +21,23 @@ function Stepper({
 }) {
   return (
     <div className="flex items-center justify-between gap-3">
-      <label className="text-sm font-medium text-[--ink]">{label}</label>
+      <label className="text-sm font-medium text-(--ink)">{label}</label>
       <div className="flex items-center gap-2">
         <button
           onClick={() => onChange(Math.max(min, value - 1))}
           disabled={value <= min}
-          className="flex h-7 w-7 items-center justify-center rounded border border-[--sand] text-[--ink] transition-colors hover:bg-[--sand] disabled:opacity-30"
+          className="flex h-7 w-7 items-center justify-center rounded border border-(--sand) text-(--ink) transition-colors hover:bg-(--sand) disabled:opacity-30"
           aria-label={`Decrease ${label}`}
         >
           −
         </button>
-        <span className="w-6 text-center text-sm font-semibold tabular-nums text-[--ink]">
+        <span className="w-6 text-center text-sm font-semibold tabular-nums text-(--ink)">
           {value}
         </span>
         <button
           onClick={() => onChange(Math.min(max, value + 1))}
           disabled={value >= max}
-          className="flex h-7 w-7 items-center justify-center rounded border border-[--sand] text-[--ink] transition-colors hover:bg-[--sand] disabled:opacity-30"
+          className="flex h-7 w-7 items-center justify-center rounded border border-(--sand) text-(--ink) transition-colors hover:bg-(--sand) disabled:opacity-30"
           aria-label={`Increase ${label}`}
         >
           +
@@ -95,12 +95,12 @@ export function PassCalculator() {
     : null
 
   return (
-    <div className="not-prose my-10 rounded-xl border border-[--sand] bg-white">
-      <div className="border-b border-[--sand] px-5 py-4">
-        <p className="font-display font-bold text-[--forest]">
+    <div className="not-prose my-10 rounded-xl border border-(--sand) bg-white">
+      <div className="border-b border-(--sand) px-5 py-4">
+        <p className="font-display font-bold text-(--forest)">
           Pass vs. Day Tickets Calculator
         </p>
-        <p className="mt-0.5 text-xs text-[--ink]/60">
+        <p className="mt-0.5 text-xs text-(--ink)/60">
           All prices from facts.ts — verified {CR_PRICES.adultDay > 0 ? '2026-08-02' : ''}
         </p>
       </div>
@@ -113,53 +113,53 @@ export function PassCalculator() {
       </div>
 
       {/* Results table */}
-      <div className="overflow-x-auto border-t border-[--sand]">
+      <div className="overflow-x-auto border-t border-(--sand)">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-[--sand]/60">
-              <th className="px-5 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[--ink]/60">
+            <tr className="bg-(--sand)/60">
+              <th className="px-5 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-(--ink)/60">
                 Option
               </th>
-              <th className="px-5 py-2.5 text-right text-xs font-semibold uppercase tracking-wide text-[--ink]/60">
+              <th className="px-5 py-2.5 text-right text-xs font-semibold uppercase tracking-wide text-(--ink)/60">
                 Total
               </th>
-              <th className="px-5 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[--ink]/60">
+              <th className="px-5 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-(--ink)/60">
                 Note
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[--sand]">
+          <tbody className="divide-y divide-(--sand)">
             {options.map((opt) => {
               const isWinner = opt.cost === minCost
               return (
                 <tr
                   key={opt.name}
-                  className={isWinner ? 'bg-[--lake]/5' : ''}
+                  className={isWinner ? 'bg-(--lake)/5' : ''}
                 >
                   <td className="px-5 py-3">
                     <span
                       className={
                         isWinner
-                          ? 'font-semibold text-[--lake]'
-                          : 'text-[--ink]'
+                          ? 'font-semibold text-(--lake)'
+                          : 'text-(--ink)'
                       }
                     >
                       {opt.name}
                     </span>
                     {isWinner && (
-                      <span className="ml-2 rounded-full bg-[--lake] px-1.5 py-0.5 text-[10px] font-bold text-white">
+                      <span className="ml-2 rounded-full bg-(--lake) px-1.5 py-0.5 text-[10px] font-bold text-white">
                         Best
                       </span>
                     )}
                   </td>
                   <td
                     className={`px-5 py-3 text-right tabular-nums ${
-                      isWinner ? 'font-bold text-[--lake]' : 'text-[--ink]'
+                      isWinner ? 'font-bold text-(--lake)' : 'text-(--ink)'
                     }`}
                   >
                     {fmt(opt.cost)}
                   </td>
-                  <td className="px-5 py-3 text-xs text-[--ink]/60">
+                  <td className="px-5 py-3 text-xs text-(--ink)/60">
                     {opt.note ?? ''}
                   </td>
                 </tr>
@@ -170,13 +170,13 @@ export function PassCalculator() {
       </div>
 
       {/* Verdict */}
-      <div className="border-t border-[--sand] bg-[--sand]/40 px-5 py-4">
+      <div className="border-t border-(--sand) bg-(--sand)/40 px-5 py-4">
         <p className="text-sm">
-          <span className="font-semibold text-[--forest]">
+          <span className="font-semibold text-(--forest)">
             For {visits} visit{visits > 1 ? 's' : ''}: {verdict}
           </span>
           {familyCost !== null && youth === 1 && (
-            <span className="ml-1 text-[--clay]">
+            <span className="ml-1 text-(--clay)">
               — the family pass costs ${familyAnnual - individualAnnual} more
               for 2 adults + 1 youth.
             </span>
@@ -185,7 +185,7 @@ export function PassCalculator() {
 
         {/* Breakeven callout */}
         {visits < dayVsIndividual && (
-          <p className="mt-1 text-xs text-[--ink]/60">
+          <p className="mt-1 text-xs text-(--ink)/60">
             Individual passes pay off at {dayVsIndividual}+ visits
             {dayVsFamily !== null && dayVsFamily !== dayVsIndividual
               ? `; family pass pays off at ${dayVsFamily}+ visits`
@@ -195,20 +195,20 @@ export function PassCalculator() {
         )}
 
         {!familyApplicable && adults === 2 && youth > 3 && (
-          <p className="mt-2 text-xs text-[--clay]">
+          <p className="mt-2 text-xs text-(--clay)">
             Family pass covers up to 3 youth; you have {youth}. Add individual
             passes for the extra {youth - 3} youth.
           </p>
         )}
         {!familyApplicable && adults !== 2 && (
-          <p className="mt-2 text-xs text-[--ink]/50">
+          <p className="mt-2 text-xs text-(--ink)/50">
             Family annual pass covers 2 adults + up to 3 youth. Not shown for
             other adult counts.
           </p>
         )}
       </div>
 
-      <p className="px-5 py-2 text-[10px] text-[--ink]/40">
+      <p className="px-5 py-2 text-[10px] text-(--ink)/40">
         Prices: adult day {fmt(adultDay)}, youth day {fmt(youthDay)}, adult
         annual {fmt(adultAnnual)}, youth annual {fmt(youthAnnual)}, family
         annual {fmt(familyAnnual)}.

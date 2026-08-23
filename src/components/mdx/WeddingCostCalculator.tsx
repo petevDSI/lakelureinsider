@@ -28,23 +28,23 @@ function Stepper({
 }) {
   return (
     <div className="flex items-center justify-between gap-3">
-      <label className="text-sm font-medium text-[--ink]">{label}</label>
+      <label className="text-sm font-medium text-(--ink)">{label}</label>
       <div className="flex items-center gap-2">
         <button
           onClick={() => onChange(Math.max(min, value - 1))}
           disabled={value <= min}
-          className="flex h-7 w-7 items-center justify-center rounded border border-[--sand] text-[--ink] transition-colors hover:bg-[--sand] disabled:opacity-30"
+          className="flex h-7 w-7 items-center justify-center rounded border border-(--sand) text-(--ink) transition-colors hover:bg-(--sand) disabled:opacity-30"
           aria-label={`Decrease ${label}`}
         >
           −
         </button>
-        <span className="w-8 text-center text-sm font-semibold tabular-nums text-[--ink]">
+        <span className="w-8 text-center text-sm font-semibold tabular-nums text-(--ink)">
           {value}
         </span>
         <button
           onClick={() => onChange(Math.min(max, value + 1))}
           disabled={value >= max}
-          className="flex h-7 w-7 items-center justify-center rounded border border-[--sand] text-[--ink] transition-colors hover:bg-[--sand] disabled:opacity-30"
+          className="flex h-7 w-7 items-center justify-center rounded border border-(--sand) text-(--ink) transition-colors hover:bg-(--sand) disabled:opacity-30"
           aria-label={`Increase ${label}`}
         >
           +
@@ -103,10 +103,10 @@ export function WeddingCostCalculator() {
   const insight = getInsight(adults, youth)
 
   return (
-    <div className="not-prose my-10 rounded-xl border border-[--sand] bg-white">
-      <div className="border-b border-[--sand] px-5 py-4">
-        <p className="font-display font-bold text-[--forest]">Wedding Cost Calculator</p>
-        <p className="mt-0.5 text-xs text-[--ink]/60">
+    <div className="not-prose my-10 rounded-xl border border-(--sand) bg-white">
+      <div className="border-b border-(--sand) px-5 py-4">
+        <p className="font-display font-bold text-(--forest)">Wedding Cost Calculator</p>
+        <p className="mt-0.5 text-xs text-(--ink)/60">
           Ceremony fee + park admission + optional reception rental — verified 2026-08-02
         </p>
       </div>
@@ -122,16 +122,16 @@ export function WeddingCostCalculator() {
         />
       </div>
 
-      <div className="border-t border-[--sand] px-5 py-3">
-        <p className="mb-2 text-sm font-medium text-[--ink]">Reception rental (optional)</p>
+      <div className="border-t border-(--sand) px-5 py-3">
+        <p className="mb-2 text-sm font-medium text-(--ink)">Reception rental (optional)</p>
         <div className="grid gap-2 sm:grid-cols-2">
           {CR_WEDDING_RENTALS.map((opt) => (
             <label
               key={opt.key}
               className={`flex cursor-pointer items-start gap-2.5 rounded-lg border p-3 text-sm transition-colors ${
                 rentalKey === opt.key
-                  ? 'border-[--lake] bg-[--lake]/5'
-                  : 'border-[--sand] hover:border-[--lake]/40'
+                  ? 'border-(--lake) bg-(--lake)/5'
+                  : 'border-(--sand) hover:border-(--lake)/40'
               }`}
             >
               <input
@@ -140,14 +140,14 @@ export function WeddingCostCalculator() {
                 value={opt.key}
                 checked={rentalKey === opt.key}
                 onChange={() => setRentalKey(opt.key)}
-                className="mt-0.5 accent-[--lake]"
+                className="mt-0.5 accent-(--lake)"
               />
               <span>
-                <span className="font-medium text-[--forest]">{opt.label}</span>
+                <span className="font-medium text-(--forest)">{opt.label}</span>
                 {opt.duration && (
-                  <span className="text-[--ink]/60"> — {opt.duration}</span>
+                  <span className="text-(--ink)/60"> — {opt.duration}</span>
                 )}
-                <span className="mt-0.5 block font-semibold text-[--ink]">
+                <span className="mt-0.5 block font-semibold text-(--ink)">
                   {opt.price === 0 ? 'No extra charge' : fmt(opt.price)}
                 </span>
               </span>
@@ -160,8 +160,8 @@ export function WeddingCostCalculator() {
         <div
           className={`mx-5 mt-3 rounded-lg px-4 py-3 text-sm ${
             insight.type === 'save'
-              ? 'bg-[--lake]/10 text-[--lake]'
-              : 'bg-[--clay]/10 text-[--clay]'
+              ? 'bg-(--lake)/10 text-(--lake)'
+              : 'bg-(--clay)/10 text-(--clay)'
           }`}
         >
           <span className="font-semibold">{insight.type === 'save' ? '⚡ Insider: ' : '⚠ Note: '}</span>
@@ -169,40 +169,40 @@ export function WeddingCostCalculator() {
         </div>
       )}
 
-      <div className="mt-4 border-t border-[--sand]">
+      <div className="mt-4 border-t border-(--sand)">
         <table className="w-full text-sm">
-          <tbody className="divide-y divide-[--sand]">
+          <tbody className="divide-y divide-(--sand)">
             <tr>
-              <td className="px-5 py-3 text-[--ink]/70">Wedding ceremony fee ({total} guests)</td>
-              <td className="px-5 py-3 text-right tabular-nums font-medium text-[--ink]">
+              <td className="px-5 py-3 text-(--ink)/70">Wedding ceremony fee ({total} guests)</td>
+              <td className="px-5 py-3 text-right tabular-nums font-medium text-(--ink)">
                 {fmt(fee)}
               </td>
             </tr>
             <tr>
-              <td className="px-5 py-3 text-[--ink]/70">
+              <td className="px-5 py-3 text-(--ink)/70">
                 Park admission — {adults} adult{adults !== 1 ? 's' : ''}
                 {youth > 0 ? `, ${youth} youth` : ''}
                 {isGroup && (
-                  <span className="ml-1.5 rounded bg-[--lake]/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[--lake]">
+                  <span className="ml-1.5 rounded bg-(--lake)/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-(--lake)">
                     group rate
                   </span>
                 )}
               </td>
-              <td className="px-5 py-3 text-right tabular-nums font-medium text-[--ink]">
+              <td className="px-5 py-3 text-right tabular-nums font-medium text-(--ink)">
                 {fmt(admission)}
               </td>
             </tr>
             {rental.price > 0 && (
               <tr>
-                <td className="px-5 py-3 text-[--ink]/70">{rental.label}</td>
-                <td className="px-5 py-3 text-right tabular-nums font-medium text-[--ink]">
+                <td className="px-5 py-3 text-(--ink)/70">{rental.label}</td>
+                <td className="px-5 py-3 text-right tabular-nums font-medium text-(--ink)">
                   {fmt(rental.price)}
                 </td>
               </tr>
             )}
-            <tr className="bg-[--sand]/50">
-              <td className="px-5 py-4 font-bold text-[--forest]">Estimated Total</td>
-              <td className="px-5 py-4 text-right text-lg font-bold tabular-nums text-[--forest]">
+            <tr className="bg-(--sand)/50">
+              <td className="px-5 py-4 font-bold text-(--forest)">Estimated Total</td>
+              <td className="px-5 py-4 text-right text-lg font-bold tabular-nums text-(--forest)">
                 {fmt(grandTotal)}
               </td>
             </tr>
@@ -210,7 +210,7 @@ export function WeddingCostCalculator() {
         </table>
       </div>
 
-      <p className="px-5 py-2 text-[10px] text-[--ink]/40">
+      <p className="px-5 py-2 text-[10px] text-(--ink)/40">
         Admission: {isGroup
           ? `group rate ${fmt(CR_WEDDING_ADMISSION.groupAdult)}/adult, ${fmt(CR_WEDDING_ADMISSION.groupYouth)}/youth (10+ guests)`
           : `standard ${fmt(CR_WEDDING_ADMISSION.standardAdult)}/adult, ${fmt(CR_WEDDING_ADMISSION.standardYouth)}/youth`}.{' '}

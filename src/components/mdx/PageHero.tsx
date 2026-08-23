@@ -26,11 +26,11 @@ export function PageHero({
   return (
     /*
      * full-bleed: escapes the article's px-page + max-w container to span 100vw.
-     * bg-[--forest]: opaque fallback — text remains readable if the image is
+     * bg-(--forest): opaque fallback — text remains readable if the image is
      * missing, slow to load, or fails entirely. Acceptance criterion: delete all
      * images; hero must still be legible.
      */
-    <div className="full-bleed relative h-[60vh] min-h-[340px] overflow-hidden bg-[--forest]">
+    <div className="full-bleed relative h-[60vh] min-h-[340px] overflow-hidden bg-(--forest)">
       <Image
         src={imageSrc}
         alt={imageAlt}

@@ -13,20 +13,20 @@ export function AffiliateCTA({ affiliateId, headline, subtext }: AffiliateCTAPro
     return null
   }
   return (
-    <div className="not-prose my-10 rounded-lg bg-[--sand] px-6 py-7 text-center">
-      <p className="mb-1 text-xl font-bold text-[--forest]">{headline}</p>
+    <div className="not-prose my-10 rounded-lg bg-(--sand) px-6 py-7 text-center">
+      <p className="mb-1 text-xl font-bold text-(--forest)">{headline}</p>
       {subtext && (
-        <p className="mb-4 text-sm text-[--ink]/70">{subtext}</p>
+        <p className="mb-4 text-sm text-(--ink)/70">{subtext}</p>
       )}
       <a
         href={entry.url}
         rel="sponsored nofollow noopener"
         target="_blank"
-        className="inline-block rounded-md bg-[--clay] px-7 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+        className="inline-block rounded-md bg-(--clay) px-7 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
       >
         {entry.label}
       </a>
-      <p className="mt-3 text-xs text-[--ink]/50">
+      <p className="mt-3 text-xs text-(--ink)/50">
         This is an affiliate link. We may earn a commission at no extra cost to you.{' '}
         <a href="/affiliate-disclosure" className="underline">
           Disclosure

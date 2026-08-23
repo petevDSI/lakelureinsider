@@ -27,7 +27,7 @@ export function Card({
     <Link
       href={href}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-      className={`group flex flex-col overflow-hidden rounded-xl border border-[--sand] bg-white transition-shadow hover:shadow-lg ${
+      className={`group flex flex-col overflow-hidden rounded-xl border border-(--sand) bg-white transition-shadow hover:shadow-lg ${
         featured ? 'sm:col-span-2' : ''
       }`}
     >
@@ -44,21 +44,21 @@ export function Card({
       )}
       <div className="flex flex-1 flex-col p-4">
         {category && (
-          <span className="mb-1 text-xs font-semibold uppercase tracking-widest text-[--lake]">
+          <span className="mb-1 text-xs font-semibold uppercase tracking-widest text-(--lake)">
             {category}
           </span>
         )}
-        <h3 className="font-display font-bold text-[--ink] group-hover:text-[--lake]">
+        <h3 className="font-display font-bold text-(--ink) group-hover:text-(--lake)">
           {title}
           {external && (
-            <span className="ml-1 inline-block text-[--ink]/40" aria-hidden="true">
+            <span className="ml-1 inline-block text-(--ink)/40" aria-hidden="true">
               ↗
             </span>
           )}
         </h3>
         {description && (
           <p
-            className={`mt-2 text-sm leading-relaxed text-[--ink]/70 ${
+            className={`mt-2 text-sm leading-relaxed text-(--ink)/70 ${
               featured ? '' : 'line-clamp-3'
             }`}
           >

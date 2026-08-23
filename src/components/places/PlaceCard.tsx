@@ -11,7 +11,7 @@ const TAG_LABELS: Record<PlaceTag, string> = {
 
 function Chip({ label }: { label: string }) {
   return (
-    <span className="inline-block rounded-full border border-[--lake]/30 bg-[--lake]/8 px-2 py-0.5 text-xs font-medium text-[--lake]">
+    <span className="inline-block rounded-full border border-(--lake)/30 bg-(--lake)/8 px-2 py-0.5 text-xs font-medium text-(--lake)">
       {label}
     </span>
   )
@@ -29,14 +29,14 @@ function RateSummary({ record }: { record: PlaceRecord }) {
   if (!record.rateCards || record.rateCards.length === 0) {
     if (record.priceFrom != null) {
       return (
-        <p className="text-sm text-[--ink]/70">
-          From <span className="font-semibold text-[--ink]">${record.priceFrom}</span>
-          {record.priceUnit && <span className="text-[--ink]/50"> {record.priceUnit}</span>}
+        <p className="text-sm text-(--ink)/70">
+          From <span className="font-semibold text-(--ink)">${record.priceFrom}</span>
+          {record.priceUnit && <span className="text-(--ink)/50"> {record.priceUnit}</span>}
         </p>
       )
     }
     if (record.priceNotes) {
-      return <p className="text-sm text-[--ink]/60 italic">{record.priceNotes}</p>
+      return <p className="text-sm text-(--ink)/60 italic">{record.priceNotes}</p>
     }
     return null
   }
@@ -46,21 +46,21 @@ function RateSummary({ record }: { record: PlaceRecord }) {
       {record.rateCards.map((card, i) => (
         <div key={i} className={card.unconfirmed ? 'opacity-70' : undefined}>
           {card.label && (
-            <p className="text-xs font-medium text-[--ink]/60 uppercase tracking-wide mb-1">
+            <p className="text-xs font-medium text-(--ink)/60 uppercase tracking-wide mb-1">
               {card.label}
               {card.unconfirmed && <span className="text-amber-600"> — unconfirmed</span>}
             </p>
           )}
           <div className="flex flex-wrap gap-x-4 gap-y-1">
             {card.rates.map((rate, j) => (
-              <span key={j} className="text-sm text-[--ink]/80">
+              <span key={j} className="text-sm text-(--ink)/80">
                 <span className="font-semibold">${rate.price}</span>
-                <span className="text-[--ink]/50"> / {rate.duration}</span>
+                <span className="text-(--ink)/50"> / {rate.duration}</span>
               </span>
             ))}
           </div>
           {card.fuelIncluded != null && (
-            <p className="text-xs text-[--ink]/50 mt-0.5">
+            <p className="text-xs text-(--ink)/50 mt-0.5">
               Fuel {card.fuelIncluded ? 'included' : 'not included'}
             </p>
           )}
@@ -72,13 +72,13 @@ function RateSummary({ record }: { record: PlaceRecord }) {
 
 export function PlaceCard({ record }: { record: PlaceRecord }) {
   return (
-    <div className="rounded-lg border border-[--sand] bg-white p-4 flex flex-col gap-3">
+    <div className="rounded-lg border border-(--sand) bg-white p-4 flex flex-col gap-3">
       <div>
-        <h3 className="font-display font-semibold text-[--forest] text-lg leading-tight">
+        <h3 className="font-display font-semibold text-(--forest) text-lg leading-tight">
           {record.name}
         </h3>
         {record.address && (
-          <p className="text-sm text-[--ink]/50 mt-0.5">{record.address}</p>
+          <p className="text-sm text-(--ink)/50 mt-0.5">{record.address}</p>
         )}
       </div>
 
@@ -93,7 +93,7 @@ export function PlaceCard({ record }: { record: PlaceRecord }) {
       )}
 
       {record.insiderNote && (
-        <p className="text-sm text-[--ink]/70 border-l-2 border-[--clay] pl-3">
+        <p className="text-sm text-(--ink)/70 border-l-2 border-(--clay) pl-3">
           {record.insiderNote}
         </p>
       )}
@@ -102,7 +102,7 @@ export function PlaceCard({ record }: { record: PlaceRecord }) {
         {record.phone && (
           <a
             href={`tel:${record.phone.replace(/\D/g, '')}`}
-            className="text-sm font-medium text-[--lake] hover:underline"
+            className="text-sm font-medium text-(--lake) hover:underline"
           >
             {record.phone}
           </a>
@@ -112,14 +112,14 @@ export function PlaceCard({ record }: { record: PlaceRecord }) {
             href={record.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-[--lake] hover:underline"
+            className="text-sm font-medium text-(--lake) hover:underline"
           >
             Website →
           </a>
         )}
       </div>
 
-      <p className="text-xs text-[--ink]/35 mt-auto">
+      <p className="text-xs text-(--ink)/35 mt-auto">
         Verified {record.lastVerified}
       </p>
     </div>

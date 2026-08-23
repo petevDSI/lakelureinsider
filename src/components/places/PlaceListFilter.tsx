@@ -32,8 +32,8 @@ export function PlaceListFilter({ places }: { places: PlaceRecord[] }) {
             onClick={() => setActiveTag(null)}
             className={`rounded-full border px-3 py-1 text-sm font-medium transition-colors ${
               activeTag === null
-                ? 'border-[--lake] bg-[--lake] text-white'
-                : 'border-[--sand] bg-white text-[--ink]/70 hover:border-[--lake]/50'
+                ? 'border-(--lake) bg-(--lake) text-white'
+                : 'border-(--sand) bg-white text-(--ink)/70 hover:border-(--lake)/50'
             }`}
           >
             All
@@ -44,8 +44,8 @@ export function PlaceListFilter({ places }: { places: PlaceRecord[] }) {
               onClick={() => setActiveTag(activeTag === tag ? null : tag)}
               className={`rounded-full border px-3 py-1 text-sm font-medium transition-colors ${
                 activeTag === tag
-                  ? 'border-[--lake] bg-[--lake] text-white'
-                  : 'border-[--sand] bg-white text-[--ink]/70 hover:border-[--lake]/50'
+                  ? 'border-(--lake) bg-(--lake) text-white'
+                  : 'border-(--sand) bg-white text-(--ink)/70 hover:border-(--lake)/50'
               }`}
             >
               {TAG_LABELS[tag] ?? tag}
@@ -55,7 +55,7 @@ export function PlaceListFilter({ places }: { places: PlaceRecord[] }) {
       )}
 
       {filtered.length === 0 ? (
-        <p className="text-sm text-[--ink]/50 py-4">No results for this filter.</p>
+        <p className="text-sm text-(--ink)/50 py-4">No results for this filter.</p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
           {filtered.map((place) => (

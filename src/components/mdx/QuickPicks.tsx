@@ -17,7 +17,7 @@ export function QuickPicks({ picks }: QuickPicksProps) {
         <Link
           key={pick.href}
           href={pick.href}
-          className="rounded-full border border-[--lake] px-4 py-1.5 text-sm font-medium text-[--lake] transition-colors hover:bg-[--lake] hover:text-white"
+          className="rounded-full border border-(--lake) px-4 py-1.5 text-sm font-medium text-(--lake) transition-colors hover:bg-(--lake) hover:text-white"
         >
           {pick.label}
         </Link>

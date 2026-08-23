@@ -19,8 +19,8 @@ export function FilterablePostList({ posts }: { posts: InsiderPost[] }) {
             onClick={() => setActiveTag(null)}
             className={`rounded-full border px-3 py-1 text-sm font-medium transition-colors ${
               activeTag === null
-                ? 'border-[--lake] bg-[--lake] text-white'
-                : 'border-[--sand] bg-white text-[--ink]/70 hover:border-[--lake]/50'
+                ? 'border-(--lake) bg-(--lake) text-white'
+                : 'border-(--sand) bg-white text-(--ink)/70 hover:border-(--lake)/50'
             }`}
           >
             All
@@ -31,8 +31,8 @@ export function FilterablePostList({ posts }: { posts: InsiderPost[] }) {
               onClick={() => setActiveTag(activeTag === tag ? null : tag)}
               className={`rounded-full border px-3 py-1 text-sm font-medium transition-colors ${
                 activeTag === tag
-                  ? 'border-[--lake] bg-[--lake] text-white'
-                  : 'border-[--sand] bg-white text-[--ink]/70 hover:border-[--lake]/50'
+                  ? 'border-(--lake) bg-(--lake) text-white'
+                  : 'border-(--sand) bg-white text-(--ink)/70 hover:border-(--lake)/50'
               }`}
             >
               {tag}
@@ -42,7 +42,7 @@ export function FilterablePostList({ posts }: { posts: InsiderPost[] }) {
       )}
 
       {filtered.length === 0 ? (
-        <p className="text-sm text-[--ink]/50 py-4">No posts with this tag yet.</p>
+        <p className="text-sm text-(--ink)/50 py-4">No posts with this tag yet.</p>
       ) : (
         <div className="space-y-3">
           {filtered.map((post) => (

@@ -33,9 +33,9 @@ function compare(a: number | null, b: number | null): number {
 }
 
 function YesNo({ value }: { value: boolean | null }) {
-  if (value === null) return <span className="text-[--ink]/40">—</span>
+  if (value === null) return <span className="text-(--ink)/40">—</span>
   return (
-    <span className={value ? 'text-[--forest]' : 'text-[--ink]/50'}>
+    <span className={value ? 'text-(--forest)' : 'text-(--ink)/50'}>
       {value ? 'Yes' : 'No'}
     </span>
   )
@@ -72,8 +72,8 @@ export function BoatRentalTable() {
               aria-pressed={type === f.value}
               className={
                 type === f.value
-                  ? 'rounded-full border border-[--lake] bg-[--lake] px-3 py-1 text-sm text-white'
-                  : 'rounded-full border border-[--sand] bg-white px-3 py-1 text-sm text-[--ink] transition hover:border-[--lake]'
+                  ? 'rounded-full border border-(--lake) bg-(--lake) px-3 py-1 text-sm text-white'
+                  : 'rounded-full border border-(--sand) bg-white px-3 py-1 text-sm text-(--ink) transition hover:border-(--lake)'
               }
             >
               {f.label}
@@ -81,12 +81,12 @@ export function BoatRentalTable() {
           ))}
         </div>
 
-        <label className="ml-auto flex items-center gap-2 text-sm text-[--ink]/70">
+        <label className="ml-auto flex items-center gap-2 text-sm text-(--ink)/70">
           Sort by
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as SortKey)}
-            className="rounded-md border border-[--sand] bg-white px-2 py-1 text-[--ink]"
+            className="rounded-md border border-(--sand) bg-white px-2 py-1 text-(--ink)"
           >
             <option value="fullDay">Full day price</option>
             <option value="halfDay">Half day price</option>
@@ -100,7 +100,7 @@ export function BoatRentalTable() {
       <div className="overflow-x-auto">
         <table className="hidden w-full border-collapse text-sm sm:table">
           <thead>
-            <tr className="bg-[--forest] text-white">
+            <tr className="bg-(--forest) text-white">
               <th className="px-4 py-3 text-left font-semibold">Operator</th>
               <th className="px-4 py-3 text-left font-semibold">Capacity</th>
               <th className="px-4 py-3 text-left font-semibold">Hourly</th>
@@ -112,14 +112,14 @@ export function BoatRentalTable() {
           </thead>
           <tbody>
             {rows.map((o, ri) => (
-              <tr key={o.id} className={ri % 2 === 0 ? 'bg-white' : 'bg-[--sand]'}>
-                <td className="px-4 py-3 text-[--ink]">
+              <tr key={o.id} className={ri % 2 === 0 ? 'bg-white' : 'bg-(--sand)'}>
+                <td className="px-4 py-3 text-(--ink)">
                   {o.website ? (
                     <a
                       href={o.website}
                       target="_blank"
                       rel="noopener nofollow"
-                      className="font-medium text-[--lake] underline underline-offset-2"
+                      className="font-medium text-(--lake) underline underline-offset-2"
                     >
                       {o.name}
                     </a>
@@ -127,15 +127,15 @@ export function BoatRentalTable() {
                     <span className="font-medium">{o.name}</span>
                   )}
                   {o.note ? (
-                    <span className="mt-1 block text-xs text-[--ink]/70">
+                    <span className="mt-1 block text-xs text-(--ink)/70">
                       {o.note}
                     </span>
                   ) : null}
                 </td>
-                <td className="px-4 py-3 text-[--ink]">{o.capacity ?? '—'}</td>
-                <td className="px-4 py-3 text-[--ink]">{money(o.rates.hourly)}</td>
-                <td className="px-4 py-3 text-[--ink]">{money(o.rates.halfDay)}</td>
-                <td className="px-4 py-3 font-semibold text-[--ink]">
+                <td className="px-4 py-3 text-(--ink)">{o.capacity ?? '—'}</td>
+                <td className="px-4 py-3 text-(--ink)">{money(o.rates.hourly)}</td>
+                <td className="px-4 py-3 text-(--ink)">{money(o.rates.halfDay)}</td>
+                <td className="px-4 py-3 font-semibold text-(--ink)">
                   {money(o.rates.fullDay)}
                 </td>
                 <td className="px-4 py-3">
@@ -155,90 +155,90 @@ export function BoatRentalTable() {
         {rows.map((o) => (
           <div
             key={o.id}
-            className="rounded-lg border border-[--sand] bg-white p-4"
+            className="rounded-lg border border-(--sand) bg-white p-4"
           >
             {o.website ? (
               <a
                 href={o.website}
                 target="_blank"
                 rel="noopener nofollow"
-                className="font-semibold text-[--lake] underline"
+                className="font-semibold text-(--lake) underline"
               >
                 {o.name}
               </a>
             ) : (
-              <span className="font-semibold text-[--forest]">{o.name}</span>
+              <span className="font-semibold text-(--forest)">{o.name}</span>
             )}
             {o.capacity ? (
-              <div className="mt-0.5 text-xs text-[--ink]/70">{o.capacity}</div>
+              <div className="mt-0.5 text-xs text-(--ink)/70">{o.capacity}</div>
             ) : null}
             <div className="mt-3 grid grid-cols-3 gap-2">
               <div>
-                <div className="text-xs font-semibold text-[--ink]/60">
+                <div className="text-xs font-semibold text-(--ink)/60">
                   Hourly
                 </div>
-                <div className="text-sm text-[--ink]">
+                <div className="text-sm text-(--ink)">
                   {money(o.rates.hourly)}
                 </div>
               </div>
               <div>
-                <div className="text-xs font-semibold text-[--ink]/60">
+                <div className="text-xs font-semibold text-(--ink)/60">
                   Half day
                 </div>
-                <div className="text-sm text-[--ink]">
+                <div className="text-sm text-(--ink)">
                   {money(o.rates.halfDay)}
                 </div>
               </div>
               <div>
-                <div className="text-xs font-semibold text-[--ink]/60">
+                <div className="text-xs font-semibold text-(--ink)/60">
                   Full day
                 </div>
-                <div className="text-sm font-semibold text-[--ink]">
+                <div className="text-sm font-semibold text-(--ink)">
                   {money(o.rates.fullDay)}
                 </div>
               </div>
             </div>
             {o.note ? (
-              <p className="mt-2 text-xs text-[--ink]/70">{o.note}</p>
+              <p className="mt-2 text-xs text-(--ink)/70">{o.note}</p>
             ) : null}
           </div>
         ))}
       </div>
 
       {rows.length === 0 ? (
-        <p className="rounded-lg border border-[--sand] bg-white p-6 text-center text-sm text-[--ink]/70">
+        <p className="rounded-lg border border-(--sand) bg-white p-6 text-center text-sm text-(--ink)/70">
           No operators listed for that category yet.
         </p>
       ) : null}
 
       {/* Peer-to-peer marketplaces */}
-      <div className="mt-6 rounded-lg border border-[--sand] bg-[--sand]/40 p-4">
-        <h3 className="text-sm font-semibold text-[--forest]">
+      <div className="mt-6 rounded-lg border border-(--sand) bg-(--sand)/40 p-4">
+        <h3 className="text-sm font-semibold text-(--forest)">
           Peer-to-peer marketplaces
         </h3>
-        <p className="mt-1 text-xs text-[--ink]/70">
+        <p className="mt-1 text-xs text-(--ink)/70">
           Individual owners rather than local operators. Rates start lower;
           condition and terms vary listing to listing.
         </p>
         <ul className="mt-3 space-y-2">
           {BOAT_MARKETPLACES.map((m) => (
-            <li key={m.id} className="text-sm text-[--ink]">
+            <li key={m.id} className="text-sm text-(--ink)">
               <a
                 href={m.source}
                 target="_blank"
                 rel="noopener nofollow"
-                className="font-medium text-[--lake] underline underline-offset-2"
+                className="font-medium text-(--lake) underline underline-offset-2"
               >
                 {m.name}
               </a>
               {m.startingRate ? (
-                <span className="text-[--ink]/70">
+                <span className="text-(--ink)/70">
                   {' '}
                   — from ${m.startingRate}
                   {m.id === 'boatsetter' ? '/hr' : ''}
                 </span>
               ) : null}
-              <span className="mt-0.5 block text-xs text-[--ink]/60">
+              <span className="mt-0.5 block text-xs text-(--ink)/60">
                 {m.note}
               </span>
             </li>
@@ -246,7 +246,7 @@ export function BoatRentalTable() {
         </ul>
       </div>
 
-      <p className="mt-3 text-xs text-[--ink]/60">
+      <p className="mt-3 text-xs text-(--ink)/60">
         An em dash means we have not confirmed that figure directly with the
         operator. We would rather show nothing than a number that turns out to
         be wrong at the dock.

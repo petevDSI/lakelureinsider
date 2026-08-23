@@ -44,11 +44,11 @@ export function EventStatus({ id }: Props) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-[--sand] bg-white px-2.5 py-0.5 text-xs font-medium shadow-sm">
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-(--sand) bg-white px-2.5 py-0.5 text-xs font-medium shadow-sm">
       <span className={`h-2 w-2 shrink-0 rounded-full ${dot}`} aria-hidden="true" />
       <span className={textColor}>{label}</span>
       {dateNote && (
-        <span className="text-[--ink]/50">· {dateNote}</span>
+        <span className="text-(--ink)/50">· {dateNote}</span>
       )}
     </span>
   )

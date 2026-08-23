@@ -134,7 +134,7 @@ export default async function SlugPage({
       />
 
       {showAffiliateBar && (
-        <div className="bg-[--sand] px-page py-2 text-center text-xs text-[--ink]/70">
+        <div className="bg-(--sand) px-page py-2 text-center text-xs text-(--ink)/70">
           This page contains affiliate links.{' '}
           <a href="/affiliate-disclosure" className="underline">
             See our disclosure.
@@ -163,7 +163,7 @@ export default async function SlugPage({
             components={components}
             options={{ blockJS: false }}
           />
-          <p className="mt-12 text-xs text-[--ink]/50">
+          <p className="mt-12 text-xs text-(--ink)/50">
             Last updated: {frontmatter.updated}
           </p>
         </div>
