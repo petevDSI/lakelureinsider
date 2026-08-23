@@ -129,13 +129,7 @@ export async function POST(req: NextRequest) {
     if (error.code === '23505') {
       return NextResponse.json({ ok: true, alreadySigned: true })
     }
-    // TEMP DIAGNOSTIC: surfacing error.code/message to find a production-only
-    // failure that isn't showing up in Vercel runtime logs. Safe to expose —
-    // Postgrest error codes/messages never contain secrets. Revert after fix.
-    return NextResponse.json(
-      { error: 'Something went wrong. Please try again.', debugCode: error.code, debugMessage: error.message },
-      { status: 500 },
-    )
+    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 })
   }
 
   return NextResponse.json({ ok: true })
