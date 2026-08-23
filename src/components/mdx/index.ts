@@ -30,6 +30,7 @@ import { RecentInsiderTips } from './RecentInsiderTips'
 import { EventStatus } from './EventStatus'
 import { ArchiveNotice } from './ArchiveNotice'
 import { BuildDate } from './BuildDate'
+import { PetitionWidget } from './PetitionWidget'
 
 export const mdxComponents: MDXComponents = {
   StatusItem,
@@ -63,6 +64,7 @@ export const mdxComponents: MDXComponents = {
   EventStatus,
   ArchiveNotice,
   BuildDate,
+  PetitionWidget,
 }
 
 export {
@@ -97,4 +99,5 @@ export {
   EventStatus,
   ArchiveNotice,
   BuildDate,
+  PetitionWidget,
 }

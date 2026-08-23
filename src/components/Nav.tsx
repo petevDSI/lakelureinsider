@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: 'Trip Planning', href: '/trip-planning' },
   { label: 'Weddings', href: '/weddings' },
   { label: 'Insider Tips', href: '/insider-tips' },
+  { label: 'News', href: '/news' },
 ]
 
 export function Nav() {

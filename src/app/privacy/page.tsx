@@ -49,6 +49,17 @@ export default function PrivacyPage() {
           platforms' own privacy policies.
         </p>
 
+        <h2>Petition Signatures</h2>
+        <p>
+          If you sign a petition hosted on this Site, we collect the name, email
+          address, and optional city/state and comment you provide. Your name,
+          city/state, and comment may be displayed publicly on the petition page.
+          Your email address is never displayed publicly and is used only to
+          prevent duplicate signatures and, if you opt in separately, to update
+          you on that specific campaign. We do not sell this data. You can ask us
+          to remove your signature and data at any time by contacting us.
+        </p>
+
         <h2>Cookies</h2>
         <p>
           We use cookies for analytics and site functionality. You can disable

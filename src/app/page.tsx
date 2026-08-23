@@ -113,6 +113,23 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Community advocacy banner */}
+      <div className="border-b border-[--sand] bg-[--clay]/10 px-page py-4">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+          <p className="text-sm font-semibold text-[--forest]">
+            The Town of Lake Lure moved to evict Lured Market &amp; Grill. Here&apos;s what the court file actually shows.
+          </p>
+          <div className="flex shrink-0 gap-3">
+            <Link href="/news/lured-market-town-lease-fight" className="text-sm font-semibold text-[--lake] underline-offset-2 hover:underline">
+              Read the investigation →
+            </Link>
+            <Link href="/petition" className="rounded-md bg-[--clay] px-4 py-1.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
+              Sign the petition
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* What's Open Now status bar */}
       <div className="border-b border-[--sand] bg-white px-page py-4">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
@@ -158,6 +175,7 @@ export default function HomePage() {
               { label: 'Trip Planning', href: '/trip-planning' },
               { label: 'Weddings', href: '/weddings' },
               { label: 'Insider Tips', href: '/insider-tips' },
+              { label: 'Town News', href: '/news' },
             ].map((item) => (
               <Link
                 key={item.href}

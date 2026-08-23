@@ -111,6 +111,8 @@ const NAV_SLUGS = new Set([
   'weddings',
   'insider-tips',
   'whats-open-now',
+  'news',
+  'petition',
 ])
 
 // Slug prefixes whose children are programmatically linked (index pages, etc.)
