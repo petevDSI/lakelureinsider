@@ -7,6 +7,7 @@ export function organizationJsonLd() {
     '@type': 'Organization',
     name: SITE_NAME,
     url: SITE_URL,
+    logo: `${SITE_URL}/icon.png`,
     description:
       'Local insider travel guide for Lake Lure and Chimney Rock, NC.',
   }

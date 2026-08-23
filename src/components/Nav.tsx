@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Logo } from './Logo'
 
 const NAV_LINKS = [
   { label: 'Lake Lure', href: '/lake-lure' },
@@ -17,9 +18,10 @@ export function Nav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link
           href="/"
-          className="font-display text-lg font-bold text-[--forest] sm:text-xl"
+          className="flex items-center gap-2 font-display text-lg font-bold text-[--forest] sm:text-xl"
         >
-          Lake Lure Insider
+          <Logo size={34} />
+          <span>Lake Lure Insider</span>
         </Link>
 
         {/* Mobile: scrollable nav */}

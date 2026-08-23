@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Logo } from './Logo'
 
 const FOOTER_LINKS = [
   { label: 'About', href: '/about' },
@@ -12,13 +13,16 @@ export function Footer() {
     <footer className="mt-auto bg-[--forest] text-white/80">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-          <div>
-            <p className="font-display text-lg font-bold text-white">
-              Lake Lure Insider
-            </p>
-            <p className="mt-1 text-sm text-white/60">
-              Your local guide to Lake Lure &amp; Chimney Rock, NC
-            </p>
+          <div className="flex items-center gap-3">
+            <Logo size={32} />
+            <div>
+              <p className="font-display text-lg font-bold text-white">
+                Lake Lure Insider
+              </p>
+              <p className="mt-1 text-sm text-white/60">
+                Your local guide to Lake Lure &amp; Chimney Rock, NC
+              </p>
+            </div>
           </div>
           <nav aria-label="Footer navigation">
             <ul className="flex flex-wrap gap-4">
