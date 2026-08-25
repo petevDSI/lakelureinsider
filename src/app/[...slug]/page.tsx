@@ -134,7 +134,7 @@ export default async function SlugPage({
   const newsSiblings = isNewsArticle ? getNewsSiblings(page.slug) : null
 
   const articleBody = (
-    <div className="prose max-w-3xl">
+    <div className="prose max-w-3xl xl:col-start-2">
       {/*
        * options.mdxOptions.blockJS: next-mdx-remote defaults to stripping any
        * non-literal JSX attribute value (its "block JS expressions" XSS guard,
@@ -173,23 +173,35 @@ export default async function SlugPage({
 
       {/*
        * px-page: single inline padding for all content (clamp-based, set in globals.css).
-       * max-w-3xl + mx-auto: centers prose/components at comfortable reading width
-       * (or, for news articles, a wider max-w-6xl grid with the side nav as the
-       * second column — .prose itself stays max-w-3xl either way).
-       * PageHero uses .full-bleed to escape this container and span 100vw; that
-       * still works nested inside the grid, since full-bleed sizes off the
-       * viewport (vw), not its parent's width.
+       * max-w-3xl + mx-auto: centers prose/components at comfortable reading width.
+       *
+       * News articles use a 3-track grid instead: minmax(0,1fr) | min(48rem,100%) | minmax(0,1fr).
+       * The two minmax(0,1fr) gutter tracks are FORCED equal by the grid algorithm
+       * (same base size, no differential content stretching them — the left one
+       * is left empty), so the middle (article) track stays exactly centered on
+       * the viewport, same as the plain max-w-3xl/mx-auto case. That matters
+       * because PageHero uses .full-bleed (margin-inline: calc(50% - 50vw)) to
+       * escape this container and span 100vw — that math only comes out right
+       * when the article column's own containing block is centered on the
+       * viewport. An earlier version used grid-cols-[1fr_300px], which is NOT
+       * symmetric — the article column sat left-of-center, so full-bleed's
+       * calc undershot on one side and overshot on the other, cropping the
+       * hero on the left and leaving a gap on the right. Side nav sits in the
+       * third (right) track via xl:col-start-3; below the xl breakpoint this
+       * is a single implicit column and everything just stacks.
        */}
       <article className="px-page">
         {isNewsArticle && newsSiblings ? (
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_300px]">
+          <div className="mx-auto grid max-w-[90rem] gap-10 xl:grid-cols-[minmax(0,1fr)_min(48rem,100%)_minmax(0,1fr)]">
             {articleBody}
-            <NewsArticleNav
-              prev={newsSiblings.prev}
-              next={newsSiblings.next}
-              position={newsSiblings.position}
-              total={newsSiblings.total}
-            />
+            <div className="xl:col-start-3">
+              <NewsArticleNav
+                prev={newsSiblings.prev}
+                next={newsSiblings.next}
+                position={newsSiblings.position}
+                total={newsSiblings.total}
+              />
+            </div>
           </div>
         ) : (
           <div className="mx-auto max-w-3xl">{articleBody}</div>

@@ -10,16 +10,18 @@ interface NewsArticleNavProps {
 
 /**
  * Side rail for news-cluster articles: previous/next story, a link back to
- * the news hub, and a standing petition CTA. Sticky on desktop (lg+), stacks
- * below the article on smaller screens. Prev/next are computed automatically
- * from published date in getNewsSiblings — new articles slot in without any
- * page needing to be hand-edited.
+ * the news hub, and a standing petition CTA. Sticky on wide desktop (xl+,
+ * matching the parent grid's breakpoint in [...slug]/page.tsx — below that
+ * width the layout is a single stacked column and this renders as a plain
+ * block under the article, not stuck to anything). Prev/next are computed
+ * automatically from published date in getNewsSiblings — new articles slot
+ * in without any page needing to be hand-edited.
  */
 export function NewsArticleNav({ prev, next, position, total }: NewsArticleNavProps) {
   return (
     <nav
       aria-label="News story navigation"
-      className="not-prose flex flex-col gap-4 lg:sticky lg:top-24 lg:self-start"
+      className="not-prose flex flex-col gap-4 xl:sticky xl:top-24"
     >
       <div className="rounded-xl border border-(--sand) bg-white p-4">
         {total > 0 && (
