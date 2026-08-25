@@ -252,3 +252,45 @@ export function getArticlePages(): ContentPage[] {
 export function getPlacePages(): ContentPage[] {
   return getAllPages().filter((p) => p.frontmatter.type === 'place')
 }
+
+export interface NewsNavLink {
+  href: string
+  title: string
+}
+
+export interface NewsSiblings {
+  prev?: NewsNavLink
+  next?: NewsNavLink
+  position: number
+  total: number
+}
+
+// Chronological prev/next within the news cluster, oldest first — powers the
+// news article side nav. Excludes the news hub itself (no `published` date).
+export function getNewsSiblings(slug: string): NewsSiblings {
+  const articles = getChildrenOf('news')
+    .filter((p) => p.frontmatter.type === 'article' && !!p.frontmatter.published)
+    .sort((a, b) => {
+      const byDate = (a.frontmatter.published as string).localeCompare(
+        b.frontmatter.published as string,
+      )
+      return byDate !== 0 ? byDate : a.slug.localeCompare(b.slug)
+    })
+
+  const index = articles.findIndex((p) => p.slug === slug)
+  if (index === -1) return { position: 0, total: articles.length }
+
+  const prevPage = articles[index - 1]
+  const nextPage = articles[index + 1]
+
+  return {
+    prev: prevPage
+      ? { href: prevPage.slug, title: prevPage.frontmatter.title }
+      : undefined,
+    next: nextPage
+      ? { href: nextPage.slug, title: nextPage.frontmatter.title }
+      : undefined,
+    position: index + 1,
+    total: articles.length,
+  }
+}

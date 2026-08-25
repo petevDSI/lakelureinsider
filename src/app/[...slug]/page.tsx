@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { getAllPages, getPageBySlug } from '@/lib/content'
+import { getAllPages, getNewsSiblings, getPageBySlug } from '@/lib/content'
 import { breadcrumbJsonLd } from '@/lib/jsonld'
 import { SITE_URL } from '@/lib/site-config'
 import { mdxComponents } from '@/components/mdx'
@@ -9,6 +9,7 @@ import { FAQ } from '@/components/mdx/FAQ'
 import { PageHero } from '@/components/mdx/PageHero'
 import { QuickAnswer } from '@/components/mdx/QuickAnswer'
 import { ReviewedBanner } from '@/components/mdx/ReviewedBanner'
+import { NewsArticleNav } from '@/components/news/NewsArticleNav'
 import type { MDXComponents } from 'mdx/types'
 import type { ContentPage } from '@/types/content'
 
@@ -126,6 +127,34 @@ export default async function SlugPage({
   const components = buildArticleComponents(page)
   const showAffiliateBar = hasAffiliateContent(rawContent)
 
+  // News-cluster articles (not the /news hub itself) get a side nav —
+  // previous/next story, back to the hub, and the standing petition CTA.
+  // Computed from published date, so new stories slot in automatically.
+  const isNewsArticle = frontmatter.cluster === 'news' && page.slug !== 'news'
+  const newsSiblings = isNewsArticle ? getNewsSiblings(page.slug) : null
+
+  const articleBody = (
+    <div className="prose max-w-3xl">
+      {/*
+       * options.mdxOptions.blockJS: next-mdx-remote defaults to stripping any
+       * non-literal JSX attribute value (its "block JS expressions" XSS guard,
+       * meant for untrusted/user-submitted MDX). Our content is all first-party,
+       * repo-authored — but the default was silently dropping prop values like
+       * <NearbyLinks pages={[...]} />, so every "Nearby"/related-links block on
+       * the site rendered as nothing. blockJS: false restores those props while
+       * blockDangerousJS (default true) still blocks eval/Function/require/etc.
+       */}
+      <MDXRemote
+        source={rawContent}
+        components={components}
+        options={{ blockJS: false }}
+      />
+      <p className="mt-12 text-xs text-(--ink)/50">
+        Last updated: {frontmatter.updated}
+      </p>
+    </div>
+  )
+
   return (
     <>
       <script
@@ -144,29 +173,27 @@ export default async function SlugPage({
 
       {/*
        * px-page: single inline padding for all content (clamp-based, set in globals.css).
-       * max-w-3xl + mx-auto: centers prose/components at comfortable reading width.
-       * PageHero uses .full-bleed to escape this container and span 100vw.
+       * max-w-3xl + mx-auto: centers prose/components at comfortable reading width
+       * (or, for news articles, a wider max-w-6xl grid with the side nav as the
+       * second column — .prose itself stays max-w-3xl either way).
+       * PageHero uses .full-bleed to escape this container and span 100vw; that
+       * still works nested inside the grid, since full-bleed sizes off the
+       * viewport (vw), not its parent's width.
        */}
       <article className="px-page">
-        <div className="prose mx-auto max-w-3xl">
-          {/*
-           * options.mdxOptions.blockJS: next-mdx-remote defaults to stripping any
-           * non-literal JSX attribute value (its "block JS expressions" XSS guard,
-           * meant for untrusted/user-submitted MDX). Our content is all first-party,
-           * repo-authored — but the default was silently dropping prop values like
-           * <NearbyLinks pages={[...]} />, so every "Nearby"/related-links block on
-           * the site rendered as nothing. blockJS: false restores those props while
-           * blockDangerousJS (default true) still blocks eval/Function/require/etc.
-           */}
-          <MDXRemote
-            source={rawContent}
-            components={components}
-            options={{ blockJS: false }}
-          />
-          <p className="mt-12 text-xs text-(--ink)/50">
-            Last updated: {frontmatter.updated}
-          </p>
-        </div>
+        {isNewsArticle && newsSiblings ? (
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_300px]">
+            {articleBody}
+            <NewsArticleNav
+              prev={newsSiblings.prev}
+              next={newsSiblings.next}
+              position={newsSiblings.position}
+              total={newsSiblings.total}
+            />
+          </div>
+        ) : (
+          <div className="mx-auto max-w-3xl">{articleBody}</div>
+        )}
       </article>
     </>
   )
