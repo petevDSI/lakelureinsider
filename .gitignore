@@ -44,3 +44,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env*
+
+# scratch cleanup folder used by the device-bridge sandbox — never build/commit this
+/_to_delete/
