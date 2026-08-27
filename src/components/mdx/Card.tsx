@@ -8,6 +8,8 @@ export interface CardProps {
   imageSrc?: string
   imageAlt?: string
   category?: string
+  /** Human-readable publish/update date shown alongside the category, e.g. "August 27, 2026". */
+  date?: string
   featured?: boolean
   /** Set true for links off-site (e.g. AllTrails) — opens in a new tab. */
   external?: boolean
@@ -20,6 +22,7 @@ export function Card({
   imageSrc,
   imageAlt,
   category,
+  date,
   featured = false,
   external = false,
 }: CardProps) {
@@ -43,10 +46,17 @@ export function Card({
         </div>
       )}
       <div className="flex flex-1 flex-col p-4">
-        {category && (
-          <span className="mb-1 text-xs font-semibold uppercase tracking-widest text-(--lake)">
-            {category}
-          </span>
+        {(category || date) && (
+          <div className="mb-1 flex items-center justify-between gap-2">
+            {category && (
+              <span className="text-xs font-semibold uppercase tracking-widest text-(--lake)">
+                {category}
+              </span>
+            )}
+            {date && (
+              <span className="whitespace-nowrap text-xs text-(--ink)/50">{date}</span>
+            )}
+          </div>
         )}
         <h3 className="font-display font-bold text-(--ink) group-hover:text-(--lake)">
           {title}
