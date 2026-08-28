@@ -1853,3 +1853,244 @@ export function groceryStoresLastVerified(): string | null {
   )
   return dates.length ? dates.sort().at(-1)! : null
 }
+
+// ---------------------------------------------------------------------------
+// Shopping — Chimney Rock Village & Lake Lure
+//
+// Chimney Rock Village retail comes from the village's own shop directory
+// (chimneyrock.org/shop-chimney-rock-village). Chimney Sweeps (399 Main St)
+// is excluded — it's a chimney-sweep service business, not a shop.
+//
+// Candy Cabin, Bullseye Axe Throwing Co., and Lake Lure Escape Games are
+// three separate businesses that share one venue, "Lake Lure Station" at
+// 2414 Memorial Highway — a family-run complex (Cory & Thomasina Coile)
+// that opened in phases starting mid-2024. Axe throwing and escape rooms
+// aren't literally "shopping," but Pete asked for them here alongside the
+// retail shops since visitors treat Lake Lure Station as one stop.
+//
+// Ratings are a single Tripadvisor figure per listing (not the blended
+// Google/Tripadvisor/Facebook score used for restaurants) — most of these
+// small shops don't have enough review volume across platforms to make a
+// blend meaningful, and several have no reviews at all yet.
+// ---------------------------------------------------------------------------
+
+export type ShopArea = 'Chimney Rock Village' | 'Lake Lure'
+export type ShopCategory = 'Retail & Gifts' | 'Family Fun & Games'
+
+export interface ShopRating {
+  score: number
+  reviewCount: number
+  source: string
+}
+
+export interface Shop {
+  id: string
+  name: string
+  area: ShopArea
+  category: ShopCategory
+  description: string
+  address: string
+  phone: string | null
+  website: string | null
+  rating: ShopRating | null
+  notes: string | null
+  source: string
+  lastVerified: string
+}
+
+export const SHOP_AREAS: ShopArea[] = ['Chimney Rock Village', 'Lake Lure']
+
+export const SHOPS: Shop[] = [
+  {
+    id: 'aprils-boutique',
+    name: "April's Boutique",
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description: "Women's clothing and accessories boutique on Main Street.",
+    address: '371 Main St, Chimney Rock, NC 28720',
+    phone: '828-436-7004',
+    website: null,
+    rating: null,
+    notes: null,
+    source: 'chimneyrock.org shop directory',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'natives-rest-candles',
+    name: "Native's Rest Candles",
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description: 'Hand-poured candles and home fragrance.',
+    address: '382 Main St, Chimney Rock, NC 28720',
+    phone: null,
+    website: null,
+    rating: null,
+    notes: null,
+    source: 'chimneyrock.org shop directory',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'willow-creek-gifts',
+    name: 'Willow Creek Gifts',
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description: 'Gift shop carrying local and regional goods.',
+    address: '375 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-1111',
+    website: null,
+    rating: null,
+    notes: null,
+    source: 'chimneyrock.org shop directory',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'bubba-olearys-general-store',
+    name: "Bubba O'Leary's General Store & Outfitters",
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description:
+      'Old-time general store with current outdoor apparel and gear alongside classic five-and-dime goods.',
+    address: '385 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-2479',
+    website: null,
+    rating: { score: 4.1, reviewCount: 15, source: 'Tripadvisor' },
+    notes: "Tripadvisor Travelers' Choice; ranked #1 of 3 Shopping in Chimney Rock.",
+    source: 'chimneyrock.org shop directory, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'featherheads',
+    name: 'Featherheads',
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description: 'Art gallery and gift shop on Main Street.',
+    address: '398 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-1175',
+    website: null,
+    rating: null,
+    notes: null,
+    source: 'chimneyrock.org shop directory',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'chimney-rock-gem-mine',
+    name: 'Chimney Rock Gem Mine & Jewelry Co.',
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description: 'Gem mining flumes plus a jewelry counter — two Main Street locations.',
+    address: '397 & 374 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-5524',
+    website: null,
+    rating: null,
+    notes: null,
+    source: 'chimneyrock.org shop directory',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'john-bull-trading-company',
+    name: 'John Bull Trading Company',
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description: 'General trading-post style shop on Main Street.',
+    address: '414 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-9005',
+    website: null,
+    rating: null,
+    notes: null,
+    source: 'chimneyrock.org shop directory',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'gales-chimney-rock-shop',
+    name: "Gale's Chimney Rock Shop",
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description: 'Souvenirs and gifts on Main Street.',
+    address: '418 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-4126',
+    website: null,
+    rating: null,
+    notes: null,
+    source: 'chimneyrock.org shop directory',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'mountain-traders',
+    name: 'Mountain Traders',
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description: 'General store and gift shop on Main Street.',
+    address: '410 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-9801',
+    website: null,
+    rating: null,
+    notes: null,
+    source: 'chimneyrock.org shop directory',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'the-hickory-nut',
+    name: 'The Hickory Nut',
+    area: 'Lake Lure',
+    category: 'Retail & Gifts',
+    description:
+      'Mountain/country home décor, antiques, Native American crafts, quilts, and seasonal plants — between Chimney Rock Village and Lake Lure on the Rocky Broad River.',
+    address: '215 Memorial Hwy, Lake Lure, NC 28746',
+    phone: '828-625-2211',
+    website: null,
+    rating: { score: 3.8, reviewCount: 23, source: 'Tripadvisor' },
+    notes: null,
+    source: 'aroundlakelure.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'candy-cabin',
+    name: 'Candy Cabin',
+    area: 'Lake Lure',
+    category: 'Retail & Gifts',
+    description:
+      'Bulk candy, slushies, and novelty treats — from classic jaw breakers to Jelly Belly and imported chocolate. Inside Lake Lure Station.',
+    address: '2414 Memorial Hwy, Lake Lure, NC 28746',
+    phone: '706-207-0512',
+    website: 'https://www.lakelurecandystore.com',
+    rating: null,
+    notes: 'Opened June 2024. Co-located with Bullseye Axe Throwing and Lake Lure Escape Games.',
+    source: 'Hickory Nut Gorge Chamber of Commerce, Yelp listing',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'bullseye-axe-throwing',
+    name: 'Bullseye Axe Throwing Co.',
+    area: 'Lake Lure',
+    category: 'Family Fun & Games',
+    description:
+      'Axe-throwing lanes with digital target projection and interactive scoring games. Inside Lake Lure Station.',
+    address: '2414 Memorial Hwy, Lake Lure, NC 28746',
+    phone: null,
+    website: null,
+    rating: null,
+    notes: 'No reviews posted yet as of last check — a newer addition to Lake Lure Station.',
+    source: 'visitncsmalltowns.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'lake-lure-escape-games',
+    name: 'Lake Lure Escape Games',
+    area: 'Lake Lure',
+    category: 'Family Fun & Games',
+    description:
+      "Three themed escape rooms — a paranormal funeral parlor, an '80s inheritance heist, and a candy-shop caper. Inside Lake Lure Station.",
+    address: '2414 Memorial Hwy, Lake Lure, NC 28746',
+    phone: '828-287-6113',
+    website: null,
+    rating: { score: 5.0, reviewCount: 7, source: 'Tripadvisor' },
+    notes: "Tripadvisor Travelers' Choice; ranked #1 of 4 Fun & Games in Lake Lure.",
+    source: 'visitncsmalltowns.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+]
+
+export function shopsLastVerified(): string | null {
+  const dates = SHOPS.map((s) => s.lastVerified).filter((d): d is string => Boolean(d))
+  return dates.length ? dates.sort().at(-1)! : null
+}
