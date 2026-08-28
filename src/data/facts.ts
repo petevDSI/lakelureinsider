@@ -1508,16 +1508,18 @@ export const RUTHERFORD_TRAILS: RutherfordTrail[] = [
 // excluded — yelp.com blocks automated access (bot-detection challenge) and
 // we don't bypass that.
 //
-// Lured Market & Grill is deliberately NOT included here. It's the subject of
-// an active, unresolved eviction dispute this outlet is actively reporting on
-// (see /news) and has an open petition on this site — listing it in a neutral
-// "cumulative rating" roundup right now would read as either an editorial
-// thumb on the scale or stale info if its situation changes. Revisit once the
-// dispute resolves.
+// Lured Market & Grill IS included below. It's also the subject of an active,
+// unresolved eviction dispute this outlet is reporting on (see /news), and
+// this site has an open petition supporting it — flagging that plainly here
+// and on the page itself. Per Pete (2026-08-28): the ratings are public data
+// from Google/Tripadvisor, not this outlet's own opinion, so there's no
+// reason to withhold them. Facebook wasn't available for this one — its page
+// returned "content isn't available" at last check.
 //
-// Old Rock Cafe (431 Main St, Chimney Rock) is permanently closed per its own
-// Google Maps listing (post-Hurricane Helene) — excluded even though it's
-// still listed on chimneyrock.org's own eat/drink page as of this writing.
+// Old Rock Cafe (431 Main St, Chimney Rock) is excluded — confirmed closed
+// due to Hurricane Helene flooding damage (per Pete, 2026-08-28), matching
+// its own Google Maps listing ("Permanently closed"), even though it's still
+// listed on chimneyrock.org's own eat/drink page as of this writing.
 
 export interface PlatformRating {
   rating: number
@@ -1666,6 +1668,21 @@ export const RESTAURANTS: Restaurant[] = [
     tripadvisor: { rating: 3.7, count: 6 },
     facebook: { recommendPercent: 100, count: 6 },
     source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'lured-market-and-grill',
+    name: 'Lured Market & Grill',
+    area: 'Lake Lure',
+    cuisine: 'American, Pub Fare, Market/Deli',
+    priceRange: '$$',
+    address: '2655 Memorial Hwy, Lake Lure, NC 28746',
+    phone: '828-844-4339',
+    detailsUrl: 'https://www.luredmarketandgrill.com/',
+    google: { rating: 4.8, count: 234 },
+    tripadvisor: { rating: 4.6, count: 41 },
+    facebook: null,
+    source: 'Google Maps, Tripadvisor (Facebook page unavailable at last check)',
     lastVerified: '2026-08-28',
   },
   {
