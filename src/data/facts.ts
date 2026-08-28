@@ -1498,3 +1498,251 @@ export const RUTHERFORD_TRAILS: RutherfordTrail[] = [
   { id: 'wildcat-rock-little-bearwallow', name: 'Wildcat Rock / Little Bearwallow', area: 'Hickory Nut Gorge', length: '4.8 mi one-way', difficulty: 'Strenuous', elevationGain: '1200+ ft', estTime: '3.25–4.0 hr' },
   { id: 'youngs-mountain-trail-coalition', name: "Young's Mountain Trail", area: 'Rutherford County', length: '4.3 mi one-way', difficulty: 'Moderate', elevationGain: '1001–1200 ft', estTime: '2.25–3.0 hr' },
 ]
+
+// ─── Places to eat — Lake Lure & Chimney Rock restaurants ────────────────────
+// Cross-platform rating snapshot (Google, Tripadvisor, Facebook) for
+// restaurants around Lake Lure and Chimney Rock Village. Google ratings
+// pulled directly from Google Maps listings; Tripadvisor from tripadvisor.com
+// (robots.txt allows fetching); Facebook uses Meta's "% recommend" format,
+// since Facebook Pages no longer show a 5-star average. Yelp is intentionally
+// excluded — yelp.com blocks automated access (bot-detection challenge) and
+// we don't bypass that.
+//
+// Lured Market & Grill is deliberately NOT included here. It's the subject of
+// an active, unresolved eviction dispute this outlet is actively reporting on
+// (see /news) and has an open petition on this site — listing it in a neutral
+// "cumulative rating" roundup right now would read as either an editorial
+// thumb on the scale or stale info if its situation changes. Revisit once the
+// dispute resolves.
+//
+// Old Rock Cafe (431 Main St, Chimney Rock) is permanently closed per its own
+// Google Maps listing (post-Hurricane Helene) — excluded even though it's
+// still listed on chimneyrock.org's own eat/drink page as of this writing.
+
+export interface PlatformRating {
+  rating: number
+  count: number
+}
+
+export interface FacebookRating {
+  recommendPercent: number
+  count: number
+}
+
+export type RestaurantArea = 'Lake Lure' | 'Chimney Rock Village'
+
+export interface Restaurant {
+  id: string
+  name: string
+  area: RestaurantArea
+  cuisine: string
+  priceRange: string
+  address: string
+  phone: string | null
+  detailsUrl: string
+  google: PlatformRating | null
+  tripadvisor: PlatformRating | null
+  facebook: FacebookRating | null
+  source: string
+  lastVerified: string
+}
+
+export const RESTAURANTS: Restaurant[] = [
+  {
+    id: 'la-strada-at-lake-lure',
+    name: 'La Strada At Lake Lure',
+    area: 'Lake Lure',
+    cuisine: 'Italian, American',
+    priceRange: '$$',
+    address: '2693 Memorial Hwy, Lake Lure, NC 28746',
+    phone: '828-625-1118',
+    detailsUrl: 'https://lastradaatlakelure.com/',
+    google: { rating: 4.3, count: 2331 },
+    tripadvisor: { rating: 4.4, count: 1825 },
+    facebook: { recommendPercent: 88, count: 1355 },
+    source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'appalachia-restaurant',
+    name: 'Appalachia Restaurant',
+    area: 'Lake Lure',
+    cuisine: 'New American, Appalachian',
+    priceRange: '$$$',
+    address: '361 Charlotte Dr, Lake Lure, NC 28746 (inside The Lodge on Lake Lure)',
+    phone: '828-655-0634',
+    detailsUrl: 'https://www.appalachiarestaurant.com/',
+    google: { rating: 4.8, count: 157 },
+    tripadvisor: { rating: 4.8, count: 62 },
+    facebook: { recommendPercent: 100, count: 10 },
+    source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'victory-kitchen-restaurant',
+    name: 'Victory Kitchen & Restaurant',
+    area: 'Lake Lure',
+    cuisine: 'American, Breakfast & Brunch',
+    priceRange: '$',
+    address: '959 Buffalo Creek Rd, Lake Lure, NC 28746',
+    phone: '828-436-5023',
+    detailsUrl: 'https://www.facebook.com/victorykitchen1/',
+    google: { rating: 4.6, count: 659 },
+    tripadvisor: { rating: 4.6, count: 126 },
+    facebook: { recommendPercent: 96, count: 243 },
+    source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'el-lago-mexican-restaurant',
+    name: 'El Lago Mexican Restaurant',
+    area: 'Lake Lure',
+    cuisine: 'Mexican',
+    priceRange: '$$',
+    address: '119 Arcade St, Lake Lure, NC 28746',
+    phone: '828-625-9051',
+    detailsUrl: 'https://www.facebook.com/p/El-Lago-At-Lake-Lure-Beach-100063509866055/',
+    google: { rating: 4.3, count: 517 },
+    tripadvisor: { rating: 3.7, count: 129 },
+    facebook: { recommendPercent: 92, count: 30 },
+    source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'legends-on-the-lake',
+    name: 'Legends on the Lake',
+    area: 'Lake Lure',
+    cuisine: 'American, Bar & Grill',
+    priceRange: '$$',
+    address: '153 Mountains Blvd, Lake Lure, NC 28746 (Rumbling Bald on Lake Lure)',
+    phone: '828-694-3032',
+    detailsUrl: 'https://rumblingbald.com/venue/legends-on-the-lake/',
+    google: { rating: 4.1, count: 830 },
+    tripadvisor: { rating: 3.8, count: 358 },
+    facebook: { recommendPercent: 92, count: 32 },
+    source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'lakehouse-restaurant-bar-grill',
+    name: 'Lake House Restaurant Bar & Grill',
+    area: 'Lake Lure',
+    cuisine: 'American',
+    priceRange: '$$',
+    address: '1020 Memorial Hwy, Lake Lure, NC 28746',
+    phone: '828-625-4075',
+    detailsUrl: 'https://www.lakehouselakelure.com/',
+    google: { rating: 4.2, count: 2928 },
+    tripadvisor: { rating: 3.2, count: 99 },
+    facebook: { recommendPercent: 88, count: 450 },
+    source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'canoe-kitchen-and-bar',
+    name: 'Canoe Kitchen and Bar',
+    area: 'Lake Lure',
+    cuisine: 'American, Small Plates',
+    priceRange: '$$',
+    address: '454 Memorial Hwy, Lake Lure, NC 28746',
+    phone: null,
+    detailsUrl: 'https://www.canoekitchenandbar.com/',
+    google: { rating: 4.6, count: 456 },
+    tripadvisor: null,
+    facebook: null,
+    source: 'Google Maps (not yet listed on Tripadvisor; Facebook page did not expose a review count at last check)',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'the-highlands-reserve',
+    name: 'The Highlands Reserve',
+    area: 'Lake Lure',
+    cuisine: 'American, Seafood',
+    priceRange: '$$$',
+    address: '143 Whitney Blvd, Lake Lure, NC 28746',
+    phone: '828-532-4266',
+    detailsUrl: 'https://thehighlands-reserve.com/',
+    google: { rating: 4.6, count: 805 },
+    tripadvisor: { rating: 3.7, count: 6 },
+    facebook: { recommendPercent: 100, count: 6 },
+    source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'riverwatch-bar-grill',
+    name: 'RiverWatch Bar & Grill',
+    area: 'Chimney Rock Village',
+    cuisine: 'American, Bar & Grill',
+    priceRange: '$$',
+    address: '379 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-1030',
+    detailsUrl: 'https://riverwatchgrill.com/',
+    google: { rating: 4.6, count: 2812 },
+    tripadvisor: { rating: 4.3, count: 877 },
+    facebook: { recommendPercent: 92, count: 1343 },
+    source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'chimney-rock-smokehouse',
+    name: 'Chimney Rock Smokehouse',
+    area: 'Chimney Rock Village',
+    cuisine: 'Barbecue',
+    priceRange: '$$',
+    address: '430 Main St, Chimney Rock, NC 28720',
+    phone: '828-239-8939',
+    detailsUrl: 'https://www.chimneyrocksmokehouse.com/',
+    google: { rating: 4.7, count: 921 },
+    tripadvisor: { rating: 4.6, count: 45 },
+    facebook: { recommendPercent: 92, count: 61 },
+    source: 'Google Maps, Tripadvisor, Facebook',
+    lastVerified: '2026-08-28',
+  },
+]
+
+export const RESTAURANT_AREAS: RestaurantArea[] = ['Lake Lure', 'Chimney Rock Village']
+
+// Facebook shows "% recommend" instead of a 5-star average. To fold it into a
+// single blended score alongside Google/Tripadvisor stars, we convert with a
+// standard linear mapping: 0% recommend -> 1.0 stars, 100% recommend -> 5.0
+// stars. This is an approximation, disclosed on the page — not a claim that
+// Facebook itself computes a star rating.
+export function facebookRecommendToStars(recommendPercent: number): number {
+  return 1 + 4 * (recommendPercent / 100)
+}
+
+export interface CumulativeRating {
+  score: number
+  totalReviews: number
+  platformCount: number
+}
+
+// Review-count-weighted average across whichever platforms have data for a
+// given restaurant (at least Google is always present in this data set).
+export function computeCumulativeRating(restaurant: Restaurant): CumulativeRating {
+  const parts: { rating: number; count: number }[] = []
+  if (restaurant.google) parts.push(restaurant.google)
+  if (restaurant.tripadvisor) parts.push(restaurant.tripadvisor)
+  if (restaurant.facebook) {
+    parts.push({
+      rating: facebookRecommendToStars(restaurant.facebook.recommendPercent),
+      count: restaurant.facebook.count,
+    })
+  }
+
+  const totalReviews = parts.reduce((sum, p) => sum + p.count, 0)
+  const weightedSum = parts.reduce((sum, p) => sum + p.rating * p.count, 0)
+
+  return {
+    score: totalReviews > 0 ? Math.round((weightedSum / totalReviews) * 10) / 10 : 0,
+    totalReviews,
+    platformCount: parts.length,
+  }
+}
+
+export function restaurantsLastVerified(): string | null {
+  const dates = RESTAURANTS.map((r) => r.lastVerified).filter(
+    (d): d is string => Boolean(d),
+  )
+  return dates.length ? dates.sort().at(-1)! : null
+}
