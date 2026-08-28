@@ -1793,3 +1793,63 @@ export function restaurantsLastVerified(): string | null {
   )
   return dates.length ? dates.sort().at(-1)! : null
 }
+
+// ─── Groceries near Lake Lure ─────────────────────────────────────────────
+// Ingles Markets (276 NC-9, Lake Lure) is the only full grocery store inside
+// Lake Lure itself — it also houses the in-town pharmacy already covered on
+// the health-and-emergency-services page (see HEALTHCARE_PROVIDERS above,
+// category 'pharmacy'). This list intentionally stays short per Pete: Ingles
+// is the story here, with one bigger-box option for a full stock-up run.
+
+export interface GroceryStore {
+  id: string
+  name: string
+  type: string
+  address: string
+  phone: string
+  hours: string
+  services: string
+  travelNote: string
+  notes: string | null
+  detailsUrl: string
+  source: string
+  lastVerified: string
+}
+
+export const GROCERY_STORES: GroceryStore[] = [
+  {
+    id: 'ingles-markets-lake-lure',
+    name: 'Ingles Markets',
+    type: 'Full-service supermarket',
+    address: '276 NC-9, Lake Lure, NC 28746',
+    phone: '828-625-0258',
+    hours: '6:00 AM – 11:00 PM, daily',
+    services: 'Pharmacy, deli, bakery, floral, Gas Express fuel station, curbside pickup, delivery',
+    travelNote: 'Inside Lake Lure — the only full grocery store in town.',
+    notes: 'The in-store pharmacy is covered separately on our health & emergency services page (phone 828-625-0748) — same building, different counter, different hours.',
+    detailsUrl: 'https://www.ingles-markets.com/storelocate/storeinfo.php?storenum=127',
+    source: 'Ingles Markets store locator, Google Maps',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'walmart-supercenter-forest-city',
+    name: 'Walmart Supercenter',
+    type: 'Superstore (groceries + general merchandise)',
+    address: '197 Plz Dr Ext, Forest City, NC 28043',
+    phone: '828-287-7458',
+    hours: '6:00 AM – 11:00 PM, daily',
+    services: 'Full grocery department, pharmacy, curbside pickup, general merchandise',
+    travelNote: 'About 30 minutes from Lake Lure — worth the drive for a bigger stock-up trip or anything Ingles is out of.',
+    notes: null,
+    detailsUrl: 'https://www.walmart.com/store/',
+    source: 'Google Maps',
+    lastVerified: '2026-08-28',
+  },
+]
+
+export function groceryStoresLastVerified(): string | null {
+  const dates = GROCERY_STORES.map((g) => g.lastVerified).filter(
+    (d): d is string => Boolean(d),
+  )
+  return dates.length ? dates.sort().at(-1)! : null
+}

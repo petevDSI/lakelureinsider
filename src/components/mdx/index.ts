@@ -23,6 +23,7 @@ import { EvChargingTable } from './EvChargingTable'
 import { HealthcareDirectory } from './HealthcareDirectory'
 import { TrailDirectory } from './TrailDirectory'
 import { RestaurantDirectory } from './RestaurantDirectory'
+import { GroceryStores } from './GroceryStores'
 import { WeddingCostCalculator } from './WeddingCostCalculator'
 import { WeddingContactCTA } from './WeddingContactCTA'
 import { EditorialIndependence } from './EditorialIndependence'
@@ -60,6 +61,7 @@ export const mdxComponents: MDXComponents = {
   HealthcareDirectory,
   TrailDirectory,
   RestaurantDirectory,
+  GroceryStores,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
@@ -98,6 +100,7 @@ export {
   HealthcareDirectory,
   TrailDirectory,
   RestaurantDirectory,
+  GroceryStores,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
