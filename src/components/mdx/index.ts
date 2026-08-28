@@ -27,6 +27,8 @@ import { GroceryStores } from './GroceryStores'
 import { ShoppingDirectory } from './ShoppingDirectory'
 import { OrchardDirectory } from './OrchardDirectory'
 import { WineryDirectory } from './WineryDirectory'
+import { GolfDirectory } from './GolfDirectory'
+import { ClimbingDirectory } from './ClimbingDirectory'
 import { WeddingCostCalculator } from './WeddingCostCalculator'
 import { WeddingContactCTA } from './WeddingContactCTA'
 import { EditorialIndependence } from './EditorialIndependence'
@@ -68,6 +70,8 @@ export const mdxComponents: MDXComponents = {
   ShoppingDirectory,
   OrchardDirectory,
   WineryDirectory,
+  GolfDirectory,
+  ClimbingDirectory,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
@@ -110,6 +114,8 @@ export {
   ShoppingDirectory,
   OrchardDirectory,
   WineryDirectory,
+  GolfDirectory,
+  ClimbingDirectory,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,

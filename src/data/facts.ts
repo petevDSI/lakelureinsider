@@ -2412,3 +2412,218 @@ export function wineriesLastVerified(): string | null {
   const dates = WINERIES.map((w) => w.lastVerified).filter((d): d is string => Boolean(d))
   return dates.length ? dates.sort().at(-1)! : null
 }
+
+// ---------------------------------------------------------------------------
+// Golf Courses — near Lake Lure & Chimney Rock
+//
+// Lake Lure Golf Club is the town's own 9-hole municipal course (Donald
+// Ross, 1927) — Tripadvisor's listing for it carries a crowd-flagged
+// "reported permanently closed" note, but the Town of Lake Lure's own site
+// states plainly that it's open year-round and lists current green fees, so
+// we're treating the town's own page as authoritative over an unverified
+// Tripadvisor flag.
+//
+// Bald Mountain's public-access policy wasn't explicitly stated on its own
+// site during research — it's part of Rumbling Bald Resort, so we note that
+// rather than asserting it's open to anyone without a resort tie.
+// ---------------------------------------------------------------------------
+
+export interface GolfCourse {
+  id: string
+  name: string
+  address: string
+  phone: string | null
+  holes: number
+  par: number
+  yardage: string | null
+  designer: string | null
+  access: string
+  rating: ShopRating | null
+  notes: string | null
+  website: string | null
+  source: string
+  lastVerified: string
+}
+
+export const GOLF_COURSES: GolfCourse[] = [
+  {
+    id: 'lake-lure-golf-club',
+    name: 'Lake Lure Golf Club',
+    address: '658 Memorial Hwy (US 64/74A), Lake Lure, NC 28746',
+    phone: '828-625-4472',
+    holes: 9,
+    par: 35,
+    yardage: '2,738 yards (white tees)',
+    designer: 'Donald Ross (1927)',
+    access: 'Public — open year-round, no membership required for daily play',
+    rating: null,
+    notes:
+      "The town's own municipal course — the most affordable and most historic option here. Green fees start around a walking rate for 9 holes; annual memberships also available. Clubhouse, driving range, and two putting greens on site.",
+    website: 'http://www.townoflakelure.com/lake-lure-golf-course.php',
+    source: 'townoflakelure.com, ncgolf.com',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'apple-valley-golf-course',
+    name: 'Apple Valley Golf Course at Rumbling Bald Resort',
+    address: '309 Winesap Rd, Lake Lure, NC 28746',
+    phone: '828-694-3043',
+    holes: 18,
+    par: 72,
+    yardage: '6,756 yards (from the tips)',
+    designer: 'Dan Maples',
+    access: 'Part of Rumbling Bald Resort — call ahead to confirm public tee-time availability',
+    rating: { score: 4.7, reviewCount: 21, source: 'Tripadvisor' },
+    notes: 'Highest-rated course in the group.',
+    website: 'https://rumblingbald.com/golf/apple-valley-golf-course/',
+    source: 'rumblingbald.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'bald-mountain-golf-course',
+    name: 'Bald Mountain Golf Course at Rumbling Bald Resort',
+    address: '162 Mountains Blvd, Lake Lure, NC 28746',
+    phone: '828-694-3042',
+    holes: 18,
+    par: 72,
+    yardage: '6,283 yards',
+    designer: 'W.B. Lewis',
+    access: 'Part of Rumbling Bald Resort — call ahead to confirm public tee-time availability',
+    rating: { score: 4.6, reviewCount: 18, source: 'Tripadvisor' },
+    notes: null,
+    website: 'https://rumblingbald.com/golf/bald-mountain-golf-course/',
+    source: 'rumblingbald.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'cleghorn-plantation-golf-and-country-club',
+    name: 'Cleghorn Plantation Golf & Country Club',
+    address: '183 Golf Cir, Rutherfordton, NC 28139',
+    phone: '828-286-9117',
+    holes: 18,
+    par: 72,
+    yardage: '6,903 yards',
+    designer: 'George W. Cobb',
+    access: 'Public',
+    rating: null,
+    notes: 'Farthest of the group, in Rutherfordton — worth it for a full round on a longer, more championship-scale course.',
+    website: null,
+    source: 'golfdigest.com',
+    lastVerified: '2026-08-28',
+  },
+]
+
+export function golfCoursesLastVerified(): string | null {
+  const dates = GOLF_COURSES.map((g) => g.lastVerified).filter((d): d is string => Boolean(d))
+  return dates.length ? dates.sort().at(-1)! : null
+}
+
+// ---------------------------------------------------------------------------
+// Rock Climbing — near Lake Lure & Chimney Rock
+//
+// Guided climbing ON the Chimney Rock monolith itself (inside the ticketed
+// park, normally run with Fox Mountain Guides) is currently on hold per
+// chimneyrockpark.com/rock-climbing/, which redirects climbers to Rumbling
+// Bald instead — same transparency treatment as the other closures we've
+// flagged on this site. Rumbling Bald itself, a separate free-access area
+// of Chimney Rock State Park, is open and is the real draw here — one of
+// the best-known bouldering destinations in the Southeast.
+// ---------------------------------------------------------------------------
+
+export type ClimbingAreaType = 'Climbing Area' | 'Guide Service'
+
+export interface ClimbingSpot {
+  id: string
+  name: string
+  type: ClimbingAreaType
+  address: string
+  phone: string | null
+  description: string
+  access: string
+  notes: string | null
+  website: string | null
+  source: string
+  lastVerified: string
+}
+
+export const CLIMBING_SPOT_TYPES: ClimbingAreaType[] = ['Climbing Area', 'Guide Service']
+
+export const CLIMBING_SPOTS: ClimbingSpot[] = [
+  {
+    id: 'rumbling-bald-climbing-access',
+    name: 'Rumbling Bald (Chimney Rock State Park)',
+    type: 'Climbing Area',
+    address: '827 Boys Camp Rd, Lake Lure, NC 28746',
+    phone: '828-625-1823',
+    description:
+      'A free-access, 1,100-acre section of Chimney Rock State Park with an estimated 1,500 bouldering problems plus trad and sport routes — one of the best-known bouldering destinations in the Southeast, and widely considered the most beginner-friendly major crag in western North Carolina.',
+    access:
+      'Free — self-guided, but fill out a climbing permit at the parking-lot kiosk. Only the south side is currently open to climbing.',
+    notes:
+      'Fall and winter are the popular season; the south-facing rock gets hot and overgrown with poison ivy in summer. Dedicated climbers’ parking lot on Boys Camp Rd; no camping at the lot or the crags.',
+    website: 'https://www.ncparks.gov/park-features/chimney-rock-state-park-rumbling-bald-access',
+    source: 'ncparks.gov, carolinaclimbers.org',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'chimney-rock-village-boulders',
+    name: 'Chimney Rock Village Boulders',
+    type: 'Climbing Area',
+    address: 'Round Top Mountain, Chimney Rock Village, NC 28720',
+    phone: null,
+    description:
+      'A shorter, 0.4-mile trail to roughly 50+ boulder problems, big views, and a small seasonal waterfall — a Carolina Climbers Coalition access area on a trail easement through village land.',
+    access: 'Parking at the public lot next to Burntshirt Vineyards ($5) or downtown on Main Street.',
+    notes: null,
+    website: 'https://carolinaclimbers.org/climbing-areas/chimneyrockvillage.html',
+    source: 'carolinaclimbers.org',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'buffalo-creek-park-boulders',
+    name: 'Buffalo Creek Park',
+    type: 'Climbing Area',
+    address: 'Buffalo Creek Rd, Lake Lure, NC 28746',
+    phone: null,
+    description:
+      'A newer, still-developing bouldering area with potential for 200+ problems plus 20-30 roped routes, reached via the Upper Boulders Trail (about 1.4 miles, moderately strenuous).',
+    access: 'Trail and access still under construction as of last check — a Carolina Climbers Coalition project.',
+    notes: 'The least developed of the three areas — best for climbers who don’t mind a project still taking shape.',
+    website: 'https://carolinaclimbers.org/climbing-areas',
+    source: 'rutherfordbound.com, carolinaclimbers.org',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'appalachian-climbing-school',
+    name: 'Appalachian Climbing School',
+    type: 'Guide Service',
+    address: 'Based in Lake Lure, NC — guides at Rumbling Bald',
+    phone: '828-222-4644',
+    description:
+      'AMGA-certified guide service specializing in Rumbling Bald — half-day intro top-rope, full-day sport/lead climbing, guided bouldering days, and a lead climbing clinic. All technical gear, crash pads, and park access included.',
+    access: 'Book online or by phone; pricing not published, contact for rates.',
+    notes: 'Good pick for a first-time outdoor climb — no experience required for the intro programs.',
+    website: 'https://www.appalachianclimbing.com/rumbling-bald-climbing',
+    source: 'appalachianclimbing.com',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'fox-mountain-guides',
+    name: 'Fox Mountain Guides & Climbing School',
+    type: 'Guide Service',
+    address: 'Based in Brevard, NC — the park’s usual partner for guided climbs at Chimney Rock',
+    phone: '888-284-8433',
+    description:
+      "Chimney Rock State Park's usual guiding partner for climbing the actual Chimney Rock monolith — 2-hour, half-day, and full-day programs, all gear provided, ages 6 and up, no experience needed.",
+    access: 'Currently on hold along with guided climbing at the Chimney Rock attraction itself — check before booking.',
+    notes: 'AMGA-accredited. When climbs resume, book directly through foxmountainguides.com.',
+    website: 'https://foxmountainguides.com/client-information/chimney-rock-park-climbing-bookings/',
+    source: 'chimneyrockpark.com, foxmountainguides.com',
+    lastVerified: '2026-08-28',
+  },
+]
+
+export function climbingSpotsLastVerified(): string | null {
+  const dates = CLIMBING_SPOTS.map((c) => c.lastVerified).filter((d): d is string => Boolean(d))
+  return dates.length ? dates.sort().at(-1)! : null
+}
