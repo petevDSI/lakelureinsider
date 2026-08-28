@@ -1413,3 +1413,88 @@ export function healthcareProvidersLastVerified(): string | null {
   )
   return dates.length ? dates.sort().at(-1)! : null
 }
+
+// ─── Rutherford County trail network — full directory ────────────────────────
+// Sourced from the Rutherford Outdoor Coalition (rutherfordoutdoor.org), the
+// nonprofit that builds/maintains/promotes trails across Rutherford County.
+// This is the full county-wide list, distinct from the curated "More Hiking
+// Nearby" AllTrails picks above — some trails (Bearwallow, Trombatore, Little
+// Bradley Falls, Weed Patch Mountain, Youngs Mountain) appear in both lists
+// with slightly different distance figures since the two sources measure
+// differently. Individual trail-page URLs on the Coalition's site weren't
+// scraped — link out to the overview page rather than guessing per-trail URLs.
+
+export type TrailArea =
+  | 'Hickory Nut Gorge'
+  | 'Rutherford County'
+  | 'Southern Rutherford'
+  | 'Northern Rutherford'
+  | 'Eastern Rutherford'
+
+export type TrailDifficulty = 'Easy' | 'Moderate' | 'Strenuous'
+
+export interface RutherfordTrail {
+  id: string
+  name: string
+  area: TrailArea
+  length: string
+  difficulty: TrailDifficulty
+  elevationGain: string
+  estTime: string
+}
+
+export const RUTHERFORD_TRAILS_SOURCE_URL = 'https://rutherfordoutdoor.org/trails-overview'
+export const RUTHERFORD_TRAILS_SOURCE_NAME = 'Rutherford Outdoor Coalition'
+export const RUTHERFORD_TRAILS_LAST_VERIFIED = '2026-08-28'
+
+export const RUTHERFORD_TRAIL_AREAS: TrailArea[] = [
+  'Hickory Nut Gorge',
+  'Rutherford County',
+  'Southern Rutherford',
+  'Northern Rutherford',
+  'Eastern Rutherford',
+]
+
+export const RUTHERFORD_TRAILS: RutherfordTrail[] = [
+  { id: 'alexanders-ford', name: 'Alexanders Ford', area: 'Rutherford County', length: '2.5 mi loop', difficulty: 'Moderate', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'bearwallow-mountain-trail', name: 'Bearwallow Mountain Trail', area: 'Hickory Nut Gorge', length: '2 mi one-way', difficulty: 'Moderate', elevationGain: '501–800 ft', estTime: '1.0–2.0 hr' },
+  { id: 'big-bradley-falls-trail', name: 'Big Bradley Falls Trail', area: 'Hickory Nut Gorge', length: 'Not specified', difficulty: 'Moderate', elevationGain: '201–500 ft', estTime: '1.0–2.0 hr' },
+  { id: 'broad-river-greenway', name: 'Broad River Greenway', area: 'Rutherford County', length: '12.9 mi (multiple trails)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'broad-river-paddle-trail', name: 'Broad River Paddle Trail', area: 'Rutherford County', length: '49 mi (multiple segments)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'buffalo-creek-park', name: 'Buffalo Creek Park', area: 'Rutherford County', length: '3.5 mi loop', difficulty: 'Moderate', elevationGain: '501–800 ft', estTime: '1.0–2.0 hr' },
+  { id: 'catawba-falls-trail', name: 'Catawba Falls Trail', area: 'Hickory Nut Gorge', length: '3.5 mi full trail; 1.1 mi to lower falls', difficulty: 'Moderate', elevationGain: '801–1000 ft', estTime: '2.25–3.0 hr' },
+  { id: 'chimney-rock-boulders-trail', name: 'Chimney Rock Boulders Trail', area: 'Hickory Nut Gorge', length: 'Not specified', difficulty: 'Moderate', elevationGain: '201–500 ft', estTime: '1.0–2.0 hr' },
+  { id: 'chimney-rock-state-park-coalition', name: 'Chimney Rock State Park', area: 'Hickory Nut Gorge', length: '4+ mi (multiple trails)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'cowpens-national-battlefield', name: 'Cowpens National Battlefield', area: 'Southern Rutherford', length: '4.5 mi (multiple trails)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'crestview-park-walking-path', name: 'Crestview Park Walking Path', area: 'Rutherford County', length: 'Not specified', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'dittmer-watts-nature-trail-park', name: 'Dittmer-Watts Nature Trail Park', area: 'Rutherford County', length: '3.5 mi (multiple trails)', difficulty: 'Moderate', elevationGain: '201–500 ft', estTime: '1.0–2.0 hr' },
+  { id: 'fence-trails', name: 'FENCE Trails', area: 'Rutherford County', length: '6 mi (multiple trails)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'florence-nature-preserve', name: 'Florence Nature Preserve', area: 'Rutherford County', length: '5 mi (multiple trails)', difficulty: 'Moderate', elevationGain: '1001–1200 ft', estTime: '2.25–3.0 hr' },
+  { id: 'green-river-game-lands', name: 'Green River Game Lands', area: 'Eastern Rutherford', length: '16 mi (multiple trails)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'icc-trails', name: 'ICC Trails', area: 'Rutherford County', length: '3.5 mi (multiple trails)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'joseph-mcdowell-historical-catawba-greenway', name: 'Joseph McDowell Historical Catawba Greenway', area: 'Rutherford County', length: '3.1 mi one-way', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'lake-james-state-park', name: 'Lake James State Park', area: 'Northern Rutherford', length: '25+ mi (multiple trails)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'lake-lure-town-center-walkway', name: 'Lake Lure Town Center Walkway', area: 'Hickory Nut Gorge', length: '0.5 mi', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'little-bradley-falls-trail', name: 'Little Bradley Falls Trail', area: 'Hickory Nut Gorge', length: '1.9 mi one-way', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'little-white-oak-mountain', name: 'Little White Oak Mountain', area: 'Rutherford County', length: '3.5 mi', difficulty: 'Moderate', elevationGain: '201–500 ft', estTime: '1.0–2.0 hr' },
+  { id: 'missing-40-trail', name: 'Missing 40 Trail', area: 'Rutherford County', length: '1 mi loop', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'morse-park-trails', name: 'Morse Park Trails', area: 'Rutherford County', length: '1 mi', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'norman-wilder-forest', name: 'Norman Wilder Forest', area: 'Rutherford County', length: 'Not specified', difficulty: 'Moderate', elevationGain: '501–800 ft', estTime: '1.0–2.0 hr' },
+  { id: 'old-fort-gateway-trails', name: 'Old Fort Gateway Trails', area: 'Rutherford County', length: '6 mi', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'pearsons-falls', name: "Pearson's Falls", area: 'Rutherford County', length: 'Not specified', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'purple-martin-greenway', name: 'Purple Martin Greenway', area: 'Rutherford County', length: 'Not specified', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'rocky-broad-riverwalk', name: 'Rocky Broad Riverwalk', area: 'Rutherford County', length: '0.13 mi', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'rumbling-bald-chimney-rock-trail', name: 'Rumbling Bald at Chimney Rock State Park Trail', area: 'Hickory Nut Gorge', length: '1.5 mi', difficulty: 'Moderate', elevationGain: '201–500 ft', estTime: '1.0–2.0 hr' },
+  { id: 'rutherford-county-walking-path', name: 'Rutherford County Walking Path', area: 'Rutherford County', length: '0.5 mi', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'south-mountains-christian-camp', name: 'South Mountains Christian Camp', area: 'Southern Rutherford', length: '3+ mi', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'south-mountains-game-lands', name: 'South Mountains Game Lands', area: 'Southern Rutherford', length: '20 mi (multiple trails)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'south-mountains-state-park', name: 'South Mountains State Park', area: 'Southern Rutherford', length: '40 mi (multiple trails)', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'strawberry-gap', name: 'Strawberry Gap', area: 'Hickory Nut Gorge', length: '5.1 mi', difficulty: 'Moderate', elevationGain: '1001–1200 ft', estTime: '2.25–3.0 hr' },
+  { id: 'summey-park-walking-trails', name: 'Summey Park Walking Trails', area: 'Rutherford County', length: '0.25 mi', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'thermal-belt-rail-trail', name: 'Thermal Belt Rail Trail', area: 'Rutherford County', length: '13.5 mi', difficulty: 'Moderate', elevationGain: '201–500 ft', estTime: '4.25–5.0 hr' },
+  { id: 'trombatore-trail-coalition', name: 'Trombatore Trail', area: 'Hickory Nut Gorge', length: '5 mi one-way', difficulty: 'Strenuous', elevationGain: '1200+ ft', estTime: '2.25–3.0 hr' },
+  { id: 'vaughn-creek-greenway', name: 'Vaughn Creek Greenway', area: 'Rutherford County', length: '1.6 mi', difficulty: 'Easy', elevationGain: '0–200 ft', estTime: '1.0–2.0 hr' },
+  { id: 'weed-patch-mountain-trail-coalition', name: 'Weed Patch Mountain Trail', area: 'Rutherford County', length: '18.5 mi', difficulty: 'Strenuous', elevationGain: '1200+ ft', estTime: '6.25+ hr' },
+  { id: 'wildcat-rock-little-bearwallow', name: 'Wildcat Rock / Little Bearwallow', area: 'Hickory Nut Gorge', length: '4.8 mi one-way', difficulty: 'Strenuous', elevationGain: '1200+ ft', estTime: '3.25–4.0 hr' },
+  { id: 'youngs-mountain-trail-coalition', name: "Young's Mountain Trail", area: 'Rutherford County', length: '4.3 mi one-way', difficulty: 'Moderate', elevationGain: '1001–1200 ft', estTime: '2.25–3.0 hr' },
+]

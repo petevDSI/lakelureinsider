@@ -21,6 +21,7 @@ import { PassCalculator } from './PassCalculator'
 import { BoatRentalTable } from './BoatRentalTable'
 import { EvChargingTable } from './EvChargingTable'
 import { HealthcareDirectory } from './HealthcareDirectory'
+import { TrailDirectory } from './TrailDirectory'
 import { WeddingCostCalculator } from './WeddingCostCalculator'
 import { WeddingContactCTA } from './WeddingContactCTA'
 import { EditorialIndependence } from './EditorialIndependence'
@@ -56,6 +57,7 @@ export const mdxComponents: MDXComponents = {
   BoatRentalTable,
   EvChargingTable,
   HealthcareDirectory,
+  TrailDirectory,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
@@ -92,6 +94,7 @@ export {
   BoatRentalTable,
   EvChargingTable,
   HealthcareDirectory,
+  TrailDirectory,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
