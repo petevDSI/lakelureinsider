@@ -2094,3 +2094,321 @@ export function shopsLastVerified(): string | null {
   const dates = SHOPS.map((s) => s.lastVerified).filter((d): d is string => Boolean(d))
   return dates.length ? dates.sort().at(-1)! : null
 }
+
+// ---------------------------------------------------------------------------
+// Apple Orchards — near Lake Lure & Chimney Rock
+//
+// There are no orchards in Lake Lure or Chimney Rock itself — the nearest
+// concentration is around Hendersonville, roughly 18 miles / ~30-40 minutes
+// via US-64 (source: distance-cities.com). Five of these sit directly on
+// Chimney Rock Road (US-64) — the same road that runs through Chimney Rock
+// Village and Bat Cave — so they're literally on the route, not a detour.
+// The rest are a short distance further, around Hendersonville/Flat Rock,
+// and are popular enough to be worth the extra few minutes.
+//
+// Ratings are a single Tripadvisor figure where one exists, same approach
+// as the shopping directory — not every orchard has enough cross-platform
+// review volume for a blended score.
+// ---------------------------------------------------------------------------
+
+export type OrchardArea = 'On Chimney Rock Road (US-64)' | 'Hendersonville / Flat Rock Area'
+
+export interface Orchard {
+  id: string
+  name: string
+  area: OrchardArea
+  address: string
+  phone: string | null
+  varieties: string
+  uPick: boolean
+  amenities: string
+  rating: ShopRating | null
+  notes: string | null
+  website: string | null
+  source: string
+  lastVerified: string
+}
+
+export const ORCHARD_AREAS: OrchardArea[] = [
+  'On Chimney Rock Road (US-64)',
+  'Hendersonville / Flat Rock Area',
+]
+
+export const ORCHARDS: Orchard[] = [
+  {
+    id: 'costons-farm-and-apple-house',
+    name: 'Coston Farm and Apple House',
+    area: 'On Chimney Rock Road (US-64)',
+    address: '3748 Chimney Rock Rd, Hendersonville, NC 28792',
+    phone: '828-685-8352',
+    varieties: '20 varieties',
+    uPick: true,
+    amenities: 'Bakery (pies, cider, apple butter), fall decorations, covered picnic and play area, gift shop',
+    rating: null,
+    notes: null,
+    website: 'https://costonfarm.com',
+    source: 'costonfarm.com, nctripping.com',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'grandads-apples-n-such',
+    name: "Grandad's Apples N' Such",
+    area: 'On Chimney Rock Road (US-64)',
+    address: '2951 Chimney Rock Rd, Hendersonville, NC 28792',
+    phone: '828-685-1685',
+    varieties: '30+ varieties',
+    uPick: true,
+    amenities: 'Hayrides, corn maze, jump pad, apple cannons, bakery, country store',
+    rating: null,
+    notes: '120-acre family farm, four generations.',
+    website: null,
+    source: 'nctripping.com, blueridgemountainlife.com',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'mountain-fresh-orchards',
+    name: 'Mountain Fresh Orchards',
+    area: 'On Chimney Rock Road (US-64)',
+    address: '2887 Chimney Rock Rd, Hendersonville, NC 28792',
+    phone: '828-685-7606',
+    varieties: '17 varieties',
+    uPick: false,
+    amenities: '"Apple Express" train ride, market and bakery — cider donuts, pies, apple bread, jams',
+    rating: null,
+    notes: 'We-pick service (staff picks for you) rather than u-pick.',
+    website: null,
+    source: 'nctripping.com, blueridgemountainlife.com',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'owenbys-apple-house-and-orchard',
+    name: "Owenby's Apple House & Orchard",
+    area: 'On Chimney Rock Road (US-64)',
+    address: '3807 Chimney Rock Rd, Hendersonville, NC 28792',
+    phone: '828-685-9917',
+    varieties: '18 varieties, including Jonagold and Golden Delicious',
+    uPick: true,
+    amenities: 'Bakery (pies), nature trails, store with produce and homemade jams',
+    rating: null,
+    notes: 'Family-owned 60+ years, 90-acre farm.',
+    website: null,
+    source: 'nctripping.com, blueridgemountainlife.com',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'twisted-apple-orchard',
+    name: 'Twisted Apple Orchard & Cider Mill',
+    area: 'On Chimney Rock Road (US-64)',
+    address: '4039 US-64 (Chimney Rock Rd), Hendersonville, NC 28792',
+    phone: '828-712-1919',
+    varieties: 'Organic apples, varieties not listed',
+    uPick: true,
+    amenities: 'House-pressed cider, gourmet jams and jellies, hayrides, giant slingshots, farm store',
+    rating: null,
+    notes: 'Organic orchard; opens Labor Day weekend.',
+    website: null,
+    source: 'nctripping.com, blueridgemountainlife.com',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'sky-top-orchard',
+    name: 'Sky Top Orchard',
+    area: 'Hendersonville / Flat Rock Area',
+    address: '1193 Pinnacle Mountain Rd, Flat Rock, NC 28731',
+    phone: '828-692-7930',
+    varieties: '8 varieties, including Honeycrisp, Gala, and Pink Lady',
+    uPick: true,
+    amenities: 'Farm animals (ducks, goats, peacocks), tractor rides, bamboo forest, playground, bakery, cider slushies',
+    rating: { score: 4.0, reviewCount: 415, source: 'Tripadvisor' },
+    notes: 'Panoramic mountain views; ranked #3 of 17 things to do in Flat Rock on Tripadvisor.',
+    website: null,
+    source: 'blueridgemountainlife.com, Tripadvisor, pickyourown.farm',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'justus-orchard',
+    name: 'Justus Orchard',
+    area: 'Hendersonville / Flat Rock Area',
+    address: '187 Garren Rd, Hendersonville, NC 28792',
+    phone: '828-974-1232',
+    varieties: '19 varieties, plus u-pick blackberries',
+    uPick: true,
+    amenities: '"Cow Train" ride, apple cannons, adventure playground, jumping pillow, duck pond, farm animals, bakery',
+    rating: null,
+    notes: 'Fifth-generation family farm.',
+    website: 'https://justusorchard.com',
+    source: 'justusorchard.com, nctripping.com',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'jeter-mountain-farm',
+    name: 'Jeter Mountain Farm',
+    area: 'Hendersonville / Flat Rock Area',
+    address: '1126 Jeter Mountain Rd, Hendersonville, NC 28739',
+    phone: '828-513-0404',
+    varieties: '25+ varieties, including Fuji, Pink Lady, Gala, and Honeycrisp',
+    uPick: true,
+    amenities: 'Wagon rides, cider mill and tasting room, cider donuts, corn maze, playground, coffee shop, sunflower field',
+    rating: { score: 4.6, reviewCount: 9, source: 'Tripadvisor' },
+    notes: "400+ acres; Tripadvisor Travelers' Choice.",
+    website: 'https://www.jetermountainfarm.com',
+    source: 'jetermountainfarm.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'stepps-hillcrest-orchard',
+    name: "Stepp's Hillcrest Orchard",
+    area: 'Hendersonville / Flat Rock Area',
+    address: '170 Stepp Orchard Dr, Hendersonville, NC 28792',
+    phone: '828-685-9083',
+    varieties: '20+ varieties, including Gala, Granny Smith, Honeycrisp, Empire, and Winesap',
+    uPick: true,
+    amenities: 'Corn maze, apple cannons, u-pick grapes/berries/sunflowers, hayrides, bakery with cider donuts',
+    rating: null,
+    notes: '70-acre farm, family-run for 50+ years.',
+    website: 'https://steppapples.com',
+    source: 'steppapples.com, blueridgemountainlife.com',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'creasman-farms',
+    name: 'Creasman Farms',
+    area: 'Hendersonville / Flat Rock Area',
+    address: '280 Bent Arrow Lane, Hendersonville, NC 28792',
+    phone: '828-685-7728',
+    varieties: '15+ varieties, including Honeycrisp, Gold Rush, Fuji, and Pink Lady',
+    uPick: true,
+    amenities: 'Fresh-pressed cider, homemade pies and baked goods, small picnic area, occasional food trucks',
+    rating: null,
+    notes: 'U-pick Sundays only, 1-5 PM, September and October.',
+    website: 'https://www.creasmanfarmsnc.com',
+    source: 'creasmanfarmsnc.com',
+    lastVerified: '2026-08-28',
+  },
+]
+
+export function orchardsLastVerified(): string | null {
+  const dates = ORCHARDS.map((o) => o.lastVerified).filter((d): d is string => Boolean(d))
+  return dates.length ? dates.sort().at(-1)! : null
+}
+
+// ---------------------------------------------------------------------------
+// Wineries & Cideries — near Lake Lure & Chimney Rock
+//
+// Burntshirt Vineyards' own Chimney Rock tasting room (438 Main St) — right
+// at the western edge of Lake Lure — has been CLOSED UNTIL FURTHER NOTICE
+// since Hurricane Helene, confirmed directly on burntshirtvineyards.com/
+// chimney-rock/, which now redirects visitors to the Hendersonville tasting
+// room instead. Consistent with how we handled Old Rock Cafe, we don't list
+// it as a place to visit — but it's notable enough (and close enough) that
+// it's worth a line of prose explaining the closure rather than pretending
+// it was never there.
+//
+// Flat Rock Cider Works (305 N Main St, Hendersonville) shows as CLOSED on
+// its own Yelp listing; a separately-branded "Flat Rock Cider Company"
+// website exists but only describes production/packaging in Dana, NC with
+// no public tasting room found — left off for the same reason.
+// ---------------------------------------------------------------------------
+
+export type WineryType = 'Winery' | 'Cidery'
+
+export interface Winery {
+  id: string
+  name: string
+  type: WineryType
+  address: string
+  phone: string | null
+  hours: string
+  description: string
+  rating: ShopRating | null
+  notes: string | null
+  website: string | null
+  source: string
+  lastVerified: string
+}
+
+export const WINERY_TYPES: WineryType[] = ['Winery', 'Cidery']
+
+export const WINERIES: Winery[] = [
+  {
+    id: 'burntshirt-vineyards-hendersonville',
+    name: 'Burntshirt Vineyards — Hendersonville',
+    type: 'Winery',
+    address: '2695 Sugarloaf Rd, Hendersonville, NC 28792',
+    phone: '828-685-2402',
+    hours: 'Sun–Thu 11:30 AM–6 PM, Fri–Sat 11:30 AM–8 PM. Free tours daily.',
+    description:
+      'The main Burntshirt tasting room and production winery, on the vineyard property outside Hendersonville — reds, whites, and berry wines, with daily tours.',
+    rating: { score: 4.3, reviewCount: 552, source: 'Tripadvisor' },
+    notes:
+      "Burntshirt's other tasting room, on Main Street in Chimney Rock, has been closed since Hurricane Helene — see note below. This Hendersonville location is the one currently open.",
+    website: 'https://burntshirtvineyards.com',
+    source: 'burntshirtvineyards.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'point-lookout-vineyards',
+    name: 'Point Lookout Vineyards',
+    type: 'Winery',
+    address: '408 Appleola Rd, Hendersonville, NC 28792',
+    phone: '828-808-8923',
+    hours: 'Varies by season — check their site or social media before visiting.',
+    description:
+      'Mountaintop vineyard off Chimney Rock Road in Edneyville with wide-open views, regular live music, and a co-located meadery (World\'s Edge Meadery). Popular wedding venue.',
+    rating: { score: 4.3, reviewCount: 96, source: 'Tripadvisor' },
+    notes: null,
+    website: 'https://pointlookoutvineyards.com',
+    source: 'pointlookoutvineyards.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'parker-binns-vineyard',
+    name: 'Parker-Binns Vineyard',
+    type: 'Winery',
+    address: '2275 Whiteside Rd, Mill Spring, NC 28756',
+    phone: '828-894-0154',
+    hours: 'Wed 12–5 PM, Thu 12–6 PM, Fri–Sun 12–7 PM. Hours change seasonally — check social media.',
+    description:
+      '40-acre property with 12 acres under vine — reds, whites, and berry wines. Onsite Burger Barn open Thursday through Sunday; hosts weddings and public events.',
+    rating: { score: 4.8, reviewCount: 90, source: 'Tripadvisor' },
+    notes: 'Highest-rated of the group — a bit further out, toward Mill Spring/Columbus rather than Hendersonville.',
+    website: 'https://www.parkerbinnsvineyard.com',
+    source: 'parkerbinnsvineyard.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'appalachian-ridge-artisan-cidery',
+    name: 'Appalachian Ridge Artisan Cidery',
+    type: 'Cidery',
+    address: '749 Chestnut Gap Rd, Hendersonville, NC 28792',
+    phone: '828-685-4002',
+    hours: 'Thu & Sun 12–6 PM, Fri–Sat 12–7 PM. Closed Mon–Wed.',
+    description:
+      'A division of Saint Paul Mountain Farms — hard cider and apple brandy in a restored 1920s apple barn overlooking a 29-acre orchard.',
+    rating: { score: 4.6, reviewCount: 29, source: 'Tripadvisor' },
+    notes: null,
+    website: 'https://www.saintpaulfarms.com/appalachian-ridge-hard-cider',
+    source: 'saintpaulfarms.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'bold-rock-mills-river-cidery',
+    name: 'Bold Rock Mills River Cidery',
+    type: 'Cidery',
+    address: '72 School House Rd, Mills River, NC 28759',
+    phone: '828-595-9940',
+    hours: 'Mon–Tue & Sun 11 AM–8 PM, Wed–Thu 11 AM–9 PM, Fri–Sat 11 AM–10 PM.',
+    description:
+      "The largest independently owned cider company in the U.S. — tastings, flights, local craft beer, food service, and a large outdoor garden using Henderson County apples.",
+    rating: { score: 4.5, reviewCount: 194, source: 'Tripadvisor' },
+    notes: "Farthest of the group — past Hendersonville, near the airport — but the area's best-known cidery and worth the extra distance.",
+    website: 'https://www.boldrock.com',
+    source: 'boldrock.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+]
+
+export function wineriesLastVerified(): string | null {
+  const dates = WINERIES.map((w) => w.lastVerified).filter((d): d is string => Boolean(d))
+  return dates.length ? dates.sort().at(-1)! : null
+}
