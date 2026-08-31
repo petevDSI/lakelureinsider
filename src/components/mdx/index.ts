@@ -29,6 +29,7 @@ import { OrchardDirectory } from './OrchardDirectory'
 import { WineryDirectory } from './WineryDirectory'
 import { GolfDirectory } from './GolfDirectory'
 import { ClimbingDirectory } from './ClimbingDirectory'
+import { EquestrianDirectory } from './EquestrianDirectory'
 import { WeddingCostCalculator } from './WeddingCostCalculator'
 import { WeddingContactCTA } from './WeddingContactCTA'
 import { EditorialIndependence } from './EditorialIndependence'
@@ -72,6 +73,7 @@ export const mdxComponents: MDXComponents = {
   WineryDirectory,
   GolfDirectory,
   ClimbingDirectory,
+  EquestrianDirectory,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,
@@ -116,6 +118,7 @@ export {
   WineryDirectory,
   GolfDirectory,
   ClimbingDirectory,
+  EquestrianDirectory,
   WeddingCostCalculator,
   WeddingContactCTA,
   EditorialIndependence,

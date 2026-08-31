@@ -2295,6 +2295,13 @@ export function orchardsLastVerified(): string | null {
 // ---------------------------------------------------------------------------
 // Wineries & Cideries — near Lake Lure & Chimney Rock
 //
+// Two clusters: the Hendersonville-area group (closer, off Chimney Rock
+// Road) and a second cluster around Tryon/Mill Spring/Columbus, in Polk
+// County's newly designated Tryon Foothills AVA (American Viticultural
+// Area, granted Nov 2025) — the same area as Tryon International
+// Equestrian Center, so these pair naturally with an equestrian-center
+// day trip. Parker-Binns Vineyard belongs to this second cluster.
+//
 // Burntshirt Vineyards' own Chimney Rock tasting room (438 Main St) — right
 // at the western edge of Lake Lure — has been CLOSED UNTIL FURTHER NOTICE
 // since Hurricane Helene, confirmed directly on burntshirtvineyards.com/
@@ -2311,11 +2318,13 @@ export function orchardsLastVerified(): string | null {
 // ---------------------------------------------------------------------------
 
 export type WineryType = 'Winery' | 'Cidery'
+export type WineryArea = 'Hendersonville Area' | 'Tryon / Mill Spring Area'
 
 export interface Winery {
   id: string
   name: string
   type: WineryType
+  area: WineryArea
   address: string
   phone: string | null
   hours: string
@@ -2328,12 +2337,14 @@ export interface Winery {
 }
 
 export const WINERY_TYPES: WineryType[] = ['Winery', 'Cidery']
+export const WINERY_AREAS: WineryArea[] = ['Hendersonville Area', 'Tryon / Mill Spring Area']
 
 export const WINERIES: Winery[] = [
   {
     id: 'burntshirt-vineyards-hendersonville',
     name: 'Burntshirt Vineyards — Hendersonville',
     type: 'Winery',
+    area: 'Hendersonville Area',
     address: '2695 Sugarloaf Rd, Hendersonville, NC 28792',
     phone: '828-685-2402',
     hours: 'Sun–Thu 11:30 AM–6 PM, Fri–Sat 11:30 AM–8 PM. Free tours daily.',
@@ -2350,6 +2361,7 @@ export const WINERIES: Winery[] = [
     id: 'point-lookout-vineyards',
     name: 'Point Lookout Vineyards',
     type: 'Winery',
+    area: 'Hendersonville Area',
     address: '408 Appleola Rd, Hendersonville, NC 28792',
     phone: '828-808-8923',
     hours: 'Varies by season — check their site or social media before visiting.',
@@ -2362,24 +2374,10 @@ export const WINERIES: Winery[] = [
     lastVerified: '2026-08-28',
   },
   {
-    id: 'parker-binns-vineyard',
-    name: 'Parker-Binns Vineyard',
-    type: 'Winery',
-    address: '2275 Whiteside Rd, Mill Spring, NC 28756',
-    phone: '828-894-0154',
-    hours: 'Wed 12–5 PM, Thu 12–6 PM, Fri–Sun 12–7 PM. Hours change seasonally — check social media.',
-    description:
-      '40-acre property with 12 acres under vine — reds, whites, and berry wines. Onsite Burger Barn open Thursday through Sunday; hosts weddings and public events.',
-    rating: { score: 4.8, reviewCount: 90, source: 'Tripadvisor' },
-    notes: 'Highest-rated of the group — a bit further out, toward Mill Spring/Columbus rather than Hendersonville.',
-    website: 'https://www.parkerbinnsvineyard.com',
-    source: 'parkerbinnsvineyard.com, Tripadvisor',
-    lastVerified: '2026-08-28',
-  },
-  {
     id: 'appalachian-ridge-artisan-cidery',
     name: 'Appalachian Ridge Artisan Cidery',
     type: 'Cidery',
+    area: 'Hendersonville Area',
     address: '749 Chestnut Gap Rd, Hendersonville, NC 28792',
     phone: '828-685-4002',
     hours: 'Thu & Sun 12–6 PM, Fri–Sat 12–7 PM. Closed Mon–Wed.',
@@ -2395,15 +2393,80 @@ export const WINERIES: Winery[] = [
     id: 'bold-rock-mills-river-cidery',
     name: 'Bold Rock Mills River Cidery',
     type: 'Cidery',
+    area: 'Hendersonville Area',
     address: '72 School House Rd, Mills River, NC 28759',
     phone: '828-595-9940',
     hours: 'Mon–Tue & Sun 11 AM–8 PM, Wed–Thu 11 AM–9 PM, Fri–Sat 11 AM–10 PM.',
     description:
       "The largest independently owned cider company in the U.S. — tastings, flights, local craft beer, food service, and a large outdoor garden using Henderson County apples.",
     rating: { score: 4.5, reviewCount: 194, source: 'Tripadvisor' },
-    notes: "Farthest of the group — past Hendersonville, near the airport — but the area's best-known cidery and worth the extra distance.",
+    notes: "Farthest of the Hendersonville group — past town, near the airport — but the area's best-known cidery and worth the extra distance.",
     website: 'https://www.boldrock.com',
     source: 'boldrock.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'parker-binns-vineyard',
+    name: 'Parker-Binns Vineyard',
+    type: 'Winery',
+    area: 'Tryon / Mill Spring Area',
+    address: '2275 Whiteside Rd, Mill Spring, NC 28756',
+    phone: '828-894-0154',
+    hours: 'Wed 12–5 PM, Thu 12–6 PM, Fri–Sun 12–7 PM. Hours change seasonally — check social media.',
+    description:
+      '40-acre property with 12 acres under vine — reds, whites, and berry wines. Onsite Burger Barn open Thursday through Sunday; hosts weddings and public events. About 10 minutes from Tryon International Equestrian Center.',
+    rating: { score: 4.8, reviewCount: 90, source: 'Tripadvisor' },
+    notes: 'Highest-rated winery in the whole group.',
+    website: 'https://www.parkerbinnsvineyard.com',
+    source: 'parkerbinnsvineyard.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'overmountain-vineyards',
+    name: 'Overmountain Vineyards',
+    type: 'Winery',
+    area: 'Tryon / Mill Spring Area',
+    address: '2012 Sandy Plains Rd, Tryon, NC 28782',
+    phone: '828-863-0523',
+    hours: 'Wed, Thu & Sun 12–6 PM, Fri–Sat 12–7 PM.',
+    description:
+      'A father-daughter-run boutique winery on a 70-acre farm (18 acres under vine) producing French-style wines — Cabernet Sauvignon, Cabernet Franc, Merlot, Petit Verdot, and Petit Manseng. Tastings and farm tours.',
+    rating: { score: 4.8, reviewCount: 125, source: 'Tripadvisor' },
+    notes: "Tied for highest-rated; ranked #1 of 24 things to do in Tryon on Tripadvisor. Reservations recommended — the tasting room is intimate.",
+    website: 'https://www.overmountainvineyards.com',
+    source: 'overmountainvineyards.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'mountain-brook-vineyards',
+    name: 'Mountain Brook Vineyards',
+    type: 'Winery',
+    area: 'Tryon / Mill Spring Area',
+    address: '731 Phillips Dairy Rd, Tryon, NC 28782',
+    phone: '828-722-1037',
+    hours: 'Mon, Wed & Thu 12–6 PM, Fri–Sun 12–8 PM. Closed Tuesdays.',
+    description:
+      '75-acre estate winery, first planted in 2002 — Merlot, Petit Verdot, Cabernet Franc, Cabernet Sauvignon, and Riesling, all estate-grown.',
+    rating: { score: 4.7, reviewCount: 76, source: 'Tripadvisor' },
+    notes: null,
+    website: 'https://www.mountainbrookvineyards.com',
+    source: 'mountainbrookvineyards.com, Tripadvisor',
+    lastVerified: '2026-08-28',
+  },
+  {
+    id: 'russian-chapel-hills-winery',
+    name: 'Russian Chapel Hills Winery',
+    type: 'Winery',
+    area: 'Tryon / Mill Spring Area',
+    address: '2662 Green Creek Dr, Columbus, NC 28722',
+    phone: '828-863-0540',
+    hours: 'Hours vary — call ahead before visiting.',
+    description:
+      'The smallest winery in the Tryon area, with a Russian Orthodox chapel visible from the tasting room — Chardonnay, Sauvignon Blanc, Rosé, Merlot, Cabernet Sauvignon, plus specialty Kagor and mead.',
+    rating: { score: 4.8, reviewCount: 78, source: 'Tripadvisor' },
+    notes: "Tied for highest-rated; ranked #1 of 14 things to do in Columbus on Tripadvisor.",
+    website: null,
+    source: 'winetraveler.com, Tripadvisor',
     lastVerified: '2026-08-28',
   },
 ]
@@ -2625,5 +2688,91 @@ export const CLIMBING_SPOTS: ClimbingSpot[] = [
 
 export function climbingSpotsLastVerified(): string | null {
   const dates = CLIMBING_SPOTS.map((c) => c.lastVerified).filter((d): d is string => Boolean(d))
+  return dates.length ? dates.sort().at(-1)! : null
+}
+
+// ---------------------------------------------------------------------------
+// Equestrian Center & Horseback Riding — near Lake Lure & Chimney Rock
+//
+// Tryon International Equestrian Center (Mill Spring) is the major regional
+// draw — a former World Equestrian Games host site with year-round shows,
+// dining, lodging, and festivals, in the same small area as the Tryon
+// Foothills wineries above. It's promoted directly on Rumbling Bald's own
+// site as a nearby attraction for Lake Lure guests.
+//
+// Cedar Creek Riding Stables, which used to operate in Lake Lure itself,
+// shows as CLOSED on its own Yelp listing (last updated Oct 2025) — left
+// off the active list for the same reason as other confirmed closures on
+// this site. Riverside Riding Stables in Rutherfordton is the closer,
+// currently-operating trail-riding option.
+// ---------------------------------------------------------------------------
+
+export interface EquestrianVenue {
+  id: string
+  name: string
+  address: string
+  phone: string
+  website: string
+  eventsUrl: string
+  description: string
+  highlights: string[]
+  source: string
+  lastVerified: string
+}
+
+export const EQUESTRIAN_CENTER: EquestrianVenue = {
+  id: 'tryon-international-equestrian-center',
+  name: 'Tryon International Equestrian Center',
+  address: '25 International Blvd, Mill Spring, NC 28756',
+  phone: '828-863-1000',
+  website: 'https://tryon.com',
+  eventsUrl: 'https://tryon.com/events',
+  description:
+    'A world-class equestrian venue — former host of the 2018 FEI World Equestrian Games — with year-round hunter/jumper, dressage, and multidisciplinary competitions, most of which are free for the public to watch. Beyond the arenas, it functions as a small destination in its own right: eight on-site restaurants, on-campus lodging (from the Overmountain Lodge to cabins and RV sites), trail riding, a fitness center, and Cleghorn Golf & Gun Clubs for golf and shooting sports.',
+  highlights: [
+    'Equestrian sport — hunter/jumper, dressage, and eventing competitions, most free to watch',
+    'Saturday Night Lights (May–October) — Grand Prix show jumping plus live music, carousel rides, kids activities, dining and shopping, with free general admission and parking',
+    'Eight on-site restaurants, from Roger\'s Diner to Campagna Italian Cuisine and Blue Ginger Sushi',
+    'On-campus lodging — the Overmountain Lodge, cabins, and RV sites',
+    'Trail riding, a fitness center, and Cleghorn Golf & Gun Clubs',
+    'Festivals and concerts — the Earl Scruggs Music Festival, PBR Tryon, and more',
+  ],
+  source: 'tryon.com, rumblingbald.com, romanticasheville.com',
+  lastVerified: '2026-08-28',
+}
+
+export interface RidingStable {
+  id: string
+  name: string
+  address: string
+  phone: string
+  description: string
+  pricing: string | null
+  restrictions: string | null
+  notes: string | null
+  website: string | null
+  source: string
+  lastVerified: string
+}
+
+export const RIDING_STABLES: RidingStable[] = [
+  {
+    id: 'riverside-riding-stables',
+    name: 'Riverside Riding Stables',
+    address: '1325 Freemantown Rd, Rutherfordton, NC 28139',
+    phone: '828-829-9251',
+    description:
+      'Guided trail rides — a 1-hour trail ride, or a 2-hour "river adventure" ride that includes horseback riding through the river and mountain trails with views of Bald Mountain.',
+    pricing: 'Call to confirm availability and rates.',
+    restrictions: 'Riders must be 6 or older and weigh 240 lbs or less.',
+    notes: 'Open Tuesday–Sunday, 11 AM–5 PM (last ride departs at 4 PM). The closer, currently-operating trail-riding option to Lake Lure.',
+    website: 'https://riversideridingstables.com',
+    source: 'riversideridingstables.com',
+    lastVerified: '2026-08-28',
+  },
+]
+
+export function equestrianLastVerified(): string | null {
+  const dates = [EQUESTRIAN_CENTER.lastVerified, ...RIDING_STABLES.map((r) => r.lastVerified)]
   return dates.length ? dates.sort().at(-1)! : null
 }

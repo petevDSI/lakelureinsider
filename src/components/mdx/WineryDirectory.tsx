@@ -1,4 +1,4 @@
-import { WINERIES, WINERY_TYPES, wineriesLastVerified, type WineryType } from '@/data/facts'
+import { WINERIES, WINERY_AREAS, wineriesLastVerified, type WineryType } from '@/data/facts'
 
 const TYPE_STYLE: Record<WineryType, string> = {
   Winery: 'bg-(--forest)/15 text-(--forest)',
@@ -32,15 +32,13 @@ export function WineryDirectory() {
 
   return (
     <div className="not-prose my-8">
-      {WINERY_TYPES.map((type) => {
-        const spots = WINERIES.filter((w) => w.type === type)
+      {WINERY_AREAS.map((area) => {
+        const spots = WINERIES.filter((w) => w.area === area)
         if (spots.length === 0) return null
 
         return (
-          <div key={type} className="mb-8 last:mb-0">
-            <h3 className="mb-3 font-display text-lg font-bold text-(--forest)">
-              {type === 'Winery' ? 'Wineries' : 'Cideries'}
-            </h3>
+          <div key={area} className="mb-8 last:mb-0">
+            <h3 className="mb-3 font-display text-lg font-bold text-(--forest)">{area}</h3>
 
             <div className="flex flex-col gap-3">
               {spots.map((w) => (
