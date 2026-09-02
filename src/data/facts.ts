@@ -1631,6 +1631,118 @@ export function churchesLastVerified(): string | null {
   return dates.length ? dates.sort().at(-1)! : null
 }
 
+// ─── Hair salons, spas & nail salons near Lake Lure ───────────────────────
+// A general "hair, spa, etc." personal-care directory. Two options are
+// actually inside Lake Lure town limits; the nail salon and barbershop are
+// the nearest options in Rutherfordton, same pattern as the healthcare and
+// churches directories. The historic Lake Lure Inn's spa (Irongate) has
+// conflicting open/closed status between its own site and the Inn's main
+// site — flagged in its `notes` rather than silently picking one.
+
+export type SalonCategory = 'hair' | 'spa' | 'nails'
+
+export interface SalonSpaListing {
+  id: string
+  category: SalonCategory
+  name: string
+  address: string
+  phone: string | null
+  hours: string
+  travelNote: string
+  notes: string | null
+  detailsUrl: string
+  source: string
+  lastVerified: string
+}
+
+export const SALONS_SPAS: SalonSpaListing[] = [
+  {
+    id: 'lake-lure-salon-spa',
+    category: 'hair',
+    name: 'Lake Lure Salon & Spa',
+    address: '2939 Memorial Hwy, Lake Lure, NC 28746',
+    phone: '828-625-0838',
+    hours: 'Tue–Fri 10am–5pm, Sat 10am–3pm (closed Sun–Mon); extended hours available by appointment',
+    travelNote: 'Inside Lake Lure, on Memorial Hwy.',
+    notes: 'Hair cutting, coloring, and styling; manicures and pedicures; bridal services; makeup; waxing and hair treatments. In business locally 15+ years.',
+    detailsUrl: 'https://www.lakeluresalon.com/',
+    source: 'lakeluresalon.com',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'hair-kutters-rutherfordton',
+    category: 'hair',
+    name: 'Hair Kutters Barber & Style Shop',
+    address: '176 N Main St, Rutherfordton, NC 28139',
+    phone: '828-286-9166',
+    hours: 'Mon–Fri 7am–5pm (closed Sat–Sun)',
+    travelNote: 'Nearest barbershop — same general drive as Rutherfordton\'s other services.',
+    notes: 'No independent website found — sourced from a business directory listing; in business 37+ years per the same listing. Call ahead to confirm.',
+    detailsUrl: 'https://www.yellowpages.com/rutherfordton-nc/mip/hair-kutters-barber-style-shop-13686541',
+    source: 'Yellow Pages business listing',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'rumbling-bald-spa-salon',
+    category: 'spa',
+    name: 'Spa & Salon at Rumbling Bald',
+    address: '112 Mountains Blvd, Lake Lure, NC 28746',
+    phone: '828-694-3017',
+    hours: 'Spa 9:30am–5pm, Mon–Sat; salon hours vary by day (roughly 10am–7:30pm) — reservations recommended',
+    travelNote: 'Inside the Rumbling Bald community in Lake Lure.',
+    notes: 'Massage therapy, skin care treatments, body therapies, and salon services. Open to members, lodging guests, and the general public — not members-only. 24-hour cancellation policy (50% fee for a late cancellation, 100% for a no-show).',
+    detailsUrl: 'https://rumblingbald.com/relaxation-and-rejuvenation/',
+    source: 'rumblingbald.com',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'lake-lure-massage',
+    category: 'spa',
+    name: 'Lake Lure Massage (Ishvara Michelle Bliss, LMBT)',
+    address: 'Lake Lure, NC 28746 — exact address given at booking',
+    phone: '828-436-2525',
+    hours: 'Mon–Fri, by appointment',
+    travelNote: 'Independent, solo practice inside Lake Lure.',
+    notes: 'Licensed massage & bodywork therapist (NC LMBT #16493). Listed pricing was $90 for 60 minutes and $125 for 90 minutes at last check — confirm current pricing when booking.',
+    detailsUrl: 'https://lakeluremassage.com/',
+    source: 'lakeluremassage.com',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'irongate-spa-lake-lure-inn',
+    category: 'spa',
+    name: 'Irongate Spa at The 1927 Lake Lure Inn',
+    address: '2785 Memorial Hwy, Lake Lure, NC 28746',
+    phone: '828-625-2525 ext. 116',
+    hours: 'Call to confirm — see notes',
+    travelNote: 'Inside the historic Lake Lure Inn, in town.',
+    notes: 'Status is unclear: irongatespa.com presents the spa as open and invites bookings, while the Lake Lure Inn & Spa\'s own site states the spa is "temporarily closed until further notice." Call ahead before planning around this one.',
+    detailsUrl: 'https://irongatespa.com/',
+    source: 'irongatespa.com; lakelurenc.com/spa (conflicting status — see notes)',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'american-nail-spa-rutherfordton',
+    category: 'nails',
+    name: 'American Nail Spa',
+    address: '181 Railroad Ave, Rutherfordton, NC 28139',
+    phone: '828-288-0023',
+    hours: 'Mon–Thu 10am–7:30pm, Fri–Sat 9:30am–7pm (closed Sun)',
+    travelNote: 'Nearest dedicated nail salon — about the same drive as Rutherfordton\'s hospital, dentists, and pharmacies.',
+    notes: 'No independent website found — sourced from a business directory listing. Call ahead to confirm.',
+    detailsUrl: 'https://www.yellowpages.com/rutherfordton-nc/mip/american-nail-spa-421475',
+    source: 'Yellow Pages business listing',
+    lastVerified: '2026-09-02',
+  },
+]
+
+export function salonsSpasLastVerified(): string | null {
+  const dates = SALONS_SPAS.map((s) => s.lastVerified).filter(
+    (d): d is string => Boolean(d),
+  )
+  return dates.length ? dates.sort().at(-1)! : null
+}
+
 // ─── Rutherford County trail network — full directory ────────────────────────
 // Sourced from the Rutherford Outdoor Coalition (rutherfordoutdoor.org), the
 // nonprofit that builds/maintains/promotes trails across Rutherford County.

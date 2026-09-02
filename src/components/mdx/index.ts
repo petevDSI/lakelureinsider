@@ -22,6 +22,7 @@ import { BoatRentalTable } from './BoatRentalTable'
 import { EvChargingTable } from './EvChargingTable'
 import { HealthcareDirectory } from './HealthcareDirectory'
 import { ChurchDirectory } from './ChurchDirectory'
+import { SalonSpaDirectory } from './SalonSpaDirectory'
 import { TrailDirectory } from './TrailDirectory'
 import { RestaurantDirectory } from './RestaurantDirectory'
 import { GroceryStores } from './GroceryStores'
@@ -67,6 +68,7 @@ export const mdxComponents: MDXComponents = {
   EvChargingTable,
   HealthcareDirectory,
   ChurchDirectory,
+  SalonSpaDirectory,
   TrailDirectory,
   RestaurantDirectory,
   GroceryStores,
@@ -113,6 +115,7 @@ export {
   EvChargingTable,
   HealthcareDirectory,
   ChurchDirectory,
+  SalonSpaDirectory,
   TrailDirectory,
   RestaurantDirectory,
   GroceryStores,
