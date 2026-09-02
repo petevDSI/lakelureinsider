@@ -769,6 +769,23 @@ export const facts: Record<string, Fact> = {
     source: 'Ingles Markets store locator',
     lastVerified: '2026-08-23',
   },
+
+  // ─── Churches & worship (verified 2026-09-02) ────────────────────────────
+  'churches.episcopal-transfiguration.phone': {
+    value: '828-625-9244',
+    source: 'https://www.ectransfiguration.org/',
+    lastVerified: '2026-09-02',
+  },
+  'churches.catholic-forest-city.phone': {
+    value: '828-245-4017',
+    source: 'https://www.immaculateconceptionforestcity.org/',
+    lastVerified: '2026-09-02',
+  },
+  'churches.presbyterian-rutherfordton.phone': {
+    value: '828-287-3466',
+    source: 'https://www.rpcnc.org/',
+    lastVerified: '2026-09-02',
+  },
 }
 
 // ─── Chimney Rock — wedding data ─────────────────────────────────────────────
@@ -1409,6 +1426,176 @@ export const HEALTHCARE_PROVIDERS: HealthcareProvider[] = [
 
 export function healthcareProvidersLastVerified(): string | null {
   const dates = HEALTHCARE_PROVIDERS.map((p) => p.lastVerified).filter(
+    (d): d is string => Boolean(d),
+  )
+  return dates.length ? dates.sort().at(-1)! : null
+}
+
+// ─── Churches & worship — congregations near Lake Lure ────────────────────
+// No church exists to editorially "rank" here — this is a neutral directory
+// covering everything found inside Lake Lure/Chimney Rock village plus the
+// nearest option for denominations not represented locally (Catholic,
+// Presbyterian). Several entries have no independent church website, only a
+// Town of Lake Lure or Chamber of Hickory Nut Gorge directory listing —
+// flagged per-entry in `notes`. Re-verify phone numbers and service times
+// periodically, same as the healthcare directory above.
+
+export type ChurchDenomination =
+  | 'baptist'
+  | 'nondenominational'
+  | 'episcopal'
+  | 'catholic'
+  | 'presbyterian'
+
+export interface ChurchListing {
+  id: string
+  denomination: ChurchDenomination
+  name: string
+  address: string
+  phone: string | null
+  serviceTimes: string
+  travelNote: string
+  notes: string | null
+  detailsUrl: string
+  source: string
+  lastVerified: string
+}
+
+export const CHURCHES: ChurchListing[] = [
+  {
+    id: 'cane-creek-baptist',
+    denomination: 'baptist',
+    name: 'Cane Creek Baptist Church',
+    address: '365 NC-9, Lake Lure, NC 28746',
+    phone: '828-625-1503',
+    serviceTimes: 'Sunday morning Bible study 9:00am, worship service 10:00am',
+    travelNote: 'Inside Lake Lure, on Hwy 9.',
+    notes: 'No independent church website found — address, phone, and service time sourced from the Town of Lake Lure\'s official church listing. Call ahead to confirm.',
+    detailsUrl: 'https://www.townoflakelure.com/community/page/lake-lure-area-churches',
+    source: 'Town of Lake Lure',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'chimney-rock-baptist',
+    denomination: 'baptist',
+    name: 'Chimney Rock Baptist Church',
+    address: '270 Boys Camp Rd, Lake Lure, NC 28746',
+    phone: '828-625-4698',
+    serviceTimes: 'Traditional sanctuary service 11:00am year-round, moving to 10:00am indoors from the first Sunday in November through Easter. Outdoor Lakeside service 9:00am, Easter through October, at 2724 Memorial Hwy beside Pool Creek Picnic Park.',
+    travelNote: 'In Chimney Rock village.',
+    notes: 'One church with two services — the lakeside service is seasonal and outdoors.',
+    detailsUrl: 'https://www.chimneyrockbaptistchurch.com/',
+    source: 'chimneyrockbaptistchurch.com',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'lake-lure-baptist',
+    denomination: 'baptist',
+    name: 'Lake Lure Baptist Church',
+    address: '6837 US-64/74A, Lake Lure, NC 28746',
+    phone: '828-532-0220',
+    serviceTimes: 'Sunday school/small groups 9:00am, Sunday worship 10:30am, Wednesday worship plus student and children\'s ministry 6:30pm',
+    travelNote: 'On US-64/74A in Lake Lure.',
+    notes: 'The Chamber of Hickory Nut Gorge\'s directory lists a different phone number (828-625-1448) for this church. The number here is from the church\'s own website and is the one to trust.',
+    detailsUrl: 'https://www.lakelurebaptistchurch.com/',
+    source: 'lakelurebaptistchurch.com',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'bills-creek-baptist',
+    denomination: 'baptist',
+    name: "Bill's Creek Baptist Church",
+    address: "1475 Bill's Creek Rd, Lake Lure, NC 28746",
+    phone: '828-625-4956',
+    serviceTimes: 'Not listed publicly — call to confirm Sunday service time',
+    travelNote: 'A few minutes off Hwy 9 in Lake Lure.',
+    notes: 'No independent church website found — sourced from the Chamber of Hickory Nut Gorge business directory. Call ahead to confirm.',
+    detailsUrl: 'https://hickorynutchamber.org/list/member/bill-s-creek-baptist-church-36',
+    source: 'Chamber of Hickory Nut Gorge',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'bat-cave-baptist',
+    denomination: 'baptist',
+    name: 'Bat Cave Baptist Church',
+    address: '5059 Chimney Rock Rd, Bat Cave, NC 28792',
+    phone: '828-625-9061',
+    serviceTimes: 'Sunday morning fellowship 9:00am, Sunday school 9:45am, worship 11:00am; Sunday evening Awana program; Wednesday evening gathering 7:00pm',
+    travelNote: 'In Bat Cave, a few minutes from Chimney Rock village.',
+    notes: 'Service times are from the church\'s own website. The street number is listed inconsistently between sources (5059 vs. 5095 Chimney Rock Rd) — call to confirm before a first visit.',
+    detailsUrl: 'https://batcavebaptist.com/',
+    source: 'batcavebaptist.com (service times); Chamber of Hickory Nut Gorge (address/phone)',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'fairfield-mountains-chapel',
+    denomination: 'nondenominational',
+    name: 'Fairfield Mountains Chapel',
+    address: '1384 Buffalo Creek Rd, Lake Lure, NC 28746',
+    phone: '828-625-2411',
+    serviceTimes: 'Sunday worship 10:00am, children\'s Sunday school 10:00am (ages 4 through 5th grade), coffee hour fellowship 11:00am',
+    travelNote: 'In the Rumbling Bald/Fairfield Mountains area of Lake Lure.',
+    notes: 'Explicitly welcomes all backgrounds and denominations, and practices open communion.',
+    detailsUrl: 'https://www.fairfieldmountainschapel.org/',
+    source: 'fairfieldmountainschapel.org',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'temple-of-jesus',
+    denomination: 'nondenominational',
+    name: 'Temple of Jesus',
+    address: '6750 US-64/74A, Lake Lure, NC 28746',
+    phone: '828-625-2138',
+    serviceTimes: 'Sunday services 8:00am, 10:00am, and 6:00pm',
+    travelNote: 'On US-64/74A in Lake Lure.',
+    notes: 'Specific denominational affiliation isn\'t publicly documented anywhere found in research — listed here as independent. No independent church website found; sourced from the Town of Lake Lure\'s official church listing. Call ahead to confirm.',
+    detailsUrl: 'https://www.townoflakelure.com/community/page/lake-lure-area-churches',
+    source: 'Town of Lake Lure',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'episcopal-transfiguration',
+    denomination: 'episcopal',
+    name: 'Episcopal Church of the Transfiguration',
+    address: '106 Saylor Ln, Bat Cave, NC 28710',
+    phone: '828-625-9244',
+    serviceTimes: 'Sunday services 8:00am and 10:00am (children\'s Sunday school 10:00am); outdoor Forest Chapel worship 8:00am on the first Sunday of the month, weather permitting; Thursday morning prayer and healing service 11:30am',
+    travelNote: 'In Bat Cave, a few minutes from Chimney Rock village.',
+    notes: 'Offers an online viewing option for visitors who can\'t attend in person.',
+    detailsUrl: 'https://www.ectransfiguration.org/',
+    source: 'ectransfiguration.org',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'immaculate-conception-catholic-forest-city',
+    denomination: 'catholic',
+    name: 'Immaculate Conception Catholic Church',
+    address: '1024 W. Main St, Forest City, NC 28043',
+    phone: '828-245-4017',
+    serviceTimes: 'Saturday vigil Mass 5:00pm; Sunday Mass 9:00am and 11:30am, plus 3:00pm Misa en Español; weekday Masses Monday, Thursday, and Friday midday, Wednesday evening',
+    travelNote: 'The nearest Catholic parish — about the same drive as the hospital and dentists on our health & emergency services page.',
+    notes: null,
+    detailsUrl: 'https://www.immaculateconceptionforestcity.org/',
+    source: 'immaculateconceptionforestcity.org',
+    lastVerified: '2026-09-02',
+  },
+  {
+    id: 'rutherfordton-presbyterian',
+    denomination: 'presbyterian',
+    name: 'Rutherfordton Presbyterian Church',
+    address: '252 N. Washington St, Rutherfordton, NC 28139',
+    phone: '828-287-3466',
+    serviceTimes: 'Call or check their website for the current Sunday service time — not listed on the church\'s own site at last check',
+    travelNote: 'The nearest Presbyterian congregation — the same general drive as Rutherfordton\'s hospital, dentists, and pharmacies.',
+    notes: null,
+    detailsUrl: 'https://www.rpcnc.org/',
+    source: 'rpcnc.org',
+    lastVerified: '2026-09-02',
+  },
+]
+
+export function churchesLastVerified(): string | null {
+  const dates = CHURCHES.map((c) => c.lastVerified).filter(
     (d): d is string => Boolean(d),
   )
   return dates.length ? dates.sort().at(-1)! : null
