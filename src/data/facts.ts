@@ -426,6 +426,14 @@ export const facts: Record<string, Fact> = {
     source: 'GetYourGuide search "Chimney Rock North Carolina" (197 results, 0 relevant); Viator search same query — 2026-08-03',
     lastVerified: '2026-08-03',
   },
+  // Absence claim: Chimney Rock State Park itself (not the Town of Lake Lure)
+  // has no public EV charger on-site. Lake Lure's own Morse Park station,
+  // ~3 miles away, is a separate location — see EV_CHARGERS below.
+  'chimney-rock.ev-charging.none-found': {
+    value: 'September 2026',
+    source: 'townoflakelure.com official EV charging page lists only the Morse Park/Welcome Center station, not a Chimney Rock State Park location — 2026-09-02',
+    lastVerified: '2026-09-02',
+  },
 
   // Lake Lure
   'lake-lure.area.acres': {
@@ -1147,12 +1155,15 @@ export function boatRentalsLastVerified(): string | null {
 }
 
 // ─── EV charging — nearest public stations ───────────────────────────────────
-// There is no public EV charging at Lake Lure or Chimney Rock itself. This is
-// the honest nearby list, sourced from ChargeHub (chargehub.com) station
-// records. Distance/drive time is by road from Lake Lure's town center, not
-// straight-line — re-verify with live directions if the route matters to you.
-// Re-check port availability before relying on any of these; port counts and
-// network status can change.
+// Lake Lure itself now has a public charger — two Level 2 ports at Morse
+// Park, installed June 2026, run by Nova EV Charging (paid via the ChargeUp
+// Driver app, not free). Chimney Rock State Park still has none on-site
+// (see the `chimney-rock.ev-charging.none-found` fact above). Everything
+// else here is the honest nearby list beyond Lake Lure's two ports, sourced
+// from ChargeHub (chargehub.com) station records. Distance/drive time is by
+// road from Lake Lure's town center, not straight-line — re-verify with live
+// directions if the route matters to you. Re-check port availability before
+// relying on any of these; port counts and network status can change.
 
 export type ChargerSpeed = 'level2' | 'dcFast' | 'supercharger'
 
@@ -1177,6 +1188,25 @@ export interface EvCharger {
 }
 
 export const EV_CHARGERS: EvCharger[] = [
+  {
+    id: 'lake-lure-morse-park',
+    name: 'Morse Park — Welcome Center Parking Lot',
+    network: 'Nova EV Charging (ChargeUp Driver app)',
+    city: 'Lake Lure, NC',
+    address: '2932 Memorial Highway, Lake Lure, NC 28746',
+    distanceMiles: 0,
+    driveMinutes: 0,
+    route: 'In town — Morse Park, next to the Welcome Center and Town Hall',
+    ports: 2,
+    speed: 'level2',
+    connectors: 'J1772',
+    cost: 'Paid — no flat rate published. Download the ChargeUP Driver app, plug in, scan the QR code at the charger, and select a pricing option before it starts.',
+    passportEnabled: false,
+    note: "Actually in Lake Lure — no drive required. Installed June 2026, replacing the Town's earlier free Duke Energy-funded station at the same spot; this one is not free. Open 24 hours. Only 2 ports and the Town has previously posted that the station \"is back\" after downtime, so don't count on it being available — support: 1-833-789-1400 or novacharge.net/en-us/for-drivers.",
+    detailsUrl: 'https://www.townoflakelure.com/community/page/electric-vehicle-charging-station',
+    source: 'Town of Lake Lure (official page)',
+    lastVerified: '2026-09-02',
+  },
   {
     id: 'black-mountain-police-station',
     name: 'Black Mountain Police Station',
