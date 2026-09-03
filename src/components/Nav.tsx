@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: 'Weddings', href: '/weddings' },
   { label: 'Insider Tips', href: '/insider-tips' },
   { label: 'News', href: '/news' },
+  { label: 'Shop', href: '/shop' },
 ]
 
 export function Nav() {

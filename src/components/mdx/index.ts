@@ -43,6 +43,7 @@ import { EventStatus } from './EventStatus'
 import { ArchiveNotice } from './ArchiveNotice'
 import { BuildDate } from './BuildDate'
 import { PetitionWidget } from './PetitionWidget'
+import { ShopEmbed } from './ShopEmbed'
 
 export const mdxComponents: MDXComponents = {
   StatusItem,
@@ -89,6 +90,7 @@ export const mdxComponents: MDXComponents = {
   ArchiveNotice,
   BuildDate,
   PetitionWidget,
+  ShopEmbed,
 }
 
 export {
@@ -136,4 +138,5 @@ export {
   ArchiveNotice,
   BuildDate,
   PetitionWidget,
+  ShopEmbed,
 }
