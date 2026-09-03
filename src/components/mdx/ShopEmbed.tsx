@@ -24,6 +24,13 @@ export function ShopEmbed({ productKey }: ShopEmbedProps) {
     // Every ShopEmbed on the page shares ONE Shopify Buy UI instance (and
     // therefore one cart) via getSharedShopifyUI() — see src/lib/shopifyBuyUI.ts
     // for why that matters (otherwise each product gets its own isolated cart).
+    // Also: buttonDestination must be 'cart', not 'checkout'. 'checkout' skips
+    // the cart entirely and sends the customer straight to Shopify checkout
+    // with just the one item they clicked — that's what caused Pete's "can
+    // only buy one thing at a time, no quantity selector" report (2026-09-04).
+    // 'cart' opens the shared cart drawer instead, where items from every
+    // product on the page accumulate and each line item gets its own
+    // quantity stepper.
     getSharedShopifyUI()
       .then((ui) => {
         if (cancelled || !nodeRef.current) return
@@ -33,7 +40,7 @@ export function ShopEmbed({ productKey }: ShopEmbedProps) {
           moneyFormat: '%24%7B%7Bamount%7D%7D',
           options: {
             product: {
-              buttonDestination: 'checkout',
+              buttonDestination: 'cart',
               text: { button: 'Add to cart' },
               styles: {
                 button: {
