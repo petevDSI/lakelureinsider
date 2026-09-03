@@ -30,16 +30,16 @@ export const SHOP_PRODUCTS: Record<string, ShopProduct> = {
   'heritage-mountain-hat': {
     id: '10253182075200',
     handle: 'heritage-mountain-edmund-logo',
-    title: 'Heritage Mountain Edmund Logo Hat',
+    title: 'Edmund Mountain Badge Dad Hat',
   },
   'edmund-sunglasses-hat': {
     id: '10253194035520',
     handle: 'edmund-hat-sunglasses',
-    title: 'Edmund Hat Sunglasses',
+    title: 'Edmund in Shades Dad Hat',
   },
   'dont-fence-me-in-hat': {
     id: '10253199475008',
     handle: 'dont-fence-me-in-edmund',
-    title: "Don't Fence Me In Edmund",
+    title: "Don't Fence Me In Dad Hat",
   },
 }

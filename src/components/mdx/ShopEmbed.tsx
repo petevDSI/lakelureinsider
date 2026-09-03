@@ -1,26 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import {
-  SHOPIFY_DOMAIN,
-  SHOPIFY_STOREFRONT_ACCESS_TOKEN,
-  SHOP_PRODUCTS,
-} from '@/data/shop'
-
-const SDK_URL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js'
-
-declare global {
-  interface Window {
-    ShopifyBuy?: {
-      buildClient: (config: { domain: string; storefrontAccessToken: string }) => unknown
-      UI: {
-        onReady: (client: unknown) => Promise<{
-          createComponent: (type: string, options: Record<string, unknown>) => void
-        }>
-      }
-    }
-  }
-}
+import { SHOPIFY_DOMAIN, SHOPIFY_STOREFRONT_ACCESS_TOKEN, SHOP_PRODUCTS } from '@/data/shop'
+import { getSharedShopifyUI } from '@/lib/shopifyBuyUI'
 
 interface ShopEmbedProps {
   productKey: keyof typeof SHOP_PRODUCTS
@@ -39,68 +21,48 @@ export function ShopEmbed({ productKey }: ShopEmbedProps) {
 
     let cancelled = false
 
-    function initClient() {
-      if (cancelled || !window.ShopifyBuy || !nodeRef.current) return
-      const client = window.ShopifyBuy.buildClient({
-        domain: SHOPIFY_DOMAIN,
-        storefrontAccessToken: SHOPIFY_STOREFRONT_ACCESS_TOKEN,
-      })
-      window.ShopifyBuy.UI.onReady(client)
-        .then((ui) => {
-          if (cancelled || !nodeRef.current) return
-          ui.createComponent('product', {
-            id: product.id,
-            node: nodeRef.current,
-            moneyFormat: '%24%7B%7Bamount%7D%7D',
-            options: {
-              product: {
-                buttonDestination: 'checkout',
-                text: { button: 'Add to cart' },
-                styles: {
-                  button: {
-                    'background-color': BRAND_COLOR,
-                    ':hover': { 'background-color': BRAND_COLOR_DARK },
-                    ':focus': { 'background-color': BRAND_COLOR_DARK },
-                    'border-radius': '6px',
-                    'font-family': 'inherit',
-                  },
+    // Every ShopEmbed on the page shares ONE Shopify Buy UI instance (and
+    // therefore one cart) via getSharedShopifyUI() — see src/lib/shopifyBuyUI.ts
+    // for why that matters (otherwise each product gets its own isolated cart).
+    getSharedShopifyUI()
+      .then((ui) => {
+        if (cancelled || !nodeRef.current) return
+        ui.createComponent('product', {
+          id: product.id,
+          node: nodeRef.current,
+          moneyFormat: '%24%7B%7Bamount%7D%7D',
+          options: {
+            product: {
+              buttonDestination: 'checkout',
+              text: { button: 'Add to cart' },
+              styles: {
+                button: {
+                  'background-color': BRAND_COLOR,
+                  ':hover': { 'background-color': BRAND_COLOR_DARK },
+                  ':focus': { 'background-color': BRAND_COLOR_DARK },
+                  'border-radius': '6px',
+                  'font-family': 'inherit',
                 },
-              },
-              cart: {
-                text: { total: 'Subtotal', button: 'Checkout' },
-                styles: {
-                  button: {
-                    'background-color': BRAND_COLOR,
-                    ':hover': { 'background-color': BRAND_COLOR_DARK },
-                    ':focus': { 'background-color': BRAND_COLOR_DARK },
-                    'border-radius': '6px',
-                  },
-                },
-              },
-              toggle: {
-                styles: { toggle: { 'background-color': BRAND_COLOR } },
               },
             },
-          })
+            cart: {
+              text: { total: 'Subtotal', button: 'Checkout' },
+              styles: {
+                button: {
+                  'background-color': BRAND_COLOR,
+                  ':hover': { 'background-color': BRAND_COLOR_DARK },
+                  ':focus': { 'background-color': BRAND_COLOR_DARK },
+                  'border-radius': '6px',
+                },
+              },
+            },
+            toggle: {
+              styles: { toggle: { 'background-color': BRAND_COLOR } },
+            },
+          },
         })
-        .catch(() => setFailed(true))
-    }
-
-    if (window.ShopifyBuy?.UI) {
-      initClient()
-    } else {
-      const existing = document.querySelector<HTMLScriptElement>(`script[src="${SDK_URL}"]`)
-      if (existing) {
-        existing.addEventListener('load', initClient)
-      } else {
-        const script = document.createElement('script')
-        script.async = true
-        script.src = SDK_URL
-        script.onload = initClient
-        script.onerror = () => setFailed(true)
-        document.head.appendChild(script)
-      }
-    }
+      })
+      .catch(() => setFailed(true))
 
     return () => {
       cancelled = true
