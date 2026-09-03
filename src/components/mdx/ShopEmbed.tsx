@@ -7,7 +7,7 @@ import {
   SHOP_PRODUCTS,
 } from '@/data/shop'
 
-const SDK_URL = 'https://sdks.shopifycdn.com/buy-button/latest/buybutton.js'
+const SDK_URL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js'
 
 declare global {
   interface Window {
