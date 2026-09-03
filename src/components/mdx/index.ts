@@ -44,8 +44,10 @@ import { ArchiveNotice } from './ArchiveNotice'
 import { BuildDate } from './BuildDate'
 import { PetitionWidget } from './PetitionWidget'
 import { ShopEmbed } from './ShopEmbed'
+import { MetaPixelViewContent } from './MetaPixelViewContent'
 
 export const mdxComponents: MDXComponents = {
+  MetaPixelViewContent,
   StatusItem,
   StatusBar,
   WhatsOpenStatusBar,
@@ -94,6 +96,7 @@ export const mdxComponents: MDXComponents = {
 }
 
 export {
+  MetaPixelViewContent,
   StatusItem,
   StatusBar,
   WhatsOpenStatusBar,
