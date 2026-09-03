@@ -42,4 +42,14 @@ export const SHOP_PRODUCTS: Record<string, ShopProduct> = {
     handle: 'dont-fence-me-in-edmund',
     title: "Don't Fence Me In Dad Hat",
   },
+  'chimney-rock-escape-hoodie': {
+    id: '10253222281536',
+    handle: 'unisex-hoodie-chimney-rock-escape-artist',
+    title: 'Edmund Chimney Rock Escape Artist Hoodie',
+  },
+  'lake-float-tank': {
+    id: '10253268812096',
+    handle: 'unisex-tank-top',
+    title: 'Edmund Lake Float Tank Top',
+  },
 }
