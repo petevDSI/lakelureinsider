@@ -235,6 +235,12 @@ interface CampaignVideo {
   embedSrc: string
   href: string
   title: string
+  // Facebook itself refuses to embed some videos ("may contain content
+  // owned by someone else" — a rights-holder match on Facebook's end, not
+  // anything wrong with our page). Confirmed 2026-09-04 for the Marilyn O.
+  // Thompson video below by loading the embed URL directly. When false,
+  // render a static "watch on Facebook" card instead of a broken iframe.
+  embeddable?: boolean
 }
 
 const CAMPAIGN_VIDEOS: CampaignVideo[] = [
@@ -243,6 +249,7 @@ const CAMPAIGN_VIDEOS: CampaignVideo[] = [
       'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fmarilyn.o.thompson%2Fvideos%2F1986806445308493%2F%3Fidorvanity%3D1075508173972854&show_text=false&width=267&t=0',
     href: 'https://www.facebook.com/marilyn.o.thompson/videos/1986806445308493/?idorvanity=1075508173972854',
     title: 'Edmund the goat — video shared by Marilyn O. Thompson on Facebook',
+    embeddable: false,
   },
   {
     embedSrc:
@@ -551,19 +558,39 @@ export default function EdmundForMayorPage() {
                 key={video.href}
                 className="flex flex-col items-center rounded-xl border border-[#0B2545]/15 bg-white p-3"
               >
-                <iframe
-                  src={video.embedSrc}
-                  width="267"
-                  height="476"
-                  style={{ border: 'none', overflow: 'hidden' }}
-                  scrolling="no"
-                  frameBorder="0"
-                  allowFullScreen
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  title={video.title}
-                  loading="lazy"
-                  className="max-w-full"
-                />
+                {video.embeddable === false ? (
+                  // Facebook itself blocks embedding this one (rights-holder
+                  // match on Facebook's end) — a static card instead of a
+                  // broken iframe showing Facebook's own "Unavailable" message.
+                  <a
+                    href={video.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-[476px] w-[267px] max-w-full flex-col items-center justify-center gap-3 rounded-lg bg-[#F5EEDC] px-4 text-center transition-colors hover:bg-[#0B2545]/5"
+                  >
+                    <span className="text-4xl" aria-hidden="true">🐐</span>
+                    <span className="font-display text-sm font-bold text-[#0B2545]">
+                      Facebook won&apos;t let us embed this one
+                    </span>
+                    <span className="text-xs text-[#1C2321]/60">
+                      Tap to watch it on Facebook instead.
+                    </span>
+                  </a>
+                ) : (
+                  <iframe
+                    src={video.embedSrc}
+                    width="267"
+                    height="476"
+                    style={{ border: 'none', overflow: 'hidden' }}
+                    scrolling="no"
+                    frameBorder="0"
+                    allowFullScreen
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    title={video.title}
+                    loading="lazy"
+                    className="max-w-full"
+                  />
+                )}
                 <a
                   href={video.href}
                   target="_blank"
