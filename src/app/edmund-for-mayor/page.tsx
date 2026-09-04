@@ -272,7 +272,7 @@ interface MerchImage {
 }
 
 interface MerchItem {
-  key: 'edmund-for-mayor-tee' | 'edmund-for-mayor-badge-tee' | 'heritage-mountain-hat' | 'edmund-sunglasses-hat' | 'dont-fence-me-in-hat' | 'chimney-rock-escape-hoodie' | 'lake-float-tank'
+  key: 'edmund-for-mayor-tee' | 'edmund-for-mayor-badge-tee' | 'heritage-mountain-hat' | 'edmund-sunglasses-hat' | 'dont-fence-me-in-hat' | 'chimney-rock-escape-hoodie' | 'lake-float-tank' | 'lake-life-goat-life-tee' | 'edmund-sunglasses-sticker' | 'heritage-mountain-sticker' | 'dont-fence-me-in-sticker'
   title: string
   blurb: string
   images: MerchImage[]
@@ -371,6 +371,56 @@ const MERCH_ITEMS: MerchItem[] = [
         src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-tank-top-red-back-6a99a1713b843.jpg?v=1788453259',
         alt: 'Back of the Edmund Lake Float Tank Top in red, printed with "Goats just wanna have sun."',
         label: 'Back',
+      },
+    ],
+  },
+  {
+    key: 'lake-life-goat-life-tee',
+    title: 'Edmund Lake Life. Goat Life. Heavyweight Tee',
+    blurb: 'Back reads "I cross rivers. I ignore fences. I do what I want." A heavyweight, garment-dyed tee in 11 colors.',
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-garment-dyed-heavyweight-t-shirt-berry-front-6a9ac69a7195e.jpg?v=1788528327',
+        alt: 'Front of the Edmund Lake Life. Goat Life. Heavyweight Tee in berry, showing Edmund floating in the lake wearing sunglasses',
+        label: 'Front',
+      },
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-garment-dyed-heavyweight-t-shirt-berry-back-6a9ac69a72b14.jpg?v=1788528327',
+        alt: "Back of the Edmund Lake Life. Goat Life. Heavyweight Tee in berry, printed with 'I cross rivers. I ignore fences. I do what I want.'",
+        label: 'Back',
+      },
+    ],
+  },
+  {
+    key: 'edmund-sunglasses-sticker',
+    title: 'Edmund in Shades Sticker',
+    blurb: 'The Edmund in Shades Dad Hat badge, printed as a durable vinyl sticker in three sizes.',
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6a9ac79a56912.jpg?v=1788528543',
+        alt: 'Edmund in Shades sticker, showing the sunglasses portrait badge',
+      },
+    ],
+  },
+  {
+    key: 'heritage-mountain-sticker',
+    title: 'Edmund Mountain Badge Sticker',
+    blurb: 'The Edmund Mountain Badge Dad Hat design, sized down to a sticker in three sizes.',
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6a9ac80b74400.jpg?v=1788528656',
+        alt: "Edmund Mountain Badge sticker, showing Edmund's silhouette on a mountain badge",
+      },
+    ],
+  },
+  {
+    key: 'dont-fence-me-in-sticker',
+    title: "Don't Fence Me In Sticker",
+    blurb: "Edmund's civil-liberties platform, now in sticker form.",
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6a9ac87062152.jpg?v=1788528756',
+        alt: "Don't Fence Me In sticker, showing Edmund walking past a broken fence",
       },
     ],
   },

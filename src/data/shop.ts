@@ -52,4 +52,24 @@ export const SHOP_PRODUCTS: Record<string, ShopProduct> = {
     handle: 'unisex-tank-top',
     title: 'Edmund Lake Float Tank Top',
   },
+  'lake-life-goat-life-tee': {
+    id: '10253828784448',
+    handle: 'unisex-garment-dyed-heavyweight-t-shirt',
+    title: 'Edmund Lake Life. Goat Life. Heavyweight Tee',
+  },
+  'edmund-sunglasses-sticker': {
+    id: '10253830684992',
+    handle: 'bubble-free-stickers',
+    title: 'Edmund in Shades Sticker',
+  },
+  'heritage-mountain-sticker': {
+    id: '10253831864640',
+    handle: 'bubble-free-stickers-1',
+    title: 'Edmund Mountain Badge Sticker',
+  },
+  'dont-fence-me-in-sticker': {
+    id: '10253834944832',
+    handle: 'dont-fence-me-in-edmund-sticker',
+    title: "Don't Fence Me In Sticker",
+  },
 }
