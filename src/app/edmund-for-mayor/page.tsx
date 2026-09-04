@@ -300,7 +300,12 @@ const MERCH_ITEMS: MerchItem[] = [
     key: 'edmund-for-mayor-badge-tee',
     title: 'Edmund for Mayor Vintage Badge Tee',
     blurb: 'A quieter, single-print take: a hand-illustrated portrait of Edmund set against layered mountains and pines.',
-    images: [],
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-front-6a996552d0389.jpg?v=1788437866',
+        alt: 'Front of the Edmund for Mayor Vintage Badge Tee in sapphire blue, showing the hand-illustrated vintage badge design',
+      },
+    ],
   },
   {
     key: 'heritage-mountain-hat',
@@ -756,7 +761,9 @@ export default function EdmundForMayorPage() {
                   {item.title}
                 </p>
                 <p className="mt-1 flex-1 text-sm text-[#1C2321]/70">{item.blurb}</p>
-                <p className="mt-1 text-xs text-[#1C2321]/40">Tap a photo to enlarge it.</p>
+                {item.images.length > 0 && (
+                  <p className="mt-1 text-xs text-[#1C2321]/40">Tap a photo to enlarge it.</p>
+                )}
                 <div className="mt-4 flex justify-center">
                   <ShopEmbed productKey={item.key} />
                 </div>
