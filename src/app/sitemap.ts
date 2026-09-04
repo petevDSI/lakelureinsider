@@ -33,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.1,
     },
+    {
+      url: `${SITE_URL}/edmund-for-mayor`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
     ...contentEntries,
   ]
 }
