@@ -208,6 +208,75 @@ const CANDIDATE_FACTS: Array<[string, string]> = [
   ['Campaign Finance', 'Cannot legally open a bank account'],
 ]
 
+interface MerchItem {
+  key: 'edmund-for-mayor-tee' | 'edmund-for-mayor-badge-tee' | 'heritage-mountain-hat' | 'edmund-sunglasses-hat' | 'dont-fence-me-in-hat' | 'chimney-rock-escape-hoodie' | 'lake-float-tank'
+  title: string
+  blurb: string
+  image?: { src: string; alt: string }
+}
+
+const MERCH_ITEMS: MerchItem[] = [
+  {
+    key: 'edmund-for-mayor-tee',
+    title: 'Edmund for Mayor Tee',
+    blurb: 'The original campaign badge design. Back reads "A goat we can all get behind."',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-front-6a99606bcb89c.jpg?v=1788436599',
+      alt: 'Front of the Edmund for Mayor Tee in sapphire blue, showing the vintage campaign badge design',
+    },
+  },
+  {
+    key: 'edmund-for-mayor-badge-tee',
+    title: 'Edmund for Mayor Vintage Badge Tee',
+    blurb: 'A quieter, single-print take: a hand-illustrated portrait of Edmund set against layered mountains and pines.',
+  },
+  {
+    key: 'heritage-mountain-hat',
+    title: 'Edmund Mountain Badge Dad Hat',
+    blurb: 'A national-park-style badge: Edmund standing watch over the Blue Ridge, ringed by pine trees and peaks.',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/distressed-dad-hat-black-front-6a996a18a5958.jpg?v=1788439090',
+      alt: 'Edmund Mountain Badge Dad Hat in black, showing the embroidered mountain badge patch',
+    },
+  },
+  {
+    key: 'edmund-sunglasses-hat',
+    title: 'Edmund in Shades Dad Hat',
+    blurb: 'Edmund\u2019s celebrity portrait, sunglasses and all, embroidered on a circular badge.',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996b6db0555.jpg?v=1788439447',
+      alt: 'Edmund in Shades Dad Hat in navy, showing the embroidered sunglasses portrait badge',
+    },
+  },
+  {
+    key: 'dont-fence-me-in-hat',
+    title: "Don't Fence Me In Dad Hat",
+    blurb: 'Edmund\u2019s civil-liberties platform, embroidered on a classic dad hat.',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996c44e8cd7.jpg?v=1788439652',
+      alt: "Don't Fence Me In Dad Hat in navy, showing the embroidered oval badge of Edmund by a broken fence",
+    },
+  },
+  {
+    key: 'chimney-rock-escape-hoodie',
+    title: 'Edmund Chimney Rock Escape Artist Hoodie',
+    blurb: 'Back reads "If they chase me, I run faster." A heavyweight pullover for cool evenings on the water.',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-pullover-hoodie-white-front-6a997f2571624.jpg?v=1788444471',
+      alt: 'Front of the Edmund Chimney Rock Escape Artist Hoodie in white, showing Edmund silhouetted atop the rock at sunset',
+    },
+  },
+  {
+    key: 'lake-float-tank',
+    title: 'Edmund Lake Float Tank Top',
+    blurb: 'Back reads "Goats just wanna have sun." Built for the dock, available in Red, Athletic Heather, and White.',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-tank-top-red-front-6a99a1713ac9d.jpg?v=1788453259',
+      alt: 'Front of the Edmund Lake Float Tank Top in red, showing Edmund floating in an inner tube on the lake',
+    },
+  },
+]
+
 function StripedBunting({ height = 'h-2' }: { height?: string }) {
   return (
     <div
@@ -454,42 +523,32 @@ export default function EdmundForMayorPage() {
             care and feeding. No PAC money here — just goats and t-shirts.
           </p>
 
-          <div className="mt-10 grid gap-8 sm:grid-cols-2">
-            <div className="rounded-xl border border-[#0B2545]/15 bg-white p-6 text-center">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-front-6a99606bcb89c.jpg?v=1788436599"
-                alt="Front of the Edmund for Mayor Tee in sapphire blue, showing the vintage campaign badge design"
-                className="mx-auto aspect-square w-full max-w-[240px] rounded-lg border border-(--sand) object-cover"
-              />
-              <p className="mt-4 font-display text-lg font-bold text-[#0B2545]">
-                Edmund for Mayor Tee
-              </p>
-              <p className="mt-1 text-sm text-[#1C2321]/70">
-                The original campaign badge design. Back reads &quot;A goat we
-                can all get behind.&quot;
-              </p>
-              <div className="mt-4 flex justify-center">
-                <ShopEmbed productKey="edmund-for-mayor-tee" />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {MERCH_ITEMS.map((item) => (
+              <div
+                key={item.key}
+                className="flex flex-col rounded-xl border border-[#0B2545]/15 bg-white p-6 text-center"
+              >
+                {item.image ? (
+                  <img
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    className="mx-auto aspect-square w-full max-w-[220px] rounded-lg border border-(--sand) object-cover"
+                  />
+                ) : (
+                  <div className="mx-auto flex aspect-square w-full max-w-[220px] items-center justify-center rounded-lg border border-dashed border-[#0B2545]/20 bg-[#F5EEDC] text-4xl">
+                    🐐
+                  </div>
+                )}
+                <p className="mt-4 font-display text-lg font-bold text-[#0B2545]">
+                  {item.title}
+                </p>
+                <p className="mt-1 flex-1 text-sm text-[#1C2321]/70">{item.blurb}</p>
+                <div className="mt-4 flex justify-center">
+                  <ShopEmbed productKey={item.key} />
+                </div>
               </div>
-            </div>
-
-            <div className="rounded-xl border border-[#0B2545]/15 bg-white p-6 text-center">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996c44e8cd7.jpg?v=1788439652"
-                alt="Don't Fence Me In Dad Hat in navy, showing the embroidered oval badge of Edmund by a broken fence"
-                className="mx-auto aspect-square w-full max-w-[240px] rounded-lg border border-(--sand) object-cover"
-              />
-              <p className="mt-4 font-display text-lg font-bold text-[#0B2545]">
-                Don&apos;t Fence Me In Dad Hat
-              </p>
-              <p className="mt-1 text-sm text-[#1C2321]/70">
-                Edmund&apos;s civil-liberties platform, embroidered on a
-                classic dad hat.
-              </p>
-              <div className="mt-4 flex justify-center">
-                <ShopEmbed productKey="dont-fence-me-in-hat" />
-              </div>
-            </div>
+            ))}
           </div>
 
           <p className="mt-8 text-center">
