@@ -37,6 +37,7 @@ const BUNTING =
 
 const ISSUE_TABS = [
   { label: 'The Candidate', href: '#candidate' },
+  { label: 'Photos & Video', href: '#gallery' },
   { label: 'The Platform', href: '#platform' },
   { label: 'The Promises', href: '#promises' },
   { label: 'Endorsements', href: '#endorsements' },
@@ -209,6 +210,46 @@ const CANDIDATE_FACTS: Array<[string, string]> = [
   ['Known Aliases', '“Big Boy”'],
   ['Slogan', '“A Goat We Can All Get Behind”'],
   ['Campaign Finance', 'Cannot legally open a bank account'],
+]
+
+interface CampaignPhoto {
+  src: string
+  alt: string
+  caption: string
+}
+
+const CAMPAIGN_PHOTOS: CampaignPhoto[] = [
+  {
+    src: '/images/edmund-goat-mayor.jpg',
+    alt: 'Edmund the Kiko goat standing on the double-yellow line of a mountain highway near the Rocky Broad River in Chimney Rock, NC',
+    caption: 'On the campaign trail — Highway 64/74A near the one-lane bridge.',
+  },
+  {
+    src: '/images/edmund-stone-steps.jpg',
+    alt: 'Close-up of Edmund the Kiko goat with large curved horns, standing on stone steps surrounded by ivy',
+    caption: 'Working the crowd (and the kudzu) near the stone steps.',
+  },
+]
+
+interface CampaignVideo {
+  embedSrc: string
+  href: string
+  title: string
+}
+
+const CAMPAIGN_VIDEOS: CampaignVideo[] = [
+  {
+    embedSrc:
+      'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fmarilyn.o.thompson%2Fvideos%2F1986806445308493%2F%3Fidorvanity%3D1075508173972854&show_text=false&width=267&t=0',
+    href: 'https://www.facebook.com/marilyn.o.thompson/videos/1986806445308493/?idorvanity=1075508173972854',
+    title: 'Edmund the goat — video shared by Marilyn O. Thompson on Facebook',
+  },
+  {
+    embedSrc:
+      'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F28518122534477961%2F&show_text=false&width=267&t=0',
+    href: 'https://www.facebook.com/reel/28518122534477961/',
+    title: 'Edmund the goat — Facebook Reel',
+  },
 ]
 
 interface MerchImage {
@@ -465,6 +506,72 @@ export default function EdmundForMayorPage() {
           </div>
         </div>
       </section>
+
+      {/* Photos & video */}
+      <section id="gallery" className="bg-[#F5EEDC] px-page py-16">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-2 text-center text-xs font-bold uppercase tracking-widest text-[#B31942]">
+            Photos &amp; Video
+          </p>
+          <h2 className="text-center font-display text-3xl font-bold text-[#0B2545] sm:text-4xl">
+            Edmund in Action
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-center text-[#1C2321]/80">
+            No campaign staff, no photo ops — just Edmund being Edmund, caught
+            on camera by the neighbors who know him best.
+          </p>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {CAMPAIGN_PHOTOS.map((photo) => (
+              <figure
+                key={photo.src}
+                className="m-0 overflow-hidden rounded-xl border border-[#0B2545]/15 bg-white"
+              >
+                <EnlargeableImage
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <figcaption className="px-4 py-3 text-sm text-[#1C2321]/70">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-start justify-center gap-6">
+            {CAMPAIGN_VIDEOS.map((video) => (
+              <div
+                key={video.href}
+                className="flex flex-col items-center rounded-xl border border-[#0B2545]/15 bg-white p-3"
+              >
+                <iframe
+                  src={video.embedSrc}
+                  width="267"
+                  height="476"
+                  style={{ border: 'none', overflow: 'hidden' }}
+                  scrolling="no"
+                  frameBorder="0"
+                  allowFullScreen
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  title={video.title}
+                  loading="lazy"
+                  className="max-w-full"
+                />
+                <a
+                  href={video.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 text-xs font-semibold text-[#B31942] underline underline-offset-2"
+                >
+                  Watch on Facebook ↗
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <StripedBunting />
 
       {/* Platform */}
       <section id="platform" className="bg-[#0B2545] px-page py-16">
