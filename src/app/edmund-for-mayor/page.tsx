@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ShopEmbed } from '@/components/mdx/ShopEmbed'
+import { EdmundSignupForm } from '@/components/EdmundSignupForm'
+import { EnlargeableImage } from '@/components/EnlargeableImage'
 import { SITE_URL } from '@/lib/site-config'
 
 const PAGE_DESCRIPTION =
@@ -38,6 +40,7 @@ const ISSUE_TABS = [
   { label: 'The Platform', href: '#platform' },
   { label: 'The Promises', href: '#promises' },
   { label: 'Endorsements', href: '#endorsements' },
+  { label: 'Join the Herd', href: '#join' },
   { label: 'Campaign Store', href: '#merch' },
 ]
 
@@ -208,11 +211,17 @@ const CANDIDATE_FACTS: Array<[string, string]> = [
   ['Campaign Finance', 'Cannot legally open a bank account'],
 ]
 
+interface MerchImage {
+  src: string
+  alt: string
+  label?: 'Front' | 'Back'
+}
+
 interface MerchItem {
   key: 'edmund-for-mayor-tee' | 'edmund-for-mayor-badge-tee' | 'heritage-mountain-hat' | 'edmund-sunglasses-hat' | 'dont-fence-me-in-hat' | 'chimney-rock-escape-hoodie' | 'lake-float-tank'
   title: string
   blurb: string
-  image?: { src: string; alt: string }
+  images: MerchImage[]
 }
 
 const MERCH_ITEMS: MerchItem[] = [
@@ -220,60 +229,91 @@ const MERCH_ITEMS: MerchItem[] = [
     key: 'edmund-for-mayor-tee',
     title: 'Edmund for Mayor Tee',
     blurb: 'The original campaign badge design. Back reads "A goat we can all get behind."',
-    image: {
-      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-front-6a99606bcb89c.jpg?v=1788436599',
-      alt: 'Front of the Edmund for Mayor Tee in sapphire blue, showing the vintage campaign badge design',
-    },
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-front-6a99606bcb89c.jpg?v=1788436599',
+        alt: 'Front of the Edmund for Mayor Tee in sapphire blue, showing the vintage campaign badge design',
+        label: 'Front',
+      },
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-back-6a99606bcbaaf.jpg?v=1788436599',
+        alt: 'Back of the Edmund for Mayor Tee in sapphire blue, printed with the phrase "A goat we can all get behind"',
+        label: 'Back',
+      },
+    ],
   },
   {
     key: 'edmund-for-mayor-badge-tee',
     title: 'Edmund for Mayor Vintage Badge Tee',
     blurb: 'A quieter, single-print take: a hand-illustrated portrait of Edmund set against layered mountains and pines.',
+    images: [],
   },
   {
     key: 'heritage-mountain-hat',
     title: 'Edmund Mountain Badge Dad Hat',
     blurb: 'A national-park-style badge: Edmund standing watch over the Blue Ridge, ringed by pine trees and peaks.',
-    image: {
-      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/distressed-dad-hat-black-front-6a996a18a5958.jpg?v=1788439090',
-      alt: 'Edmund Mountain Badge Dad Hat in black, showing the embroidered mountain badge patch',
-    },
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/distressed-dad-hat-black-front-6a996a18a5958.jpg?v=1788439090',
+        alt: 'Edmund Mountain Badge Dad Hat in black, showing the embroidered mountain badge patch',
+      },
+    ],
   },
   {
     key: 'edmund-sunglasses-hat',
     title: 'Edmund in Shades Dad Hat',
     blurb: 'Edmund\u2019s celebrity portrait, sunglasses and all, embroidered on a circular badge.',
-    image: {
-      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996b6db0555.jpg?v=1788439447',
-      alt: 'Edmund in Shades Dad Hat in navy, showing the embroidered sunglasses portrait badge',
-    },
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996b6db0555.jpg?v=1788439447',
+        alt: 'Edmund in Shades Dad Hat in navy, showing the embroidered sunglasses portrait badge',
+      },
+    ],
   },
   {
     key: 'dont-fence-me-in-hat',
     title: "Don't Fence Me In Dad Hat",
     blurb: 'Edmund\u2019s civil-liberties platform, embroidered on a classic dad hat.',
-    image: {
-      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996c44e8cd7.jpg?v=1788439652',
-      alt: "Don't Fence Me In Dad Hat in navy, showing the embroidered oval badge of Edmund by a broken fence",
-    },
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996c44e8cd7.jpg?v=1788439652',
+        alt: "Don't Fence Me In Dad Hat in navy, showing the embroidered oval badge of Edmund by a broken fence",
+      },
+    ],
   },
   {
     key: 'chimney-rock-escape-hoodie',
     title: 'Edmund Chimney Rock Escape Artist Hoodie',
     blurb: 'Back reads "If they chase me, I run faster." A heavyweight pullover for cool evenings on the water.',
-    image: {
-      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-pullover-hoodie-white-front-6a997f2571624.jpg?v=1788444471',
-      alt: 'Front of the Edmund Chimney Rock Escape Artist Hoodie in white, showing Edmund silhouetted atop the rock at sunset',
-    },
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-pullover-hoodie-white-front-6a997f2571624.jpg?v=1788444471',
+        alt: 'Front of the Edmund Chimney Rock Escape Artist Hoodie in white, showing Edmund silhouetted atop the rock at sunset',
+        label: 'Front',
+      },
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-pullover-hoodie-white-back-6a997f2574b59.jpg?v=1788444471',
+        alt: 'Back of the Edmund Chimney Rock Escape Artist Hoodie in white, printed with "If they chase me, I run faster."',
+        label: 'Back',
+      },
+    ],
   },
   {
     key: 'lake-float-tank',
     title: 'Edmund Lake Float Tank Top',
     blurb: 'Back reads "Goats just wanna have sun." Built for the dock, available in Red, Athletic Heather, and White.',
-    image: {
-      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-tank-top-red-front-6a99a1713ac9d.jpg?v=1788453259',
-      alt: 'Front of the Edmund Lake Float Tank Top in red, showing Edmund floating in an inner tube on the lake',
-    },
+    images: [
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-tank-top-red-front-6a99a1713ac9d.jpg?v=1788453259',
+        alt: 'Front of the Edmund Lake Float Tank Top in red, showing Edmund floating in an inner tube on the lake',
+        label: 'Front',
+      },
+      {
+        src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-tank-top-red-back-6a99a1713b843.jpg?v=1788453259',
+        alt: 'Back of the Edmund Lake Float Tank Top in red, printed with "Goats just wanna have sun."',
+        label: 'Back',
+      },
+    ],
   },
 ]
 
@@ -509,6 +549,27 @@ export default function EdmundForMayorPage() {
       </section>
       <StripedBunting />
 
+      {/* Join the herd — campaign email sign-up */}
+      <section id="join" className="bg-[#0B2545] px-page py-16">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#C9A227]">
+            Join the Herd
+          </p>
+          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
+            Get Campaign Updates
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-white/70">
+            New Edmund sightings, campaign gear drops, and the occasional
+            genuinely important update on Lured Market — straight to your
+            inbox. No robocalls, no yard signs.
+          </p>
+          <div className="mt-8">
+            <EdmundSignupForm />
+          </div>
+        </div>
+      </section>
+      <StripedBunting />
+
       {/* Merch / campaign store */}
       <section id="merch" className="bg-[#F5EEDC] px-page py-16">
         <div className="mx-auto max-w-5xl">
@@ -529,12 +590,23 @@ export default function EdmundForMayorPage() {
                 key={item.key}
                 className="flex flex-col rounded-xl border border-[#0B2545]/15 bg-white p-6 text-center"
               >
-                {item.image ? (
-                  <img
-                    src={item.image.src}
-                    alt={item.image.alt}
-                    className="mx-auto aspect-square w-full max-w-[220px] rounded-lg border border-(--sand) object-cover"
-                  />
+                {item.images.length > 0 ? (
+                  <div className="flex flex-row flex-wrap items-start justify-center gap-3">
+                    {item.images.map((img) => (
+                      <figure key={img.src} className="m-0 min-w-0 flex-1 basis-24">
+                        <EnlargeableImage
+                          src={img.src}
+                          alt={img.alt}
+                          className="aspect-square w-full rounded-lg border border-(--sand) object-cover"
+                        />
+                        {img.label && (
+                          <figcaption className="mt-1 text-center text-xs text-(--ink)/50">
+                            {img.label}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
                 ) : (
                   <div className="mx-auto flex aspect-square w-full max-w-[220px] items-center justify-center rounded-lg border border-dashed border-[#0B2545]/20 bg-[#F5EEDC] text-4xl">
                     🐐
@@ -544,6 +616,7 @@ export default function EdmundForMayorPage() {
                   {item.title}
                 </p>
                 <p className="mt-1 flex-1 text-sm text-[#1C2321]/70">{item.blurb}</p>
+                <p className="mt-1 text-xs text-[#1C2321]/40">Tap a photo to enlarge it.</p>
                 <div className="mt-4 flex justify-center">
                   <ShopEmbed productKey={item.key} />
                 </div>
