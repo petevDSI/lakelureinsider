@@ -1690,10 +1690,10 @@ export const SALONS_SPAS: SalonSpaListing[] = [
     phone: '828-694-3017',
     hours: 'Spa 9:30am–5pm, Mon–Sat; salon hours vary by day (roughly 10am–7:30pm) — reservations recommended',
     travelNote: 'Inside the Rumbling Bald community in Lake Lure.',
-    notes: 'Massage therapy, skin care treatments, body therapies, and salon services. Open to members, lodging guests, and the general public — not members-only. 24-hour cancellation policy (50% fee for a late cancellation, 100% for a no-show).',
+    notes: "Massage therapy, skin care treatments, body therapies, and salon services. Open to members, lodging guests, and the general public — not members-only. 24-hour cancellation policy (50% fee for a late cancellation, 100% for a no-show). Massage services were paused pending relicensing and are confirmed active again: the spa announced NC Board of Massage and Bodywork Therapy approval of its license application on Facebook, with appointments resuming Saturday, September 5, 2026.",
     detailsUrl: 'https://rumblingbald.com/relaxation-and-rejuvenation/',
-    source: 'rumblingbald.com',
-    lastVerified: '2026-09-02',
+    source: 'rumblingbald.com; Facebook post, Rumbling Bald on Lake Lure (Lake Lure Local group), Sept 2026 — massage license approval announcement',
+    lastVerified: '2026-09-04',
   },
   {
     id: 'lake-lure-massage',
