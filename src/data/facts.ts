@@ -794,6 +794,40 @@ export const facts: Record<string, Fact> = {
     source: 'https://www.rpcnc.org/',
     lastVerified: '2026-09-02',
   },
+
+  // ─── Rumbling Bald on Lake Lure — community overview (verified 2026-09-04) ───
+  // Source: rumblingbald.com/faqs/ (own FAQ page, confirms public access to
+  // dining/golf/spa and states Wellness Center/pools/beach/marina are for
+  // members + lodging guests only) and privatecommunities.com (acreage,
+  // marina slip counts, price ranges — third-party but consistent with the
+  // resort's own site). Do not confuse this community with the separate,
+  // free-access "Rumbling Bald" climbing area at Chimney Rock State Park —
+  // see CLIMBING_SPOTS above.
+  'rumbling-bald.acreage': {
+    value: 'roughly 3,000 acres',
+    source: 'https://www.privatecommunities.com/northcarolina/rumblingbaldonlakelure/index.htm',
+    lastVerified: '2026-09-04',
+  },
+  'rumbling-bald.marina.slips': {
+    value: 'a 125-slip member marina plus an 8-slip commercial marina',
+    source: 'https://www.privatecommunities.com/northcarolina/rumblingbaldonlakelure/index.htm',
+    lastVerified: '2026-09-04',
+  },
+  'rumbling-bald.poa-dues.improved': {
+    value: '$4,967/year (2026)',
+    source: 'https://rumblingbald.com/faqs/',
+    lastVerified: '2026-09-04',
+  },
+  'rumbling-bald.poa-dues.unimproved': {
+    value: '$3,911/year (2026)',
+    source: 'https://rumblingbald.com/faqs/',
+    lastVerified: '2026-09-04',
+  },
+  'rumbling-bald.poa-capital-fee.improved': {
+    value: '$11,000',
+    source: 'https://rumblingbald.com/faqs/',
+    lastVerified: '2026-09-04',
+  },
 }
 
 // ─── Chimney Rock — wedding data ─────────────────────────────────────────────
