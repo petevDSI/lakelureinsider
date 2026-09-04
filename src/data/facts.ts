@@ -823,9 +823,15 @@ export const facts: Record<string, Fact> = {
     source: 'https://rumblingbald.com/faqs/',
     lastVerified: '2026-09-04',
   },
-  'rumbling-bald.poa-capital-fee.improved': {
-    value: '$11,000',
-    source: 'https://rumblingbald.com/faqs/',
+  // The $11,000 new-owner capital fee stated on rumblingbald.com/faqs/ (pulled
+  // 2026-09-04) was eliminated effective September 1, 2026, per Pete directly
+  // (site owner, local industry contact) — the live FAQ page hadn't been
+  // updated to reflect this as of our research date. Going with Pete's more
+  // current information; worth a periodic recheck of the FAQ page in case it
+  // gets updated to match, or removing this note once it does.
+  'rumbling-bald.poa-capital-fee.eliminated-date': {
+    value: 'September 1, 2026',
+    source: 'Pete Volk (site owner), reported 2026-09-04',
     lastVerified: '2026-09-04',
   },
 }
