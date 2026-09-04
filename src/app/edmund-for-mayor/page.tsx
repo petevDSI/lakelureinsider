@@ -250,6 +250,12 @@ const CAMPAIGN_VIDEOS: CampaignVideo[] = [
     href: 'https://www.facebook.com/reel/28518122534477961/',
     title: 'Edmund the goat — Facebook Reel',
   },
+  {
+    embedSrc:
+      'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F990557920671102%2F&show_text=false&width=267&t=0',
+    href: 'https://www.facebook.com/reel/990557920671102/',
+    title: 'Edmund the goat — Facebook Reel',
+  },
 ]
 
 interface MerchImage {
