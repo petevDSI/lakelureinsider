@@ -44,6 +44,7 @@ import { ArchiveNotice } from './ArchiveNotice'
 import { BuildDate } from './BuildDate'
 import { PetitionWidget } from './PetitionWidget'
 import { ShopEmbed } from './ShopEmbed'
+import { FeaturedStay } from './FeaturedStay'
 import { MetaPixelViewContent } from './MetaPixelViewContent'
 
 export const mdxComponents: MDXComponents = {
@@ -93,6 +94,7 @@ export const mdxComponents: MDXComponents = {
   BuildDate,
   PetitionWidget,
   ShopEmbed,
+  FeaturedStay,
 }
 
 export {
@@ -142,4 +144,5 @@ export {
   BuildDate,
   PetitionWidget,
   ShopEmbed,
+  FeaturedStay,
 }
