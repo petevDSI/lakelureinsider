@@ -1,17 +1,25 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { SHOPIFY_DOMAIN, SHOPIFY_STOREFRONT_ACCESS_TOKEN, SHOP_PRODUCTS } from '@/data/shop'
+import { SHOPIFY_DOMAIN, SHOPIFY_STOREFRONT_ACCESS_TOKEN, SHOP_PRODUCTS, type ShopProductKey } from '@/data/shop'
 import { getSharedShopifyUI } from '@/lib/shopifyBuyUI'
 
 interface ShopEmbedProps {
-  productKey: keyof typeof SHOP_PRODUCTS
+  productKey: ShopProductKey
+  /**
+   * Compact mode hides the Buy Button widget's own image/title/price —
+   * used when the caller (ShopProductCard) already renders its own curated
+   * photo, title, and price above this embed, so the widget only needs to
+   * contribute the variant selectors and the Add to cart button. Defaults
+   * to true; pass false for a rare standalone/full embed.
+   */
+  compact?: boolean
 }
 
 const BRAND_COLOR = '#2A6F7F' // --lake
 const BRAND_COLOR_DARK = '#1C2321' // --ink
 
-export function ShopEmbed({ productKey }: ShopEmbedProps) {
+export function ShopEmbed({ productKey, compact = true }: ShopEmbedProps) {
   const nodeRef = useRef<HTMLDivElement>(null)
   const product = SHOP_PRODUCTS[productKey]
   const [failed, setFailed] = useState(false)
@@ -42,6 +50,12 @@ export function ShopEmbed({ productKey }: ShopEmbedProps) {
             product: {
               buttonDestination: 'cart',
               text: { button: 'Add to cart' },
+              // Compact mode (the default) suppresses the widget's own
+              // image/title/price so it doesn't duplicate the card's own —
+              // see the `compact` prop above.
+              contents: compact
+                ? { img: false, title: false, price: false }
+                : undefined,
               styles: {
                 button: {
                   'background-color': BRAND_COLOR,
@@ -74,7 +88,7 @@ export function ShopEmbed({ productKey }: ShopEmbedProps) {
     return () => {
       cancelled = true
     }
-  }, [product])
+  }, [product, compact])
 
   if (!product) return null
 
@@ -82,7 +96,7 @@ export function ShopEmbed({ productKey }: ShopEmbedProps) {
 
   if (!SHOPIFY_STOREFRONT_ACCESS_TOKEN || failed) {
     return (
-      <div className="not-prose my-8 rounded-xl border border-(--sand) bg-(--sand)/30 p-6 text-center">
+      <div className="not-prose my-2 rounded-xl border border-(--sand) bg-(--sand)/30 p-6 text-center">
         <p className="font-display font-semibold text-(--forest)">
           {product.title} — shop opening soon
         </p>
@@ -102,5 +116,5 @@ export function ShopEmbed({ productKey }: ShopEmbedProps) {
     )
   }
 
-  return <div ref={nodeRef} className="not-prose my-8" aria-live="polite" />
+  return <div ref={nodeRef} className="not-prose my-1" aria-live="polite" />
 }

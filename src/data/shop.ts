@@ -9,67 +9,228 @@ export const SHOPIFY_DOMAIN = 'dvui01-qr.myshopify.com'
 // sales channels -> Buy Button -> create a Buy Button -> "Get embed code".
 export const SHOPIFY_STOREFRONT_ACCESS_TOKEN = '91bdc51175cdf01233580cc14802dd8e'
 
+export interface ShopProductImage {
+  src: string
+  alt: string
+}
+
 export interface ShopProduct {
   /** Shopify numeric product ID, e.g. "10253124960576" */
   id: string
   handle: string
   title: string
+  category: 'tees' | 'hats' | 'hoodie-tank' | 'stickers'
+  /** One or two sentences of sales copy — shown on the /shop product card. */
+  blurb: string
+  /** Display-ready price string, e.g. "$18.50" or "From $22.50". */
+  priceFrom: string
+  /** Short spec shown next to the price, e.g. "12 colors" or "3 sizes". */
+  variantNote: string
+  image: ShopProductImage
+  backImage?: ShopProductImage
 }
 
-export const SHOP_PRODUCTS: Record<string, ShopProduct> = {
+export const SHOP_PRODUCTS = {
   'edmund-for-mayor-tee': {
     id: '10253124960576',
     handle: 'unisex-classic-tee-1',
     title: 'Edmund for Mayor Tee',
+    category: 'tees',
+    blurb:
+      'Edmund in a red bow tie and star-spangled rosette, waving to his constituents under a burst of stars and stripes, banked by "EDMUND FOR MAYOR" and "THE G.O.A.T. CANDIDATE." The back reads "A goat we can all get behind."',
+    priceFrom: 'From $22.50',
+    variantNote: '12 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-front-6a99606bcb89c.jpg?v=1788436599',
+      alt: 'Front of the Edmund for Mayor Tee in sapphire blue, showing the vintage campaign badge design',
+    },
+    backImage: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-back-6a99606bcbaaf.jpg?v=1788436599',
+      alt: "Back of the Edmund for Mayor Tee in sapphire blue, printed with the phrase 'A goat we can all get behind'",
+    },
   },
   'edmund-for-mayor-badge-tee': {
     id: '10253146358080',
     handle: 'edmund-for-mayor',
     title: 'Edmund for Mayor Vintage Badge Tee',
-  },
-  'heritage-mountain-hat': {
-    id: '10253182075200',
-    handle: 'heritage-mountain-edmund-logo',
-    title: 'Edmund Mountain Badge Dad Hat',
-  },
-  'edmund-sunglasses-hat': {
-    id: '10253194035520',
-    handle: 'edmund-hat-sunglasses',
-    title: 'Edmund in Shades Dad Hat',
-  },
-  'dont-fence-me-in-hat': {
-    id: '10253199475008',
-    handle: 'dont-fence-me-in-edmund',
-    title: "Don't Fence Me In Dad Hat",
-  },
-  'chimney-rock-escape-hoodie': {
-    id: '10253222281536',
-    handle: 'unisex-hoodie-chimney-rock-escape-artist',
-    title: 'Edmund Chimney Rock Escape Artist Hoodie',
-  },
-  'lake-float-tank': {
-    id: '10253268812096',
-    handle: 'unisex-tank-top',
-    title: 'Edmund Lake Float Tank Top',
+    category: 'tees',
+    blurb:
+      'A quieter, single-print take: a hand-illustrated portrait of Edmund set against layered mountains and pines, ringed by a distressed gold arc, with "EDMUND FOR MAYOR" and "LAKE LURE, NC" lettered below. Front print only.',
+    priceFrom: 'From $23.50',
+    variantNote: '12 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-front-6a996552d0389.jpg?v=1788437866',
+      alt: 'Front of the Edmund for Mayor Vintage Badge Tee in sapphire blue, showing the hand-illustrated vintage badge design',
+    },
   },
   'lake-life-goat-life-tee': {
     id: '10253828784448',
     handle: 'unisex-garment-dyed-heavyweight-t-shirt',
     title: 'Edmund Lake Life. Goat Life. Heavyweight Tee',
+    category: 'tees',
+    blurb:
+      'Edmund floating chest-deep in the lake, sunglasses on, Chimney Rock behind him, ringed by "EDMUND" and "LAKE LIFE. GOAT LIFE." The back is his mission statement: "I cross rivers. I ignore fences. I do what I want."',
+    priceFrom: 'From $28.50',
+    variantNote: '11 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-garment-dyed-heavyweight-t-shirt-berry-front-6a9ac69a7195e.jpg?v=1788528327',
+      alt: 'Front of the Edmund Lake Life. Goat Life. Heavyweight Tee in berry, showing Edmund floating in the lake wearing sunglasses',
+    },
+    backImage: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-garment-dyed-heavyweight-t-shirt-berry-back-6a9ac69a72b14.jpg?v=1788528327',
+      alt: "Back of the Edmund Lake Life. Goat Life. Heavyweight Tee in berry, printed with 'I cross rivers. I ignore fences. I do what I want.'",
+    },
+  },
+  'heritage-mountain-hat': {
+    id: '10253182075200',
+    handle: 'heritage-mountain-edmund-logo',
+    title: 'Edmund Mountain Badge Dad Hat',
+    category: 'hats',
+    blurb:
+      'A national-park-style badge: Edmund standing watch over the Blue Ridge, ringed by pine trees and layered peaks, with "EDMUND" and "LAKE LURE, NC" stitched below.',
+    priceFrom: '$19.50',
+    variantNote: '3 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/distressed-dad-hat-black-front-6a996a18a5958.jpg?v=1788439090',
+      alt: 'Edmund Mountain Badge Dad Hat in black, showing the embroidered mountain badge patch',
+    },
+  },
+  'edmund-sunglasses-hat': {
+    id: '10253194035520',
+    handle: 'edmund-hat-sunglasses',
+    title: 'Edmund in Shades Dad Hat',
+    category: 'hats',
+    blurb:
+      "Edmund's celebrity portrait, sunglasses and all, embroidered on a circular badge with \"EDMUND\" arched over the top and \"LAKE LURE, NC\" lettered below between two stars.",
+    priceFrom: '$18.50',
+    variantNote: '10 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996b6db0555.jpg?v=1788439447',
+      alt: 'Edmund in Shades Dad Hat in navy, showing the embroidered sunglasses portrait badge',
+    },
+  },
+  'dont-fence-me-in-hat': {
+    id: '10253199475008',
+    handle: 'dont-fence-me-in-edmund',
+    title: "Don't Fence Me In Dad Hat",
+    category: 'hats',
+    blurb:
+      "The catchphrase from Andrea Martin's viral Edmund reel, embroidered on an oval badge: Edmund strolling past a broken wooden fence with the lake and mountains behind him.",
+    priceFrom: '$18.50',
+    variantNote: '8 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996c44e8cd7.jpg?v=1788439652',
+      alt: "Don't Fence Me In Dad Hat in navy, showing the embroidered oval badge of Edmund by a broken fence",
+    },
+  },
+  'chimney-rock-escape-hoodie': {
+    id: '10253222281536',
+    handle: 'unisex-hoodie-chimney-rock-escape-artist',
+    title: 'Edmund Chimney Rock Escape Artist Hoodie',
+    category: 'hoodie-tank',
+    blurb:
+      'Edmund perched above the tree line with a flag planted on the rock behind him, silhouetted against a Blue Ridge sunset, "EDMUND" lettered bold above "CHIMNEY ROCK ESCAPE ARTIST." The back sums up months of #FreeEdmund updates: "If they chase me, I run faster."',
+    priceFrom: 'From $44',
+    variantNote: '13 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-pullover-hoodie-white-front-6a997f2571624.jpg?v=1788444471',
+      alt: 'Front of the Edmund Chimney Rock Escape Artist Hoodie in white, showing Edmund silhouetted atop the rock at sunset',
+    },
+    backImage: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-pullover-hoodie-white-back-6a997f2574b59.jpg?v=1788444471',
+      alt: "Back of the Edmund Chimney Rock Escape Artist Hoodie in white, printed with 'If they chase me, I run faster.'",
+    },
+  },
+  'lake-float-tank': {
+    id: '10253268812096',
+    handle: 'unisex-tank-top',
+    title: 'Edmund Lake Float Tank Top',
+    category: 'hoodie-tank',
+    blurb:
+      "Sunglasses on, floating in an inner tube with the mountains behind him — Edmund doing exactly what everyone else does at Lake Lure in July. The back is a pun made for the dock: \"Goats just wanna have sun.\"",
+    priceFrom: 'From $27',
+    variantNote: '3 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-tank-top-red-front-6a99a1713ac9d.jpg?v=1788453259',
+      alt: 'Front of the Edmund Lake Float Tank Top in red, showing Edmund floating in an inner tube on the lake',
+    },
+    backImage: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-tank-top-red-back-6a99a1713b843.jpg?v=1788453259',
+      alt: "Back of the Edmund Lake Float Tank Top in red, printed with 'Goats just wanna have sun.'",
+    },
   },
   'edmund-sunglasses-sticker': {
     id: '10253830684992',
     handle: 'bubble-free-stickers',
     title: 'Edmund in Shades Sticker',
+    category: 'stickers',
+    blurb:
+      'The same circular portrait from the Edmund in Shades Dad Hat, printed as a durable vinyl sticker. Laptop, water bottle, bumper — your call.',
+    priceFrom: 'From $3',
+    variantNote: '3 sizes',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6a9ac79a56912.jpg?v=1788528543',
+      alt: 'Edmund in Shades sticker, showing the sunglasses portrait badge',
+    },
   },
   'heritage-mountain-sticker': {
     id: '10253831864640',
     handle: 'bubble-free-stickers-1',
     title: 'Edmund Mountain Badge Sticker',
+    category: 'stickers',
+    blurb: 'The national-park-style badge from the Mountain Badge Dad Hat, sized down to a sticker.',
+    priceFrom: 'From $3',
+    variantNote: '3 sizes',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6a9ac80b74400.jpg?v=1788528656',
+      alt: "Edmund Mountain Badge sticker, showing Edmund's silhouette on a mountain badge",
+    },
   },
   'dont-fence-me-in-sticker': {
     id: '10253834944832',
     handle: 'dont-fence-me-in-edmund-sticker',
     title: "Don't Fence Me In Sticker",
+    category: 'stickers',
+    blurb:
+      "Edmund strolling past a broken wooden fence, framed in an oval badge — the same design from the Don't Fence Me In Dad Hat, now in sticker form.",
+    priceFrom: 'From $3',
+    variantNote: '3 sizes',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6a9ac87062152.jpg?v=1788528756',
+      alt: "Don't Fence Me In sticker, showing Edmund walking past a broken fence",
+    },
   },
+} as const satisfies Record<string, ShopProduct>
+
+export type ShopProductKey = keyof typeof SHOP_PRODUCTS
+
+export interface ShopCategory {
+  slug: string
+  label: string
+  productKeys: ShopProductKey[]
 }
+
+// Display order for the /shop grid — grouped by category, each with an
+// anchor slug the category nav pills jump to.
+export const SHOP_CATEGORIES: ShopCategory[] = [
+  {
+    slug: 'tees',
+    label: 'Tees',
+    productKeys: ['edmund-for-mayor-tee', 'edmund-for-mayor-badge-tee', 'lake-life-goat-life-tee'],
+  },
+  {
+    slug: 'hats',
+    label: 'Hats',
+    productKeys: ['heritage-mountain-hat', 'edmund-sunglasses-hat', 'dont-fence-me-in-hat'],
+  },
+  {
+    slug: 'hoodie-tank',
+    label: 'Hoodie & Tank',
+    productKeys: ['chimney-rock-escape-hoodie', 'lake-float-tank'],
+  },
+  {
+    slug: 'stickers',
+    label: 'Stickers',
+    productKeys: ['edmund-sunglasses-sticker', 'heritage-mountain-sticker', 'dont-fence-me-in-sticker'],
+  },
+]
