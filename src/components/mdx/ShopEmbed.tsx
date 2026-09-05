@@ -7,11 +7,16 @@ import { getSharedShopifyUI } from '@/lib/shopifyBuyUI'
 interface ShopEmbedProps {
   productKey: ShopProductKey
   /**
-   * Compact mode hides the Buy Button widget's own image/title/price —
-   * used when the caller (ShopProductCard) already renders its own curated
-   * photo, title, and price above this embed, so the widget only needs to
-   * contribute the variant selectors and the Add to cart button. Defaults
-   * to true; pass false for a rare standalone/full embed.
+   * Compact mode hides the Buy Button widget's own title/price (the card
+   * already shows those) but keeps its own product image — that image is
+   * what actually updates to match the color a shopper picks. Hiding it too
+   * (an earlier version of this component did) left the card's static hero
+   * photo showing the wrong color once someone changed the dropdown, with
+   * nothing on the page reflecting their actual selection — Pete flagged
+   * this 2026-09-04. The widget's image renders small, right above the
+   * dropdowns/button, so it reads as "here's your selection" rather than
+   * duplicating the card's larger photo above it. Defaults to true; pass
+   * false for a rare standalone/full embed.
    */
   compact?: boolean
 }
@@ -51,12 +56,16 @@ export function ShopEmbed({ productKey, compact = true }: ShopEmbedProps) {
               buttonDestination: 'cart',
               text: { button: 'Add to cart' },
               // Compact mode (the default) suppresses the widget's own
-              // image/title/price so it doesn't duplicate the card's own —
-              // see the `compact` prop above.
-              contents: compact
-                ? { img: false, title: false, price: false }
-                : undefined,
+              // title/price, which the card already shows — but keeps its
+              // image, which is what updates to match the selected color.
+              // See the `compact` prop doc above.
+              contents: compact ? { title: false, price: false } : undefined,
               styles: {
+                img: {
+                  'max-width': '140px',
+                  margin: '0 auto 12px auto',
+                  'border-radius': '8px',
+                },
                 button: {
                   'background-color': BRAND_COLOR,
                   ':hover': { 'background-color': BRAND_COLOR_DARK },
