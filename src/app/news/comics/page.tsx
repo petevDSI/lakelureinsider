@@ -69,6 +69,20 @@ interface ComicStrip {
 
 const STRIPS: ComicStrip[] = [
   {
+    slug: 'state-of-the-herd-ep2',
+    title: 'Zero for One',
+    byline: 'by Pete',
+    date: 'Monday \u00b7 September 7, 2026',
+    episode: 'Episode 2 of \u201cBoathouse Fever\u201d',
+    tagline: 'Now with a round of applause for absolutely nothing.',
+    panels: [
+      {
+        src: '/images/comics/ep2-monday.jpg',
+        alt: 'Four-panel daily strip. Panel 1: the Mayor, mid ribbon-cutting smile, at a podium: "Wonderful turnout today for Fall Beautification Week!" Panel 2: Nell, hand raised in the crowd: "About the eviction case\u2014" Panel 3: the Mayor, without missing a beat: "\u2014and let\u2019s give a round of applause to our Parks volunteers!" Panel 4: the crowd applauds behind Nell, who stares flatly ahead, notebook in hand. Caption: "Day one. Zero for one."',
+      },
+    ],
+  },
+  {
     slug: 'state-of-the-herd-ep1',
     title: 'Boathouse Fever, Part One',
     byline: 'by Pete',
