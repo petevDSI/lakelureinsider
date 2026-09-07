@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Permanent_Marker, Kalam, Source_Serif_4, Libre_Franklin } from 'next/font/google'
+import { EnlargeableImage } from '@/components/EnlargeableImage'
 import { SITE_URL } from '@/lib/site-config'
 
 const permanentMarker = Permanent_Marker({
@@ -54,8 +54,6 @@ export const metadata: Metadata = {
 interface ComicPanel {
   src: string
   alt: string
-  width: number
-  height: number
 }
 
 interface ComicStrip {
@@ -81,38 +79,26 @@ const STRIPS: ComicStrip[] = [
       {
         src: '/images/comics/tier1-dock.jpg',
         alt: 'Dawn over Lake Lure. A great blue heron stands on a dock piling as the sun rises. Caption: "Every town has a season. Ours is called Boathouse Fever, and it’s back."',
-        width: 1000,
-        height: 667,
       },
       {
         src: '/images/comics/tier2-kitchen.jpg',
         alt: 'The Rocky Broad Kitchen at dawn. Delia flips the OPEN sign while Frank holds a hand-lettered "STILL HERE" sign.',
-        width: 1000,
-        height: 667,
       },
       {
         src: '/images/comics/tier2-townhall.jpg',
         alt: 'Town Hall at night. Dark upper windows, one basement window glowing, a shadowy shape watching from behind the glass.',
-        width: 1000,
-        height: 667,
       },
       {
         src: '/images/comics/tier2-nell.jpg',
         alt: 'Nell at her desk under a lamp, beside a leaning stack of paper labeled "RECORDS REQUEST — NO REPLY."',
-        width: 1000,
-        height: 667,
       },
       {
         src: '/images/comics/tier3-edmund.jpg',
         alt: 'Edmund the goat, wearing his red rosette, addresses a small crowd from atop a wooden crate on the courthouse lawn. Speech bubble: "Neighbors. Fellow herd. Vote Edmund — again, still, forever."',
-        width: 1000,
-        height: 667,
       },
       {
         src: '/images/comics/tier3-heron.jpg',
         alt: 'Throwaway panel: the heron, unbothered, spears a fish from the lake.',
-        width: 1000,
-        height: 667,
       },
     ],
     nextWeek: 'Someone at Town Hall almost says something on the record.',
@@ -122,14 +108,7 @@ const STRIPS: ComicStrip[] = [
 function ComicPanelImage({ panel }: { panel: ComicPanel }) {
   return (
     <div className="overflow-hidden border-[3px] border-(--ink) bg-(--sand)">
-      <Image
-        src={panel.src}
-        alt={panel.alt}
-        width={panel.width}
-        height={panel.height}
-        sizes="(min-width: 640px) 33vw, 100vw"
-        className="block h-auto w-full object-cover"
-      />
+      <EnlargeableImage src={panel.src} alt={panel.alt} className="block h-auto w-full object-cover" />
     </div>
   )
 }
