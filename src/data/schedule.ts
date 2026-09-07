@@ -18,13 +18,6 @@ import type { ScheduledItem } from '@/types/schedule'
  */
 export const SCHEDULE_ITEMS: ScheduledItem[] = [
   {
-    id: 'green-salamander-art-trail',
-    title: 'Green Salamander Art Trail',
-    schedule: { start: '2026-05-01', end: '2026-08-31', kind: 'event' },
-    archiveSlug: 'green-salamander-art-trail-2026',
-    note: '33 sculptures displayed through August 31 — auctioned at the End-of-Season Celebration benefiting the Hickory Nut Chamber of Commerce.',
-  },
-  {
     id: 'lake-lure-centennial',
     title: 'Lake Lure Centennial Celebration',
     schedule: { start: '2026-09-01', end: '2026-09-30', kind: 'event' },
