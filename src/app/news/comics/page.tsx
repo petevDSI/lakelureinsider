@@ -54,7 +54,8 @@ export const metadata: Metadata = {
 interface ComicPanel {
   src: string
   alt: string
-  sizes: string
+  width: number
+  height: number
 }
 
 interface ComicStrip {
@@ -64,7 +65,7 @@ interface ComicStrip {
   date: string
   episode: string
   tagline: string
-  tiers: ComicPanel[][]
+  panels: ComicPanel[]
   nextWeek?: string
 }
 
@@ -76,61 +77,64 @@ const STRIPS: ComicStrip[] = [
     date: 'Sunday · September 6, 2026',
     episode: 'Episode 1 of “Boathouse Fever”',
     tagline: 'Now with 60% more municipal silence.',
-    tiers: [
-      [
-        {
-          src: '/images/comics/tier1-dock.jpg',
-          alt: 'Dawn over Lake Lure. A great blue heron stands on a dock piling as the sun rises. Caption: "Every town has a season. Ours is called Boathouse Fever, and it’s back."',
-          sizes: '(min-width: 1040px) 1000px, 100vw',
-        },
-      ],
-      [
-        {
-          src: '/images/comics/tier2-kitchen.jpg',
-          alt: 'The Rocky Broad Kitchen at dawn. Delia flips the OPEN sign while Frank holds a hand-lettered "STILL HERE" sign.',
-          sizes: '(min-width: 640px) 33vw, 100vw',
-        },
-        {
-          src: '/images/comics/tier2-townhall.jpg',
-          alt: 'Town Hall at night. Dark upper windows, one basement window glowing, a shadowy shape watching from behind the glass.',
-          sizes: '(min-width: 640px) 33vw, 100vw',
-        },
-        {
-          src: '/images/comics/tier2-nell.jpg',
-          alt: 'Nell at her desk under a lamp, beside a leaning stack of paper labeled "RECORDS REQUEST — NO REPLY."',
-          sizes: '(min-width: 640px) 33vw, 100vw',
-        },
-      ],
-      [
-        {
-          src: '/images/comics/tier3-edmund.jpg',
-          alt: 'Edmund the goat, wearing his red rosette, addresses a small crowd from atop a wooden crate on the courthouse lawn. Speech bubble: "Neighbors. Fellow herd. Vote Edmund — again, still, forever."',
-          sizes: '(min-width: 640px) 66vw, 100vw',
-        },
-        {
-          src: '/images/comics/tier3-heron.jpg',
-          alt: 'Throwaway panel: the heron, unbothered, spears a fish from the lake.',
-          sizes: '(min-width: 640px) 33vw, 100vw',
-        },
-      ],
+    panels: [
+      {
+        src: '/images/comics/tier1-dock.jpg',
+        alt: 'Dawn over Lake Lure. A great blue heron stands on a dock piling as the sun rises. Caption: "Every town has a season. Ours is called Boathouse Fever, and it’s back."',
+        width: 1000,
+        height: 667,
+      },
+      {
+        src: '/images/comics/tier2-kitchen.jpg',
+        alt: 'The Rocky Broad Kitchen at dawn. Delia flips the OPEN sign while Frank holds a hand-lettered "STILL HERE" sign.',
+        width: 1000,
+        height: 667,
+      },
+      {
+        src: '/images/comics/tier2-townhall.jpg',
+        alt: 'Town Hall at night. Dark upper windows, one basement window glowing, a shadowy shape watching from behind the glass.',
+        width: 1000,
+        height: 667,
+      },
+      {
+        src: '/images/comics/tier2-nell.jpg',
+        alt: 'Nell at her desk under a lamp, beside a leaning stack of paper labeled "RECORDS REQUEST — NO REPLY."',
+        width: 1000,
+        height: 667,
+      },
+      {
+        src: '/images/comics/tier3-edmund.jpg',
+        alt: 'Edmund the goat, wearing his red rosette, addresses a small crowd from atop a wooden crate on the courthouse lawn. Speech bubble: "Neighbors. Fellow herd. Vote Edmund — again, still, forever."',
+        width: 1000,
+        height: 667,
+      },
+      {
+        src: '/images/comics/tier3-heron.jpg',
+        alt: 'Throwaway panel: the heron, unbothered, spears a fish from the lake.',
+        width: 1000,
+        height: 667,
+      },
     ],
     nextWeek: 'Someone at Town Hall almost says something on the record.',
   },
 ]
 
-function ComicPanelImage({ panel, aspectClassName }: { panel: ComicPanel; aspectClassName: string }) {
+function ComicPanelImage({ panel }: { panel: ComicPanel }) {
   return (
-    <div
-      className={`relative overflow-hidden border-[3px] border-(--ink) bg-(--sand) ${aspectClassName}`}
-    >
-      <Image src={panel.src} alt={panel.alt} fill sizes={panel.sizes} className="object-cover" />
+    <div className="overflow-hidden border-[3px] border-(--ink) bg-(--sand)">
+      <Image
+        src={panel.src}
+        alt={panel.alt}
+        width={panel.width}
+        height={panel.height}
+        sizes="(min-width: 640px) 33vw, 100vw"
+        className="block h-auto w-full object-cover"
+      />
     </div>
   )
 }
 
 function ComicStripCard({ strip, episodeCount }: { strip: ComicStrip; episodeCount: number }) {
-  const [tier1, tier2, tier3] = strip.tiers
-
   return (
     <div className={`${sourceSerif.className} mx-auto w-full max-w-[1040px]`}>
       <div
@@ -168,22 +172,11 @@ function ComicStripCard({ strip, episodeCount }: { strip: ComicStrip; episodeCou
           <p className={`${kalam.className} m-0 text-sm text-(--ink)/55`}>{strip.byline}</p>
         </div>
 
-        {/* Tier 1 */}
-        <div className="mt-2.5 grid grid-cols-1 gap-2.5">
-          <ComicPanelImage panel={tier1[0]} aspectClassName="aspect-[3/2]" />
-        </div>
-
-        {/* Tier 2 */}
+        {/* Panels — uniform grid, every panel the same size */}
         <div className="mt-2.5 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-          {tier2.map((panel) => (
-            <ComicPanelImage key={panel.src} panel={panel} aspectClassName="aspect-[3/2]" />
+          {strip.panels.map((panel) => (
+            <ComicPanelImage key={panel.src} panel={panel} />
           ))}
-        </div>
-
-        {/* Tier 3 */}
-        <div className="mt-2.5 grid grid-cols-1 gap-2.5 sm:grid-cols-[2fr_1fr] sm:items-stretch">
-          <ComicPanelImage panel={tier3[0]} aspectClassName="aspect-[3/2]" />
-          <ComicPanelImage panel={tier3[1]} aspectClassName="aspect-[3/2] sm:aspect-auto sm:h-full" />
         </div>
 
         {/* Credit */}
@@ -217,9 +210,7 @@ export default function ComicsPage() {
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-(--ink)/80">
             Our new weekly comic strip about Lake Lure town government, the fight over Lured Market,
-            and the goat everyone keeps voting for. Sundays run big and in color; weekdays run
-            shorter, in black and white &mdash; and any week real news breaks mid-story, the strip
-            pivots to cover it.
+            and the goat everyone keeps voting for.
           </p>
           <div className="mx-auto mt-6 max-w-2xl rounded-xl border border-(--clay) bg-(--clay)/5 p-5 text-left text-sm text-(--ink)/80">
             <p className="m-0">
