@@ -45,14 +45,18 @@ export async function GET() {
       }
     })
 
+  // Announcements sort after same-day articles (a later time-of-day on the
+  // same date) so a same-day "we're now on X"-style item is treated as the
+  // newest thing in the feed rather than tying with — and losing to — a
+  // routine article published earlier that day.
   const announcementItems: FeedItem[] = FEED_ANNOUNCEMENTS.map((a) => ({
     title: a.title,
     link: a.link,
     guid: a.guid,
     isPermaLink: false,
-    pubDate: new Date(`${a.date}T12:00:00Z`).toUTCString(),
+    pubDate: new Date(`${a.date}T20:00:00Z`).toUTCString(),
     description: a.description,
-    sortDate: a.date,
+    sortDate: `${a.date}T20:00:00Z`,
   }))
 
   const items = [...articleItems, ...announcementItems]
