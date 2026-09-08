@@ -70,6 +70,20 @@ interface ComicStrip {
 
 const STRIPS: ComicStrip[] = [
   {
+    slug: 'state-of-the-herd-ep3',
+    title: 'The Grate',
+    byline: 'by Pete',
+    date: 'Tuesday \u00b7 September 8, 2026',
+    episode: 'Episode 3 of \u201cBoathouse Fever\u201d',
+    tagline: 'Now pending. Same as every day.',
+    panels: [
+      {
+        src: '/images/comics/ep3-tuesday.jpg',
+        alt: 'Four-panel daily strip. Panel 1: Nell slides an envelope across the Town Hall counter to the Town Manager: \u201cPublic records request. Item 12 of 15.\u201d Panel 2: the Town Manager, stamping it without looking up: \u201cThat\u2019s under legal review.\u201d Panel 3: the envelope slides off the edge of the counter into a dark basement grate. Panel 4: Nell stands with arms crossed, staring at the grate as a muffled voice rises from below: \u201c...pending...\u201d',
+      },
+    ],
+  },
+  {
     slug: 'state-of-the-herd-ep2',
     title: 'Zero for One',
     byline: 'by Pete',
