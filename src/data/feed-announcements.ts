@@ -33,4 +33,12 @@ export const FEED_ANNOUNCEMENTS: FeedAnnouncement[] = [
     date: '2026-09-08',
     guid: 'announcement-social-follow-2026-09-08',
   },
+  {
+    title: 'New "State of the Herd" Episode: The Grate',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      'Episode 3 of our comic strip "State of the Herd" is up: a public records request meets a stamp, a basement grate, and a muffled "...pending..." Read it at lakelureinsider.com/news/comics.',
+    date: '2026-09-08',
+    guid: 'announcement-comics-ep3-the-grate-2026-09-08',
+  },
 ]
