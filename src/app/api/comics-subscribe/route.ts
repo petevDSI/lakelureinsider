@@ -5,6 +5,14 @@ import { Resend } from 'resend'
 // src/app/api/contact/route.ts — no new env var needed.
 const RESEND_API_KEY = process.env.RESEND_API_KEY
 
+// The "Comics Alerts" segment in Resend — created by Pete in the
+// dashboard on 2026-09-08. Segments in Resend are NOT saved filters;
+// a contact's `source` property does not automatically put it in any
+// segment. Membership is explicit — a contact has to be added to a
+// segment ID one at a time via contacts.segments.add(). This is the
+// ID broadcasts should target to reach comics subscribers only.
+const COMICS_ALERTS_SEGMENT_ID = '9304cd12-29a1-4524-bf80-e598a9855972'
+
 function getResend() {
   if (!RESEND_API_KEY) return null
   return new Resend(RESEND_API_KEY)
@@ -51,15 +59,33 @@ export async function POST(req: NextRequest) {
   // with a 422 (confirmed live via Vercel runtime logs on 2026-09-08).
   // Pete created the `source` (string) property in the dashboard, so
   // this is safe to send now.
+  const normalizedEmail = email.toLowerCase()
+
   const { error } = await resend.contacts.create({
-    email: email.toLowerCase(),
+    email: normalizedEmail,
     unsubscribed: false,
     properties: { source: 'comics-alert' },
   })
 
   if (error) {
-    console.error('comics-subscribe: Resend error', error)
+    console.error('comics-subscribe: Resend error creating contact', error)
     return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 502 })
+  }
+
+  // Segment membership is a separate call from contact creation (see
+  // note above) — without this, the contact exists but never shows up
+  // in the Comics Alerts segment, so a broadcast targeting that
+  // segment would silently miss them.
+  const { error: segmentError } = await resend.contacts.segments.add({
+    email: normalizedEmail,
+    segmentId: COMICS_ALERTS_SEGMENT_ID,
+  })
+
+  if (segmentError) {
+    // The contact was created successfully — don't fail the signup
+    // over this, just log it so it can be added to the segment by hand
+    // if needed.
+    console.error('comics-subscribe: Resend error adding to segment', segmentError)
   }
 
   return NextResponse.json({ ok: true })
