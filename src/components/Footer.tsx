@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Logo } from './Logo'
+import { SocialLinks } from './SocialLinks'
 
 const FOOTER_LINKS = [
   { label: 'About', href: '/about' },
@@ -25,20 +26,23 @@ export function Footer() {
               </p>
             </div>
           </div>
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-wrap gap-4">
-              {FOOTER_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="flex flex-wrap items-center gap-6">
+            <nav aria-label="Footer navigation">
+              <ul className="flex flex-wrap gap-4">
+                {FOOTER_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <SocialLinks />
+          </div>
         </div>
         <p className="mt-8 border-t border-white/10 pt-6 text-xs text-white/40">
           © {new Date().getFullYear()} Lake Lure Insider. All rights reserved.
