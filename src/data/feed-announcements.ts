@@ -25,4 +25,12 @@ export const FEED_ANNOUNCEMENTS: FeedAnnouncement[] = [
     date: '2026-09-08',
     guid: 'announcement-x-launch-2026-09-08',
   },
+  {
+    title: 'Find Lake Lure Insider on X and Facebook',
+    link: 'https://lakelureinsider.com',
+    description:
+      "We're now posting on both X (@LakeLureInsider) and Facebook — follow along for real-time updates on the Lured Market fight, local news, and Edmund the goat's ongoing mayoral campaign.",
+    date: '2026-09-08',
+    guid: 'announcement-social-follow-2026-09-08',
+  },
 ]
