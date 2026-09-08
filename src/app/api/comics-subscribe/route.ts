@@ -45,10 +45,16 @@ export async function POST(req: NextRequest) {
   // re-subscribing after an unsubscribe) just updates the existing
   // contact rather than erroring, so no "already subscribed" branch
   // is needed here.
+  //
+  // No `properties` field here: Resend rejects any property that
+  // hasn't been predefined as a Contact Property in the dashboard
+  // first (422 "One or more properties do not exist") — confirmed
+  // live via Vercel runtime logs on 2026-09-08. If Pete later wants
+  // signups tagged (e.g. source: comics-alert), create that property
+  // in Resend's dashboard first, then add it back here.
   const { error } = await resend.contacts.create({
     email: email.toLowerCase(),
     unsubscribed: false,
-    properties: { source: 'comics-alert' },
   })
 
   if (error) {
