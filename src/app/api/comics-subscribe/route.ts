@@ -46,15 +46,15 @@ export async function POST(req: NextRequest) {
   // contact rather than erroring, so no "already subscribed" branch
   // is needed here.
   //
-  // No `properties` field here: Resend rejects any property that
-  // hasn't been predefined as a Contact Property in the dashboard
-  // first (422 "One or more properties do not exist") — confirmed
-  // live via Vercel runtime logs on 2026-09-08. If Pete later wants
-  // signups tagged (e.g. source: comics-alert), create that property
-  // in Resend's dashboard first, then add it back here.
+  // `source` must exist as a Contact Property in the Resend dashboard
+  // before it can be set here — Resend rejects unknown properties
+  // with a 422 (confirmed live via Vercel runtime logs on 2026-09-08).
+  // Pete created the `source` (string) property in the dashboard, so
+  // this is safe to send now.
   const { error } = await resend.contacts.create({
     email: email.toLowerCase(),
     unsubscribed: false,
+    properties: { source: 'comics-alert' },
   })
 
   if (error) {
