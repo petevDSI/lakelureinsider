@@ -3,5 +3,5 @@
 // confirmed — SocialLinks skips any entry with no URL set.
 export const SOCIAL_LINKS = {
   x: 'https://x.com/LakeLureInsider',
-  facebook: '', // TODO: set once the Facebook Page's URL is confirmed
+  facebook: 'https://www.facebook.com/profile.php?id=61593814356203',
 } as const
