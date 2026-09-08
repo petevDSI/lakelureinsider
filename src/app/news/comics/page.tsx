@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Permanent_Marker, Kalam, Source_Serif_4, Libre_Franklin } from 'next/font/google'
 import { EnlargeableImage } from '@/components/EnlargeableImage'
+import { ComicsSignupForm } from '@/components/ComicsSignupForm'
 import { SITE_URL } from '@/lib/site-config'
 
 const permanentMarker = Permanent_Marker({
@@ -226,6 +227,12 @@ export default function ComicsPage() {
             </Link>
             .
           </p>
+          <div className="mx-auto mt-8 max-w-md rounded-xl border border-(--ink)/15 bg-(--sand)/30 p-6">
+            <p className="mb-3 text-sm font-semibold text-(--forest)">
+              Get an email when a new episode posts
+            </p>
+            <ComicsSignupForm />
+          </div>
         </div>
       </section>
 
