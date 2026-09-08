@@ -1,11 +1,13 @@
 import { getChildrenOf } from '@/lib/content'
 import { SITE_URL, SITE_NAME } from '@/lib/site-config'
+import { FEED_ANNOUNCEMENTS } from '@/data/feed-announcements'
 
-// RSS 2.0 feed of the news cluster — powers auto-posting to X/Facebook via a
-// service like dlvr.it. Only articles with a `published` date are included
-// (excludes the /news hub page itself, which has no `published` field).
-// New articles show up here automatically on the next deploy; nothing needs
-// to be added by hand when a new story ships.
+// RSS 2.0 feed of the news cluster (plus hand-written announcements — see
+// feed-announcements.ts) — powers auto-posting to X/Facebook via a service
+// like dlvr.it. Only articles with a `published` date are included (excludes
+// the /news hub page itself, which has no `published` field). New articles
+// show up here automatically on the next deploy; nothing needs to be added
+// by hand when a new story ships.
 
 function escapeXml(value: string): string {
   return value
@@ -16,26 +18,57 @@ function escapeXml(value: string): string {
     .replace(/'/g, '&apos;')
 }
 
-export async function GET() {
-  const articles = getChildrenOf('news')
-    .filter((page) => page.frontmatter.type === 'article' && !!page.frontmatter.published)
-    .sort((a, b) =>
-      (b.frontmatter.published as string).localeCompare(a.frontmatter.published as string),
-    )
-    .slice(0, 30)
+interface FeedItem {
+  title: string
+  link: string
+  guid: string
+  isPermaLink: boolean
+  pubDate: string
+  description: string
+  sortDate: string
+}
 
-  const items = articles
+export async function GET() {
+  const articleItems: FeedItem[] = getChildrenOf('news')
+    .filter((page) => page.frontmatter.type === 'article' && !!page.frontmatter.published)
     .map((page) => {
       const url = `${SITE_URL}/${page.slug}`
-      const pubDate = new Date(`${page.frontmatter.published}T12:00:00Z`).toUTCString()
-      return `    <item>
-      <title>${escapeXml(page.frontmatter.title)}</title>
-      <link>${url}</link>
-      <guid isPermaLink="true">${url}</guid>
-      <pubDate>${pubDate}</pubDate>
-      <description>${escapeXml(page.frontmatter.description)}</description>
-    </item>`
+      const published = page.frontmatter.published as string
+      return {
+        title: page.frontmatter.title,
+        link: url,
+        guid: url,
+        isPermaLink: true,
+        pubDate: new Date(`${published}T12:00:00Z`).toUTCString(),
+        description: page.frontmatter.description,
+        sortDate: published,
+      }
     })
+
+  const announcementItems: FeedItem[] = FEED_ANNOUNCEMENTS.map((a) => ({
+    title: a.title,
+    link: a.link,
+    guid: a.guid,
+    isPermaLink: false,
+    pubDate: new Date(`${a.date}T12:00:00Z`).toUTCString(),
+    description: a.description,
+    sortDate: a.date,
+  }))
+
+  const items = [...articleItems, ...announcementItems]
+    .sort((a, b) => b.sortDate.localeCompare(a.sortDate))
+    .slice(0, 30)
+
+  const itemsXml = items
+    .map(
+      (item) => `    <item>
+      <title>${escapeXml(item.title)}</title>
+      <link>${item.link}</link>
+      <guid isPermaLink="${item.isPermaLink}">${item.guid}</guid>
+      <pubDate>${item.pubDate}</pubDate>
+      <description>${escapeXml(item.description)}</description>
+    </item>`,
+    )
     .join('\n')
 
   const lastBuildDate = new Date().toUTCString()
@@ -48,7 +81,7 @@ export async function GET() {
     <description>Local government and local business news from Lake Lure, NC — reported from primary documents, not press releases.</description>
     <language>en-us</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
-${items}
+${itemsXml}
   </channel>
 </rss>`
 
