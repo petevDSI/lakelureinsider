@@ -15,6 +15,21 @@ export const metadata: Metadata = {
       'Insider tips, hours, tickets, and things to do at Lake Lure and Chimney Rock, NC.',
     url: SITE_URL,
     type: 'website',
+    images: [
+      {
+        url: '/images/home.jpg',
+        width: 1600,
+        height: 839,
+        alt: 'Lake Lure, NC seen from an overlook on Chimney Rock, with the American flag flying in the foreground',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lake Lure Insider — Local Guide to Lake Lure & Chimney Rock, NC',
+    description:
+      'Insider tips, hours, tickets, and things to do at Lake Lure and Chimney Rock, NC.',
+    images: ['/images/home.jpg'],
   },
 }
 

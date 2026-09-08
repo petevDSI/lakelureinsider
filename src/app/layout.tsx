@@ -32,9 +32,18 @@ export const metadata: Metadata = {
     siteName: 'Lake Lure Insider',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/images/home.jpg',
+        width: 1600,
+        height: 839,
+        alt: 'Lake Lure, NC seen from an overlook on Chimney Rock, with the American flag flying in the foreground',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/images/home.jpg'],
   },
   robots: {
     index: true,
