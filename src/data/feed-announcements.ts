@@ -18,6 +18,14 @@ export interface FeedAnnouncement {
 
 export const FEED_ANNOUNCEMENTS: FeedAnnouncement[] = [
   {
+    title: 'New "State of the Herd" Episode: Make Things Right',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      'Episode 4 of our comic strip "State of the Herd" is up: a resident asks a straight question, the Council Chorus answers in unison, and one of them almost says something real. Read it at lakelureinsider.com/news/comics.',
+    date: '2026-09-09',
+    guid: 'announcement-comics-ep4-make-things-right-2026-09-09',
+  },
+  {
     title: 'Lake Lure Insider Is Now on X',
     link: 'https://lakelureinsider.com',
     description:

@@ -70,6 +70,20 @@ interface ComicStrip {
 
 const STRIPS: ComicStrip[] = [
   {
+    slug: 'state-of-the-herd-ep4',
+    title: 'Make Things Right',
+    byline: 'by Pete',
+    date: 'Wednesday \u00b7 September 9, 2026',
+    episode: 'Episode 4 of \u201cBoathouse Fever\u201d',
+    tagline: 'So close to an answer, you could almost hear it.',
+    panels: [
+      {
+        src: '/images/comics/ep4-wednesday.jpg',
+        alt: 'Four-panel daily strip. Panel 1: three commissioners (the Council Chorus) huddle tightly at the dais. Panel 2: a resident, seen from behind in the audience, asks: \u201cWill you take the deal?\u201d Panel 3: the Council Chorus, in unison: \u201cWe take this matter very seriously.\u201d Panel 4: the Old Guard commissioner leans out of the huddle, starting to say \u201c\u2014three of us already told his wife we\u2014\u201d before another commissioner\u2019s hand pulls him back in. Caption: \u201cAlmost, old-timer. Almost.\u201d',
+      },
+    ],
+  },
+  {
     slug: 'state-of-the-herd-ep3',
     title: 'The Grate',
     byline: 'by Pete',
