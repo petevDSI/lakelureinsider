@@ -70,6 +70,20 @@ interface ComicStrip {
 
 const STRIPS: ComicStrip[] = [
   {
+    slug: 'state-of-the-herd-ep5',
+    title: 'The Buried Lede',
+    byline: 'by Pete',
+    date: 'Thursday \u00b7 September 10, 2026',
+    episode: 'Episode 5 of \u201cBoathouse Fever\u201d',
+    tagline: 'Day four. Still can\u2019t see the forest for the sand.',
+    panels: [
+      {
+        src: '/images/comics/ep5-thursday.jpg',
+        alt: 'Four-panel daily strip. Panel 1: the Mayor and the Council Chorus stand at the Town Beach, buried up to their shoulders in a mound of sand, sashes and blazers visible above the sand line. Panel 2: Nell, notebook in hand at the water\u2019s edge, calls out: \u201cAny update on the settlement?\u201d Panel 3: muffled voices rise from the sand in unison: \u201cWe take this matter very seriously.\u201d Panel 4: Edmund the goat walks into frame, studies the buried officials, and turns to the reader: \u201cNeighbors, I\u2019ve seen ostriches commit harder to a bit.\u201d Caption: \u201cDay four. Still can\u2019t see the forest for the sand.\u201d',
+      },
+    ],
+  },
+  {
     slug: 'state-of-the-herd-ep4',
     title: 'Make Things Right',
     byline: 'by Pete',

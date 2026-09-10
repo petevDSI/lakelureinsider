@@ -18,6 +18,14 @@ export interface FeedAnnouncement {
 
 export const FEED_ANNOUNCEMENTS: FeedAnnouncement[] = [
   {
+    title: 'New "State of the Herd" Episode: The Buried Lede',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      'Episode 5 of our comic strip "State of the Herd" is up: the Town Council answers a straight question from the beach, buried up to their shoulders in sand, and Edmund has thoughts. Read it at lakelureinsider.com/news/comics.',
+    date: '2026-09-10',
+    guid: 'announcement-comics-ep5-the-buried-lede-2026-09-10',
+  },
+  {
     title: 'New "State of the Herd" Episode: Make Things Right',
     link: 'https://lakelureinsider.com/news/comics',
     description:
