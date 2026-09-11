@@ -70,6 +70,20 @@ interface ComicStrip {
 
 const STRIPS: ComicStrip[] = [
   {
+    slug: 'state-of-the-herd-sept11-tribute',
+    title: 'Twenty-Five Years',
+    byline: 'by Pete',
+    date: 'Friday \u00b7 September 11, 2026',
+    episode: 'In memory of September 11, 2001',
+    tagline: 'Never forget.',
+    panels: [
+      {
+        src: '/images/comics/tribute-sept11.jpg',
+        alt: 'A quiet, single-panel tribute illustration, grayscale. Lake Lure Town Hall stands at dusk, its flag lowered to half-staff, the lake and mountains behind it. In front, the strip\u2019s cast \u2014 Nell, the Mayor, the Town Manager, the Council Chorus, Frank and Delia Osgood in their Rocky Broad Kitchen \/ Delia\u2019s Kitchen aprons, and other townsfolk \u2014 stand together with heads bowed in a moment of silence. Edmund the goat, wearing his red bow tie, stands quietly among them rather than addressing the crowd. Caption beneath the illustration reads: \u201cSeptember 11, 2001 \u2014 September 11, 2026. Twenty-five years. Never forget.\u201d',
+      },
+    ],
+  },
+  {
     slug: 'state-of-the-herd-ep5',
     title: 'The Buried Lede',
     byline: 'by Pete',

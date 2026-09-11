@@ -18,6 +18,14 @@ export interface FeedAnnouncement {
 
 export const FEED_ANNOUNCEMENTS: FeedAnnouncement[] = [
   {
+    title: 'A Moment for September 11',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "Today marks twenty-five years since September 11, 2001. \u201cState of the Herd\u201d is stepping aside from the news of the week for a quiet tribute \u2014 no joke today, just remembrance. lakelureinsider.com/news/comics.",
+    date: '2026-09-11',
+    guid: 'announcement-comics-sept11-tribute-2026-09-11',
+  },
+  {
     title: 'New "State of the Herd" Episode: The Buried Lede',
     link: 'https://lakelureinsider.com/news/comics',
     description:
