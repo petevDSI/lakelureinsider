@@ -18,6 +18,30 @@ export interface FeedAnnouncement {
 
 export const FEED_ANNOUNCEMENTS: FeedAnnouncement[] = [
   {
+    title: 'New "State of the Herd" Episode: The Waiting Game',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "Episode 8 of our comic strip \"State of the Herd\" is up: the whole town badly hides a stakeout of Town Hall's mail slot, and the envelope that finally drops isn't what anyone hoped. Read it at lakelureinsider.com/news/comics.",
+    date: '2026-09-14',
+    guid: 'announcement-comics-ep8-the-waiting-game-2026-09-14',
+  },
+  {
+    title: 'New "State of the Herd" Episode: Two Offers, One Deadline',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "Episode 7 of our comic strip \"State of the Herd\" is up: the Town's counter-offer lands, the Osgoods weigh what it actually means, and two dates get circled on the calendar. Read it at lakelureinsider.com/news/comics.",
+    date: '2026-09-13',
+    guid: 'announcement-comics-ep7-two-offers-one-deadline-2026-09-13',
+  },
+  {
+    title: 'New "State of the Herd" Episode: Write-In Season',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      'Episode 6 of our comic strip "State of the Herd" is up: two write-in campaigns hit the Town Hall bulletin board, and Edmund clarifies his own candidacy. Read it at lakelureinsider.com/news/comics.',
+    date: '2026-09-12',
+    guid: 'announcement-comics-ep6-write-in-season-2026-09-12',
+  },
+  {
     title: 'A Moment for September 11',
     link: 'https://lakelureinsider.com/news/comics',
     description:

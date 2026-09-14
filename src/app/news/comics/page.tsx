@@ -70,6 +70,48 @@ interface ComicStrip {
 
 const STRIPS: ComicStrip[] = [
   {
+    slug: 'state-of-the-herd-ep8',
+    title: 'The Waiting Game',
+    byline: 'by Pete',
+    date: 'Monday · September 14, 2026',
+    episode: 'Episode 8 of “Boathouse Fever”',
+    tagline: 'Even the monster in the basement is losing patience.',
+    panels: [
+      {
+        src: '/images/comics/ep8-mon-0914.jpg',
+        alt: 'Four-panel daily strip. Panel 1: across from Town Hall, Frank sweeps the sidewalk while Nell sits on a bench with a clear sightline to the building’s mail slot, and a knot of Dock Chorus regulars loiters by the flagpole — the whole town badly hiding a stakeout. Panel 2: an envelope drops through Town Hall’s mail slot with a “flmp.”, and everyone in the background snaps to attention. Panel 3: Nell, arms crossed, watches an envelope opened to reveal a “PIZZA $5 OFF” coupon, not a check. Panel 4: the basement grate, which had cracked hopefully open, eases back shut with a disappointed puff of dust and a whispered “shhh...” Caption: “Day one of week two. Even the monster in the basement is losing patience.”',
+      },
+    ],
+  },
+  {
+    slug: 'state-of-the-herd-ep7',
+    title: 'Two Offers, One Deadline',
+    byline: 'by Pete',
+    date: 'Sunday · September 13, 2026',
+    episode: 'Episode 7 of “Boathouse Fever”',
+    tagline: 'So. Progress. On their terms.',
+    panels: [
+      {
+        src: '/images/comics/ep7-sun-0913.jpg',
+        alt: 'Color strip, three tiers. Tier 1: a hand passes an envelope marked “COUNTER-OFFER” across a table overlooking the lake. Caption: “One offer answered with another. Seven points this time — not just a number.” Tier 2, three panels: the Void savors a stack of paper marked “SETTLEMENT DRAFT — UNSIGNED” in its basement; at the Rocky Broad Kitchen counter, Frank holds the Town’s offer and says “Rent’s better. Boathouse claim’s gone. Everything after May... still theirs to write,” and Delia answers, “So. Progress. On their terms”; a hand circles Sept. 14 and Sept. 15 (“COURT”) on a September calendar. Tier 3, two panels: Edmund, in his red rosette, tells a small crowd on the courthouse lawn, “Neighbors, when both sides finally start arguing over commas instead of dollars, that’s about the closest thing to hope this town’s had all month”; the heron stands watch on a dock railing over the lake. Caption, bottom right: “NEXT WEEK: Does the check clear?”',
+      },
+    ],
+  },
+  {
+    slug: 'state-of-the-herd-ep6',
+    title: 'Write-In Season',
+    byline: 'by Pete',
+    date: 'Saturday · September 12, 2026',
+    episode: 'Episode 6 of “Boathouse Fever”',
+    tagline: 'Day one of a three-way race nobody scheduled.',
+    panels: [
+      {
+        src: '/images/comics/ep6-sat-0912.jpg',
+        alt: 'Four-panel daily strip. Panel 1: the Town Hall community bulletin board holds a faded “CANDIDATE FILING CLOSED — JULY 17” notice. Panel 2: hands pin up “WRITE IN KATHY” and “WRITE IN KOZMA” signs over it. Panel 3: a crooked third sign goes up — “WRITE IN EDMUND (allegedly ineligible)”, with a small paw print in the corner. Panel 4: Edmund the goat, beside the bulletin board, turns to the reader: “Neighbors, I never said I was eligible. I said I was available.” Caption: “Day one of a three-way race nobody scheduled.”',
+      },
+    ],
+  },
+  {
     slug: 'state-of-the-herd-sept11-tribute',
     title: 'Twenty-Five Years',
     byline: 'by Pete',
