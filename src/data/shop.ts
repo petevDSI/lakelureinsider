@@ -19,7 +19,7 @@ export interface ShopProduct {
   id: string
   handle: string
   title: string
-  category: 'tees' | 'hats' | 'hoodie-tank' | 'stickers'
+  category: 'tees' | 'hats' | 'hoodie-tank' | 'stickers' | 'magnets' | 'pins'
   /** One or two sentences of sales copy — shown on the /shop product card. */
   blurb: string
   /** Display-ready price string, e.g. "$18.50" or "From $22.50". */
@@ -200,6 +200,76 @@ export const SHOP_PRODUCTS = {
       alt: "Don't Fence Me In sticker, showing Edmund walking past a broken fence",
     },
   },
+  'edmund-for-mayor-sticker': {
+    id: '10273618166080',
+    handle: 'edmund-for-mayor-sticker',
+    title: 'Edmund for Mayor Sticker',
+    category: 'stickers',
+    blurb:
+      "Edmund's vintage-style campaign badge — bow tie, ribbon, and all — printed as a durable vinyl sticker. Laptop, water bottle, bumper — your call.",
+    priceFrom: 'From $3.50',
+    variantNote: '3 sizes',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6aada4eace3e4.jpg?v=1789764850',
+      alt: 'Edmund for Mayor sticker, showing the vintage campaign badge design',
+    },
+  },
+  'holographic-edmund-for-mayor-sticker': {
+    id: '10273654669632',
+    handle: 'holographic-edmund-for-mayor-sticker',
+    title: 'Holographic Edmund for Mayor Sticker',
+    category: 'stickers',
+    blurb:
+      'The same Edmund for Mayor campaign badge, printed on holographic vinyl that shifts color as the light hits it. Same goat, same platform, more sparkle. Indoor use only.',
+    priceFrom: 'From $5.50',
+    variantNote: '2 sizes',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-holographic-stickers-grey-3x3-front-6aada69260424.jpg?v=1789765273',
+      alt: 'Holographic Edmund for Mayor sticker, showing the campaign badge design with a rainbow shimmer finish',
+    },
+  },
+  'edmund-lake-life-goat-life-sticker': {
+    id: '10273680884032',
+    handle: 'edmund-lake-life-goat-life-sticker',
+    title: 'Edmund Lake Life. Goat Life. Sticker',
+    category: 'stickers',
+    blurb:
+      'Edmund chest-deep in the lake with Chimney Rock behind him — the same crest from the heavyweight tee, printed as a durable vinyl sticker.',
+    priceFrom: 'From $3.50',
+    variantNote: '3 sizes',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6aada76e8754e.jpg?v=1789765499',
+      alt: 'Edmund Lake Life. Goat Life. sticker, showing Edmund swimming in the lake with Chimney Rock behind him',
+    },
+  },
+  'edmund-for-mayor-magnet': {
+    id: '10273643659584',
+    handle: 'edmund-for-mayor-magnet',
+    title: 'Edmund for Mayor Magnet',
+    category: 'magnets',
+    blurb:
+      "Edmund's campaign badge printed as a durable vinyl magnet. Fridge, filing cabinet, toolbox — wherever you keep the things that matter.",
+    priceFrom: 'From $4.50',
+    variantNote: '3 sizes',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/die-cut-magnets-white-3x3-front-6aada643e0ed5.jpg?v=1789765194',
+      alt: 'Edmund for Mayor magnet, showing the vintage campaign badge design',
+    },
+  },
+  'edmund-goat-pin-button-set': {
+    id: '10273691238720',
+    handle: 'set-of-edmund-the-goat-pin-buttons',
+    title: 'Set of Edmund the Goat Pin Buttons',
+    category: 'pins',
+    blurb:
+      "Five pins pulling from Edmund's whole lineup — the campaign badge, the mountain patch, the Lake Life crest, and the goat on his lake float. Pin them on a jacket, backpack, or hat band.",
+    priceFrom: 'From $10',
+    variantNote: '2 sizes',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/set-of-pin-buttons-white-1.25-front-2-6aada84d7ee1e.jpg?v=1789765737',
+      alt: 'Set of 5 Edmund the Goat pin buttons, showing the campaign badge, mountain patch, lake life, and lake float designs',
+    },
+  },
 } as const satisfies Record<string, ShopProduct>
 
 export type ShopProductKey = keyof typeof SHOP_PRODUCTS
@@ -231,6 +301,23 @@ export const SHOP_CATEGORIES: ShopCategory[] = [
   {
     slug: 'stickers',
     label: 'Stickers',
-    productKeys: ['edmund-sunglasses-sticker', 'heritage-mountain-sticker', 'dont-fence-me-in-sticker'],
+    productKeys: [
+      'edmund-sunglasses-sticker',
+      'heritage-mountain-sticker',
+      'dont-fence-me-in-sticker',
+      'edmund-for-mayor-sticker',
+      'holographic-edmund-for-mayor-sticker',
+      'edmund-lake-life-goat-life-sticker',
+    ],
+  },
+  {
+    slug: 'magnets',
+    label: 'Magnets',
+    productKeys: ['edmund-for-mayor-magnet'],
+  },
+  {
+    slug: 'pins',
+    label: 'Pins',
+    productKeys: ['edmund-goat-pin-button-set'],
   },
 ]
