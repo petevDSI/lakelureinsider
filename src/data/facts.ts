@@ -1916,6 +1916,9 @@ export interface Restaurant {
   facebook: FacebookRating | null
   source: string
   lastVerified: string
+  /** Optional real storefront photo, e.g. '/images/chimney-rock-smokehouse-storefront.jpg'. */
+  image?: string
+  imageAlt?: string
 }
 
 export const RESTAURANTS: Restaurant[] = [
@@ -2113,6 +2116,8 @@ export const RESTAURANTS: Restaurant[] = [
     facebook: { recommendPercent: 92, count: 61 },
     source: 'Google Maps, Tripadvisor, Facebook',
     lastVerified: '2026-08-28',
+    image: '/images/chimney-rock-smokehouse-storefront.jpg',
+    imageAlt: 'Chimney Rock Smokehouse, with its rooftop deck, off Main Street in Chimney Rock Village',
   },
 ]
 
@@ -2265,6 +2270,9 @@ export interface Shop {
   notes: string | null
   source: string
   lastVerified: string
+  /** Optional real storefront photo, e.g. '/images/shops/gales-chimney-rock-shop.jpg'. */
+  image?: string
+  imageAlt?: string
 }
 
 export const SHOP_AREAS: ShopArea[] = ['Chimney Rock Village', 'Lake Lure']
@@ -2328,18 +2336,20 @@ export const SHOPS: Shop[] = [
     lastVerified: '2026-08-28',
   },
   {
-    id: 'featherheads',
-    name: 'Featherheads',
+    id: 'the-finderie',
+    name: 'The Finderie',
     area: 'Chimney Rock Village',
     category: 'Retail & Gifts',
-    description: 'Art gallery and gift shop on Main Street.',
+    description: 'Vintage, antique, and unique-finds shop directly across from the state park entrance.',
     address: '398 Main St, Chimney Rock, NC 28720',
-    phone: '828-625-1175',
+    phone: null,
     website: null,
     rating: null,
-    notes: null,
-    source: 'chimneyrock.org shop directory',
-    lastVerified: '2026-08-28',
+    notes: 'Now operating at this address; the chimneyrock.org directory still lists it as Featherheads (art gallery/gift shop) as of last check — storefront signage confirmed 2026-09-18.',
+    source: 'visitncsmalltowns.com, Facebook, Pete\'s on-site photo 2026-09-18',
+    lastVerified: '2026-09-18',
+    image: '/images/shops/the-finderie.jpg',
+    imageAlt: 'The Finderie storefront on Main Street in Chimney Rock Village',
   },
   {
     id: 'chimney-rock-gem-mine',
@@ -2351,30 +2361,65 @@ export const SHOPS: Shop[] = [
     phone: '828-625-5524',
     website: null,
     rating: null,
-    notes: null,
+    notes: 'The 374 Main St address is the same one The Sacred Chakra (below) lists as its own storefront, and a post from this business\'s own Facebook page refers to Sacred Chakra as "our Sacred Chakra store" — likely the same location/ownership under a second brand name, not independently confirmed on-site.',
     source: 'chimneyrock.org shop directory',
     lastVerified: '2026-08-28',
   },
   {
-    id: 'john-bull-trading-company',
-    name: 'John Bull Trading Company',
+    id: 'the-sacred-chakra',
+    name: 'The Sacred Chakra',
     area: 'Chimney Rock Village',
     category: 'Retail & Gifts',
-    description: 'General trading-post style shop on Main Street.',
-    address: '414 Main St, Chimney Rock, NC 28720',
-    phone: '828-625-9005',
+    description: 'Crystals, chakra and wellness gifts on Main Street.',
+    address: '374 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-9885',
+    website: 'https://thesacredchakranc.com/',
+    rating: null,
+    notes: 'Shares an address with Chimney Rock Gem Mine & Jewelry Co.\'s jewelry-counter location (above) — likely the same ownership under a second brand name, per a Facebook post from the Gem Mine\'s own page; not independently confirmed on-site.',
+    source: 'thesacredchakranc.com, Facebook, Pete\'s on-site photo 2026-09-18',
+    lastVerified: '2026-09-18',
+    image: '/images/shops/the-sacred-chakra.jpg',
+    imageAlt: 'The Sacred Chakra storefront in Chimney Rock, North Carolina',
+  },
+  {
+    id: 'chimney-sweeps',
+    name: 'Chimney Sweeps',
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description:
+      'One of the larger family-owned shops in the Village, est. 1975 — gifts, souvenirs, apparel, and moccasins, plus wind chimes, cast iron cookware, jewelry, hats, belts, and pottery.',
+    address: '399 Main St, Chimney Rock, NC 28720',
+    phone: '828-625-9033',
     website: null,
     rating: null,
-    notes: null,
-    source: 'chimneyrock.org shop directory',
-    lastVerified: '2026-08-28',
+    notes: 'Despite the name, this is a gift/apparel shop, not a chimney-cleaning service — easy to mistake for one without seeing the storefront.',
+    source: 'chimneyrock.org, visitncsmalltowns.com, Pete\'s on-site photo 2026-09-18',
+    lastVerified: '2026-09-18',
+    image: '/images/shops/chimney-sweeps.jpg',
+    imageAlt: 'Chimney Sweeps gift shop storefront on Main Street in Chimney Rock Village',
+  },
+  {
+    id: 'rocky-river-ice-cream-fudge-and-gifts',
+    name: 'Rocky River Ice Cream, Fudge and Gifts',
+    area: 'Chimney Rock Village',
+    category: 'Retail & Gifts',
+    description: 'Ice cream, specialty drinks, homemade fudge, candy, and gifts on Main Street.',
+    address: '414 Main St, Chimney Rock, NC 28720',
+    phone: null,
+    website: null,
+    rating: null,
+    notes: 'Now operating at this address; the chimneyrock.org directory still lists it as John Bull Trading Company (general trading post) as of last check — storefront signage confirmed 2026-09-18.',
+    source: 'Yelp, Giftly, visitncsmalltowns.com, Pete\'s on-site photo 2026-09-18',
+    lastVerified: '2026-09-18',
+    image: '/images/shops/rocky-river-ice-cream-fudge-and-gifts.jpg',
+    imageAlt: 'Rocky River Ice Cream, Fudge and Gifts storefront on Main Street in Chimney Rock Village',
   },
   {
     id: 'gales-chimney-rock-shop',
     name: "Gale's Chimney Rock Shop",
     area: 'Chimney Rock Village',
     category: 'Retail & Gifts',
-    description: 'Souvenirs and gifts on Main Street.',
+    description: "Souvenirs and gifts on Main Street — \"The Original Chimney Rock Shop,\" est. 1947.",
     address: '418 Main St, Chimney Rock, NC 28720',
     phone: '828-625-4126',
     website: null,
@@ -2382,13 +2427,15 @@ export const SHOPS: Shop[] = [
     notes: null,
     source: 'chimneyrock.org shop directory',
     lastVerified: '2026-08-28',
+    image: '/images/shops/gales-chimney-rock-shop.jpg',
+    imageAlt: "Gale's, The Original Chimney Rock Shop, on Main Street in Chimney Rock Village",
   },
   {
     id: 'mountain-traders',
     name: 'Mountain Traders',
     area: 'Chimney Rock Village',
     category: 'Retail & Gifts',
-    description: 'General store and gift shop on Main Street.',
+    description: 'General store and gift shop on Main Street, est. 1976.',
     address: '410 Main St, Chimney Rock, NC 28720',
     phone: '828-625-9801',
     website: null,
@@ -2396,6 +2443,8 @@ export const SHOPS: Shop[] = [
     notes: null,
     source: 'chimneyrock.org shop directory',
     lastVerified: '2026-08-28',
+    image: '/images/shops/mountain-traders.jpg',
+    imageAlt: 'Mountain Traders storefront on Main Street in Chimney Rock Village',
   },
   {
     id: 'the-hickory-nut',

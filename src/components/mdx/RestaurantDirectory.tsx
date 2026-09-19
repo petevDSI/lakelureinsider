@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import {
   RESTAURANTS,
   RESTAURANT_AREAS,
@@ -21,7 +22,19 @@ function RestaurantCard({ restaurant }: { restaurant: Restaurant }) {
   const cumulative = computeCumulativeRating(restaurant)
 
   return (
-    <div className="rounded-lg border border-(--sand) bg-white p-4">
+    <div className="overflow-hidden rounded-lg border border-(--sand) bg-white">
+      {restaurant.image && (
+        <div className="relative h-40 w-full">
+          <Image
+            src={restaurant.image}
+            alt={restaurant.imageAlt ?? restaurant.name}
+            fill
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+      )}
+      <div className="p-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <a
@@ -68,6 +81,7 @@ function RestaurantCard({ restaurant }: { restaurant: Restaurant }) {
             {restaurant.facebook.count.toLocaleString()})
           </span>
         )}
+      </div>
       </div>
     </div>
   )

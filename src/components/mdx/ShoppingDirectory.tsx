@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { SHOPS, SHOP_AREAS, shopsLastVerified, type ShopCategory } from '@/data/facts'
 
 const CATEGORY_STYLE: Record<ShopCategory, string> = {
@@ -44,7 +45,19 @@ export function ShoppingDirectory() {
 
             <div className="flex flex-col gap-3">
               {shops.map((s) => (
-                <div key={s.id} className="rounded-lg border border-(--sand) bg-white p-4">
+                <div key={s.id} className="overflow-hidden rounded-lg border border-(--sand) bg-white">
+                  {s.image && (
+                    <div className="relative h-40 w-full">
+                      <Image
+                        src={s.image}
+                        alt={s.imageAlt ?? s.name}
+                        fill
+                        sizes="(min-width: 640px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="p-4">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div>
                       <div className="flex flex-wrap items-center gap-2">
@@ -81,6 +94,7 @@ export function ShoppingDirectory() {
                   <p className="mt-2 text-sm text-(--ink)/80">{s.description}</p>
                   <p className="mt-1 text-sm text-(--ink)/70">{s.address}</p>
                   {s.notes && <p className="mt-2 text-xs text-(--ink)/60">{s.notes}</p>}
+                  </div>
                 </div>
               ))}
             </div>
