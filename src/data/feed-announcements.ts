@@ -18,6 +18,46 @@ export interface FeedAnnouncement {
 
 export const FEED_ANNOUNCEMENTS: FeedAnnouncement[] = [
   {
+    title: 'New "State of the Herd" Episode: Twelve Questions',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "Episode 13 of our comic strip \"State of the Herd\" is up: Edmund runs down the candidate questionnaire, one goat-logic answer at a time. Read it at lakelureinsider.com/news/comics.",
+    date: '2026-09-19',
+    guid: 'announcement-comics-ep13-twelve-questions-2026-09-19',
+  },
+  {
+    title: 'New "State of the Herd" Episode: Twenty-Three Days',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "Episode 12 of our comic strip \"State of the Herd\" is up: two public records requests, still unanswered, get a follow-up email. Read it at lakelureinsider.com/news/comics.",
+    date: '2026-09-18',
+    guid: 'announcement-comics-ep12-twenty-three-days-2026-09-18',
+  },
+  {
+    title: 'New "State of the Herd" Episode: Not Dismissed Yet',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "Episode 11 of our comic strip \"State of the Herd\" is up: the settlement's signed, but the paperwork says otherwise. Read it at lakelureinsider.com/news/comics.",
+    date: '2026-09-17',
+    guid: 'announcement-comics-ep11-not-dismissed-yet-2026-09-17',
+  },
+  {
+    title: 'New "State of the Herd" Episode: Signed',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "Episode 10 of our comic strip \"State of the Herd\" is up: the settlement gets signed at the Rocky Broad Kitchen counter, and even the Void doesn't know what to do with it. Read it at lakelureinsider.com/news/comics.",
+    date: '2026-09-16',
+    guid: 'announcement-comics-ep10-signed-2026-09-16',
+  },
+  {
+    title: 'New "State of the Herd" Episode: Same Docket, New Date',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "Episode 9 of our comic strip \"State of the Herd\" is up: the small-claims hearing gets continued a fourth time. Read it at lakelureinsider.com/news/comics.",
+    date: '2026-09-15',
+    guid: 'announcement-comics-ep9-same-docket-new-date-2026-09-15',
+  },
+  {
     title: 'New "State of the Herd" Episode: The Waiting Game',
     link: 'https://lakelureinsider.com/news/comics',
     description:

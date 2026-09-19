@@ -70,6 +70,76 @@ interface ComicStrip {
 
 const STRIPS: ComicStrip[] = [
   {
+    slug: 'state-of-the-herd-ep13',
+    title: 'Twelve Questions',
+    byline: 'by Pete',
+    date: 'Saturday · September 19, 2026',
+    episode: 'Episode 13 of “Boathouse Fever”',
+    tagline: 'The three Edmund answered anyway.',
+    panels: [
+      {
+        src: '/images/comics/ep13-sat-0919.jpg',
+        alt: 'Groening-style list strip, black and white. Title lettering across the top: “TWELVE QUESTIONS FOR EVERY CANDIDATE (THE THREE EDMUND ANSWERED ANYWAY), by Edmund.” Panel 1: Edmund beside a fork in the road signed “DAM” and “SEWER”: “One: dam or sewer, and how do you pay for it? Correct answer: both, eventually, painfully.” Panel 2: Edmund outside the Rocky Broad Kitchen: “Six: can the people who work here still afford to live here? Neighbors, that one’s not a joke.” Panel 3: Edmund beside a “TOWN HALL MEETING” checklist sandwich-board in front of Town Hall: “Nine: minutes on a fixed schedule, no exceptions? A goat has never missed a meeting he wasn’t invited to.” Panel 4: Edmund alone on the courthouse lawn: “Nobody mailed me a questionnaire. I answered three anyway. That’s the whole platform.” Caption: “The three Edmund answered anyway.”',
+      },
+    ],
+  },
+  {
+    slug: 'state-of-the-herd-ep12',
+    title: 'Twenty-Three Days',
+    byline: 'by Pete',
+    date: 'Friday · September 18, 2026',
+    episode: 'Episode 12 of “Boathouse Fever”',
+    tagline: 'Some things get settled in a month. Some things just get older.',
+    panels: [
+      {
+        src: '/images/comics/ep12-fri-0918.jpg',
+        alt: 'Four-panel daily strip. Panel 1: Nell at her desk holding two folders, one stamped “AUG 26” with a tally climbing toward 23 days, the other “SEPT 8” climbing toward 10 days. Panel 2: an email draft on her laptop, subject “Public Records Request – Follow Up,” a visible line reading “...neither request has been acknowledged...” Panel 3: Nell clicks Send; a soft “whoosh” as it goes out. Panel 4: the basement grate sits quiet, unmoved — it’s used to this by now. Caption: “Some things get settled in a month. Some things just get older.”',
+      },
+    ],
+  },
+  {
+    slug: 'state-of-the-herd-ep11',
+    title: 'Not Dismissed Yet',
+    byline: 'by Pete',
+    date: 'Thursday · September 17, 2026',
+    episode: 'Episode 11 of “Boathouse Fever”',
+    tagline: 'Signed. Not dismissed. Not yet.',
+    panels: [
+      {
+        src: '/images/comics/ep11-thu-0917.jpg',
+        alt: 'Four-panel daily strip. Panel 1: a hand-lettered “SETTLED!” banner hangs slightly crooked over Town Hall’s front door. Panel 2: the same door’s mail slot, just as quiet as ever. Panel 3: Nell checks the court docket on her phone — the next hearing date still shows “10/8/2026.” Panel 4: Nell, dry aside to the reader: “Signed. Not dismissed. Not yet.” Caption: “Progress moves at exactly one speed here. Town speed.”',
+      },
+    ],
+  },
+  {
+    slug: 'state-of-the-herd-ep10',
+    title: 'Signed',
+    byline: 'by Pete',
+    date: 'Wednesday · September 16, 2026',
+    episode: 'Episode 10 of “Boathouse Fever”',
+    tagline: 'Eight months of relief. Then the number goes back up.',
+    panels: [
+      {
+        src: '/images/comics/ep10-wed-0916.jpg',
+        alt: 'Four-panel daily strip. Panel 1: the Town Manager sets a folder marked “SETTLEMENT — SIGN HERE” on the Rocky Broad Kitchen counter in front of Frank. Panel 2: Frank signs while Delia looks on. Panel 3: under the floor, the Void’s grate creaks open on reflex, ready for a new folder — then eases shut again, confused, unsure what to do with something that isn’t “pending.” Panel 4: Delia, wiping the counter: “So. Progress.” Frank: “For eight months.” Caption: “Eight months of relief. Then the number goes back up.”',
+      },
+    ],
+  },
+  {
+    slug: 'state-of-the-herd-ep9',
+    title: 'Same Docket, New Date',
+    byline: 'by Pete',
+    date: 'Tuesday · September 15, 2026',
+    episode: 'Episode 9 of “Boathouse Fever”',
+    tagline: 'Still not the ending anybody scripted.',
+    panels: [
+      {
+        src: '/images/comics/ep9-tue-0915.jpg',
+        alt: 'Four-panel daily strip. Panel 1: Nell at her desk, refreshing the online court docket on her laptop. Panel 2: the case-status box flips from “9/15/2026” to “10/8/2026.” Panel 3: Nell, flat: “That’s four.” Panel 4: the basement grate creaks open half an inch, sniffing the air like it smells something different — then eases shut again, unconvinced. Caption: “Day two of week two. Still not the ending anybody scripted.”',
+      },
+    ],
+  },
+  {
     slug: 'state-of-the-herd-ep8',
     title: 'The Waiting Game',
     byline: 'by Pete',
