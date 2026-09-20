@@ -18,6 +18,14 @@ export interface FeedAnnouncement {
 
 export const FEED_ANNOUNCEMENTS: FeedAnnouncement[] = [
   {
+    title: 'New "State of the Herd" Episode: Two Kinds of Answered',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "Episode 14 of our comic strip \"State of the Herd\" is up: the lawsuit finally got a settlement, but two public-records requests and a stack of candidate questionnaires are still waiting. Read it at lakelureinsider.com/news/comics.",
+    date: '2026-09-20',
+    guid: 'announcement-comics-ep14-two-kinds-of-answered-2026-09-20',
+  },
+  {
     title: 'New "State of the Herd" Episode: Twelve Questions',
     link: 'https://lakelureinsider.com/news/comics',
     description:

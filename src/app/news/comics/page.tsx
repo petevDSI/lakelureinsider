@@ -70,6 +70,20 @@ interface ComicStrip {
 
 const STRIPS: ComicStrip[] = [
   {
+    slug: 'state-of-the-herd-ep14',
+    title: 'Two Kinds of Answered',
+    byline: 'by Pete',
+    date: 'Sunday \u00b7 September 20, 2026',
+    episode: 'Episode 14 of \u201cBoathouse Fever\u201d',
+    tagline: 'One deal closed. Two requests still waiting.',
+    panels: [
+      {
+        src: '/images/comics/ep14-sun-0920.jpg',
+        alt: 'Color strip, three tiers. Masthead tagline: \u201cOne Deal Closed. Two Requests Still Waiting.\u201d Tier 1 (wide panel): Lake Lure Town Hall in calm daylight by the lake, flag flying. Caption box: \u201cThe lawsuit that ate the summer finally got an answer. Not everything did.\u201d Tier 2, three panels: a framed \u201cSETTLEMENT \u2014 SIGNED\u201d notice beside a \u201cA Calmer Today. A Stronger Tomorrow.\u201d plaque; Nell at her desk holding two folders now stamped \u201cAUG 26 \u2014 24 DAYS \u2014 NO RESPONSE\u201d and \u201cSEPT 8 \u2014 11 DAYS \u2014 NO RESPONSE,\u201d a \u201cSAME RECORDS. SAME QUESTIONS.\u201d sign behind her and a \u201cLAKE LURE STAYS CURIOUS\u201d mug on the desk; a stack of \u201cCANDIDATE QUESTIONNAIRE, LAKE LURE, NC\u201d envelopes marked \u201cANSWERED,\u201d \u201cPENDING,\u201d \u201cPENDING,\u201d \u201cPENDING,\u201d \u201cPENDING\u201d beside a \u201cGOOD TOWNS ASK BETTER QUESTIONS\u201d mug. Tier 3, two panels: Edmund in his red bow tie addresses the gathered cast (Nell, Frank, Delia, the Dock Chorus) on the Town Hall steps at sunset \u2014 EDMUND: \u201cNeighbors, we settled the lawsuit. Let\u2019s see if we can settle everything else.\u201d One of the crowd, flat: \u201cSame time every week.\u201d Final panel: the heron stands on a dock post at sunset over the lake, Chimney Rock in the distance. Caption, bottom right: \u201cNEXT WEEK: Does the map match the lease?\u201d',
+      },
+    ],
+  },
+  {
     slug: 'state-of-the-herd-ep13',
     title: 'Twelve Questions',
     byline: 'by Pete',
