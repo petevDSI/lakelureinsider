@@ -18,6 +18,14 @@ export interface FeedAnnouncement {
 
 export const FEED_ANNOUNCEMENTS: FeedAnnouncement[] = [
   {
+    title: 'New Comic: "The Original Infrastructure Lobby"',
+    link: 'https://lakelureinsider.com/news/comics',
+    description:
+      "A new one-off comic panel is up: the dam's original contractors have some notes. Read it at lakelureinsider.com/news/comics.",
+    date: '2026-09-21',
+    guid: 'announcement-comics-farside-mon-0921-original-infrastructure-lobby',
+  },
+  {
     title: 'New "State of the Herd" Episode: Two Kinds of Answered',
     link: 'https://lakelureinsider.com/news/comics',
     description:

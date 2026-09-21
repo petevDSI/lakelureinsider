@@ -70,6 +70,20 @@ interface ComicStrip {
 
 const STRIPS: ComicStrip[] = [
   {
+    slug: 'lake-lure-unrelated-mon-0921',
+    title: 'The Original Infrastructure Lobby',
+    byline: 'by Pete',
+    date: 'Monday \u00b7 September 21, 2026',
+    episode: 'Lake Lure, Unrelated',
+    tagline: 'The dam\u2019s original contractors, still waiting on a callback.',
+    panels: [
+      {
+        src: '/images/comics/farside-mon-0921.jpg',
+        alt: 'A single-panel, black-and-white illustration in a deadpan, Far Side style. Four beavers in undersized hard hats stand in a row along the top of the Lake Lure dam, arms crossed, holding hand-lettered protest signs: \u201cWE BUILT THIS FIRST,\u201d \u201cWHERE\u2019S OUR CUT?\u201d and \u201c$158 MILLION AND NOT ONE MENTION.\u201d Below them on the walkway, two Town Engineering staff in polos and caps study a blueprint labeled \u201cLAKE LURE DAM,\u201d water pouring through the spillway behind them. One says, \u201cStructurally sound, all things considered.\u201d A sign at the edge of the dam reads \u201cLAKE LURE NC.\u201d Caption beneath the panel: \u201cThe dam\u2019s original contractors, still waiting on a callback.\u201d',
+      },
+    ],
+  },
+  {
     slug: 'state-of-the-herd-ep14',
     title: 'Two Kinds of Answered',
     byline: 'by Pete',
