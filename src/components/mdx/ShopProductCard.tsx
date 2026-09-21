@@ -11,7 +11,10 @@ export function ShopProductCard({ productKey }: ShopProductCardProps) {
   if (!product) return null
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-xl border border-(--sand) bg-white transition-shadow hover:shadow-lg">
+    <div
+      id={productKey}
+      className="group flex scroll-mt-24 flex-col overflow-hidden rounded-xl border border-(--sand) bg-white transition-shadow hover:shadow-lg"
+    >
       <ShopProductImage image={product.image} backImage={product.backImage} />
       <div className="flex flex-1 flex-col p-4">
         <div className="mb-1 flex items-center justify-between gap-2">

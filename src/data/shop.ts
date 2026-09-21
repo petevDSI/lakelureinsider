@@ -24,6 +24,12 @@ export interface ShopProduct {
   blurb: string
   /** Display-ready price string, e.g. "$18.50" or "From $22.50". */
   priceFrom: string
+  /**
+   * Highest variant price in USD, e.g. 33 or 37.09. Feeds the schema.org
+   * AggregateOffer on /shop (the low end is parsed from `priceFrom`). Update
+   * both whenever prices change in Shopify.
+   */
+  priceHigh: number
   /** Short spec shown next to the price, e.g. "12 colors" or "3 sizes". */
   variantNote: string
   image: ShopProductImage
@@ -39,6 +45,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'Edmund in a red bow tie and star-spangled rosette, waving to his constituents under a burst of stars and stripes, banked by "EDMUND FOR MAYOR" and "THE G.O.A.T. CANDIDATE." The back reads "A goat we can all get behind."',
     priceFrom: 'From $22.50',
+    priceHigh: 33,
     variantNote: '12 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-front-6a99606bcb89c.jpg?v=1788436599',
@@ -57,6 +64,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'A quieter, single-print take: a hand-illustrated portrait of Edmund set against layered mountains and pines, ringed by a distressed gold arc, with "EDMUND FOR MAYOR" and "LAKE LURE, NC" lettered below. Front print only.',
     priceFrom: 'From $23.50',
+    priceHigh: 35,
     variantNote: '12 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sapphire-front-6a996552d0389.jpg?v=1788437866',
@@ -71,6 +79,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'Edmund floating chest-deep in the lake, sunglasses on, Chimney Rock behind him, ringed by "EDMUND" and "LAKE LIFE. GOAT LIFE." The back is his mission statement: "I cross rivers. I ignore fences. I do what I want."',
     priceFrom: 'From $28.50',
+    priceHigh: 36,
     variantNote: '11 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-garment-dyed-heavyweight-t-shirt-berry-front-6a9ac69a7195e.jpg?v=1788528327',
@@ -89,6 +98,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'A national-park-style badge: Edmund standing watch over the Blue Ridge, ringed by pine trees and layered peaks, with "EDMUND" and "LAKE LURE, NC" stitched below.',
     priceFrom: '$19.50',
+    priceHigh: 19.5,
     variantNote: '3 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/distressed-dad-hat-black-front-6a996a18a5958.jpg?v=1788439090',
@@ -103,6 +113,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       "Edmund's celebrity portrait, sunglasses and all, embroidered on a circular badge with \"EDMUND\" arched over the top and \"LAKE LURE, NC\" lettered below between two stars.",
     priceFrom: '$18.50',
+    priceHigh: 18.5,
     variantNote: '10 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996b6db0555.jpg?v=1788439447',
@@ -117,6 +128,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       "The catchphrase from Andrea Martin's viral Edmund reel, embroidered on an oval badge: Edmund strolling past a broken wooden fence with the lake and mountains behind him.",
     priceFrom: '$18.50',
+    priceHigh: 18.5,
     variantNote: '8 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/classic-dad-hat-navy-front-6a996c44e8cd7.jpg?v=1788439652',
@@ -131,6 +143,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'Edmund perched above the tree line with a flag planted on the rock behind him, silhouetted against a Blue Ridge sunset, "EDMUND" lettered bold above "CHIMNEY ROCK ESCAPE ARTIST." The back sums up months of #FreeEdmund updates: "If they chase me, I run faster."',
     priceFrom: 'From $44',
+    priceHigh: 49.5,
     variantNote: '13 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-pullover-hoodie-white-front-6a997f2571624.jpg?v=1788444471',
@@ -149,6 +162,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       "Sunglasses on, floating in an inner tube with the mountains behind him — Edmund doing exactly what everyone else does at Lake Lure in July. The back is a pun made for the dock: \"Goats just wanna have sun.\"",
     priceFrom: 'From $27',
+    priceHigh: 29.5,
     variantNote: '3 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-tank-top-red-front-6a99a1713ac9d.jpg?v=1788453259',
@@ -167,6 +181,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'The same circular portrait from the Edmund in Shades Dad Hat, printed as a durable vinyl sticker. Laptop, water bottle, bumper — your call.',
     priceFrom: 'From $3',
+    priceHigh: 3.5,
     variantNote: '3 sizes',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6a9ac79a56912.jpg?v=1788528543',
@@ -180,6 +195,7 @@ export const SHOP_PRODUCTS = {
     category: 'stickers',
     blurb: 'The national-park-style badge from the Mountain Badge Dad Hat, sized down to a sticker.',
     priceFrom: 'From $3',
+    priceHigh: 3.5,
     variantNote: '3 sizes',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6a9ac80b74400.jpg?v=1788528656',
@@ -194,6 +210,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       "Edmund strolling past a broken wooden fence, framed in an oval badge — the same design from the Don't Fence Me In Dad Hat, now in sticker form.",
     priceFrom: 'From $3',
+    priceHigh: 3.5,
     variantNote: '3 sizes',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6a9ac87062152.jpg?v=1788528756',
@@ -208,6 +225,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       "Edmund's vintage-style campaign badge — bow tie, ribbon, and all — printed as a durable vinyl sticker. Laptop, water bottle, bumper — your call.",
     priceFrom: 'From $3.50',
+    priceHigh: 4,
     variantNote: '3 sizes',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6aada4eace3e4.jpg?v=1789764850',
@@ -222,6 +240,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'The same Edmund for Mayor campaign badge, printed on holographic vinyl that shifts color as the light hits it. Same goat, same platform, more sparkle. Indoor use only.',
     priceFrom: 'From $5.50',
+    priceHigh: 6,
     variantNote: '2 sizes',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-holographic-stickers-grey-3x3-front-6aada69260424.jpg?v=1789765273',
@@ -236,6 +255,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'Edmund chest-deep in the lake with Chimney Rock behind him — the same crest from the heavyweight tee, printed as a durable vinyl sticker.',
     priceFrom: 'From $3.50',
+    priceHigh: 4,
     variantNote: '3 sizes',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/kiss-cut-stickers-white-3x3-default-6aada76e8754e.jpg?v=1789765499',
@@ -250,6 +270,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       "Edmund's campaign badge printed as a durable vinyl magnet. Fridge, filing cabinet, toolbox — wherever you keep the things that matter.",
     priceFrom: 'From $4.50',
+    priceHigh: 7,
     variantNote: '3 sizes',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/die-cut-magnets-white-3x3-front-6aada643e0ed5.jpg?v=1789765194',
@@ -264,6 +285,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       "Five pins pulling from Edmund's whole lineup — the campaign badge, the mountain patch, the Lake Life crest, and the goat on his lake float. Pin them on a jacket, backpack, or hat band.",
     priceFrom: 'From $10',
+    priceHigh: 11.5,
     variantNote: '2 sizes',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/set-of-pin-buttons-white-1.25-front-2-6aada84d7ee1e.jpg?v=1789765737',
@@ -278,6 +300,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'Edmund reclines on a yellow inner tube in mirrored shades, "LAKE LURE" tumbler in hoof, while the dam spills behind him under "100 DAM YEARS." The sign below reads "LAKE LURE, NC · 1926 – 2026."',
     priceFrom: 'From $15.50',
+    priceHigh: 26,
     variantNote: '11 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-t-shirt-heather-true-royal-front-6ab08dc021036.jpg?v=1789955544',
@@ -292,6 +315,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'The goat float in a relaxed women\'s cut: Edmund on his inner tube, the Lake Lure Dam behind him, "100 DAM YEARS" overhead. Soft, smooth, and easy to dress up or down.',
     priceFrom: 'From $18.50',
+    priceHigh: 23.5,
     variantNote: '10 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/womens-relaxed-t-shirt-heather-true-royal-front-6ab08ea5790a6.jpg?v=1789955761',
@@ -306,6 +330,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'Same goat, same inner tube, now with sleeves. A classic-fit long sleeve with ribbed cuffs, made for cool mornings on the pier.',
     priceFrom: 'From $20',
+    priceHigh: 27.5,
     variantNote: '10 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-shirt-indigo-blue-front-6ab08f2a5a823.jpg?v=1789955891',
@@ -320,6 +345,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'Structure No. 1926, now in cotton. Engineering-drawing linework of the Lake Lure Dam with gold dimension lines, printed light on six dark colors. Front print only.',
     priceFrom: 'From $13.50',
+    priceHigh: 23,
     variantNote: '6 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-navy-front-6aaf5e86690e6.jpg?v=1789877915',
@@ -334,6 +360,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'The centennial badge (sunrise over the Blue Ridge, "100 DAM YEARS," "LAKE LURE, NC · 1926 – 2026") on a soft fleece crewneck. Its cream background pops on all 12 colors.',
     priceFrom: 'From $31.89',
+    priceHigh: 37.09,
     variantNote: '12 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-sweatshirt-navy-blazer-front-6aaf58647715b.jpg?v=1789876352',
@@ -348,6 +375,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'The same centennial badge on a thick, soft-washed long sleeve. Five colors, built for cool lake mornings.',
     priceFrom: 'From $21.15',
+    priceHigh: 26.35,
     variantNote: '5 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/mens-heavyweight-long-sleeve-t-shirt-black-front-6aaf58643e624.jpg?v=1789876338',
@@ -362,6 +390,7 @@ export const SHOP_PRODUCTS = {
     blurb:
       'The original Edmund for Mayor campaign badge on a lightweight, ultra-soft long sleeve. The back still reads "A goat we can all get behind."',
     priceFrom: 'From $32',
+    priceHigh: 35,
     variantNote: '10 colors',
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-tee-storm-front-6aaf548d085d8.jpg?v=1789875372',

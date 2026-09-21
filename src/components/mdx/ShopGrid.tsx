@@ -1,9 +1,16 @@
 import { SHOP_CATEGORIES } from '@/data/shop'
+import { shopCollectionJsonLd } from '@/lib/jsonld'
 import { ShopProductCard } from './ShopProductCard'
 
 export function ShopGrid() {
   return (
     <div className="not-prose my-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(shopCollectionJsonLd()).replace(/</g, '\\u003c'),
+        }}
+      />
       <nav
         aria-label="Shop categories"
         className="mb-10 flex flex-wrap justify-center gap-2 border-b border-(--sand) pb-6"
