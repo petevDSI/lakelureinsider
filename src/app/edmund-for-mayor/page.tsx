@@ -7,7 +7,7 @@ import { EnlargeableImage } from '@/components/EnlargeableImage'
 import { SITE_URL } from '@/lib/site-config'
 
 const PAGE_DESCRIPTION =
-  "The official (not really) platform of Edmund the goat: saving Lured Market, ending fences forever, and finally getting that goat crossing sign on Highway 64/74A. Make Lake Lure Goat Again."
+  "The official (not really) platform of Edmund the goat: ending fences forever, getting that goat crossing sign on Highway 64/74A, and keeping Lured Market open after the September 16 settlement. Make Lake Lure Goat Again."
 
 export const metadata: Metadata = {
   title: 'Edmund for Mayor — Meet Lake Lure’s G.O.A.T. Candidate',
@@ -48,15 +48,13 @@ const ISSUE_TABS = [
 const PLATFORM_PLANKS = [
   {
     tag: 'Issue No. 1',
-    title: 'Protect Local Business: Save the Market',
+    title: 'Protect Local Business: Keep the Market Open',
     body: (
       <>
         <p>
           Lured Market &amp; Grill fed roughly 750 people a day out of this
           building after Hurricane Helene, back when it was the only hot
-          meal in Lake Lure. Edmund thinks that ought to count for
-          something in a rent dispute — so here is his platform, in five
-          goat-approved planks:
+          meal in Lake Lure. The Town and Second Mountain settled on September 16, and Edmund is pleased. His platform stands, in five goat-approved planks:
         </p>
         <ol className="mt-4 space-y-3 pl-5 text-left [&>li]:list-decimal">
           <li>
