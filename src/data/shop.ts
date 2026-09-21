@@ -19,7 +19,7 @@ export interface ShopProduct {
   id: string
   handle: string
   title: string
-  category: 'tees' | 'hats' | 'hoodie-tank' | 'stickers' | 'magnets' | 'pins'
+  category: '100-dam-years' | 'tees' | 'hats' | 'hoodie-tank' | 'stickers' | 'magnets' | 'pins'
   /** One or two sentences of sales copy — shown on the /shop product card. */
   blurb: string
   /** Display-ready price string, e.g. "$18.50" or "From $22.50". */
@@ -270,6 +270,108 @@ export const SHOP_PRODUCTS = {
       alt: 'Set of 5 Edmund the Goat pin buttons, showing the campaign badge, mountain patch, lake life, and lake float designs',
     },
   },
+  'goat-float-tee': {
+    id: '10277032591680',
+    handle: '100-dam-years-edmund-goat-float',
+    title: '100 Dam Years Edmund Goat Float Tee',
+    category: '100-dam-years',
+    blurb:
+      'Edmund reclines on a yellow inner tube in mirrored shades, "LAKE LURE" tumbler in hoof, while the dam spills behind him under "100 DAM YEARS." The sign below reads "LAKE LURE, NC · 1926 – 2026."',
+    priceFrom: 'From $15.50',
+    variantNote: '11 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-t-shirt-heather-true-royal-front-6ab08dc021036.jpg?v=1789955544',
+      alt: 'Front of the 100 Dam Years Edmund Goat Float Tee in heather true royal, showing a goat in sunglasses floating on a yellow inner tube in front of the Lake Lure Dam',
+    },
+  },
+  'goat-float-womens-tee': {
+    id: '10277033574720',
+    handle: '100-dam-years-edmund-goat-float-womens-relaxed-t-shirt',
+    title: "100 Dam Years Edmund Goat Float Women's Relaxed Tee",
+    category: '100-dam-years',
+    blurb:
+      'The goat float in a relaxed women\'s cut: Edmund on his inner tube, the Lake Lure Dam behind him, "100 DAM YEARS" overhead. Soft, smooth, and easy to dress up or down.',
+    priceFrom: 'From $18.50',
+    variantNote: '10 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/womens-relaxed-t-shirt-heather-true-royal-front-6ab08ea5790a6.jpg?v=1789955761',
+      alt: "Front of the 100 Dam Years Edmund Goat Float Women's Relaxed Tee in heather true royal, showing a goat in sunglasses floating on an inner tube in front of the Lake Lure Dam",
+    },
+  },
+  'goat-float-mens-long-sleeve': {
+    id: '10277033836864',
+    handle: '100-dam-years-edmund-goat-float-men-s-long-sleeve-shirt',
+    title: "Men's 100 Dam Years Edmund Goat Float Long Sleeve Tee",
+    category: '100-dam-years',
+    blurb:
+      'Same goat, same inner tube, now with sleeves. A classic-fit long sleeve with ribbed cuffs, made for cool mornings on the pier.',
+    priceFrom: 'From $20',
+    variantNote: '10 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-shirt-indigo-blue-front-6ab08f2a5a823.jpg?v=1789955891',
+      alt: "Front of the Men's 100 Dam Years Edmund Goat Float Long Sleeve Tee in indigo blue, showing a goat in sunglasses floating on an inner tube in front of the Lake Lure Dam",
+    },
+  },
+  'dam-blueprint-tee': {
+    id: '10274452046144',
+    handle: 'blueprint-classic-tee',
+    title: 'Lake Lure Dam Blueprint Tee: Structure No. 1926',
+    category: '100-dam-years',
+    blurb:
+      'Structure No. 1926, now in cotton. Engineering-drawing linework of the Lake Lure Dam with gold dimension lines, printed light on six dark colors. Front print only.',
+    priceFrom: 'From $13.50',
+    variantNote: '6 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-navy-front-6aaf5e86690e6.jpg?v=1789877915',
+      alt: 'Front of the Lake Lure Dam Blueprint Tee in navy, showing white and gold engineering-drawing linework of the dam with a Structure No. 1926 title block',
+    },
+  },
+  'centennial-crewneck-sweatshirt': {
+    id: '10274449916224',
+    handle: 'unisex-premium-sweatshirt',
+    title: '100 Dam Years Centennial Crewneck Sweatshirt',
+    category: '100-dam-years',
+    blurb:
+      'The centennial badge (sunrise over the Blue Ridge, "100 DAM YEARS," "LAKE LURE, NC · 1926 – 2026") on a soft fleece crewneck. Its cream background pops on all 12 colors.',
+    priceFrom: 'From $31.89',
+    variantNote: '12 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-sweatshirt-navy-blazer-front-6aaf58647715b.jpg?v=1789876352',
+      alt: 'Front of the 100 Dam Years Centennial Crewneck Sweatshirt in navy blazer, showing the hexagonal 100 Dam Years badge with a sunrise over the mountains',
+    },
+  },
+  'centennial-heavyweight-long-sleeve': {
+    id: '10274449785152',
+    handle: 'mens-heavyweight-long-sleeve-t-shirt',
+    title: "Men's 100 Dam Years Heavyweight Long Sleeve Tee",
+    category: '100-dam-years',
+    blurb:
+      'The same centennial badge on a thick, soft-washed long sleeve. Five colors, built for cool lake mornings.',
+    priceFrom: 'From $21.15',
+    variantNote: '5 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/mens-heavyweight-long-sleeve-t-shirt-black-front-6aaf58643e624.jpg?v=1789876338',
+      alt: "Front of the Men's 100 Dam Years Heavyweight Long Sleeve Tee in black, showing the hexagonal 100 Dam Years badge with a sunrise over the mountains",
+    },
+  },
+  'edmund-for-mayor-long-sleeve': {
+    id: '10274447130944',
+    handle: 'edmund-for-mayor-long-sleeve-tee',
+    title: 'Edmund for Mayor Long Sleeve Tee',
+    category: 'tees',
+    blurb:
+      'The original Edmund for Mayor campaign badge on a lightweight, ultra-soft long sleeve. The back still reads "A goat we can all get behind."',
+    priceFrom: 'From $32',
+    variantNote: '10 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-tee-storm-front-6aaf548d085d8.jpg?v=1789875372',
+      alt: 'Front of the Edmund for Mayor Long Sleeve Tee in storm gray, showing the vintage campaign badge design',
+    },
+    backImage: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-tee-storm-back-6aaf548d0c5bb.jpg?v=1789875372',
+      alt: "Back of the Edmund for Mayor Long Sleeve Tee in storm gray, printed with the phrase 'A goat we can all get behind'",
+    },
+  },
 } as const satisfies Record<string, ShopProduct>
 
 export type ShopProductKey = keyof typeof SHOP_PRODUCTS
@@ -284,9 +386,26 @@ export interface ShopCategory {
 // anchor slug the category nav pills jump to.
 export const SHOP_CATEGORIES: ShopCategory[] = [
   {
+    slug: '100-dam-years',
+    label: '100 Dam Years',
+    productKeys: [
+      'goat-float-tee',
+      'goat-float-womens-tee',
+      'goat-float-mens-long-sleeve',
+      'dam-blueprint-tee',
+      'centennial-crewneck-sweatshirt',
+      'centennial-heavyweight-long-sleeve',
+    ],
+  },
+  {
     slug: 'tees',
-    label: 'Tees',
-    productKeys: ['edmund-for-mayor-tee', 'edmund-for-mayor-badge-tee', 'lake-life-goat-life-tee'],
+    label: 'Tees & Long Sleeves',
+    productKeys: [
+      'edmund-for-mayor-tee',
+      'edmund-for-mayor-badge-tee',
+      'lake-life-goat-life-tee',
+      'edmund-for-mayor-long-sleeve',
+    ],
   },
   {
     slug: 'hats',
