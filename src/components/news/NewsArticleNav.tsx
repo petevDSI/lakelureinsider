@@ -67,12 +67,6 @@ export function NewsArticleNav({ prev, next, position, total }: NewsArticleNavPr
         ← All town news
       </Link>
 
-      <Link
-        href="/petition"
-        className="rounded-xl border border-(--clay) bg-(--clay)/5 p-4 text-center text-sm font-semibold text-(--clay) transition-colors hover:bg-(--clay)/10"
-      >
-        Read the ask and sign the petition →
-      </Link>
     </nav>
   )
 }
