@@ -34,7 +34,7 @@ function buildUrlList() {
 
 async function submit() {
   const env = process.env.VERCEL_ENV
-  const key = process.env.INDEXNOW_KEY
+  const key = process.env.INDEXNOW_KEY?.trim()
 
   if (env !== 'production') {
     console.log(`[IndexNow] Skipping — VERCEL_ENV=${env ?? '(unset)'}, submission is production-only`)

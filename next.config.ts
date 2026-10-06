@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
-    const key = process.env.INDEXNOW_KEY
+    const key = process.env.INDEXNOW_KEY?.trim()
     if (!key) return []
     // IndexNow requires the key to be served at /<key>.txt — rewrite to the
     // route handler that reads the env var and serves it as plain text.
