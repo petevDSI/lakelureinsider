@@ -20,9 +20,9 @@ export const SCHEDULE_ITEMS: ScheduledItem[] = [
   {
     id: 'lake-lure-centennial',
     title: 'Lake Lure Centennial Celebration',
-    schedule: { start: '2026-09-01', end: '2026-09-30', kind: 'event' },
+    schedule: { start: '2026-09-01', end: '2027-12-31', kind: 'event' },
     archiveSlug: 'lake-lure-centennial-2026',
-    note: 'Celebration on the water — exact date TBD. Check townoflakelure.com for details as September approaches.',
+    note: 'Town centennial celebration began with the Sept. 30, 2026 dam kickoff and runs through the Town 100th anniversary in 2027. Check townoflakelure.com for the calendar.',
   },
   {
     id: 'boys-camp-road-bridge',
