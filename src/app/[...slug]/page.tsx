@@ -10,6 +10,7 @@ import { PageHero } from '@/components/mdx/PageHero'
 import { QuickAnswer } from '@/components/mdx/QuickAnswer'
 import { ReviewedBanner } from '@/components/mdx/ReviewedBanner'
 import { NewsArticleNav } from '@/components/news/NewsArticleNav'
+import { EdmundShopAd } from '@/components/mdx/EdmundShopAd'
 import type { MDXComponents } from 'mdx/types'
 import type { ContentPage } from '@/types/content'
 
@@ -134,7 +135,7 @@ export default async function SlugPage({
   const newsSiblings = isNewsArticle ? getNewsSiblings(page.slug) : null
 
   const articleBody = (
-    <div className="prose max-w-3xl xl:col-start-2">
+    <div className="prose max-w-3xl xl:col-start-2 xl:row-start-1">
       {/*
        * options.mdxOptions.blockJS: next-mdx-remote defaults to stripping any
        * non-literal JSX attribute value (its "block JS expressions" XSS guard,
@@ -194,7 +195,11 @@ export default async function SlugPage({
         {isNewsArticle && newsSiblings ? (
           <div className="mx-auto grid max-w-[90rem] gap-10 xl:grid-cols-[minmax(0,1fr)_min(48rem,100%)_minmax(0,1fr)]">
             {articleBody}
-            <div className="xl:col-start-3">
+            {/* Left gutter (empty until now). Below xl it stacks after the story. */}
+            <div className="xl:col-start-1 xl:row-start-1">
+              <EdmundShopAd variant="rail" seed={page.slug.length} />
+            </div>
+            <div className="xl:col-start-3 xl:row-start-1">
               <NewsArticleNav
                 prev={newsSiblings.prev}
                 next={newsSiblings.next}

@@ -78,18 +78,26 @@ const SLIDES: AdSlide[] = [
   },
 ]
 
-function adHref(slide: AdSlide) {
+function adHref(slide: AdSlide, medium: string) {
   const qs = new URLSearchParams({
     utm_source: 'lakelureinsider',
-    utm_medium: 'news_banner',
+    utm_medium: medium,
     utm_campaign: 'fall_2026_merch',
     utm_content: slide.id,
   }).toString()
   return `/shop?${qs}#${slide.anchor}`
 }
 
-export function EdmundShopAd() {
-  const [index, setIndex] = useState(0)
+interface EdmundShopAdProps {
+  /** 'banner' = wide horizontal unit; 'rail' = tall narrow unit for a page gutter. */
+  variant?: 'banner' | 'rail'
+  /** Picks the starting slide so different stories open on different products. */
+  seed?: number
+}
+
+export function EdmundShopAd({ variant = 'banner', seed = 0 }: EdmundShopAdProps) {
+  const rail = variant === 'rail'
+  const [index, setIndex] = useState(seed % SLIDES.length)
   const [paused, setPaused] = useState(false)
 
   useEffect(() => {
@@ -105,36 +113,52 @@ export function EdmundShopAd() {
   return (
     <aside
       aria-label="Advertisement from the Lake Lure Insider shop"
-      className="not-prose relative my-8 overflow-hidden rounded-2xl border-2 border-(--forest) bg-(--paper) shadow-sm"
+      className={`not-prose relative overflow-hidden rounded-2xl border-2 border-(--forest) bg-(--paper) shadow-sm ${
+        rail ? 'my-6 xl:sticky xl:top-24 xl:my-0' : 'my-8'
+      }`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
       <span className="absolute left-0 top-0 z-10 rounded-br-xl bg-(--forest) px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
-        From the Shop · Sponsored by us
+        {rail ? 'From the Shop · Ad' : 'From the Shop · Sponsored by us'}
       </span>
 
       <a
-        href={adHref(slide)}
+        href={adHref(slide, rail ? 'news_gutter' : 'news_banner')}
         data-ad-slide={slide.id}
-        className="flex flex-col items-center gap-5 px-5 pb-4 pt-10 text-center no-underline sm:flex-row sm:text-left"
+        className={
+          rail
+            ? 'flex flex-col items-center gap-3 px-3 pb-3 pt-9 text-center no-underline'
+            : 'flex flex-col items-center gap-5 px-5 pb-4 pt-10 text-center no-underline sm:flex-row sm:text-left'
+        }
       >
         <Image
           src={product.image.src}
           alt={product.image.alt}
-          width={160}
-          height={160}
-          sizes="160px"
-          className="h-40 w-40 flex-none rounded-xl bg-(--sand) object-cover"
+          width={rail ? 240 : 160}
+          height={rail ? 240 : 160}
+          sizes={rail ? '(min-width: 1280px) 180px, 240px' : '160px'}
+          className={`flex-none rounded-xl bg-(--sand) object-cover ${
+            rail ? 'aspect-square w-full max-w-60' : 'h-40 w-40'
+          }`}
         />
         <div>
           <p className="text-xs font-bold uppercase tracking-wider text-(--clay)">{slide.kicker}</p>
-          <p className="mt-1 font-display text-2xl font-bold leading-tight text-(--forest)">
+          <p
+            className={`mt-1 font-display font-bold leading-tight text-(--forest) ${
+              rail ? 'text-lg' : 'text-2xl'
+            }`}
+          >
             {slide.headline}
           </p>
-          <p className="mt-1 text-sm text-(--ink)/80">{slide.sub}</p>
-          <span className="mt-3 flex flex-wrap items-center justify-center gap-3 sm:justify-start">
+          <p className={`mt-1 text-(--ink)/80 ${rail ? 'text-xs' : 'text-sm'}`}>{slide.sub}</p>
+          <span
+            className={`mt-3 flex flex-wrap items-center justify-center gap-3 ${
+              rail ? '' : 'sm:justify-start'
+            }`}
+          >
             <span className="text-sm font-bold text-(--ink)">{product.priceFrom}</span>
             <span className="rounded-full bg-(--clay) px-4 py-2 text-sm font-bold text-white">
               {slide.cta} →
