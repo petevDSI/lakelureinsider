@@ -18,13 +18,6 @@ import type { ScheduledItem } from '@/types/schedule'
  */
 export const SCHEDULE_ITEMS: ScheduledItem[] = [
   {
-    id: 'lake-lure-centennial',
-    title: 'Lake Lure Centennial Celebration',
-    schedule: { start: '2026-09-01', end: '2027-12-31', kind: 'event' },
-    archiveSlug: 'lake-lure-centennial-2026',
-    note: 'Town centennial celebration began with the Sept. 30, 2026 dam kickoff and runs through the Town 100th anniversary in 2027. Check townoflakelure.com for the calendar.',
-  },
-  {
     id: 'boys-camp-road-bridge',
     title: 'Boys Camp Road Bridge Reconstruction',
     // 120 days from July 27 = November 24
