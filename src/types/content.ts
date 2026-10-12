@@ -22,6 +22,9 @@ export interface Frontmatter {
   reviewedOn?: string
   // Insider Tips blog post fields
   published?: string
+  // Optional ISO datetime (with offset) that orders same-day articles; without it,
+  // same-day articles tie and fall back to alphabetical slug order.
+  publishedAt?: string
   tags?: string[]
   relatedCluster?: string
 }

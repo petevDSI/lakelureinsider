@@ -276,7 +276,9 @@ export function getNewsSiblings(slug: string): NewsSiblings {
       const byDate = (a.frontmatter.published as string).localeCompare(
         b.frontmatter.published as string,
       )
-      return byDate !== 0 ? byDate : a.slug.localeCompare(b.slug)
+      if (byDate !== 0) return byDate
+      const byTime = (a.frontmatter.publishedAt ?? '').localeCompare(b.frontmatter.publishedAt ?? '')
+      return byTime !== 0 ? byTime : a.slug.localeCompare(b.slug)
     })
 
   const index = articles.findIndex((p) => p.slug === slug)

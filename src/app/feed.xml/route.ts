@@ -28,6 +28,10 @@ interface FeedItem {
   sortDate: string
 }
 
+function publishedAtOrNoon(published: string, publishedAt?: string): string {
+  return publishedAt ?? `${published}T12:00:00Z`
+}
+
 export async function GET() {
   const articleItems: FeedItem[] = getChildrenOf('news')
     .filter((page) => page.frontmatter.type === 'article' && !!page.frontmatter.published)
@@ -39,9 +43,12 @@ export async function GET() {
         link: url,
         guid: url,
         isPermaLink: true,
-        pubDate: new Date(`${published}T12:00:00Z`).toUTCString(),
+        pubDate: new Date(publishedAtOrNoon(published, page.frontmatter.publishedAt)).toUTCString(),
         description: page.frontmatter.description,
-        sortDate: published,
+        // Same-day articles with a publishedAt time sort after those without one.
+        sortDate: page.frontmatter.publishedAt
+          ? `${published}T${page.frontmatter.publishedAt.slice(11, 19)}Z`
+          : published,
       }
     })
 
