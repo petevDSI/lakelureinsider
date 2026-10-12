@@ -111,6 +111,33 @@ body {
     color: var(--forest);
   }
 
+  /* Breathing room between the hero and the first line of the story. */
+  .prose > .full-bleed + * {
+    margin-top: 2.5rem;
+  }
+
+  /* Magazine-style opening: drop cap plus a slightly larger first line.
+     Only applies when the story's first element after the hero is a paragraph. */
+  .prose > .full-bleed + p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+
+  .prose > .full-bleed + p::first-letter {
+    float: left;
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-weight: 700;
+    color: var(--forest);
+    font-size: 4.1em;
+    line-height: 0.82;
+    padding: 0.08em 0.1em 0 0;
+  }
+
+  .prose > .full-bleed + p::first-line {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
   .prose blockquote {
     border-left: 4px solid var(--sand);
     padding-left: 1.25rem;
