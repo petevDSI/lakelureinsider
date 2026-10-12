@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Children, isValidElement, type ComponentPropsWithoutRef } from 'react'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getAllPages, getNewsSiblings, getPageBySlug } from '@/lib/content'
@@ -85,8 +86,22 @@ function hasAffiliateContent(raw: string): boolean {
 
 function buildArticleComponents(page: ContentPage): MDXComponents {
   const { frontmatter } = page
+  // Magazine-style opening: paragraphs that do not begin with italic text
+  // (italic openers are update notes and bylines) are tagged .story-p. The CSS
+  // gives a drop cap to the first top-level one on the page; paragraphs inside
+  // callout boxes are never direct children of .prose, so they are skipped.
   return {
     ...mdxComponents,
+    p: ({ className, children, ...rest }: ComponentPropsWithoutRef<'p'>) => {
+      const first = Children.toArray(children)[0]
+      const startsItalic = isValidElement(first) && first.type === 'em'
+      const classes = [className, startsItalic ? '' : 'story-p'].filter(Boolean).join(' ')
+      return (
+        <p className={classes || undefined} {...rest}>
+          {children}
+        </p>
+      )
+    },
     FAQ: () => <FAQ faqs={frontmatter.faqs} />,
     PageHero: (props: object) => (
       <PageHero
@@ -135,7 +150,7 @@ export default async function SlugPage({
   const newsSiblings = isNewsArticle ? getNewsSiblings(page.slug) : null
 
   const articleBody = (
-    <div className="prose max-w-3xl xl:col-start-2 xl:row-start-1">
+    <div className="article-body prose max-w-3xl xl:col-start-2 xl:row-start-1">
       {/*
        * options.mdxOptions.blockJS: next-mdx-remote defaults to stripping any
        * non-literal JSX attribute value (its "block JS expressions" XSS guard,

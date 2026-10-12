@@ -116,14 +116,15 @@ body {
     margin-top: 2.5rem;
   }
 
-  /* Magazine-style opening: drop cap plus a slightly larger first line.
-     Only applies when the story's first element after the hero is a paragraph. */
-  .prose > .full-bleed + p {
+  /* Magazine-style opening: drop cap plus a slightly larger first line on the
+     first top-level story paragraph (page.tsx tags candidates with .story-p;
+     later candidates are reset below). */
+  .article-body > p.story-p {
     font-size: 1.125rem;
     line-height: 1.75;
   }
 
-  .prose > .full-bleed + p::first-letter {
+  .article-body > p.story-p::first-letter {
     float: left;
     font-family: var(--font-fraunces), Georgia, serif;
     font-weight: 700;
@@ -133,9 +134,29 @@ body {
     padding: 0.08em 0.1em 0 0;
   }
 
-  .prose > .full-bleed + p::first-line {
+  .article-body > p.story-p::first-line {
     font-weight: 600;
     letter-spacing: 0.01em;
+  }
+
+  .article-body > p.story-p ~ p.story-p {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .article-body > p.story-p ~ p.story-p::first-letter {
+    float: none;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+  }
+
+  .article-body > p.story-p ~ p.story-p::first-line {
+    font-weight: inherit;
+    letter-spacing: inherit;
   }
 
   .prose blockquote {
