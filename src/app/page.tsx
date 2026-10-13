@@ -138,7 +138,7 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <p className="text-sm font-semibold text-(--forest)">
             <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
-            Chimney Rock open · Lake Lure open · Beach open through Sept 7
+            Chimney Rock open · Lake Lure open · Beach closed for winter · Returns around Memorial Day
           </p>
           <Link
             href="/whats-open-now"

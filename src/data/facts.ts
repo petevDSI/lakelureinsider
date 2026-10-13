@@ -684,6 +684,11 @@ export const facts: Record<string, Fact> = {
     source: 'townoflakelure.com July 2026 Town News Summary',
     lastVerified: '2026-08-03',
   },
+  'lake-lure.beach.reopens': {
+    value: 'around Memorial Day weekend 2027',
+    source: 'Lake Lure Insider editor — beach has reopened around Memorial Day in previous years; Town has not yet announced 2027 dates',
+    lastVerified: '2026-10-13',
+  },
   'lake-lure.beach.season.end': {
     value: 'Labor Day — September 7, 2026',
     source: 'townoflakelure.com July 2026 Town News Summary — confirmed (Town page shows 9/27/26 which is a typo)',
