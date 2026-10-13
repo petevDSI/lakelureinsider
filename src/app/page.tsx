@@ -128,18 +128,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Community advocacy banner */}
+      {/* Top local news banner */}
       <div className="border-b border-(--sand) bg-(--clay)/10 px-page py-4">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
           <p className="text-sm font-semibold text-(--forest)">
-            The Town of Lake Lure moved to evict Lured Market &amp; Grill. Here&apos;s what the court file actually shows.
+            Lake Lure has sat on a public records request for 47 days. A deadline hits tomorrow.
           </p>
           <div className="flex shrink-0 gap-3">
-            <Link href="/news/lured-market-town-lease-fight" className="text-sm font-semibold text-(--lake) underline-offset-2 hover:underline">
-              Read the investigation →
-            </Link>
-            <Link href="/petition" className="rounded-md bg-(--clay) px-4 py-1.5 text-sm font-semibold text-white transition-opacity hover:opacity-90">
-              Sign the petition
+            <Link href="/news/public-records-47-days-lake-lure" className="text-sm font-semibold text-(--lake) underline-offset-2 hover:underline">
+              Read the story →
             </Link>
           </div>
         </div>
