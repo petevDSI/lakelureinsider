@@ -33,10 +33,10 @@ function Card({ label, status, note, verified }: Item) {
 export function WhatsOpenStatusBar() {
   return (
     <div className="my-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      <Card label="Chimney Rock Park"        status="open"    note="Open daily · Elevator operational" verified="2026-10-13" />
+      <Card label="Chimney Rock Park"        status="open"    note="Open daily · Hours shorten Nov 2 (last entry 4:30, closes 6)" verified="2026-10-13" />
       <Card label="Lake Lure"                status="open"    note="Reopened May 2026 · Boating open · Lake near full pond" verified="2026-10-11" />
       <Card label="Lake Lure Beach"          status="closed"  note="Closed for the winter · Returns around Memorial Day 2027" verified="2026-10-13" />
-      <Card label="Flowering Bridge Gardens" status="open"    note="Open free 24 hrs · Bridge demolished"     verified="2026-10-13" />
+      <Card label="Flowering Bridge Gardens" status="open"    note="Open free 24 hrs · New Rainbow Bridge ready for visitors"     verified="2026-10-13" />
       <Card label="US 64/74A"                status="limited" note="Open · Eastbound lane near Dogwood RV Park closed (as of Oct 11)" verified="2026-10-13" />
     </div>
   )
