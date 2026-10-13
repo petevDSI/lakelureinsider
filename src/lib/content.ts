@@ -298,3 +298,29 @@ export function getNewsSiblings(slug: string): NewsSiblings {
     total: articles.length,
   }
 }
+
+export interface LatestNewsItem {
+  href: string
+  title: string
+}
+
+// Newest news-cluster stories, newest first — powers the homepage news banner.
+// Uses optional `bannerHeadline` frontmatter (a short version of the title) when present.
+export function getLatestNews(limit = 3): LatestNewsItem[] {
+  return getChildrenOf('news')
+    .filter((p) => p.frontmatter.type === 'article' && !!p.frontmatter.published)
+    .sort((a, b) => {
+      const sortKey = (p: ContentPage) =>
+        p.frontmatter.publishedAt
+          ? new Date(p.frontmatter.publishedAt).toISOString()
+          : `${p.frontmatter.published}T12:00:00.000Z`
+      return sortKey(b).localeCompare(sortKey(a))
+    })
+    .slice(0, limit)
+    .map((p) => ({
+      href: `/${p.slug}`,
+      title:
+        (p.frontmatter as { bannerHeadline?: string }).bannerHeadline ??
+        p.frontmatter.title,
+    }))
+}

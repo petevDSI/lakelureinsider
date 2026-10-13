@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CardGrid } from '@/components/mdx/CardGrid'
+import { NewsTicker } from '@/components/NewsTicker'
+import { getLatestNews } from '@/lib/content'
 import { SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -128,19 +130,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Top local news banner */}
-      <div className="border-b border-(--sand) bg-(--clay)/10 px-page py-4">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
-          <p className="text-sm font-semibold text-(--forest)">
-            Lake Lure has sat on a public records request for 47 days. A deadline hits tomorrow.
-          </p>
-          <div className="flex shrink-0 gap-3">
-            <Link href="/news/public-records-47-days-lake-lure" className="text-sm font-semibold text-(--lake) underline-offset-2 hover:underline">
-              Read the story →
-            </Link>
-          </div>
-        </div>
-      </div>
+      {/* Latest local news — auto-updates from the news cluster at build time */}
+      <NewsTicker items={getLatestNews(3)} />
 
       {/* What's Open Now status bar */}
       <div className="border-b border-(--sand) bg-white px-page py-4">
