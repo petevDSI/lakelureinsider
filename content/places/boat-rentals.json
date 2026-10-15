@@ -91,19 +91,18 @@
     "category": "boat-rentals",
     "subcategory": "pontoon",
     "address": "506 Memorial Hwy, Lake Lure, NC",
-    "phone": null,
-    "website": null,
+    "phone": "828-817-4686",
+    "website": "https://lakelureboatrental.com/",
     "coordinates": null,
     "hours": null,
-    "priceFrom": null,
-    "priceUnit": null,
-    "priceNotes": "Two conflicting rate schedules appear on the operator's site — call to confirm before booking.",
+    "priceFrom": 390,
+    "priceUnit": "per 3 hours (daily rate, fuel included)",
+    "priceNotes": "Daily rentals include fuel. Rates exclude 7% tax and a 3.5% credit card fee (pay cash to skip the card fee). Holidays add $50 to hourly or $50 per day on multi-day rentals. Multi-day rentals meter fuel and charge $6/gallon.",
     "rateCards": [
       {
-        "label": "Rate card A (unconfirmed)",
+        "label": "Daily rate — 9, 10 or 12 passenger pontoon (3-hour minimum at their 506 Memorial Hwy dock, 4-hour minimum for marina or lakefront delivery)",
         "fuelIncluded": true,
         "minimumHours": 3,
-        "unconfirmed": true,
         "rates": [
           {
             "duration": "3 hours",
@@ -124,33 +123,33 @@
         ]
       },
       {
-        "label": "Rate card B (unconfirmed)",
-        "fuelIncluded": true,
-        "unconfirmed": true,
+        "label": "Multi-day, per day (fuel metered and billed at $6/gallon)",
+        "fuelIncluded": false,
         "rates": [
           {
-            "duration": "2 hours",
-            "price": 200
+            "duration": "2 days",
+            "price": 650
           },
           {
-            "duration": "4 hours",
-            "price": 350
+            "duration": "3 days",
+            "price": 625
           },
           {
-            "duration": "6 hours",
-            "price": 500
+            "duration": "4+ days",
+            "price": 600
           }
         ]
       }
     ],
-    "conflictNote": "Two rate schedules appear on the operator's site — one shows 4 hours at $460, the other at $350, both with fuel included. Call to confirm current rates before booking.",
     "tags": [
       "fuelIncluded",
-      "delivery"
+      "delivery",
+      "petFriendly",
+      "locallyOwned"
     ],
-    "insiderNote": "Free delivery to your dock, Washburn Marina, or Rumbling Bald.",
-    "source": "https://lakelureboatrental.com",
-    "lastVerified": "2026-08-02"
+    "insiderNote": "Renters must be 25. Delivery or pick-up at Washburn Marina, the Rumbling Bald public dock, a rental-home dock, or their own dock at 506 Memorial Hwy (2-vehicle limit). Pets welcome for a $25 clean-up fee. 5% military discount on hourly rentals ($50 off multi-day). Late arrival and late return fees apply, so be on time.",
+    "source": "https://lakelureboatrental.com/",
+    "lastVerified": "2026-10-15"
   },
   {
     "id": "rumbling-bald-pontoon",

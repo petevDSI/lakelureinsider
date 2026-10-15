@@ -1112,18 +1112,18 @@ export const BOAT_RENTALS: BoatRentalOperator[] = [
     id: 'lake-lure-boat-rental',
     name: 'Lake Lure Boat Rental',
     types: ['pontoon'],
-    capacity: null, // TODO: VERIFY
-    rates: { hourly: null, halfDay: null, fullDay: null }, // TODO: VERIFY all
-    fuelIncluded: null,
-    deposit: null,
-    cancellation: null,
-    delivery: true, // advertises multiple pickup/dropoff points — confirm scope
+    capacity: '9, 10 or 12 passengers',
+    rates: { hourly: null, halfDay: 460, fullDay: 880 }, // daily rates; 3 hr $390, 4 hr $460, 6 hr $690, 8 hr $880
+    fuelIncluded: true, // daily rentals; multi-day fuel metered at $6/gal
+    deposit: 'Deposit due at booking, remainder at delivery',
+    cancellation: '3% fee; first reschedule free, then $10. Within 48 hours: 50% of rental. No-show or day-of: 100%.',
+    delivery: true, // marina, Rumbling Bald dock, rental-home docks, or their dock at 506 Memorial Hwy
     captainOption: null,
-    phone: null,
+    phone: '828-817-4686',
     website: 'https://lakelureboatrental.com/',
-    note: 'Family owned. Multiple pickup and dropoff locations around the lake.',
+    note: 'Family owned, in its 10th season. Renters must be 25. Rates exclude 7% tax and a 3.5% credit card fee. Holidays add $50. Pet friendly with a $25 clean-up fee.',
     source: 'https://lakelureboatrental.com/',
-    lastVerified: '2026-08-03',
+    lastVerified: '2026-10-15',
   },
   {
     id: 'discover-lake-life',
