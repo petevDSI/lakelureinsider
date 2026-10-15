@@ -292,7 +292,6 @@ export default function EdmundPage() {
           <ol className="ed-chapters">
             {CHAPTERS.map((c) => (
               <li key={c.label}>
-                <span aria-hidden="true" />
                 <div>
                   <h3>{c.label}</h3>
                   <p>{c.body}</p>
