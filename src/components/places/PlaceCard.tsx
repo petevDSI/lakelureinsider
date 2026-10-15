@@ -9,6 +9,7 @@ const TAG_LABELS: Record<PlaceTag, string> = {
   tentSites: 'Tent sites',
   locallyOwned: 'Locally owned',
   freeCooler: 'Free Yeti cooler',
+  membersOnly: 'Members & guests only',
 }
 
 function Chip({ label }: { label: string }) {

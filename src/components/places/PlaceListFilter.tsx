@@ -13,6 +13,7 @@ const TAG_LABELS: Record<PlaceTag, string> = {
   tentSites: 'Tent sites',
   locallyOwned: 'Locally owned',
   freeCooler: 'Free Yeti cooler',
+  membersOnly: 'Members & guests only',
 }
 
 export function PlaceListFilter({ places }: { places: PlaceRecord[] }) {

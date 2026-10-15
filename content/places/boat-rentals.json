@@ -156,18 +156,18 @@
     "name": "Rumbling Bald on Lake Lure",
     "category": "boat-rentals",
     "subcategory": "pontoon",
-    "address": "153 Mountains Blvd, Lake Lure, NC",
+    "address": "North Shore Beach Cabana, Rumbling Bald on Lake Lure (153 Mountains Blvd), Lake Lure, NC",
     "phone": null,
     "website": "https://rumblingbald.com",
     "coordinates": null,
     "hours": null,
     "priceFrom": 250,
-    "priceUnit": "per 2 hours",
-    "priceNotes": null,
+    "priceUnit": "per 2 hours (10-passenger pontoon)",
+    "priceNotes": "Price includes the hourly rate and gas only; tax is extra. Rentals are for Rumbling Bald members and lodging guests only.",
     "rateCards": [
       {
-        "label": "Pontoon (up to 10 guests)",
-        "fuelIncluded": null,
+        "label": "Pontoon (10 passengers) — gas included",
+        "fuelIncluded": true,
         "rates": [
           {
             "duration": "2 hours",
@@ -182,14 +182,58 @@
             "price": 880
           }
         ]
+      },
+      {
+        "label": "Kayaks and paddleboards (1 to 2 people)",
+        "rates": [
+          {
+            "duration": "Single kayak, 1 hr",
+            "price": 28
+          },
+          {
+            "duration": "Single kayak, 2 hr",
+            "price": 50
+          },
+          {
+            "duration": "Tandem kayak, 1 hr",
+            "price": 35
+          },
+          {
+            "duration": "Tandem kayak, 2 hr",
+            "price": 65
+          },
+          {
+            "duration": "Paddleboard, 1 hr",
+            "price": 28
+          },
+          {
+            "duration": "Paddleboard, 2 hr",
+            "price": 50
+          }
+        ]
+      },
+      {
+        "label": "Scenic Lake Lure cruise, per person (11 AM, 2 PM and 4 PM daily; about 1 hr 15 min)",
+        "rates": [
+          {
+            "duration": "Adult",
+            "price": 25
+          },
+          {
+            "duration": "Child 5 and under",
+            "price": 7
+          }
+        ]
       }
     ],
     "tags": [
+      "membersOnly",
+      "fuelIncluded",
       "petFriendly"
     ],
-    "insiderNote": "Dogs allowed on rental pontoons — $10 per dog per day.",
+    "insiderNote": "For Rumbling Bald members and lodging guests only. Dogs allowed on rental pontoons at $10 per dog per rental hour. Rentals are for cruising only: no towing skiers or tubes, and no glass or hard liquor. Drivers must complete the Lake Lure Boater Safety Course, and NC requires it for anyone born after 1988. Life jackets, safety instructions and a lake map are included. Scenic cruises need 4 to 16 guests, a minimum of 4 passengers to depart, and arrival 15 minutes early; you may share the boat with other groups, and cruise reservations are non-refundable. For rental changes, contact the North Shore Beach Cabana at least 24 hours ahead or the reservation is non-refundable.",
     "source": "https://rumblingbald.com",
-    "lastVerified": "2026-08-02"
+    "lastVerified": "2026-10-15"
   },
   {
     "id": "good-time-boat-rentals",

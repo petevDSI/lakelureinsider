@@ -7,6 +7,7 @@ export type PlaceTag =
   | 'tentSites'
   | 'locallyOwned'
   | 'freeCooler'
+  | 'membersOnly'
 
 export interface Rate {
   duration: string
