@@ -5,6 +5,8 @@ export type PlaceTag =
   | 'waterfront'
   | 'rvHookup'
   | 'tentSites'
+  | 'locallyOwned'
+  | 'freeCooler'
 
 export interface Rate {
   duration: string
@@ -36,6 +38,10 @@ export interface PlaceRecord {
   conflictNote?: string | null
   tags?: PlaceTag[]
   insiderNote?: string | null
+  featured?: boolean
+  featuredNote?: string | null
+  highlights?: string[]
+  reviewSummary?: string | null
   source: string
   lastVerified: string
 }

@@ -11,6 +11,8 @@ const TAG_LABELS: Record<PlaceTag, string> = {
   waterfront: 'Waterfront',
   rvHookup: 'RV hookup',
   tentSites: 'Tent sites',
+  locallyOwned: 'Locally owned',
+  freeCooler: 'Free Yeti cooler',
 }
 
 export function PlaceListFilter({ places }: { places: PlaceRecord[] }) {
@@ -20,9 +22,13 @@ export function PlaceListFilter({ places }: { places: PlaceRecord[] }) {
     new Set(places.flatMap((p) => p.tags ?? [])),
   ) as PlaceTag[]
 
-  const filtered = activeTag
+  const filtered = (activeTag
     ? places.filter((p) => p.tags?.includes(activeTag))
     : places
+  )
+    .map((p, i) => ({ p, i }))
+    .sort((a, b) => Number(!!b.p.featured) - Number(!!a.p.featured) || a.i - b.i)
+    .map(({ p }) => p)
 
   return (
     <div>
@@ -59,7 +65,9 @@ export function PlaceListFilter({ places }: { places: PlaceRecord[] }) {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
           {filtered.map((place) => (
-            <PlaceCard key={place.id} record={place} />
+            <div key={place.id} className={place.featured ? 'sm:col-span-2' : undefined}>
+              <PlaceCard record={place} />
+            </div>
           ))}
         </div>
       )}

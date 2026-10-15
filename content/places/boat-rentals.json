@@ -5,36 +5,69 @@
     "category": "boat-rentals",
     "subcategory": "pontoon",
     "address": "470 Memorial Hwy, Lake Lure, NC",
-    "phone": null,
-    "website": null,
+    "phone": "828-625-8066",
+    "website": "https://lakelureadventurecompany.com/",
     "coordinates": null,
-    "hours": null,
+    "hours": "9 AM – 8 PM daily (per Tripadvisor; call to confirm)",
     "priceFrom": 125,
     "priceUnit": "per hour",
-    "priceNotes": null,
+    "priceNotes": "Fuel is included in the price. Free Yeti cooler with any pontoon or ski boat rental.",
     "rateCards": [
       {
         "label": "20ft pontoon (up to 6 guests)",
-        "fuelIncluded": false,
+        "fuelIncluded": true,
         "rates": [
-          { "duration": "1 hour", "price": 125 },
-          { "duration": "4 hours (half-day)", "price": 440 },
-          { "duration": "8 hours (full-day)", "price": 800 }
+          {
+            "duration": "1 hour",
+            "price": 125
+          },
+          {
+            "duration": "4 hours (half-day)",
+            "price": 440
+          },
+          {
+            "duration": "8 hours (full-day)",
+            "price": 800
+          }
         ]
       },
       {
         "label": "22ft pontoon (up to 10 guests)",
-        "fuelIncluded": false,
+        "fuelIncluded": true,
         "rates": [
-          { "duration": "1 hour", "price": 140 },
-          { "duration": "4 hours (half-day)", "price": 480 }
+          {
+            "duration": "1 hour",
+            "price": 140
+          },
+          {
+            "duration": "4 hours (half-day)",
+            "price": 480
+          }
         ]
       }
     ],
-    "tags": [],
-    "insiderNote": null,
-    "source": "https://lakelurerentals.com",
-    "lastVerified": "2026-08-02"
+    "tags": [
+      "locallyOwned",
+      "fuelIncluded",
+      "freeCooler",
+      "petFriendly"
+    ],
+    "insiderNote": "Beer and wine are fine; no liquor. Not a public ramp, so leave your own boat, kayak or paddleboard at home. Tubing isn't allowed behind the pontoons; book a ski boat trip for tubing.",
+    "source": "https://lakelureadventurecompany.com/info",
+    "lastVerified": "2026-10-15",
+    "featured": true,
+    "featuredNote": "Locally owned and family run — a small business hit hard by the hurricane. Fuel is included and every pontoon or ski boat rental comes with a free Yeti cooler.",
+    "highlights": [
+      "Fuel included in the price",
+      "Free Yeti cooler with any pontoon or ski boat rental",
+      "Pontoons for self-drive cruising, swimming and fishing (driver must be 21+ with a valid license and credit card; no boating license required)",
+      "Mastercraft ski boats with a driver/instructor for tubing, skiing, wakeboarding and wakesurfing",
+      "Dog friendly to well-behaved dogs on pontoons, kayaks and paddleboards, with no pet fee",
+      "Life vests on board; neoprene vests required for kids under 13 and weak swimmers",
+      "Free changes or cancellation 48 hours ahead; no charge if you skip a rental because of lightning, hail or heavy rain",
+      "Reserve by phone: 828-625-8066"
+    ],
+    "reviewSummary": "4.8 of 5 across 134 Tripadvisor reviews, ranked #2 of 7 Boat Tours & Water Sports in Lake Lure. Reviewers describe clean, well-kept boats, friendly crews and flexible handling of weather changes. Notes from reviewers: parking is limited and there are no restrooms on site."
   },
   {
     "id": "lake-lure-boat-rental",
@@ -56,10 +89,22 @@
         "minimumHours": 3,
         "unconfirmed": true,
         "rates": [
-          { "duration": "3 hours", "price": 390 },
-          { "duration": "4 hours", "price": 460 },
-          { "duration": "6 hours", "price": 690 },
-          { "duration": "8 hours (full-day)", "price": 880 }
+          {
+            "duration": "3 hours",
+            "price": 390
+          },
+          {
+            "duration": "4 hours",
+            "price": 460
+          },
+          {
+            "duration": "6 hours",
+            "price": 690
+          },
+          {
+            "duration": "8 hours (full-day)",
+            "price": 880
+          }
         ]
       },
       {
@@ -67,14 +112,26 @@
         "fuelIncluded": true,
         "unconfirmed": true,
         "rates": [
-          { "duration": "2 hours", "price": 200 },
-          { "duration": "4 hours", "price": 350 },
-          { "duration": "6 hours", "price": 500 }
+          {
+            "duration": "2 hours",
+            "price": 200
+          },
+          {
+            "duration": "4 hours",
+            "price": 350
+          },
+          {
+            "duration": "6 hours",
+            "price": 500
+          }
         ]
       }
     ],
     "conflictNote": "Two rate schedules appear on the operator's site — one shows 4 hours at $460, the other at $350, both with fuel included. Call to confirm current rates before booking.",
-    "tags": ["fuelIncluded", "delivery"],
+    "tags": [
+      "fuelIncluded",
+      "delivery"
+    ],
     "insiderNote": "Free delivery to your dock, Washburn Marina, or Rumbling Bald.",
     "source": "https://lakelureboatrental.com",
     "lastVerified": "2026-08-02"
@@ -97,13 +154,24 @@
         "label": "Pontoon (up to 10 guests)",
         "fuelIncluded": null,
         "rates": [
-          { "duration": "2 hours", "price": 250 },
-          { "duration": "4 hours", "price": 460 },
-          { "duration": "8 hours (full-day)", "price": 880 }
+          {
+            "duration": "2 hours",
+            "price": 250
+          },
+          {
+            "duration": "4 hours",
+            "price": 460
+          },
+          {
+            "duration": "8 hours (full-day)",
+            "price": 880
+          }
         ]
       }
     ],
-    "tags": ["petFriendly"],
+    "tags": [
+      "petFriendly"
+    ],
     "insiderNote": "Dogs allowed on rental pontoons — $10 per dog per day.",
     "source": "https://rumblingbald.com",
     "lastVerified": "2026-08-02"
@@ -126,12 +194,21 @@
         "label": "Pontoon",
         "fuelIncluded": true,
         "rates": [
-          { "duration": "5 hours", "price": 500 },
-          { "duration": "8 hours (full-day)", "price": 629 }
+          {
+            "duration": "5 hours",
+            "price": 500
+          },
+          {
+            "duration": "8 hours (full-day)",
+            "price": 629
+          }
         ]
       }
     ],
-    "tags": ["fuelIncluded", "delivery"],
+    "tags": [
+      "fuelIncluded",
+      "delivery"
+    ],
     "insiderNote": "Fuel and taxes included in all rates; free delivery and pickup.",
     "source": "https://goodtimeboatrentals.com",
     "lastVerified": "2026-08-02"
@@ -154,14 +231,20 @@
         "label": "Single paddle craft",
         "fuelIncluded": false,
         "rates": [
-          { "duration": "1 hour", "price": 18 }
+          {
+            "duration": "1 hour",
+            "price": 18
+          }
         ]
       },
       {
         "label": "Two-person paddle craft",
         "fuelIncluded": false,
         "rates": [
-          { "duration": "1 hour", "price": 20 }
+          {
+            "duration": "1 hour",
+            "price": 20
+          }
         ]
       }
     ],
@@ -184,7 +267,9 @@
     "priceUnit": null,
     "priceNotes": null,
     "rateCards": [],
-    "tags": ["waterfront"],
+    "tags": [
+      "waterfront"
+    ],
     "insiderNote": null,
     "source": "https://lakelure.com",
     "lastVerified": "2026-08-02"

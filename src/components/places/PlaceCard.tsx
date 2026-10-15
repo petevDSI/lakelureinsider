@@ -7,6 +7,8 @@ const TAG_LABELS: Record<PlaceTag, string> = {
   waterfront: 'Waterfront',
   rvHookup: 'RV hookup',
   tentSites: 'Tent sites',
+  locallyOwned: 'Locally owned',
+  freeCooler: 'Free Yeti cooler',
 }
 
 function Chip({ label }: { label: string }) {
@@ -70,7 +72,82 @@ function RateSummary({ record }: { record: PlaceRecord }) {
   )
 }
 
+function FeaturedCard({ record }: { record: PlaceRecord }) {
+  return (
+    <div className="rounded-lg border-2 border-(--lake) bg-white p-5 flex flex-col gap-4 shadow-sm">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="inline-block rounded-full bg-(--forest) px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+          ★ Featured local pick
+        </span>
+        <span className="inline-block rounded-full bg-(--sand) px-3 py-1 text-xs font-semibold text-(--forest)">
+          Locally owned · Family run
+        </span>
+      </div>
+
+      <div>
+        <h3 className="font-display font-semibold text-(--forest) text-2xl leading-tight">
+          {record.name}
+        </h3>
+        {record.address && (
+          <p className="text-sm text-(--ink)/60 mt-0.5">{record.address}</p>
+        )}
+        {record.featuredNote && (
+          <p className="mt-2 text-(--ink)/80">{record.featuredNote}</p>
+        )}
+      </div>
+
+      {record.highlights && record.highlights.length > 0 && (
+        <ul className="list-disc pl-5 space-y-1 text-sm text-(--ink)/80">
+          {record.highlights.map((h) => (
+            <li key={h}>{h}</li>
+          ))}
+        </ul>
+      )}
+
+      <RateSummary record={record} />
+
+      {record.reviewSummary && (
+        <p className="text-sm text-(--ink)/70">{record.reviewSummary}</p>
+      )}
+
+      {record.insiderNote && (
+        <p className="text-sm text-(--ink)/70 border-l-2 border-(--clay) pl-3">
+          {record.insiderNote}
+        </p>
+      )}
+
+      {record.hours && <p className="text-sm text-(--ink)/60">Hours: {record.hours}</p>}
+
+      <div className="flex flex-wrap items-center gap-4 pt-1">
+        {record.phone && (
+          <a
+            href={`tel:${record.phone.replace(/\D/g, '')}`}
+            className="inline-block rounded bg-(--clay) px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+          >
+            Call {record.phone}
+          </a>
+        )}
+        {record.website && (
+          <a
+            href={record.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-(--lake) hover:underline"
+          >
+            Website →
+          </a>
+        )}
+      </div>
+
+      <p className="text-xs text-(--ink)/35 mt-auto">
+        Verified {record.lastVerified}
+      </p>
+    </div>
+  )
+}
+
 export function PlaceCard({ record }: { record: PlaceRecord }) {
+  if (record.featured) return <FeaturedCard record={record} />
   return (
     <div className="rounded-lg border border-(--sand) bg-white p-4 flex flex-col gap-3">
       <div>
