@@ -5,6 +5,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EdmundPeeks } from "@/components/EdmundPeeks";
 
 export const metadata: Metadata = {
   title: "Edmund: How a Stray Goat Took Over Lake Lure | Lake Lure Insider",
@@ -225,6 +226,7 @@ export default function EdmundPage() {
   return (
     <main className="ed">
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      <EdmundPeeks />
 
       {/* HERO: continues the poster */}
       <header className="ed-hero">
