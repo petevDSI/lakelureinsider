@@ -1,3 +1,4 @@
+import { PhotoStrip } from './PhotoStrip'
 import type { MDXComponents } from 'mdx/types'
 import { StatusItem } from './StatusItem'
 import { StatusBar } from './StatusBar'
@@ -103,6 +104,7 @@ export const mdxComponents: MDXComponents = {
   ShopGrid,
   EdmundShopAd,
   FeaturedStay,
+  PhotoStrip,
 }
 
 export {
@@ -156,4 +158,5 @@ export {
   ShopProductCard,
   ShopGrid,
   FeaturedStay,
+  PhotoStrip,
 }
