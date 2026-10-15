@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       "How a stray Kiko goat took over Lake Lure. The whole story, plus shirts, hats and stickers.",
     url: "/edmund",
     type: "article",
-    images: ["/images/edmund-goat-mayor.jpg"],
+    images: ["/images/edmund-police-escort.jpg"],
   },
 };
 
@@ -236,15 +236,14 @@ export default function EdmundPage() {
           <figure style={{ margin: 0 }}>
             <div className="ed-frame">
               <Pic
-                src="/images/edmund-goat-mayor.jpg"
-                alt="Edmund the goat standing on the center line of the road near Chimney Rock"
-                width={1600}
-                height={839}
+                src="/images/edmund-police-escort.jpg"
+                alt="Edmund the goat trotting down a Lake Lure road with a police car, lights flashing, following behind him"
+                width={1451}
+                height={1084}
                 loading="eager"
               />
               <div className="ed-nameplate">EDMUND.</div>
             </div>
-            <figcaption className="ed-credit">Photo courtesy of Robin Gaskey Phillips</figcaption>
           </figure>
 
           <p className="ed-tagline">Kiko goat. Answers to nothing.</p>
