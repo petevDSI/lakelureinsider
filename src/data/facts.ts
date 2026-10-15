@@ -1079,7 +1079,7 @@ export const BOAT_RENTALS: BoatRentalOperator[] = [
     name: 'Lake Lure Adventure Company',
     types: ['pontoon', 'kayak', 'paddleboard'],
     capacity: '6–10 passengers',
-    rates: { hourly: 125, halfDay: 460, fullDay: 880 },
+    rates: { hourly: 125, halfDay: 440, fullDay: 800 },
     fuelIncluded: true, // Confirmed by the owners (Oct 2026) and the operator's info page
     deposit: null, // TODO: VERIFY
     cancellation: 'Free changes or cancellation 48 hours before start; later cancellations charged 50% of reserved time. No charge if you skip the rental because of lightning, hail or heavy rain.',
@@ -1087,8 +1087,8 @@ export const BOAT_RENTALS: BoatRentalOperator[] = [
     captainOption: true, // Ski boat trips come with a driver/instructor
     phone: '828-625-8066',
     website: 'https://lakelureadventurecompany.com/',
-    note: 'Locally owned, family-run. Fuel included; free Yeti cooler with any pontoon or ski boat rental (per the owners). 20 ft boat, 6–8 passengers. A 22 ft boat for up to 10 runs $140/hr, $500 half day, $920 full day. Rates last checked Aug 2026 — confirm current pricing by phone.',
-    source: 'https://lakelureadventurecompany.com/info',
+    note: 'Locally owned, family-run. Fuel included; free Yeti cooler with any pontoon or ski boat rental (per the owners). 20 ft boat, up to 6 passengers: $125/hr, $440 half day, $800 full day. 22 ft boat, up to 10 passengers: $140/hr, $480 half day, $880 full day, 2-hour minimum. Ski boat trips $285/hr for up to 8. Rates exclude tax and holiday weeks/weekends. Season Memorial Day–Labor Day; off season September–April, call to reserve.',
+    source: 'https://lakelureadventurecompany.com/adventures',
     lastVerified: '2026-10-15',
   },
   {

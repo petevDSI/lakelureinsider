@@ -8,13 +8,13 @@
     "phone": "828-625-8066",
     "website": "https://lakelureadventurecompany.com/",
     "coordinates": null,
-    "hours": "9 AM – 8 PM daily (per Tripadvisor; call to confirm)",
+    "hours": "In season (Memorial Day–Labor Day): Monday–Sunday, 9 AM–8 PM. Off season (September–April): call for availability.",
     "priceFrom": 125,
-    "priceUnit": "per hour",
-    "priceNotes": "Fuel is included in the price. Free Yeti cooler with any pontoon or ski boat rental.",
+    "priceUnit": "per hour (20 ft pontoon)",
+    "priceNotes": "Fuel is included in the price. Rates exclude tax and holiday weeks/weekends. Free Yeti cooler with any pontoon or ski boat rental.",
     "rateCards": [
       {
-        "label": "20ft pontoon (up to 6 guests)",
+        "label": "20 ft pontoon (up to 6 guests)",
         "fuelIncluded": true,
         "rates": [
           {
@@ -32,7 +32,7 @@
         ]
       },
       {
-        "label": "22ft pontoon (up to 10 guests)",
+        "label": "22 ft pontoon (up to 10 guests, 2-hour minimum)",
         "fuelIncluded": true,
         "rates": [
           {
@@ -42,6 +42,20 @@
           {
             "duration": "4 hours (half-day)",
             "price": 480
+          },
+          {
+            "duration": "8 hours (full-day)",
+            "price": 880
+          }
+        ]
+      },
+      {
+        "label": "Mastercraft ski boat with driver/instructor (up to 8 guests)",
+        "fuelIncluded": true,
+        "rates": [
+          {
+            "duration": "1 hour",
+            "price": 285
           }
         ]
       }
@@ -53,19 +67,21 @@
       "petFriendly"
     ],
     "insiderNote": "Beer and wine are fine; no liquor. Not a public ramp, so leave your own boat, kayak or paddleboard at home. Tubing isn't allowed behind the pontoons; book a ski boat trip for tubing.",
-    "source": "https://lakelureadventurecompany.com/info",
+    "source": "https://lakelureadventurecompany.com/adventures",
     "lastVerified": "2026-10-15",
     "featured": true,
     "featuredNote": "Locally owned and family run — a small business hit hard by Hurricane Helene. Fuel is included and every pontoon or ski boat rental comes with a free Yeti cooler.",
     "highlights": [
-      "Fuel included in the price",
-      "Free Yeti cooler with any pontoon or ski boat rental",
+      "Fuel included in the price; rates exclude tax and holiday weeks/weekends",
+      "Free Yeti cooler with any pontoon or ski boat rental; pool noodles come with pontoons",
       "Pontoons for self-drive cruising, swimming and fishing (driver must be 21+ with a valid license and credit card; no boating license required)",
-      "Mastercraft ski boats with a driver/instructor for tubing, skiing, wakeboarding and wakesurfing",
+      "Ski boat trips with USA Waterski certified staff: waterskiing, slalom, barefoot, tubing, kneeboarding, wakeboarding and wakesurfing (up to 8 people, Mastercraft Pro-Star 197 and X-2)",
+      "Mix and match activities in one session, such as skiing and tubing in the morning and a pontoon cruise in the afternoon",
+      "Kayak and paddleboard rentals delivered to Lake Lure lakefront homes (full-day rentals only)",
+      "Guided bass and fly fishing trips with guide Rob McComas (Monday–Friday)",
       "Dog friendly to well-behaved dogs on pontoons, kayaks and paddleboards, with no pet fee",
-      "Life vests on board; neoprene vests required for kids under 13 and weak swimmers",
       "Free changes or cancellation 48 hours ahead; no charge if you skip a rental because of lightning, hail or heavy rain",
-      "Reserve by phone: 828-625-8066"
+      "All reservations are by phone: 828-625-8066"
     ],
     "reviewSummary": "4.8 of 5 across 134 Tripadvisor reviews, ranked #2 of 7 Boat Tours & Water Sports in Lake Lure. Reviewers describe clean, well-kept boats, friendly crews and flexible handling of weather changes. Notes from reviewers: parking is limited and there are no restrooms on site."
   },
