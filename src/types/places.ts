@@ -43,6 +43,8 @@ export interface PlaceRecord {
   featuredNote?: string | null
   highlights?: string[]
   reviewSummary?: string | null
+  rating?: number | null
+  reviewCount?: number | null
   source: string
   lastVerified: string
 }

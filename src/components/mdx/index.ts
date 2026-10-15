@@ -37,6 +37,7 @@ import { WeddingContactCTA } from './WeddingContactCTA'
 import { EditorialIndependence } from './EditorialIndependence'
 import { PlaceList } from './PlaceList'
 import { PlaceCompare } from './PlaceCompare'
+import { AdventureTiles } from './AdventureTiles'
 import { InsiderTipsIndex } from './InsiderTipsIndex'
 import { RecentInsiderTips } from './RecentInsiderTips'
 import { EventStatus } from './EventStatus'
@@ -90,6 +91,7 @@ export const mdxComponents: MDXComponents = {
   EditorialIndependence,
   PlaceList,
   PlaceCompare,
+  AdventureTiles,
   InsiderTipsIndex,
   RecentInsiderTips,
   EventStatus,
@@ -143,6 +145,7 @@ export {
   EditorialIndependence,
   PlaceList,
   PlaceCompare,
+  AdventureTiles,
   InsiderTipsIndex,
   RecentInsiderTips,
   EventStatus,

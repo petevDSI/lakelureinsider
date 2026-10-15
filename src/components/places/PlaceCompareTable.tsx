@@ -8,8 +8,10 @@ type SortKey = 'name' | 'targetRate' | 'fullDayRate'
 function FuelCell({ included }: { included: boolean | null }) {
   if (included === null) return <td className="px-3 py-2 text-sm text-(--ink)/40">—</td>
   return (
-    <td className={`px-3 py-2 text-sm font-medium ${included ? 'text-emerald-700' : 'text-(--ink)/60'}`}>
-      {included ? 'Yes' : 'No'}
+    <td className="px-3 py-2 text-sm">
+      <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${included ? 'bg-emerald-100 text-emerald-800' : 'bg-(--sand) text-(--ink)/65'}`}>
+        {included ? '✓ Included' : 'Extra'}
+      </span>
     </td>
   )
 }
@@ -100,11 +102,14 @@ export function PlaceCompareTable({
   }
 
   const conflictRows = sorted.filter((r) => r.conflictNote)
+  const bestRate = Math.min(
+    ...sorted.filter((r) => r.targetRate !== null && !r.targetUnconfirmed && !r.conflictNote).map((r) => r.targetRate as number),
+  )
 
   return (
-    <div className="not-prose my-6 overflow-x-auto rounded-lg border border-(--sand)">
+    <div className="not-prose my-6 overflow-x-auto rounded-xl border border-(--sand) shadow-sm">
       <table className="w-full min-w-[560px] text-sm">
-        <thead className="bg-(--sand)/60">
+        <thead className="bg-(--forest) [&_th]:!text-white/90">
           <tr>
             <SortHeader label="Operator" k="name" />
             <SortHeader label={targetHoursLabel} k="targetRate" />
@@ -117,7 +122,12 @@ export function PlaceCompareTable({
         <tbody className="divide-y divide-(--sand)">
           {sorted.map((row) => (
             <tr key={row.id} className="bg-white hover:bg-(--sand)/30">
-              <td className="px-3 py-2 font-medium text-(--forest)">{row.name}</td>
+              <td className="px-3 py-3 font-display font-semibold text-(--forest)">
+                {row.name}
+                {row.targetRate === bestRate && (
+                  <span className="ml-2 rounded-full bg-(--lake)/10 px-2 py-0.5 font-sans text-xs font-medium text-(--lake)">Lowest 4-hr rate</span>
+                )}
+              </td>
               <RateCell
                 price={row.targetRate}
                 label={row.targetLabel}

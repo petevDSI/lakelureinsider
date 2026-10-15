@@ -66,7 +66,7 @@ export function PlaceListFilter({ places }: { places: PlaceRecord[] }) {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
           {filtered.map((place) => (
-            <div key={place.id} className={place.featured ? 'sm:col-span-2' : undefined}>
+            <div key={place.id} className={place.featured ? 'sm:col-span-2' : 'h-full'}>
               <PlaceCard record={place} />
             </div>
           ))}
