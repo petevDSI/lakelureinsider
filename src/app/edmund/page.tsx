@@ -214,6 +214,13 @@ const CSS = `
 .ed-more a { text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .ed-fine { font-size: .85rem; color: var(--ink-soft); margin: 2rem 0 0; max-width: 40rem; }
 
+/* WHERE TO FIND HIM */
+.ed-spot { padding-block: 0 3rem; }
+.ed-spot p { max-width: 40rem; margin: 0 0 1rem; }
+.ed-chips { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.ed-chips li { font-family: var(--type); font-size: .95rem; border: 2px solid var(--ink); padding: .3rem .7rem; background: var(--paper-2); }
+.ed-safe { font-family: var(--type); border-left: 4px solid var(--red); padding-left: 1rem; }
+
 @media (max-width: 30rem) {
   .ed-file .row { grid-template-columns: minmax(0, 1fr); gap: 0; }
 }
@@ -268,7 +275,7 @@ export default function EdmundPage() {
             </div>
             <div className="row">
               <dt>Last seen</dt>
-              <dd>Wandering Lake Lure, near the Rocky Broad River across from Chimney Rock.</dd>
+              <dd>On the road between Lake Lure and Bat Cave, through Chimney Rock. Eating kudzu. Climbing steps.</dd>
             </div>
             <div className="row">
               <dt>Known associates</dt>
@@ -300,6 +307,26 @@ export default function EdmundPage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* WHERE TO FIND HIM */}
+      <section className="ed-spot" aria-labelledby="spot-h">
+        <div className="ed-wrap">
+          <h2 className="ed-h2" id="spot-h">Where to find Edmund</h2>
+          <p>
+            Edmund roams the road between Lake Lure and Bat Cave, right through Chimney Rock. Most days he is out wandering the road, eating kudzu, climbing steps and doing all the other things goats do.
+          </p>
+          <ul className="ed-chips">
+            <li>Wandering the road</li>
+            <li>Eating kudzu</li>
+            <li>Climbing steps</li>
+            <li>Perching on rocks</li>
+            <li>Ignoring fences</li>
+          </ul>
+          <p className="ed-safe">
+            Spot him from a safe place. Pull all the way off the road, keep your distance, and please don&rsquo;t feed him. He answers to nothing, so there are no guarantees.
+          </p>
         </div>
       </section>
 
