@@ -28,13 +28,13 @@ export function ClimbingDirectory() {
 
         return (
           <div key={type} className="mb-8 last:mb-0">
-            <h3 className="mb-3 font-display text-lg font-bold text-(--forest)">
+            <h3 className="mb-4 mt-2 flex items-center gap-3 font-display text-2xl font-bold text-(--forest) before:h-7 before:w-1.5 before:rounded-full before:bg-(--lake)">
               {type === 'Climbing Area' ? 'Climbing Areas' : 'Guide Services'}
             </h3>
 
-            <div className="flex flex-col gap-3">
+            <div className="grid gap-4 sm:grid-cols-2">
               {spots.map((c) => (
-                <div key={c.id} className="rounded-lg border border-(--sand) bg-white p-4">
+                <div key={c.id} className="rounded-xl border border-(--sand) border-t-4 border-t-(--lake) bg-white p-5 shadow-sm">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div className="flex flex-wrap items-center gap-2">
                       {c.website ? (
@@ -42,7 +42,7 @@ export function ClimbingDirectory() {
                           href={c.website}
                           target="_blank"
                           rel="noopener noreferrer nofollow"
-                          className="font-semibold text-(--lake) underline underline-offset-2"
+                          className="font-display text-lg font-bold leading-tight text-(--forest) no-underline hover:text-(--lake) hover:underline hover:underline-offset-2"
                         >
                           {c.name}
                         </a>
@@ -52,7 +52,7 @@ export function ClimbingDirectory() {
                       <TypeBadge type={c.type} />
                     </div>
                     {c.phone && (
-                      <a href={phoneHref(c.phone)} className="text-sm font-semibold text-(--clay)">
+                      <a href={phoneHref(c.phone)} className="inline-block rounded-lg bg-(--clay) px-3 py-1.5 text-sm font-semibold !text-white no-underline hover:opacity-90">
                         {c.phone}
                       </a>
                     )}

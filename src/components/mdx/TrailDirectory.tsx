@@ -32,7 +32,7 @@ export function TrailDirectory() {
           href={RUTHERFORD_TRAILS_SOURCE_URL}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="font-semibold text-(--lake) underline underline-offset-2"
+          className="font-display text-lg font-bold leading-tight text-(--forest) no-underline hover:text-(--lake) hover:underline hover:underline-offset-2"
         >
           {RUTHERFORD_TRAILS_SOURCE_NAME}
         </a>
@@ -47,7 +47,7 @@ export function TrailDirectory() {
 
         return (
           <div key={area} className="mb-8 last:mb-0">
-            <h3 className="mb-3 font-display text-lg font-bold text-(--forest)">{area}</h3>
+            <h3 className="mb-4 mt-2 flex items-center gap-3 font-display text-2xl font-bold text-(--forest) before:h-7 before:w-1.5 before:rounded-full before:bg-(--lake)">{area}</h3>
 
             {/* Desktop table */}
             <div className="overflow-x-auto">
@@ -80,7 +80,7 @@ export function TrailDirectory() {
             {/* Mobile card stack */}
             <div className="flex flex-col gap-3 sm:hidden">
               {trails.map((t) => (
-                <div key={t.id} className="rounded-lg border border-(--sand) bg-white p-4">
+                <div key={t.id} className="rounded-xl border border-(--sand) border-t-4 border-t-(--lake) bg-white p-5 shadow-sm">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <span className="font-semibold text-(--ink)">{t.name}</span>
                     <DifficultyBadge difficulty={t.difficulty} />

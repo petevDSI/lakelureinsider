@@ -10,17 +10,17 @@ export function EquestrianDirectory() {
 
   return (
     <div className="not-prose my-8">
-      <div className="rounded-lg border border-(--sand) bg-white p-5">
+      <div className="rounded-xl border border-(--sand) border-t-4 border-t-(--lake) bg-white p-5 shadow-sm">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <a
             href={c.website}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="font-display text-lg font-bold text-(--lake) underline underline-offset-2"
+            className="font-display text-xl font-bold leading-tight text-(--forest) no-underline hover:text-(--lake) hover:underline hover:underline-offset-2"
           >
             {c.name}
           </a>
-          <a href={phoneHref(c.phone)} className="text-sm font-semibold text-(--clay)">
+          <a href={phoneHref(c.phone)} className="inline-block rounded-lg bg-(--clay) px-3 py-1.5 text-sm font-semibold !text-white no-underline hover:opacity-90">
             {c.phone}
           </a>
         </div>
@@ -48,26 +48,26 @@ export function EquestrianDirectory() {
 
       {RIDING_STABLES.length > 0 && (
         <div className="mt-8">
-          <h3 className="mb-3 font-display text-lg font-bold text-(--forest)">
+          <h3 className="mb-4 mt-2 flex items-center gap-3 font-display text-2xl font-bold text-(--forest) before:h-7 before:w-1.5 before:rounded-full before:bg-(--lake)">
             Closer to Lake Lure: Trail Riding
           </h3>
-          <div className="flex flex-col gap-3">
+          <div className="grid gap-4 sm:grid-cols-2">
             {RIDING_STABLES.map((r) => (
-              <div key={r.id} className="rounded-lg border border-(--sand) bg-white p-4">
+              <div key={r.id} className="rounded-xl border border-(--sand) border-t-4 border-t-(--lake) bg-white p-5 shadow-sm">
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   {r.website ? (
                     <a
                       href={r.website}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="font-semibold text-(--lake) underline underline-offset-2"
+                      className="font-display text-lg font-bold leading-tight text-(--forest) no-underline hover:text-(--lake) hover:underline hover:underline-offset-2"
                     >
                       {r.name}
                     </a>
                   ) : (
                     <span className="font-semibold text-(--ink)">{r.name}</span>
                   )}
-                  <a href={phoneHref(r.phone)} className="text-sm font-semibold text-(--clay)">
+                  <a href={phoneHref(r.phone)} className="inline-block rounded-lg bg-(--clay) px-3 py-1.5 text-sm font-semibold !text-white no-underline hover:opacity-90">
                     {r.phone}
                   </a>
                 </div>

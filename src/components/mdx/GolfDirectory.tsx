@@ -19,9 +19,9 @@ export function GolfDirectory() {
 
   return (
     <div className="not-prose my-8">
-      <div className="flex flex-col gap-3">
+      <div className="grid gap-4 sm:grid-cols-2">
         {GOLF_COURSES.map((g) => (
-          <div key={g.id} className="rounded-lg border border-(--sand) bg-white p-4">
+          <div key={g.id} className="rounded-xl border border-(--sand) border-t-4 border-t-(--lake) bg-white p-5 shadow-sm">
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div>
                 {g.website ? (
@@ -29,7 +29,7 @@ export function GolfDirectory() {
                     href={g.website}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    className="font-semibold text-(--lake) underline underline-offset-2"
+                    className="font-display text-lg font-bold leading-tight text-(--forest) no-underline hover:text-(--lake) hover:underline hover:underline-offset-2"
                   >
                     {g.name}
                   </a>
@@ -47,28 +47,23 @@ export function GolfDirectory() {
                 )}
               </div>
               {g.phone && (
-                <a href={phoneHref(g.phone)} className="text-sm font-semibold text-(--clay)">
+                <a href={phoneHref(g.phone)} className="inline-block rounded-lg bg-(--clay) px-3 py-1.5 text-sm font-semibold !text-white no-underline hover:opacity-90">
                   {g.phone}
                 </a>
               )}
             </div>
-            <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
-              <div>
-                <div className="text-xs font-semibold text-(--ink)/60">Holes</div>
-                <div className="text-sm text-(--ink)">{g.holes}</div>
-              </div>
-              <div>
-                <div className="text-xs font-semibold text-(--ink)/60">Par</div>
-                <div className="text-sm text-(--ink)">{g.par}</div>
-              </div>
-              <div>
-                <div className="text-xs font-semibold text-(--ink)/60">Yardage</div>
-                <div className="text-sm text-(--ink)">{g.yardage ?? '—'}</div>
-              </div>
-              <div>
-                <div className="text-xs font-semibold text-(--ink)/60">Designer</div>
-                <div className="text-sm text-(--ink)">{g.designer ?? '—'}</div>
-              </div>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              {[
+                ['Holes', String(g.holes)],
+                ['Par', String(g.par)],
+                ['Yardage', g.yardage ? String(g.yardage) : '—'],
+                ['Designer', g.designer ?? '—'],
+              ].map(([label, value]) => (
+                <div key={label} className="rounded-lg bg-(--sand)/60 px-3 py-2">
+                  <div className="font-display text-sm font-bold leading-tight text-(--forest)">{value}</div>
+                  <div className="mt-0.5 text-xs text-(--ink)/65">{label}</div>
+                </div>
+              ))}
             </div>
             <p className="mt-2 text-sm text-(--ink)/80">{g.address}</p>
             <p className="mt-1 text-xs text-(--ink)/60">{g.access}</p>

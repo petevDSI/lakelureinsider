@@ -22,7 +22,7 @@ function RestaurantCard({ restaurant }: { restaurant: Restaurant }) {
   const cumulative = computeCumulativeRating(restaurant)
 
   return (
-    <div className="overflow-hidden rounded-lg border border-(--sand) bg-white">
+    <div className="overflow-hidden rounded-xl border border-(--sand) border-t-4 border-t-(--lake) bg-white shadow-sm">
       {restaurant.image && (
         <div className="relative h-40 w-full">
           <Image
@@ -41,7 +41,7 @@ function RestaurantCard({ restaurant }: { restaurant: Restaurant }) {
             href={restaurant.detailsUrl}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="font-semibold text-(--lake) underline underline-offset-2"
+            className="font-display text-lg font-bold leading-tight text-(--forest) no-underline hover:text-(--lake) hover:underline hover:underline-offset-2"
           >
             {restaurant.name}
           </a>
@@ -49,7 +49,7 @@ function RestaurantCard({ restaurant }: { restaurant: Restaurant }) {
             {restaurant.cuisine} · {restaurant.priceRange}
           </div>
         </div>
-        <div className="text-right">
+        <div className="text-left">
           <Stars score={cumulative.score} />
           <div className="text-xs text-(--ink)/60">
             {cumulative.totalReviews.toLocaleString()} reviews across{' '}
@@ -60,7 +60,7 @@ function RestaurantCard({ restaurant }: { restaurant: Restaurant }) {
 
       <p className="mt-2 text-sm text-(--ink)/80">{restaurant.address}</p>
       {restaurant.phone && (
-        <a href={`tel:${restaurant.phone.replace(/[^\d]/g, '')}`} className="text-sm font-semibold text-(--clay)">
+        <a href={`tel:${restaurant.phone.replace(/[^\d]/g, '')}`} className="inline-block rounded-lg bg-(--clay) px-3 py-1.5 text-sm font-semibold !text-white no-underline hover:opacity-90">
           {restaurant.phone}
         </a>
       )}
@@ -100,8 +100,8 @@ export function RestaurantDirectory() {
 
         return (
           <div key={area} className="mb-8 last:mb-0">
-            <h3 className="mb-3 font-display text-lg font-bold text-(--forest)">{area}</h3>
-            <div className="flex flex-col gap-3">
+            <h3 className="mb-4 mt-2 flex items-center gap-3 font-display text-2xl font-bold text-(--forest) before:h-7 before:w-1.5 before:rounded-full before:bg-(--lake)">{area}</h3>
+            <div className="grid gap-4 sm:grid-cols-2">
               {restaurants.map((r) => (
                 <RestaurantCard key={r.id} restaurant={r} />
               ))}

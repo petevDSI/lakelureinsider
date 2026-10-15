@@ -30,10 +30,10 @@ export function FeaturedStay({
   children,
 }: FeaturedStayProps) {
   return (
-    <div className="not-prose my-10 overflow-hidden rounded-xl border border-(--sand) bg-white shadow-sm">
+    <div className="not-prose my-10 overflow-hidden rounded-2xl border border-(--sand) bg-white shadow-md">
       <div className="grid grid-cols-2 gap-0.5 bg-(--sand) sm:grid-cols-4">
         {photos.map((photo, i) => (
-          <div key={photo.src} className={`relative h-40 sm:h-48 ${i === 0 ? 'col-span-2 row-span-2 h-full sm:col-span-2' : ''}`}>
+          <div key={photo.src} className={`relative h-40 sm:h-48 ${i === 0 ? 'col-span-2 row-span-2 h-full sm:col-span-2' : ''} ${photos.length === 4 && i === 3 ? 'col-span-2' : ''}`}>
             <Image
               src={photo.src}
               alt={photo.alt}
@@ -46,10 +46,10 @@ export function FeaturedStay({
       </div>
 
       <div className="p-6 sm:p-8">
-        <span className="mb-2 inline-block rounded-full bg-(--sand) px-3 py-1 text-xs font-semibold uppercase tracking-widest text-(--forest)">
-          Featured Stay
+        <span className="mb-3 inline-block rounded-full bg-(--forest) px-3 py-1 text-xs font-semibold text-white">
+          ★ Featured stay
         </span>
-        <h3 className="font-display text-2xl font-bold text-(--ink)">{name}</h3>
+        <h3 className="mt-0 font-display text-3xl font-bold text-(--forest)">{name}</h3>
         <p className="mt-1 text-sm text-(--ink)/70">{tagline}</p>
 
         <div className="mt-4 flex flex-wrap gap-2">
@@ -70,7 +70,7 @@ export function FeaturedStay({
             href={airbnbUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-md bg-(--clay) px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-(--clay) px-6 py-3 text-sm font-semibold !text-white no-underline transition-opacity hover:opacity-90"
           >
             View on Airbnb{airbnbRating ? ` — ${airbnbRating}` : ''}
           </a>
@@ -78,7 +78,7 @@ export function FeaturedStay({
             href={vrboUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-md bg-(--lake) px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-(--lake) px-6 py-3 text-sm font-semibold !text-white no-underline transition-opacity hover:opacity-90"
           >
             View on Vrbo{vrboRating ? ` — ${vrboRating}` : ''}
           </a>

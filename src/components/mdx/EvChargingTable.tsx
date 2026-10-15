@@ -47,7 +47,7 @@ export function EvChargingTable() {
                     href={c.detailsUrl}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    className="font-medium text-(--lake) underline underline-offset-2"
+                    className="font-display font-bold text-(--forest) no-underline hover:text-(--lake) hover:underline hover:underline-offset-2"
                   >
                     {c.name}
                   </a>
@@ -76,7 +76,7 @@ export function EvChargingTable() {
       {/* Mobile card stack */}
       <div className="flex flex-col gap-4 sm:hidden">
         {sorted.map((c) => (
-          <div key={c.id} className="rounded-lg border border-(--sand) bg-white p-4">
+          <div key={c.id} className="rounded-xl border border-(--sand) border-t-4 border-t-(--lake) bg-white p-5 shadow-sm">
             <a
               href={c.detailsUrl}
               target="_blank"

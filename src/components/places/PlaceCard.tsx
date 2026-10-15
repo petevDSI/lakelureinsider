@@ -189,7 +189,7 @@ export function PlaceCard({ record }: { record: PlaceRecord }) {
   return (
     <div className="flex h-full flex-col gap-4 overflow-hidden rounded-xl border border-(--sand) border-t-4 border-t-(--lake) bg-white p-5 shadow-sm">
       <div>
-        <h3 className="font-display text-xl font-bold leading-tight text-(--forest)">
+        <h3 className="mt-0 font-display text-xl font-bold leading-tight text-(--forest)">
           {record.name}
         </h3>
         {record.address && (
@@ -217,7 +217,7 @@ export function PlaceCard({ record }: { record: PlaceRecord }) {
         {record.phone && (
           <a
             href={`tel:${record.phone.replace(/\D/g, '')}`}
-            className="text-sm font-medium text-(--lake) hover:underline"
+            className="inline-block rounded-lg bg-(--clay) px-3 py-1.5 text-sm font-semibold !text-white no-underline hover:opacity-90"
           >
             {record.phone}
           </a>
