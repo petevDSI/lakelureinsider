@@ -39,9 +39,9 @@ const CSS = `
 
 .edp .side { width: clamp(95px, 11vw, 150px); transition: transform .8s cubic-bezier(.2,.9,.3,1.1); display: none; }
 .edp .right { right: 0; top: 34%; transform: translateX(100%); }
-.edp .right.on { transform: translateX(40%); }
+.edp .right.on { transform: translateX(28%); }
 .edp .left { left: 0; top: 50%; transform: translateX(-100%); }
-.edp .left.on { transform: translateX(-40%); }
+.edp .left.on { transform: translateX(-28%); }
 
 @media (min-width: 700px) { .edp .side { display: block; } }
 
