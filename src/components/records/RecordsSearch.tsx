@@ -380,11 +380,11 @@ export function RecordsSearch() {
             <div className="flex flex-col gap-1 sm:col-span-2">
               <span className="text-sm font-semibold">Words near each other</span>
               <div className="flex flex-wrap items-center gap-2">
-                <input className={inputCls + ' min-w-32 flex-1'} value={f.a_na} onChange={(e) => set('a_na', e.target.value)} placeholder="mayor" aria-label="First word" autoComplete="off" />
+                <input className={inputCls + ' !w-auto min-w-32 flex-1'} value={f.a_na} onChange={(e) => set('a_na', e.target.value)} placeholder="mayor" aria-label="First word" autoComplete="off" />
                 <span>within</span>
-                <input type="number" min={1} max={10} className={inputCls + ' w-16'} value={f.a_nn} onChange={(e) => set('a_nn', e.target.value)} aria-label="Number of words apart" />
+                <input type="number" min={1} max={10} className={inputCls + ' !w-16'} value={f.a_nn} onChange={(e) => set('a_nn', e.target.value)} aria-label="Number of words apart" />
                 <span>words of</span>
-                <input className={inputCls + ' min-w-32 flex-1'} value={f.a_nb} onChange={(e) => set('a_nb', e.target.value)} placeholder="Pritchett" aria-label="Second word" autoComplete="off" />
+                <input className={inputCls + ' !w-auto min-w-32 flex-1'} value={f.a_nb} onChange={(e) => set('a_nb', e.target.value)} placeholder="Pritchett" aria-label="Second word" autoComplete="off" />
               </div>
               <small className="text-xs text-(--ink)/60">In either order. Good for tying a person to a topic, such as a name near “dam”.</small>
             </div>
