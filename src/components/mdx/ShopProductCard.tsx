@@ -25,7 +25,11 @@ export function ShopProductCard({ productKey }: ShopProductCardProps) {
             {product.priceFrom}
           </span>
         </div>
-        <h3 className="font-display font-bold text-(--ink)">{product.title}</h3>
+        <h3 className="font-display font-bold text-(--ink)">
+          <a href={`/products/${productKey}`} className="hover:text-(--lake) hover:underline">
+            {product.title}
+          </a>
+        </h3>
         <p className="mt-2 text-sm leading-relaxed text-(--ink)/70">{product.blurb}</p>
         <div className="mt-auto pt-2">
           <ShopEmbed productKey={productKey} />

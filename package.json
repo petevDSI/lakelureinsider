@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/check-hero-contrast.mjs && node scripts/indexnow-submit.mjs",
+    "build": "node scripts/sync-shop-catalog.mjs && next build && node scripts/check-hero-contrast.mjs && node scripts/indexnow-submit.mjs",
     "start": "next start",
     "lint": "eslint"
   },
