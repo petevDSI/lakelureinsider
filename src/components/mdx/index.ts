@@ -49,6 +49,7 @@ import { ShopEmbed } from './ShopEmbed'
 import { ShopProductCard } from './ShopProductCard'
 import { ShopGrid } from './ShopGrid'
 import { EdmundShopAd } from './EdmundShopAd'
+import { RecordsSearchCTA } from './RecordsSearchCTA'
 import { FeaturedStay } from './FeaturedStay'
 import { MetaPixelViewContent } from './MetaPixelViewContent'
 
@@ -103,6 +104,7 @@ export const mdxComponents: MDXComponents = {
   ShopProductCard,
   ShopGrid,
   EdmundShopAd,
+  RecordsSearchCTA,
   FeaturedStay,
   PhotoStrip,
 }

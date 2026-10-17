@@ -4,6 +4,7 @@ import { SocialLinks } from './SocialLinks'
 
 const FOOTER_LINKS = [
   { label: 'About', href: '/about' },
+  { label: 'Town Records Search', href: '/records' },
   { label: 'Contact', href: '/contact' },
   { label: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
   { label: 'RSS', href: '/feed.xml' },
