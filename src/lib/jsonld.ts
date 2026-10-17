@@ -99,6 +99,38 @@ function shopProductJsonLd(key: string, product: ShopProduct) {
   }
 }
 
+/** Shop categories that count as wearable apparel (tees, sweatshirts, hoodies, hats). */
+export const APPAREL_CATEGORY_SLUGS = ['100-dam-years', 'tees', 'hats', 'hoodie-tank']
+
+/**
+ * schema.org CollectionPage + ItemList for /shop/lake-lure-apparel. Reuses the
+ * same Product entities (same @id) as /shop so the two pages describe each
+ * item identically; only the wearable categories are listed here.
+ */
+export function apparelCollectionJsonLd() {
+  const keys = SHOP_CATEGORIES.filter((category) =>
+    APPAREL_CATEGORY_SLUGS.includes(category.slug),
+  ).flatMap((category) => category.productKeys)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Lake Lure Apparel & Shirts',
+    url: `${SITE_URL}/shop/lake-lure-apparel`,
+    description:
+      'Lake Lure shirts, long sleeves, sweatshirts, hoodies, and hats from Lake Lure Insider: the 100 Dam Years centennial collection and the Edmund the goat designs, printed to order.',
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: keys.length,
+      itemListElement: keys.map((key, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: shopProductJsonLd(key, SHOP_PRODUCTS[key]),
+      })),
+    },
+  }
+}
+
 /**
  * schema.org CollectionPage + ItemList of every product on /shop, generated
  * from SHOP_PRODUCTS so the markup can't drift from the page's product cards.
