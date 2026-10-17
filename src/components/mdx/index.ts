@@ -48,6 +48,7 @@ import { PetitionWidget } from './PetitionWidget'
 import { ShopEmbed } from './ShopEmbed'
 import { ShopProductCard } from './ShopProductCard'
 import { ShopGrid } from './ShopGrid'
+import { ApparelGrid } from './ApparelGrid'
 import { EdmundShopAd } from './EdmundShopAd'
 import { RecordsSearchCTA } from './RecordsSearchCTA'
 import { FeaturedStay } from './FeaturedStay'
@@ -103,6 +104,7 @@ export const mdxComponents: MDXComponents = {
   ShopEmbed,
   ShopProductCard,
   ShopGrid,
+  ApparelGrid,
   EdmundShopAd,
   RecordsSearchCTA,
   FeaturedStay,
@@ -159,6 +161,7 @@ export {
   ShopEmbed,
   ShopProductCard,
   ShopGrid,
+  ApparelGrid,
   FeaturedStay,
   PhotoStrip,
 }
