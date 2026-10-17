@@ -173,6 +173,21 @@ export const SHOP_PRODUCTS = {
       alt: "Back of the Edmund Lake Float Tank Top in red, printed with 'Goats just wanna have sun.'",
     },
   },
+  'greetings-from-lake-lure-tank': {
+    id: '15430199312704',
+    handle: 'greetings-from-lake-lure-men-s-premium-tank-top',
+    title: 'Greetings from Lake Lure Tank Top',
+    category: 'hoodie-tank',
+    blurb:
+      'The same big-letter postcard design as the Greetings from Lake Lure tee — Chimney Rock, the lake, the dam, and Edmund tucked into the lettering — on a lightweight tank top for the hottest days on the water.',
+    priceFrom: 'From $23',
+    priceHigh: 28,
+    variantNote: '11 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/mens-premium-tank-top-black-front-6ad2e5e9db3d6.jpg?v=1792206323',
+      alt: 'Front of the Greetings from Lake Lure Tank Top in black, showing the big-letter postcard design',
+    },
+  },
   'edmund-sunglasses-sticker': {
     id: '10253830684992',
     handle: 'bubble-free-stickers',
@@ -476,7 +491,7 @@ export const SHOP_CATEGORIES: ShopCategory[] = [
   {
     slug: 'hoodie-tank',
     label: 'Hoodie & Tank',
-    productKeys: ['chimney-rock-escape-hoodie', 'lake-float-tank'],
+    productKeys: ['chimney-rock-escape-hoodie', 'lake-float-tank', 'greetings-from-lake-lure-tank'],
   },
   {
     slug: 'stickers',
