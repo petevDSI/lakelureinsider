@@ -50,6 +50,15 @@ const SLIDES: AdSlide[] = [
     anchor: 'tees',
   },
   {
+    id: 'greetings-ll',
+    productKey: 'greetings-from-lake-lure-tee',
+    kicker: 'New: Postcard Tee',
+    headline: 'Greetings from Lake Lure.',
+    sub: 'Big-letter postcard design with Edmund tucked into the lettering. Oversized, vintage-washed, 12 colors.',
+    cta: 'Shop the postcard tee',
+    anchor: 'tees',
+  },
+  {
     id: 'hoodie',
     productKey: 'chimney-rock-escape-hoodie',
     kicker: 'Chimney Rock Escape Artist',

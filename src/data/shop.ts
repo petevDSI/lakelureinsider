@@ -401,6 +401,36 @@ export const SHOP_PRODUCTS = {
       alt: "Back of the Edmund for Mayor Long Sleeve Tee in storm gray, printed with the phrase 'A goat we can all get behind'",
     },
   },
+  'greetings-from-lake-lure-tee': {
+    id: '15429484249408',
+    handle: 'greetings-from-lake-lure-unisex-oversized-t-shirt',
+    title: 'Greetings from Lake Lure Oversized Tee',
+    category: 'tees',
+    blurb:
+      'A big-letter postcard design of Lake Lure \u2014 Chimney Rock, the lake, the dam, and Edmund the goat all tucked into the lettering \u2014 printed on a heavyweight, vintage-washed oversized tee.',
+    priceFrom: 'From $24',
+    priceHigh: 29.5,
+    variantNote: '12 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-heavyweight-garment-dye-tee-washed-black-front-6ad285b5a025c.jpg?v=1792181711',
+      alt: 'Front of the Greetings from Lake Lure Oversized Tee in washed black, showing the big-letter postcard design',
+    },
+  },
+  'hickory-nut-gorge-topo-tee': {
+    id: '15428375413056',
+    handle: 'hickory-nut-gorge-topo-edmund-t-shirt',
+    title: 'Hickory Nut Gorge Topo Edmund Tee',
+    category: 'tees',
+    blurb:
+      "Edmund's profile rendered in layered topographic contour lines, with Chimney Rock and the Rocky Broad River behind him \u2014 a mountain-badge tee for Hickory Nut Gorge.",
+    priceFrom: 'From $17',
+    priceHigh: 25.5,
+    variantNote: '13 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-staple-t-shirt-black-heather-front-6ad13263151bd.jpg?v=1792094846',
+      alt: 'Front of the Hickory Nut Gorge Topo Edmund Tee in black heather, showing the topographic mountain-badge design',
+    },
+  },
 } as const satisfies Record<string, ShopProduct>
 
 export type ShopProductKey = keyof typeof SHOP_PRODUCTS
@@ -434,6 +464,8 @@ export const SHOP_CATEGORIES: ShopCategory[] = [
       'edmund-for-mayor-badge-tee',
       'lake-life-goat-life-tee',
       'edmund-for-mayor-long-sleeve',
+      'greetings-from-lake-lure-tee',
+      'hickory-nut-gorge-topo-tee',
     ],
   },
   {
