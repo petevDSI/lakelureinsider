@@ -408,11 +408,11 @@ export const SHOP_PRODUCTS = {
     priceHigh: 35,
     variantNote: '10 colors',
     image: {
-      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-tee-storm-front-6aaf548d085d8.jpg?v=1789875372',
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-tee-storm-front-6ab096c2b97b7.jpg?v=1789957847',
       alt: 'Front of the Edmund for Mayor Long Sleeve Tee in storm gray, showing the vintage campaign badge design',
     },
     backImage: {
-      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-tee-storm-back-6aaf548d0c5bb.jpg?v=1789875372',
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-tee-storm-back-6ab096c2ba5db.jpg?v=1789957847',
       alt: "Back of the Edmund for Mayor Long Sleeve Tee in storm gray, printed with the phrase 'A goat we can all get behind'",
     },
   },
