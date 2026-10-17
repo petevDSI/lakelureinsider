@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getAllPages } from '@/lib/content'
 import { SITE_URL } from '@/lib/site-config'
+import { allProductKeys } from '@/lib/shop-catalog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = getAllPages()
@@ -12,6 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: page.frontmatter.updated,
     changeFrequency: 'monthly',
     priority: page.slug.split('/').length === 1 ? 0.8 : 0.6,
+  }))
+
+  const productEntries: MetadataRoute.Sitemap = allProductKeys().map((key) => ({
+    url: `${SITE_URL}/products/${key}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly',
+    priority: 0.6,
   }))
 
   return [
@@ -52,5 +60,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     ...contentEntries,
+    ...productEntries,
   ]
 }

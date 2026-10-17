@@ -58,7 +58,9 @@ function parseLowPrice(priceFrom: string): number | null {
 }
 
 function shopProductJsonLd(key: string, product: ShopProduct) {
-  const url = `${SITE_URL}/shop#${key}`
+  // Each product's canonical page lives at /products/<key>; /shop and the apparel
+  // page reference the same entity (same @id) so the markup never conflicts.
+  const url = `${SITE_URL}/products/${key}`
   const low = parseLowPrice(product.priceFrom)
 
   const offerCommon = {
@@ -97,6 +99,39 @@ function shopProductJsonLd(key: string, product: ShopProduct) {
     brand: { '@type': 'Brand', name: SITE_NAME },
     ...(offers ? { offers } : {}),
   }
+}
+
+/** Product + BreadcrumbList JSON-LD for a /products/<key> page. */
+export function productPageJsonLd(key: keyof typeof SHOP_PRODUCTS) {
+  const product = SHOP_PRODUCTS[key]
+  const category = SHOP_CATEGORIES.find((c) => c.productKeys.includes(key))
+  return [
+    { '@context': 'https://schema.org', ...shopProductJsonLd(key, product) },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Shop', item: `${SITE_URL}/shop` },
+        ...(category
+          ? [
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: category.label,
+                item: `${SITE_URL}/shop#${category.slug}`,
+              },
+            ]
+          : []),
+        {
+          '@type': 'ListItem',
+          position: category ? 4 : 3,
+          name: product.title,
+          item: `${SITE_URL}/products/${key}`,
+        },
+      ],
+    },
+  ]
 }
 
 /** Shop categories that count as wearable apparel (tees, sweatshirts, hoodies, hats). */
