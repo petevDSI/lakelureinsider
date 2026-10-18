@@ -153,7 +153,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </p>
             )}
             <p className="mt-4 text-sm text-(--ink)/60">
-              Printed to order by Printful. Shipping and delivery estimates are shown at checkout.
+              Printed to order by Printful and shipped within the USA. Shipping is calculated at
+              checkout.{' '}
+              <Link href="/shop/shipping-returns" className="font-semibold text-(--lake) underline">
+                Shipping &amp; returns
+              </Link>
             </p>
           </div>
         </div>

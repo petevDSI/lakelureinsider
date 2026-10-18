@@ -4,6 +4,8 @@
 // Reference them via <Fact id="..." /> or factValue().
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { SHOP_POLICY, businessDays } from './shop-policy'
+
 const SRC_CR = 'https://www.chimneyrockpark.com/'
 const CR_VERIFIED = '2026-08-02'
 
@@ -171,6 +173,33 @@ export interface Fact {
 }
 
 export const facts: Record<string, Fact> = {
+  // Shop — shipping & returns (Printful's published terms; see src/data/shop-policy.ts)
+  'shop.production-time': {
+    value: businessDays(SHOP_POLICY.handling),
+    source: SHOP_POLICY.sources.shipping,
+    lastVerified: SHOP_POLICY.lastVerified,
+  },
+  'shop.transit-standard': {
+    value: businessDays(SHOP_POLICY.transitStandard),
+    source: SHOP_POLICY.sources.shipping,
+    lastVerified: SHOP_POLICY.lastVerified,
+  },
+  'shop.transit-express': {
+    value: businessDays(SHOP_POLICY.transitExpress),
+    source: SHOP_POLICY.sources.shipping,
+    lastVerified: SHOP_POLICY.lastVerified,
+  },
+  'shop.return-window': {
+    value: `${SHOP_POLICY.returnWindowDays} days`,
+    source: SHOP_POLICY.sources.returns,
+    lastVerified: SHOP_POLICY.lastVerified,
+  },
+  'shop.policy-verified': {
+    value: 'October 2026',
+    source: SHOP_POLICY.sources.returns,
+    lastVerified: SHOP_POLICY.lastVerified,
+  },
+
   // Chimney Rock — admission (string format for prose rendering)
   'chimney-rock.admission.adult-day': {
     value: '$17',

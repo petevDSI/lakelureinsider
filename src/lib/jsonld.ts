@@ -2,6 +2,7 @@ import type { ContentPage } from '@/types/content'
 import { SITE_URL, SITE_NAME } from '@/lib/site-config'
 import { SHOP_CATEGORIES, SHOP_PRODUCTS, type ShopProduct, type ShopProductKey } from '@/data/shop'
 import { getCatalogProduct } from '@/lib/shop-catalog'
+import { SHOP_POLICY, SHIPPING_RETURNS_PATH } from '@/data/shop-policy'
 
 export function organizationJsonLd() {
   return {
@@ -58,6 +59,44 @@ function parseLowPrice(priceFrom: string): number | null {
   return match ? Number(match[1]) : null
 }
 
+/**
+ * US-only shipping with Printful's stated handling and standard transit times.
+ * shippingRate is intentionally omitted: the rate is calculated at checkout.
+ */
+function shippingDetailsJsonLd() {
+  const range = (r: { min: number; max: number }) => ({
+    '@type': 'QuantitativeValue',
+    minValue: r.min,
+    maxValue: r.max,
+    unitCode: 'DAY',
+  })
+  return {
+    '@type': 'OfferShippingDetails',
+    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'US' },
+    deliveryTime: {
+      '@type': 'ShippingDeliveryTime',
+      handlingTime: range(SHOP_POLICY.handling),
+      transitTime: range(SHOP_POLICY.transitStandard),
+    },
+  }
+}
+
+/**
+ * Printful's customer terms: damaged/defective items and lost packages are covered
+ * within 30 days; size/color/change-of-mind returns are not accepted. The schema
+ * cannot express "defects only", so the full terms are linked via merchantReturnLink.
+ */
+function returnPolicyJsonLd() {
+  return {
+    '@type': 'MerchantReturnPolicy',
+    applicableCountry: 'US',
+    returnPolicyCountry: 'US',
+    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    merchantReturnDays: SHOP_POLICY.returnWindowDays,
+    merchantReturnLink: `${SITE_URL}${SHIPPING_RETURNS_PATH}`,
+  }
+}
+
 /** Number of purchasable variants (size/color combos) from the Shopify catalog snapshot. */
 function variantCount(key: string): number {
   const catalog = getCatalogProduct(key as ShopProductKey)
@@ -72,6 +111,8 @@ function shopProductJsonLd(key: string, product: ShopProduct) {
 
   const offerCommon = {
     priceCurrency: 'USD',
+    shippingDetails: shippingDetailsJsonLd(),
+    hasMerchantReturnPolicy: returnPolicyJsonLd(),
     availability: 'https://schema.org/InStock',
     itemCondition: 'https://schema.org/NewCondition',
     url,
