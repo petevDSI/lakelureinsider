@@ -1,6 +1,7 @@
 import type { ContentPage } from '@/types/content'
 import { SITE_URL, SITE_NAME } from '@/lib/site-config'
-import { SHOP_CATEGORIES, SHOP_PRODUCTS, type ShopProduct } from '@/data/shop'
+import { SHOP_CATEGORIES, SHOP_PRODUCTS, type ShopProduct, type ShopProductKey } from '@/data/shop'
+import { getCatalogProduct } from '@/lib/shop-catalog'
 
 export function organizationJsonLd() {
   return {
@@ -57,6 +58,12 @@ function parseLowPrice(priceFrom: string): number | null {
   return match ? Number(match[1]) : null
 }
 
+/** Number of purchasable variants (size/color combos) from the Shopify catalog snapshot. */
+function variantCount(key: string): number {
+  const catalog = getCatalogProduct(key as ShopProductKey)
+  return catalog && catalog.variants.length > 0 ? catalog.variants.length : 1
+}
+
 function shopProductJsonLd(key: string, product: ShopProduct) {
   // Each product's canonical page lives at /products/<key>; /shop and the apparel
   // page reference the same entity (same @id) so the markup never conflicts.
@@ -79,6 +86,7 @@ function shopProductJsonLd(key: string, product: ShopProduct) {
             '@type': 'AggregateOffer',
             lowPrice: low.toFixed(2),
             highPrice: product.priceHigh.toFixed(2),
+            offerCount: variantCount(key),
             ...offerCommon,
           }
         : { '@type': 'Offer', price: low.toFixed(2), ...offerCommon }
