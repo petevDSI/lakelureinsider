@@ -35,8 +35,15 @@ export function getInsiderPosts(): InsiderPost[] {
         p.slug.startsWith('insider-tips/') &&
         p.frontmatter.type === 'article',
     )
+    .sort((a, b) => {
+      const dateA = a.frontmatter.published ?? a.frontmatter.updated
+      const dateB = b.frontmatter.published ?? b.frontmatter.updated
+      const byDate = dateB.localeCompare(dateA)
+      if (byDate !== 0) return byDate
+      // Same-day posts: optional `publishedAt` datetime breaks the tie (newest first)
+      return (b.frontmatter.publishedAt ?? '').localeCompare(a.frontmatter.publishedAt ?? '')
+    })
     .map(toPost)
-    .sort((a, b) => b.published.localeCompare(a.published))
 }
 
 export function getInsiderPostsByCluster(cluster: string, limit = 3): InsiderPost[] {

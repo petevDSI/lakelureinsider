@@ -839,6 +839,51 @@ export const facts: Record<string, Fact> = {
     source: 'Pete Volk (site owner), reported 2026-09-04',
     lastVerified: '2026-09-04',
   },
+
+  // ─── Chimney Rock — season date ranges & holiday hours (prose-friendly) ──────
+  // Mirrors CR_SEASONS above so Insider Tips articles can cite them via <Fact>.
+  'chimney-rock.season.main.range': {
+    value: 'March 8 – November 1',
+    source: SRC_CR,
+    lastVerified: CR_VERIFIED,
+  },
+  'chimney-rock.season.fall-winter.range': {
+    value: 'November 2 – December 31',
+    source: SRC_CR,
+    lastVerified: CR_VERIFIED,
+  },
+  'chimney-rock.season.early-year.range': {
+    value: 'January 1 – March 7',
+    source: SRC_CR,
+    lastVerified: CR_VERIFIED,
+  },
+  'chimney-rock.season.early-year.status': {
+    value: 'Hours for this period are not published at chimneyrockpark.com — call ahead or check the website before visiting',
+    source: SRC_CR,
+    lastVerified: CR_VERIFIED,
+  },
+  'chimney-rock.hours.thanksgiving': {
+    value: '8:30 AM – 3:00 PM',
+    source: SRC_CR,
+    lastVerified: CR_VERIFIED,
+  },
+  'chimney-rock.hours.christmas-eve': {
+    value: '8:30 AM – 3:00 PM',
+    source: SRC_CR,
+    lastVerified: CR_VERIFIED,
+  },
+  'chimney-rock.hours.christmas-day': {
+    value: 'Closed',
+    source: SRC_CR,
+    lastVerified: CR_VERIFIED,
+  },
+
+  // ─── Lake Lure — boat rental off-season note (verified 2026-10-15) ───────────
+  'boat-rental.lake-lure-adventure-company.season': {
+    value: 'Memorial Day–Labor Day; off season September–April, call to reserve',
+    source: 'https://lakelureadventurecompany.com/adventures',
+    lastVerified: '2026-10-15',
+  },
 }
 
 // ─── Chimney Rock — wedding data ─────────────────────────────────────────────
