@@ -6,6 +6,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EdmundPeeks } from "@/components/EdmundPeeks";
+import { EdmundHitCounter } from "@/components/EdmundHitCounter";
 
 export const metadata: Metadata = {
   title: "Edmund: How a Stray Goat Took Over Lake Lure | Lake Lure Insider",
@@ -390,6 +391,9 @@ export default function EdmundPage() {
           </p>
         </div>
       </section>
+
+      {/* HIT COUNTER */}
+      <EdmundHitCounter />
     </main>
   );
 }
