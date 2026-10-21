@@ -8956,7 +8956,7 @@
      "id": "53192152449344",
      "sku": "5506875_46528",
      "price": 18.5,
-     "available": false,
+     "available": true,
      "options": {
       "Color": "Sage",
       "Size": "L"
