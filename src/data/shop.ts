@@ -34,6 +34,8 @@ export interface ShopProduct {
   variantNote: string
   image: ShopProductImage
   backImage?: ShopProductImage
+  /** Optional link to the news article the design is drawn from. */
+  story?: { href: string; label: string }
 }
 
 export const SHOP_PRODUCTS = {
@@ -460,6 +462,10 @@ export const SHOP_PRODUCTS = {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-sweatshirt-bone-front-and-back-6ada56922389e.jpg?v=1792693923',
       alt: 'The Patio Regulars Crewneck Sweatshirt, showing the front design of Edmund and Wilbur on a riverside patio and the back text "Good company. No particular hurry."',
     },
+    story: {
+      href: '/news/wilbur-takes-the-meeting-tall-tale',
+      label: 'Read the tall tale behind this design',
+    },
   },
   'patio-regulars-tee': {
     id: '15443239403840',
@@ -474,6 +480,10 @@ export const SHOP_PRODUCTS = {
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sand-front-and-back-6ada55c22dbf0.jpg?v=1792693737',
       alt: 'The Patio Regulars Tee in sand, showing the front design of Edmund and Wilbur on a riverside patio and the back text "Good company. No particular hurry."',
+    },
+    story: {
+      href: '/news/wilbur-takes-the-meeting-tall-tale',
+      label: 'Read the tall tale behind this design',
     },
   },
   'checkers-tee': {
@@ -494,6 +504,10 @@ export const SHOP_PRODUCTS = {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-active-t-shirt-dark-grey-back-6ada52f6aa2e7.jpg?v=1792693012',
       alt: "Back of the Checkers at Bubba O'Leary's Tee in dark grey, printed with 'Come for the rock, stay for the river.'",
     },
+    story: {
+      href: '/news/wilbur-takes-the-meeting-tall-tale',
+      label: 'Read the tall tale behind this design',
+    },
   },
   'checkers-hoodie': {
     id: '15443206209856',
@@ -508,6 +522,10 @@ export const SHOP_PRODUCTS = {
     image: {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-heavy-blend-hoodie-indigo-blue-front-6ada517f28d1a.jpg?v=1792692663',
       alt: "Front of the Checkers at Bubba O'Leary's Hoodie in indigo blue, showing Edmund and Wilbur playing checkers outside the general store",
+    },
+    story: {
+      href: '/news/wilbur-takes-the-meeting-tall-tale',
+      label: 'Read the tall tale behind this design',
     },
   },
   'lunch-by-the-river-tee': {
@@ -528,6 +546,10 @@ export const SHOP_PRODUCTS = {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-max-heavyweight-short-sleeve-charcoal-grey-back-6ada5039a909b.jpg?v=1792692310',
       alt: "Back of the Lunch by the River Heavyweight Tee in charcoal grey, printed with 'Chimney Rock, NC — Hickory Nut Gorge.'",
     },
+    story: {
+      href: '/news/wilbur-takes-the-meeting-tall-tale',
+      label: 'Read the tall tale behind this design',
+    },
   },
   'lunch-by-the-river-hoodie': {
     id: '15443194937664',
@@ -543,20 +565,9 @@ export const SHOP_PRODUCTS = {
       src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-heavy-blend-hoodie-sport-grey-front-6ada4f5e1cdf1.jpg?v=1792692113',
       alt: 'Front of the Lunch by the River Hoodie in sport grey, showing Edmund and Wilbur eating lunch at Riverwatch',
     },
-  },
-  'holiday-chimney-rock-long-sleeve': {
-    id: '15441610047808',
-    handle: 'unisex-long-sleeve-tee',
-    title: 'Happy Holidays from Chimney Rock Long Sleeve Tee',
-    category: 'holidays',
-    blurb:
-      'A holiday postcard of Chimney Rock under snow \u2014 cardinal, pine boughs, and string lights worked into the lettering, with the lake catching the last of a December sunset. Front print only.',
-    priceFrom: 'From $24.50',
-    priceHigh: 27,
-    variantNote: '13 colors',
-    image: {
-      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-tee-maroon-front-6ad97c1a59064.jpg?v=1792638003',
-      alt: 'Happy Holidays from Chimney Rock Long Sleeve Tee in maroon, showing the snow-dusted holiday postcard design',
+    story: {
+      href: '/news/wilbur-takes-the-meeting-tall-tale',
+      label: 'Read the tall tale behind this design',
     },
   },
   'holiday-lake-lure-oversized-hoodie': {
@@ -649,7 +660,7 @@ export const SHOP_CATEGORIES: ShopCategory[] = [
   {
     slug: 'holidays',
     label: 'Holidays',
-    productKeys: ['holiday-chimney-rock-long-sleeve', 'holiday-lake-lure-oversized-hoodie', 'holiday-lake-lure-sweatshirt'],
+    productKeys: ['holiday-lake-lure-oversized-hoodie', 'holiday-lake-lure-sweatshirt'],
   },
   {
     slug: 'stickers',

@@ -143,6 +143,17 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             </p>
             <p className="mt-4 leading-relaxed text-(--ink)/80">{product.blurb}</p>
 
+            {product.story && (
+              <p className="mt-3">
+                <Link
+                  href={product.story.href}
+                  className="font-semibold text-(--lake) underline"
+                >
+                  {product.story.label} →
+                </Link>
+              </p>
+            )}
+
             <div className="mt-6 rounded-xl border border-(--sand) bg-white p-4">
               <ShopEmbed productKey={slug} />
             </div>
