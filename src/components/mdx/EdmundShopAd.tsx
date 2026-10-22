@@ -32,6 +32,15 @@ const SLIDES: AdSlide[] = [
     anchor: '100-dam-years',
   },
   {
+    id: 'patio-regulars',
+    productKey: 'patio-regulars-tee',
+    kicker: 'New: Edmund & Wilbur',
+    headline: 'Good company. No particular hurry.',
+    sub: 'The Patio Regulars tee: Edmund and Wilbur at their usual table above the Rocky Broad. Profits go to area animal rescues.',
+    cta: 'Shop the Patio Regulars tee',
+    anchor: 'tees',
+  },
+  {
     id: 'mayor-tee',
     productKey: 'edmund-for-mayor-tee',
     kicker: 'Edmund for Mayor',
