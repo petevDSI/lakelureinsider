@@ -19,7 +19,7 @@ export interface ShopProduct {
   id: string
   handle: string
   title: string
-  category: '100-dam-years' | 'tees' | 'hats' | 'hoodie-tank' | 'stickers' | 'magnets' | 'pins'
+  category: '100-dam-years' | 'tees' | 'hats' | 'hoodie-tank' | 'holidays' | 'stickers' | 'magnets' | 'pins'
   /** One or two sentences of sales copy — shown on the /shop product card. */
   blurb: string
   /** Display-ready price string, e.g. "$18.50" or "From $22.50". */
@@ -446,6 +446,149 @@ export const SHOP_PRODUCTS = {
       alt: 'Front of the Hickory Nut Gorge Topo Edmund Tee in black heather, showing the topographic mountain-badge design',
     },
   },
+  'patio-regulars-sweatshirt': {
+    id: '15443244745024',
+    handle: 'patio-regulars-unisex-premium-sweatshirt',
+    title: 'The Patio Regulars Crewneck Sweatshirt',
+    category: 'hoodie-tank',
+    blurb:
+      'Edmund has company these days. Meet Wilbur \u2014 Edmund\u2019s new regular lunch date, caught here holding down a riverside patio table above the Rocky Broad, string lights overhead and Chimney Rock on the skyline. The back reads "Good company. No particular hurry."',
+    priceFrom: 'From $40',
+    priceHigh: 45,
+    variantNote: '13 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-sweatshirt-bone-front-and-back-6ada56922389e.jpg?v=1792693923',
+      alt: 'The Patio Regulars Crewneck Sweatshirt, showing the front design of Edmund and Wilbur on a riverside patio and the back text "Good company. No particular hurry."',
+    },
+  },
+  'patio-regulars-tee': {
+    id: '15443239403840',
+    handle: 'patio-regulars-unisex-classic-tee',
+    title: 'The Patio Regulars Tee',
+    category: 'tees',
+    blurb:
+      'Edmund has company these days. Meet Wilbur \u2014 Edmund\u2019s new regular lunch date, caught here holding down a riverside patio table above the Rocky Broad, string lights overhead and Chimney Rock on the skyline. The back reads "Good company. No particular hurry."',
+    priceFrom: 'From $20.50',
+    priceHigh: 25.5,
+    variantNote: '16 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-classic-tee-sand-front-and-back-6ada55c22dbf0.jpg?v=1792693737',
+      alt: 'The Patio Regulars Tee in sand, showing the front design of Edmund and Wilbur on a riverside patio and the back text "Good company. No particular hurry."',
+    },
+  },
+  'checkers-tee': {
+    id: '15443213680960',
+    handle: 'checkers-unisex-active-t-shirt',
+    title: "Checkers at Bubba O'Leary's Tee",
+    category: 'tees',
+    blurb:
+      "Edmund and Wilbur hunched over a checkers board on the porch of Bubba O'Leary's General Store, flag out front and the OPEN sign lit. The back carries the unofficial town motto: \"Come for the rock, stay for the river.\"",
+    priceFrom: 'From $29.50',
+    priceHigh: 37.5,
+    variantNote: '16 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-active-t-shirt-dark-grey-front-6ada52f6aa242.jpg?v=1792693012',
+      alt: "Front of the Checkers at Bubba O'Leary's Tee in dark grey, showing Edmund and Wilbur playing checkers outside the general store",
+    },
+    backImage: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-active-t-shirt-dark-grey-back-6ada52f6aa2e7.jpg?v=1792693012',
+      alt: "Back of the Checkers at Bubba O'Leary's Tee in dark grey, printed with 'Come for the rock, stay for the river.'",
+    },
+  },
+  'checkers-hoodie': {
+    id: '15443206209856',
+    handle: 'checkers-unisex-hoodie',
+    title: "Checkers at Bubba O'Leary's Hoodie",
+    category: 'hoodie-tank',
+    blurb:
+      "Edmund and Wilbur hunched over a checkers board on the porch of Bubba O'Leary's General Store, flag out front and the OPEN sign lit. Front print only.",
+    priceFrom: 'From $37.50',
+    priceHigh: 42.5,
+    variantNote: '16 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-heavy-blend-hoodie-indigo-blue-front-6ada517f28d1a.jpg?v=1792692663',
+      alt: "Front of the Checkers at Bubba O'Leary's Hoodie in indigo blue, showing Edmund and Wilbur playing checkers outside the general store",
+    },
+  },
+  'lunch-by-the-river-tee': {
+    id: '15443198443840',
+    handle: 'lunch-by-the-river-unisex-max-heavyweight-short-sleeve',
+    title: 'Lunch by the River Heavyweight Tee',
+    category: 'tees',
+    blurb:
+      'Riverwatch keeps a table reserved, and on this design it\u2019s held for Edmund and Wilbur \u2014 burgers, fries, and the Rocky Broad Gorge lit up gold behind them. The back reads "Chimney Rock, NC \u2014 Hickory Nut Gorge."',
+    priceFrom: 'From $30.50',
+    priceHigh: 38.5,
+    variantNote: '12 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-max-heavyweight-short-sleeve-charcoal-grey-front-6ada5039a888b.jpg?v=1792692309',
+      alt: 'Front of the Lunch by the River Heavyweight Tee in charcoal grey, showing Edmund and Wilbur eating lunch at Riverwatch',
+    },
+    backImage: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-max-heavyweight-short-sleeve-charcoal-grey-back-6ada5039a909b.jpg?v=1792692310',
+      alt: "Back of the Lunch by the River Heavyweight Tee in charcoal grey, printed with 'Chimney Rock, NC — Hickory Nut Gorge.'",
+    },
+  },
+  'lunch-by-the-river-hoodie': {
+    id: '15443194937664',
+    handle: 'lunch-by-the-river-unisex-hoodie',
+    title: 'Lunch by the River Hoodie',
+    category: 'hoodie-tank',
+    blurb:
+      'Riverwatch keeps a table reserved, and on this design it\u2019s held for Edmund and Wilbur \u2014 burgers, fries, and the Rocky Broad Gorge lit up gold behind them. Front print only.',
+    priceFrom: 'From $37.50',
+    priceHigh: 48,
+    variantNote: '12 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-heavy-blend-hoodie-sport-grey-front-6ada4f5e1cdf1.jpg?v=1792692113',
+      alt: 'Front of the Lunch by the River Hoodie in sport grey, showing Edmund and Wilbur eating lunch at Riverwatch',
+    },
+  },
+  'holiday-chimney-rock-long-sleeve': {
+    id: '15441610047808',
+    handle: 'unisex-long-sleeve-tee',
+    title: 'Happy Holidays from Chimney Rock Long Sleeve Tee',
+    category: 'holidays',
+    blurb:
+      'A holiday postcard of Chimney Rock under snow \u2014 cardinal, pine boughs, and string lights worked into the lettering, with the lake catching the last of a December sunset. Front print only.',
+    priceFrom: 'From $24.50',
+    priceHigh: 27,
+    variantNote: '13 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-long-sleeve-tee-maroon-front-6ad97c1a59064.jpg?v=1792638003',
+      alt: 'Happy Holidays from Chimney Rock Long Sleeve Tee in maroon, showing the snow-dusted holiday postcard design',
+    },
+  },
+  'holiday-lake-lure-oversized-hoodie': {
+    id: '15441598021952',
+    handle: 'unisex-oversized-hoodie',
+    title: 'Greetings from Lake Lure Holiday Oversized Hoodie',
+    category: 'holidays',
+    blurb:
+      'The big-letter Greetings from Lake Lure postcard, reworked for winter \u2014 snow on the pines, a lit tree on the dock, a canoe pulled up for the season. Oversized, heavyweight, front print only.',
+    priceFrom: 'From $51',
+    priceHigh: 56,
+    variantNote: '11 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-relax-hoodie-white-heather-front-6ad976878567f.jpg?v=1792636573',
+      alt: 'Greetings from Lake Lure Holiday Oversized Hoodie in white heather, showing the snow-dusted postcard design',
+    },
+  },
+  'holiday-lake-lure-sweatshirt': {
+    id: '15441594515776',
+    handle: 'unisex-premium-sweatshirt-1',
+    title: 'Greetings from Lake Lure Holiday Crewneck Sweatshirt',
+    category: 'holidays',
+    blurb:
+      'The big-letter Greetings from Lake Lure postcard, reworked for winter \u2014 snow on the pines, a lit tree on the dock, a canoe pulled up for the season. Soft fleece crewneck, front print only.',
+    priceFrom: 'From $32',
+    priceHigh: 37.5,
+    variantNote: '15 colors',
+    image: {
+      src: 'https://cdn.shopify.com/s/files/1/0999/2228/0768/files/unisex-premium-sweatshirt-sky-blue-front-6ad9756be5095.jpg?v=1792636287',
+      alt: 'Greetings from Lake Lure Holiday Crewneck Sweatshirt in sky blue, showing the snow-dusted postcard design',
+    },
+  },
 } as const satisfies Record<string, ShopProduct>
 
 export type ShopProductKey = keyof typeof SHOP_PRODUCTS
@@ -481,6 +624,9 @@ export const SHOP_CATEGORIES: ShopCategory[] = [
       'edmund-for-mayor-long-sleeve',
       'greetings-from-lake-lure-tee',
       'hickory-nut-gorge-topo-tee',
+      'patio-regulars-tee',
+      'checkers-tee',
+      'lunch-by-the-river-tee',
     ],
   },
   {
@@ -491,7 +637,19 @@ export const SHOP_CATEGORIES: ShopCategory[] = [
   {
     slug: 'hoodie-tank',
     label: 'Hoodie & Tank',
-    productKeys: ['chimney-rock-escape-hoodie', 'lake-float-tank', 'greetings-from-lake-lure-tank'],
+    productKeys: [
+      'chimney-rock-escape-hoodie',
+      'lake-float-tank',
+      'greetings-from-lake-lure-tank',
+      'patio-regulars-sweatshirt',
+      'checkers-hoodie',
+      'lunch-by-the-river-hoodie',
+    ],
+  },
+  {
+    slug: 'holidays',
+    label: 'Holidays',
+    productKeys: ['holiday-chimney-rock-long-sleeve', 'holiday-lake-lure-oversized-hoodie', 'holiday-lake-lure-sweatshirt'],
   },
   {
     slug: 'stickers',

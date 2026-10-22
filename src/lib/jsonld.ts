@@ -184,7 +184,7 @@ export function productPageJsonLd(key: keyof typeof SHOP_PRODUCTS) {
 }
 
 /** Shop categories that count as wearable apparel (tees, sweatshirts, hoodies, hats). */
-export const APPAREL_CATEGORY_SLUGS = ['100-dam-years', 'tees', 'hats', 'hoodie-tank']
+export const APPAREL_CATEGORY_SLUGS = ['100-dam-years', 'tees', 'hats', 'hoodie-tank', 'holidays']
 
 /**
  * schema.org CollectionPage + ItemList for /shop/lake-lure-apparel. Reuses the

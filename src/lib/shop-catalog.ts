@@ -138,7 +138,7 @@ export function googleCategoryFor(product: ShopProduct): string | undefined {
     return 'Apparel & Accessories > Clothing > Shirts & Tops'
   }
   if (product.category === 'hoodie-tank') return 'Apparel & Accessories > Clothing'
-  if (product.category === 'tees' || product.category === '100-dam-years') {
+  if (product.category === 'tees' || product.category === '100-dam-years' || product.category === 'holidays') {
     return /sweatshirt|hoodie/i.test(product.title)
       ? 'Apparel & Accessories > Clothing'
       : 'Apparel & Accessories > Clothing > Shirts & Tops'
@@ -151,6 +151,7 @@ export const CATEGORY_LABELS: Record<ShopProduct['category'], string> = {
   tees: 'Tees & Long Sleeves',
   hats: 'Hats',
   'hoodie-tank': 'Hoodie & Tank',
+  holidays: 'Holidays',
   stickers: 'Stickers',
   magnets: 'Magnets',
   pins: 'Pins',
