@@ -41,8 +41,8 @@ const FEATURED_CARDS = [
     title: "What's Open Now",
     description:
       'Current status for Chimney Rock, Lake Lure, the Flowering Bridge, and roads. Verified August 2026.',
-    imageSrc: '/images/lake-lure-things-to-do.jpg',
-    imageAlt: 'Illustrated mountain lake landscape with layered ridgelines and blue sky',
+    imageSrc: '/images/whats-open-now-chimney-rock.jpg',
+    imageAlt: 'Chimney Rock with its flag and visitors, looking down the valley toward Lake Lure',
     category: 'Current Status',
   },
   {
@@ -77,8 +77,8 @@ const FEATURED_CARDS = [
     title: 'Weddings',
     description:
       'Six Chimney Rock venues from a 404-ft waterfall to a fully accessible pavilion. Lake Lure Inn with its Dirty Dancing ballroom.',
-    imageSrc: '/images/weddings-hub.jpg',
-    imageAlt: 'Illustrated mountain ridgeline at sunset',
+    imageSrc: '/images/weddings-blue-ridge-bride.jpg',
+    imageAlt: 'A bride in a beaded gown holding a bouquet on a misty Blue Ridge mountain overlook',
     category: 'Weddings',
   },
 ]
@@ -158,6 +158,9 @@ export default function HomePage() {
           Explore the Area
         </h2>
         <CardGrid cards={FEATURED_CARDS} feature />
+        <p className="mt-4 text-[11px] text-(--ink)/50">
+          Photos: Chimney Rock by Gene Gallin; wedding photo by zelle duda — both via Unsplash.
+        </p>
       </section>
 
       {/* Quick nav clusters */}
