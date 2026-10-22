@@ -773,8 +773,8 @@ export default function EdmundForMayorPage() {
             Gear Up for the Campaign
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-[#1C2321]/80">
-            Every shirt and hat helps support Edmund&apos;s actual, real-life
-            care and feeding. No PAC money here — just goats and t-shirts.
+            Profits after expenses go to animal rescue agencies in our area.
+            No PAC money here — just goats and t-shirts.
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
