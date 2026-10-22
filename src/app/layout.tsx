@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Fraunces } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
@@ -7,17 +7,19 @@ import { organizationJsonLd } from '@/lib/jsonld'
 import { SITE_URL } from '@/lib/site-config'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
+// Fonts are self-hosted in src/fonts so builds never depend on fetching Google Fonts.
+const inter = localFont({
+  src: '../fonts/inter-latin-wght-normal.woff2',
+  weight: '100 900',
   variable: '--font-inter',
   display: 'swap',
 })
 
-const fraunces = Fraunces({
-  subsets: ['latin'],
+const fraunces = localFont({
+  src: '../fonts/fraunces-latin-opsz-normal.woff2',
+  weight: '100 900',
   variable: '--font-fraunces',
   display: 'swap',
-  axes: ['opsz'],
 })
 
 export const metadata: Metadata = {

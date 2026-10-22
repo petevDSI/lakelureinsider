@@ -1,29 +1,43 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Permanent_Marker, Kalam, Source_Serif_4, Libre_Franklin } from 'next/font/google'
+import localFont from 'next/font/local'
 import { EnlargeableImage } from '@/components/EnlargeableImage'
 import { ComicsSignupForm } from '@/components/ComicsSignupForm'
 import { SITE_URL } from '@/lib/site-config'
 
-const permanentMarker = Permanent_Marker({
-  subsets: ['latin'],
+// Self-hosted (src/fonts) so builds never depend on fetching Google Fonts.
+const permanentMarker = localFont({
+  src: '../../../fonts/permanent-marker-latin-400-normal.woff2',
   weight: '400',
+  display: 'swap',
 })
 
-const kalam = Kalam({
-  subsets: ['latin'],
-  weight: ['400', '700'],
+const kalam = localFont({
+  src: [
+    { path: '../../../fonts/kalam-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: '../../../fonts/kalam-latin-700-normal.woff2', weight: '700', style: 'normal' },
+  ],
+  display: 'swap',
 })
 
-const sourceSerif = Source_Serif_4({
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  weight: ['400', '600', '700'],
+const sourceSerif = localFont({
+  src: [
+    { path: '../../../fonts/source-serif-4-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: '../../../fonts/source-serif-4-latin-600-normal.woff2', weight: '600', style: 'normal' },
+    { path: '../../../fonts/source-serif-4-latin-700-normal.woff2', weight: '700', style: 'normal' },
+    { path: '../../../fonts/source-serif-4-latin-400-italic.woff2', weight: '400', style: 'italic' },
+    { path: '../../../fonts/source-serif-4-latin-600-italic.woff2', weight: '600', style: 'italic' },
+    { path: '../../../fonts/source-serif-4-latin-700-italic.woff2', weight: '700', style: 'italic' },
+  ],
+  display: 'swap',
 })
 
-const libreFranklin = Libre_Franklin({
-  subsets: ['latin'],
-  weight: ['500', '700'],
+const libreFranklin = localFont({
+  src: [
+    { path: '../../../fonts/libre-franklin-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: '../../../fonts/libre-franklin-latin-700-normal.woff2', weight: '700', style: 'normal' },
+  ],
+  display: 'swap',
 })
 
 const PAGE_DESCRIPTION =
