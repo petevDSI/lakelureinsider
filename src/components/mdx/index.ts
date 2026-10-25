@@ -53,6 +53,7 @@ import { EdmundShopAd } from './EdmundShopAd'
 import { RecordsSearchCTA } from './RecordsSearchCTA'
 import { FeaturedStay } from './FeaturedStay'
 import { MetaPixelViewContent } from './MetaPixelViewContent'
+import { MorsePark2026Poll } from './MorsePark2026Poll'
 
 export const mdxComponents: MDXComponents = {
   MetaPixelViewContent,
@@ -109,6 +110,7 @@ export const mdxComponents: MDXComponents = {
   RecordsSearchCTA,
   FeaturedStay,
   PhotoStrip,
+  MorsePark2026Poll,
 }
 
 export {
@@ -164,4 +166,5 @@ export {
   ApparelGrid,
   FeaturedStay,
   PhotoStrip,
+  MorsePark2026Poll,
 }
