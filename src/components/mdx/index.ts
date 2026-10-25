@@ -54,6 +54,7 @@ import { RecordsSearchCTA } from './RecordsSearchCTA'
 import { FeaturedStay } from './FeaturedStay'
 import { MetaPixelViewContent } from './MetaPixelViewContent'
 import { MorsePark2026Poll } from './MorsePark2026Poll'
+import { ZoomFigure } from './ZoomFigure'
 
 export const mdxComponents: MDXComponents = {
   MetaPixelViewContent,
@@ -111,6 +112,7 @@ export const mdxComponents: MDXComponents = {
   FeaturedStay,
   PhotoStrip,
   MorsePark2026Poll,
+  ZoomFigure,
 }
 
 export {
@@ -167,4 +169,5 @@ export {
   FeaturedStay,
   PhotoStrip,
   MorsePark2026Poll,
+  ZoomFigure,
 }
