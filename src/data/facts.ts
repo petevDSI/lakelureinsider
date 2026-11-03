@@ -257,6 +257,11 @@ export const facts: Record<string, Fact> = {
     source: SRC_CR,
     lastVerified: CR_VERIFIED,
   },
+  'election.nc.2026-general.polls': {
+    value: '6:30 a.m. to 7:30 p.m.',
+    source: 'https://www.ncsbe.gov/news/events/election-day-2026-general-election',
+    lastVerified: '2026-11-02',
+  },
   'chimney-rock.hours.gate-open': {
     value: '8:30 AM',
     source: SRC_CR,
