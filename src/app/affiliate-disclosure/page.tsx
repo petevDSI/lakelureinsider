@@ -40,6 +40,11 @@ export default function AffiliateDisclosurePage() {
           non-affiliate option if it is the better choice.
         </p>
 
+        <h2>Amazon Associates</h2>
+        <p>
+          As an Amazon Associate I earn from qualifying purchases.
+        </p>
+
         <h2>Identifying Affiliate Links</h2>
         <p>
           Pages that contain affiliate links display a disclosure notice at the

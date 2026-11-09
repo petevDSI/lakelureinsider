@@ -81,7 +81,11 @@ function buildBreadcrumbs(slugStr: string, title: string) {
 }
 
 function hasAffiliateContent(raw: string): boolean {
-  return raw.includes('<AffiliateCTA') || raw.includes('<AffiliateLink')
+  return (
+    raw.includes('<AffiliateCTA') ||
+    raw.includes('<AffiliateLink') ||
+    raw.includes('<ShopTheStay')
+  )
 }
 
 function buildArticleComponents(page: ContentPage): MDXComponents {

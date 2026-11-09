@@ -52,11 +52,13 @@ import { ApparelGrid } from './ApparelGrid'
 import { EdmundShopAd } from './EdmundShopAd'
 import { RecordsSearchCTA } from './RecordsSearchCTA'
 import { FeaturedStay } from './FeaturedStay'
+import { ShopTheStay } from './ShopTheStay'
 import { MetaPixelViewContent } from './MetaPixelViewContent'
 import { MorsePark2026Poll } from './MorsePark2026Poll'
 import { ZoomFigure } from './ZoomFigure'
 
 export const mdxComponents: MDXComponents = {
+  ShopTheStay,
   MetaPixelViewContent,
   StatusItem,
   StatusBar,

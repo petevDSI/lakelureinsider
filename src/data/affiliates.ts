@@ -60,6 +60,39 @@ export const affiliates: Record<string, AffiliateEntry> = {
     url: '#', // TODO: replace with affiliate URL
     label: 'Browse Chimney Rock Tours',
   },
+
+  // Shop The Perch — Amazon Associates. Paste each SiteStripe short link
+  // (amzn.to/...) in place of '#'. Cards show "Link coming soon" until then.
+  'perch-sheets': {
+    id: 'perch-sheets',
+    network: 'Amazon',
+    url: '#', // TODO: paste Amazon Associates link
+    label: 'See it on Amazon',
+  },
+  'perch-pillows': {
+    id: 'perch-pillows',
+    network: 'Amazon',
+    url: '#', // TODO: paste Amazon Associates link
+    label: 'See it on Amazon',
+  },
+  'perch-rugs': {
+    id: 'perch-rugs',
+    network: 'Amazon',
+    url: '#', // TODO: paste Amazon Associates link
+    label: 'See it on Amazon',
+  },
+  'perch-mattress': {
+    id: 'perch-mattress',
+    network: 'Amazon',
+    url: '#', // TODO: paste Amazon Associates link
+    label: 'See it on Amazon',
+  },
+  'perch-mattress-pad': {
+    id: 'perch-mattress-pad',
+    network: 'Amazon',
+    url: '#', // TODO: paste Amazon Associates link
+    label: 'See it on Amazon',
+  },
 }
 
 export function getAffiliate(id: string): AffiliateEntry | undefined {
