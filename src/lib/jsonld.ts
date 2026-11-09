@@ -61,9 +61,17 @@ function parseLowPrice(priceFrom: string): number | null {
 
 /**
  * US-only shipping with Printful's stated handling and standard transit times.
- * shippingRate is intentionally omitted: the rate is calculated at checkout.
+ * shippingRate is Printful's standard first-item US rate: hoodies and sweatshirts at
+ * the sweatshirt rate, tanks at the tee rate, everything else by shop category.
  */
-function shippingDetailsJsonLd() {
+function shippingRateUsd(product: ShopProduct): number {
+  const rates = SHOP_POLICY.standardRateUsd
+  if (/hoodie|sweatshirt|crewneck/i.test(product.title)) return rates['hoodie-tank']
+  if (/tank/i.test(product.title)) return rates.tees
+  return rates[product.category]
+}
+
+function shippingDetailsJsonLd(product: ShopProduct) {
   const range = (r: { min: number; max: number }) => ({
     '@type': 'QuantitativeValue',
     minValue: r.min,
@@ -72,6 +80,11 @@ function shippingDetailsJsonLd() {
   })
   return {
     '@type': 'OfferShippingDetails',
+    shippingRate: {
+      '@type': 'MonetaryAmount',
+      value: shippingRateUsd(product).toFixed(2),
+      currency: 'USD',
+    },
     shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'US' },
     deliveryTime: {
       '@type': 'ShippingDeliveryTime',
@@ -82,17 +95,17 @@ function shippingDetailsJsonLd() {
 }
 
 /**
- * Printful's customer terms: damaged/defective items and lost packages are covered
- * within 30 days; size/color/change-of-mind returns are not accepted. The schema
- * cannot express "defects only", so the full terms are linked via merchantReturnLink.
+ * Printful's customer terms: change-of-mind, size and color returns are not accepted;
+ * damaged/defective items and lost packages are replaced or refunded if reported
+ * within 30 days. Marked as MerchantReturnNotPermitted (no ordinary returns), with
+ * the defect terms on the page linked via merchantReturnLink.
  */
 function returnPolicyJsonLd() {
   return {
     '@type': 'MerchantReturnPolicy',
     applicableCountry: 'US',
     returnPolicyCountry: 'US',
-    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-    merchantReturnDays: SHOP_POLICY.returnWindowDays,
+    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
     merchantReturnLink: `${SITE_URL}${SHIPPING_RETURNS_PATH}`,
   }
 }
@@ -111,7 +124,7 @@ function shopProductJsonLd(key: string, product: ShopProduct) {
 
   const offerCommon = {
     priceCurrency: 'USD',
-    shippingDetails: shippingDetailsJsonLd(),
+    shippingDetails: shippingDetailsJsonLd(product),
     hasMerchantReturnPolicy: returnPolicyJsonLd(),
     availability: 'https://schema.org/InStock',
     itemCondition: 'https://schema.org/NewCondition',

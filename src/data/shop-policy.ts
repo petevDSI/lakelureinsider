@@ -12,7 +12,22 @@ export const SHOP_POLICY = {
   transitExpress: { min: 1, max: 3 },
   /** Window to report damaged/defective items or lost packages, in days. */
   returnWindowDays: 30,
-  lastVerified: '2026-10-17',
+  /**
+   * Printful's standard US shipping rate for the first item, in USD, by shop
+   * category (from printful.com/shipping). Used as shippingRate in Product
+   * structured data. Each additional item ships for less; checkout is authoritative.
+   */
+  standardRateUsd: {
+    tees: 4.95,
+    '100-dam-years': 4.95,
+    'hoodie-tank': 8.79,
+    hats: 4.69,
+    holidays: 4.95,
+    stickers: 4.49,
+    magnets: 4.69,
+    pins: 4.69,
+  },
+  lastVerified: '2026-11-08',
   sources: {
     shipping: 'https://www.printful.com/shipping',
     returns:
